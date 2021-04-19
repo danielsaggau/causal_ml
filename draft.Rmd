@@ -1,0 +1,119 @@
+---
+title: "draft"
+author: "Daniel Saggau"
+date: "4/19/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 
+
+```{tikz,fig.cap="Structural Causal Model" ,fig.align="center", echo =F}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+  \begin{tikzpicture}[
+    sharp corners=2pt,
+    inner sep=6pt,
+    node distance=2cm,
+    >=latex]
+\tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
+\tikzstyle{latent}=[draw, shape = rectangle, minimum height=1cm,minimum width=1cm]
+\node[my node, fill=gray!30] (A){A};
+\node[latent,left of=A](UA){$U_A$};
+\node[my node, fill=gray!30] at ($(A)!0.5!(A)-(0pt,1.5cm)$) (T) {T};
+\node[my node,right = 1 cm of T, fill=gray!30](C){C};
+\node[latent,left = 1cm of T](UT){$U_T$};
+\node[latent,right = 1cm of A](UC){$U_C$};
+\draw[->] (A) -- (T);
+\draw[->] (UA) -- (A);
+\draw[->] (UT) -- (T);
+\draw[->] (UC) -- (C);
+\draw[->] (A) -- (C);
+\draw[->] (T) -- (C);
+\end{tikzpicture}
+```
+
+
+
+```{tikz,fig.cap="Atomic Intervention", fig.align="center", echo =F}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+  \begin{tikzpicture}[
+    sharp corners=2pt,
+    inner sep=7pt,
+    node distance=3cm,
+    >=latex]
+\tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
+\tikzstyle{latent}=[draw, shape = rectangle, minimum height=1cm,minimum width=1cm]
+\node[my node, fill=gray!30] (A){A};
+\node[latent,left =1 cm of A](UA){$U_A$};
+\node[my node, fill=gray!30] at ($(A)!0.5!(A)-(0pt,1.5 cm)$) (T) {t};
+\node[my node,right = 1 cm of T, fill=gray!30](C){C};
+\node[latent,right=1 cm of A](UC){$U_C$};
+\draw[->] (UA) -- (A);
+\draw[->] (UC) -- (C);
+\draw[->] (A) -- (C);
+\draw[->] (T) -- (C);
+\end{tikzpicture}
+```
+
+
+```{tikz,fig.cap="Policy Intervention",  fig.align= "center", echo =F}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+  \begin{tikzpicture}[
+    sharp corners=2pt,
+    inner sep=6pt,
+    node distance=2cm,
+    >=latex]
+\tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
+\tikzstyle{latent}=[draw, shape = rectangle, minimum height=1cm,minimum width=1cm]
+\node[my node, fill=gray!30] (A){A};
+\node[latent,left of=A](UA){$U_A$};
+\node[my node, fill=gray!70] at ($(A)!0.5!(A)-(0pt,1.5cm)$) (T) {$T_\pi$};
+\node[my node,right = 1 cm of T, fill=gray!30](C){C};
+\node[latent,left = 1cm of T](UT){$U_T$};
+\node[latent,right = 1cm of A](UC){$U_C$};
+\draw[->] (A) -- (T);
+\draw[->] (UA) -- (A);
+\draw[->] (UT) -- (T);
+\draw[->] (UC) -- (C);
+\draw[->] (A) -- (C);
+\draw[->] (T) -- (C);
+\end{tikzpicture}
+```
+
+
+# Counterfactuals
+
+Process is described as follows:
+
+(a) Abduction: Cast probability $P(u)$ as conditional probability $P(u|\epsilon)$ 
+(b) Action: Exchange $(X = x)$ 
+(c) Prediction: Compute $(Y = y)$
+
+
+# Probabilistic Models vs SCMs
+
+
+ |Method         | CBN |  SCM
+|----------------|---------------------------|------------------------|
+| Prediction     | $\boldsymbol{\cdot}$ Unstable                                                                                        | $\boldsymbol{\cdot}$ Stable                 
+|                | $\boldsymbol{\cdot}$ Volatile to parameter changes                                                                   | $\boldsymbol{\cdot}$ More Natural Specification 
+|                | $\boldsymbol{\cdot}$ Re-Estimate entire model                                                                        | $\boldsymbol{\cdot}$ Only estimate $\Delta$ CM
+|                |                                                                                                                      | 
+| Intervention   | $\boldsymbol{\cdot}$ Costly for Non-Markovian Models                                                                 | $\boldsymbol{\cdot}$ Pot. Cyclic Representation
+|                | $\boldsymbol{\cdot}$ Unstable(Nature CP)                                                                             | $\boldsymbol{\cdot}$ Stable(Nature Eq.)
+|                | $\boldsymbol{\cdot}$ Only generic estimates($\Delta$ CP)                                                             | $\boldsymbol{\cdot}$ Context specific(Invariance of Eq.)
+|                |                                                                                                                      | 
+|Counterfactuals | $\boldsymbol{\cdot}$ **Impossible**                                                                                  | $\boldsymbol{\cdot}$ Possible
+|                | $\boldsymbol{\cdot}$ no information on latent factors($\epsilon$)                                                    | $\boldsymbol{\cdot}$ Inclusion of latent factors
