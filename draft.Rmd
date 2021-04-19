@@ -102,6 +102,15 @@ Process is described as follows:
 (c) Prediction: Compute $(Y = y)$
 
 
+
+ |Method          | Action |  Example
+|-----------------|---------------------------|------------------------|
+| Prediction      | Observation/Co-occurrence | What happened...
+| Intervention    | Do-manipulation           | What happens if ...
+| Counterfactual  | Hypothetical Realities    | What would have happened if...
+
+Table: Pearl - Hierachy of Causation 
+
 # Probabilistic Models vs SCMs
 
 
