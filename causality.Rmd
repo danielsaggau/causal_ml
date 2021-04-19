@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 To compare the frequency of an event, you can use conditional probabilities. 
 To compare hypothetical actions/interventions (e.g. policy) we need other tools and cannot rely on observational data. 
 
-
+Conditional Probability: Passive Observation.
 
 
 
