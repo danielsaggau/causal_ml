@@ -1,15 +1,23 @@
 ---
-title: "draft"
-author: "Daniel Saggau"
-date: "4/19/2021"
-output: pdf_document
+title: "Structural Causal Models - A Gentle Introduction"
+author: 
+- Daniel Saggau $\boldsymbol{\cdot}$ `daniel.saggau@campus.lmu.de`
+- Department of Statistics, Ludwig Maximilian University Munich, Germany
+date: "April 2021"
+output: 
+  pdf_document: 
+    number_sections: yes
+    fig_caption: yes
+citation_package: --biblatex
+fontsize: 12
+linestretch: 1.5
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## 
+
 
 ```{tikz,fig.cap="Structural Causal Model" ,fig.align="center", echo =F}
 \usetikzlibrary{calc}
