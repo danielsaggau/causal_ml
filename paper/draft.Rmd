@@ -115,6 +115,14 @@ Table: Pearl - Hierachy of Causation
 
 ## Prediction 
 
+Note that prediction in a causal model and prediction in a machine learning context are not the same thing.
+In prediction in causal models we can only modify root nodes.
+We are unable to modify the child nodes in causal prediction.
+Meanwhile, in a machine learning context we can modify any variable.
+We do not have a underlying causal specification, henceforth we are able to modify any variable and undertake prediction. 
+One should note that clearly the prediction in causal models has more explanatory power than the prediction in a vanilla-machine learning model. 
+
+
 ## Intervention 
 
 This paper focuses on atomic, policy and off-policy intervention.
@@ -201,6 +209,41 @@ An un-directed graph has edges but there is no arrow which means that the relati
 An acyclic graph is a graph without cycles.
 That means that a variable does not cause itself, directly or indirectly.
 Given the way we look at time where the relationship between variables is indifferent to time, this representation provides a foundation for graphical models. 
+
+## Criteria 
+
+## D-Seperation 
+
+
+
+### Markovian Condition 
+
+#### In Graphical Model 
+
+#### in SCM
+
+### Backdoor criteria 
+
+```{tikz, backdoor, fig.cap ="Backdoor Criterion",  fig.align="center", echo =F}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+  \begin{tikzpicture}[
+    sharp corners=2pt,
+    inner sep=7pt,
+    node distance=3cm,
+    >=latex]
+\tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
+\node[my node, fill=gray!30] (A){A};
+\node[my node, fill=gray!30] at ($(A)!0.5!(A)-(0pt,1.5cm)$) (T) {T};
+\node[my node,right of=T, fill=gray!30](C){C};
+\draw[->] (A) -- (T);
+\draw[->] (A) -- (C);
+\draw[->] (T) -- (C);
+\end{tikzpicture}
+```
+
+
 
 ## Causal Mechanisms via Differential Equations 
 
