@@ -29,22 +29,33 @@ The student should convey and explain the notation on a number of examples and e
 
 # Introduction 
 
+## Time in Causality
 
-
- |Method          | Action |  Example
-|-----------------|---------------------------|------------------------|
-| Prediction      | Observation/Co-occurrence | What happened...
-| Intervention    | Do-manipulation           | What happens if ...
-| Counterfactual  | Hypothetical Realities    | What would have happened if...
-
-Table: Pearl - Hierachy of Causation 
+In causal research, we are interested in the relationship of our variables outside of a fixed time frame. 
+We want to capture relationships that hold outside of an available dataset and results are intended to be generalizable to other time periods (other datasets).
 
 ## SEM and Structural Causal Model 
 
+A lot of research ignores the distinction between structural equation models(SEM) and structural causal models (SCM).
+Essentially, the SCM builds on the SEM but there are some differences.
+Firstly, the structural equation model specification stems from disciplines like economics and psychology and is inherently a parametric specification. 
+The SCM on the other hand is a non-parametric specification.
+Secondly, the SCM allows one to create causal graphs.^[Note that we can also create causal graphs with other models like a bayesian causal network model]
 
-## Prediction 
 
-## Intervention 
+Nevertheless, both models also have a lot in common. 
+
+Structural Causal Models specify the relationship in functional forms.
+This is very different to working with conditional probabilities. 
+There are two popular schools of thought on how to specify causal mechanisms.
+
+
+There are a number of reasons why people are interested in structural causal models.
+We can specify exogenous and endogenous variables in our model specification. 
+When all our variables are fully specified within our model specification (endogenous variables only) we have a deterministic SCM.
+
+Note that while this is very unreasonable because we assume we can explain all exogenous error terms and further we assume that there are no unobserved variables. 
+Henceforth, when applying these models, they are seldom fully deterministic. 
 
 
 
@@ -78,6 +89,19 @@ Table: Pearl - Hierachy of Causation
 ```
 
 
+# Common Queries in Causal Models
+
+ |Method          | Action |  Example
+|-----------------|---------------------------|------------------------|
+| Prediction      | Observation/Co-occurrence | What happened...
+| Intervention    | Do-manipulation           | What happens if ...
+| Counterfactual  | Hypothetical Realities    | What would have happened if...
+
+Table: Pearl - Hierachy of Causation 
+
+## Prediction 
+
+## Intervention 
 
 ```{tikz,fig.cap="Atomic Intervention", fig.align="center", echo =F}
 \usetikzlibrary{calc}
