@@ -11,7 +11,7 @@ output:
 citation_package: --biblatex
 fontsize: 12
 linestretch: 1.5
-abstract: This paper provides a gentle introduction into causal inference, focusing on structural causal models and respective causal graphs. The first section provides introduces probabilities and will focus on clarifying the difference between observations and causal concepts. The second section discusses the hierachy of causation. The third section dicusses causal graphs. 
+abstract: This paper provides a gentle introduction into causal inference focusing on structural causal models. 
 ---
 
 ```{r setup, include=FALSE}
@@ -22,10 +22,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 In causal research, we are interested in the relationship of our variables outside of a fixed time frame. 
 We want to capture relationships that hold outside of an available dataset and results are intended to be generalizable to other time periods^[other datasets].
+The causal model entails a probabilistic specification but also entails additional information.
+This additional information is a specification for the model when intervention, outcome or feature distributions are modified (Peters et al.,2017).
+
 This paper focuses on structural causal models. 
 A lot of research ignores the distinction between structural equation models (SEM) and structural causal models (SCM).
 Essentially, the SCM builds on the SEM but there are some important differences.
-Firstly, the structural equation model specification stems from disciplines like economics and psychology and is inherently a parametric specification. 
+Firstly, the structural equation model specification stems from disciplines like economics and psychology and is inherently a parametric specification.
 The SCM is a non-parametric specification with additional mechanisms to cast causal graphs.^[Note that we can also create causal graphs with other models like a Bayesian Causal Network Model]
 
 Nevertheless, both models also have a lot in common. 
@@ -36,6 +39,11 @@ These different equations are autonomous which allows us to manipulate equations
 Structural Causal Models specify the relationship in functional forms, including latent/unobserved variables.
 This is very different to working with conditional probabilities. 
 There are two popular schools of thought on how to specify causal mechanisms.
+
+The first section provides introduces probabilities and will focus on clarifying the difference between observations and causal concepts.
+The second section discusses the hierachy of causation. 
+The third section dicusses causal graphs. 
+The fourth 
 
 ## Baysian Causal Models
 
@@ -243,11 +251,9 @@ Given the way we look at time where the relationship between variables is indiff
 \end{tikzpicture}
 ```
 
-
-
 ## Causal Mechanisms via Differential Equations 
 
-Differential equations can describe a dynamic system accounting for time.
+Differential equations can describe a dynamic system accounting with time considerations.
 
 # Conclusion 
 
