@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.4.12)  19 APR 2021 15:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.4.12)  22 APR 2021 12:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -548,49 +548,50 @@ LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 8
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<draft_files/figure-latex/unnamed-chunk-1-1.pdf, id=12, 143.53625pt x 72.27pt>
+<draft_files/figure-latex/unnamed-chunk-1-1.pdf, id=32, 143.53625pt x 72.27pt>
 File: draft_files/figure-latex/unnamed-chunk-1-1.pdf Graphic file (type pdf)
 <use draft_files/figure-latex/unnamed-chunk-1-1.pdf>
 Package pdftex.def Info: draft_files/figure-latex/unnamed-chunk-1-1.pdf  used o
-n input line 90.
+n input line 138.
 (pdftex.def)             Requested size: 143.54027pt x 72.272pt.
-<draft_files/figure-latex/unnamed-chunk-2-1.pdf, id=13, 145.54375pt x 73.27374p
+<draft_files/figure-latex/unnamed-chunk-2-1.pdf, id=33, 145.54375pt x 73.27374p
 t>
 File: draft_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
 <use draft_files/figure-latex/unnamed-chunk-2-1.pdf>
 Package pdftex.def Info: draft_files/figure-latex/unnamed-chunk-2-1.pdf  used o
-n input line 99.
+n input line 147.
 (pdftex.def)             Requested size: 145.54338pt x 73.27354pt.
-<draft_files/figure-latex/unnamed-chunk-3-1.pdf, id=14, 146.5475pt x 73.27374pt
+<draft_files/figure-latex/unnamed-chunk-3-1.pdf, id=34, 146.5475pt x 73.27374pt
 >
 File: draft_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use draft_files/figure-latex/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: draft_files/figure-latex/unnamed-chunk-3-1.pdf  used o
-n input line 108.
+n input line 156.
 (pdftex.def)             Requested size: 146.54712pt x 73.27354pt.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 124.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 124.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 124.
 [1
 
 {/Users/danielsaggau/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.m
-ap} <./draft_files/figure-latex/unnamed-chunk-1-1.pdf> <./draft_files/figure-la
-tex/unnamed-chunk-2-1.pdf> <./draft_files/figure-latex/unnamed-chunk-3-1.pdf>] 
-[2] (./draft.aux)
+ap}]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 172.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 172.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 172.
+[2 <./draft_files/figure-latex/unnamed-chunk-1-1.pdf> <./draft_files/figure-lat
+ex/unnamed-chunk-2-1.pdf> <./draft_files/figure-latex/unnamed-chunk-3-1.pdf>] [
+3] (./draft.aux)
 Package rerunfilecheck Info: File `draft.out' has not changed.
-(rerunfilecheck)             Checksum: F5952D904434D7B1098D331E87CF11B9;310.
+(rerunfilecheck)             Checksum: E5E9DA94E1CD9CB4C867C7EF3DA203B7;1070.
  ) 
 Here is how much of TeX's memory you used:
- 10642 strings out of 480954
- 154664 string characters out of 5906449
- 458226 words of memory out of 5000000
- 27647 multiletter control sequences out of 15000+600000
- 467626 words of font info for 83 fonts, out of 8000000 for 9000
+ 10668 strings out of 480954
+ 155070 string characters out of 5906449
+ 457498 words of memory out of 5000000
+ 27660 multiletter control sequences out of 15000+600000
+ 476617 words of font info for 86 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 71i,12n,74p,324b,434s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,12n,74p,324b,443s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}
 {/Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.en
 c}{/Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}
@@ -599,16 +600,18 @@ c}</Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbsy10
 .pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx
 10.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lm
 bx12.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/
-lmmi10.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type1/public/l
-m/lmr10.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type1/public/
-lm/lmr12.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type1/public
-/lm/lmr17.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type1/publi
-c/lm/lmsy10.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type1/pub
-lic/lm/lmtt12.pfb>
-Output written on draft.pdf (2 pages, 236892 bytes).
+lmbx9.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type1/public/lm
+/lmmi10.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type1/public/
+lm/lmr10.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type1/public
+/lm/lmr12.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type1/publi
+c/lm/lmr17.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type1/publ
+ic/lm/lmr9.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type1/publ
+ic/lm/lmsy10.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type1/pu
+blic/lm/lmtt12.pfb>
+Output written on draft.pdf (3 pages, 289451 bytes).
 PDF statistics:
- 136 PDF objects out of 1000 (max. 8388607)
- 103 compressed objects within 2 object streams
- 15 named destinations out of 1000 (max. 500000)
- 32 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 175 PDF objects out of 1000 (max. 8388607)
+ 139 compressed objects within 2 object streams
+ 26 named destinations out of 1000 (max. 500000)
+ 72 words of extra memory for PDF output out of 10000 (max. 10000000)
 

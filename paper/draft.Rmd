@@ -1,5 +1,5 @@
 ---
-title: "Structural Causal Models - A Gentle Introduction"
+title: "A Gentle Introduction into Structural Causal Models"
 author: 
 - Daniel Saggau $\boldsymbol{\cdot}$ `daniel.saggau@campus.lmu.de`
 - Department of Statistics, Ludwig Maximilian University Munich, Germany
@@ -11,11 +11,40 @@ output:
 citation_package: --biblatex
 fontsize: 12
 linestretch: 1.5
+abstract: This paper provides a gentle introduction into causal inference, focusing on structural causal models and respective causal graphs. The first section provides introduces probabilities and will focus on clarifying the difference between observations and causal concepts. The second section discusses the hierachy of causation. The third section dicusses causal graphs. 
+
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+Topic 1: Structural Causal Models (SCMs)
+Structural Causal Models are a general framework to describe data generating mechanisms. 
+The values of variables are described as functions of exogeneous and endogeneous variables. 
+These mechanisms can also be described with directed graphs. 
+Typically one requires for the endogenous variables to fulfill causal sufficiency and the corresponding graph to be acyclic.
+Also, one requires mechanisms to be independent.
+The student should convey and explain the notation on a number of examples and explain the motivation and role of the aforementioned assumptions.
+
+# Introduction 
+
+
+
+ |Method          | Action |  Example
+|-----------------|---------------------------|------------------------|
+| Prediction      | Observation/Co-occurrence | What happened...
+| Intervention    | Do-manipulation           | What happens if ...
+| Counterfactual  | Hypothetical Realities    | What would have happened if...
+
+Table: Pearl - Hierachy of Causation 
+
+## SEM and Structural Causal Model 
+
+
+## Prediction 
+
+## Intervention 
 
 
 
@@ -101,7 +130,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-# Counterfactuals
+
+## Counterfactuals
 
 Process is described as follows:
 
@@ -110,16 +140,9 @@ Process is described as follows:
 (c) Prediction: Compute $(Y = y)$
 
 
+## Bayesian Models vs. SCM 
 
- |Method          | Action |  Example
-|-----------------|---------------------------|------------------------|
-| Prediction      | Observation/Co-occurrence | What happened...
-| Intervention    | Do-manipulation           | What happens if ...
-| Counterfactual  | Hypothetical Realities    | What would have happened if...
-
-Table: Pearl - Hierachy of Causation 
-
-# Probabilistic Models vs SCMs
+## Probabilistic Models vs SCMs
 
 
  |Method         | CBN |  SCM

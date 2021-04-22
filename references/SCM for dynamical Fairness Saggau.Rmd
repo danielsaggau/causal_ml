@@ -1,0 +1,431 @@
+---
+title: "**SCMs for Fairness in Dynamical Systems**"
+author: 
+- Daniel Saggau $\boldsymbol{\cdot}$ `daniel.saggau@campus.lmu.de`
+- Department of Statistics, Ludwig Maximilian University Munich, Germany
+date: "April 2021"
+output: 
+  pdf_document: 
+    number_sections: yes
+    fig_caption: yes
+citation_package: --biblatex
+fontsize: 12
+linestretch: 1.5
+nocite: '@*'
+bibliography: [fair.bib.bib]
+header-includes: 
+  - \usepackage{tikz}
+  - \usepackage{pgfplots}
+abstract: Existing research on dynamic fairness builds on reinforced learning structures, in which we model based on agent-environment using markov decision processes. To complement this existing stream of research, Creager et al. (2020) reformulate these Markov-Decision Processes as structural causal models for fairness applications, labelling this method the Fair-Markov-Decision Process. The  difference between these specifications is that Creager et al. (2020) allow for sensitive attributes, within the model specification directly. By conditioning on these sensitive attributes, the authors ensure that the model remains Markovian. They apply this method to two case studies, firstly a case with off-policy intervention and secondly a case for modelling multiple agents. The objective of this paper is to provide an theoretical introduction of causal inference tools with specific emphasis on modelling interventions.
+---
+
+# Introduction 
+
+We are frequently unable to produce a specific set of information regarding a policy intervention via real-world experiments, due to ethical considerations.
+One solution to obtain this set of information is using causal inference tools such as off-policy intervention.
+To compute off-policy intervention we can use a structural causal model, using structural equations and modelling latent factors directly.
+Meanwhile fairness research has focused on fairness in dynamical systems.
+Existing research proposes agent-based models for fairness in dynamical systems.
+While this stream of research has focused on modelling fairness as a process paying special attention to intermediate states prior to equilibrium outcomes, traditional stochastic agent-based models are unable to produce counterfactual observations.
+Traditional structural causal models can produce off-policy interventions (and counterfactuals), but are primarily concerned with equilibrium outcomes and not with the states within processes.
+To address and combine these two issues, this paper discusses the potential benefit casting the Markov Decision Process as a structural causal model to assess fairness in dynamical systems focusing on the recent publication by Creager et al. (2020).
+Past literature has focused on rephrasing MDPs as structural causal models but there has been little emphasis on fairness specific domain adaptation. 
+Creager et al. (2020) introduce a fair MDP by recasting a traditional MDP as a structural causal model with sensitive attributes within the model specification directly in our system in equations.
+This paper will introduce their research as a unifying framework for fairness in dynamic systems.
+The following paper proceeds as follows:
+Section 2 will discuss fairness in dynamic systems from the perspective of Markov-Decision Processes.
+Section 3 presents an introduction into causal inference.
+Section 4 briefly compares MDPs and structural causal models. 
+Section 5 outlines the current contribution to the literature by Creager et al. (2020).
+Section 6 provides an illustration of other considerations and ongoing research.
+Section 7 concludes.
+
+# Agent-Based Models for Dynamic Fairness
+
+Casting fairness as a dynamic concept has gained prominence in recent research.
+D’ Amour et al. (2020)  model fairness, using a Markov-Decision Process (or in short MDP) Model.
+A MDP model changes in the different system components, accounting for the different states.
+The focus is not only on the outcome (equilibrium) but on the entire process.
+The model undertakes manifold stochastic simulations to model the state after an intervention.
+Subsequently, the model aggregates these simulations.
+MDP are also very useful for other applications such as modelling complex systems. 
+Here the focus is on MDP for a dynamic system (Ness et al., 2019).
+Typically, a MDP consists of environmental states, action, transition probabilities (conditional probabilities) and rewards {S;A;P;R}.
+The environmental states change as agents take different actions.
+Agents can follow different objectives, such as e.g. acting greedy or following a mixed set of objectives.
+This enabled the authors to conceptualize repercussions beyond scores such as prediction error.
+Using this method, one can assess performance measures at each state of the process. 
+D'Amour et al. (2020) study 3 examples namely dynamic lending, attention allocation with multiple agents and college admission as a Stackelberg game.^[For a detailed summary see the supplement or D'Amour et al. (2020)]
+Their findings suggest that fairness in dynamic and static settings differentiate. 
+Due to dynamics within the model such as a shifting population dynamic, various fairness objectives (e.g. equalizing the true positive rate at each step) converged slower than convergence in the static models.
+Despite being stylized, this paper conceptualized shortcomings of exiting fairness notions.
+Regardless, the authors do not use any causal methods which have more explanatory power and generally favorable when assessing different policies.
+The following section provides a brief introduction to causal inference and causal graphs.
+
+# Causal Inference
+
+Research on causal inference is concerned with making inference on the relationship between variables beyond a given dataset. 
+Specifically, causal inference tries to understand the relationship given changing conditions (Pearl, 2009).
+Pearl argues that Causal inference requires a deeper understand beyond conditional probabilities.
+Essentially, there are two ways to cast causal graphical models, either via a causal bayesian network (CBN) or via a structural causal model (SCM). 
+CBNs use **conditional probabilities**, meanwhile the SCM uses a set of **structural equations**.^[for a full performance overview see the supplementary document]
+CBNs are frequently used in modern Quantum Mechanics and are essentially stochastic models.
+For a SCM, we need to specify a underlying relationship within our dataset beyond conditional independence. 
+In a structural causal model (SCM, we define the entire data-generating process based on a set of structural equations.
+Structural equation models stem from fields such as Econometrics, Physics, Psychology and other Social Sciences (Pearl, 2009).
+While structural equation models are traditionally focused on a unique parametric specification, structural causal models are  non-parametric models and focus on computational graphical models. 
+The pivotal advantage of this approach is that SCMs define our latent variables and their relationship with our other variables with our set of structural equations.
+This means, that we define the observational distribution but also our intervention distribution. 
+The interventions distribution defines our structural mechanism.
+Using this distribution, we define e.g. average treatment effects, conditional average treatment effects and the effect of future interventions.
+Further, we may define a structure for our hypothetical settings namely the counterfactual distribution.
+This distribution is based on our posterior distribution. (Pearl, 2009)
+in MDPs we do not explicitly define the latent variables, making it impossible to create counterfactual observations. 
+
+## Graphical Models 
+
+One common usage of SCMs is to compute computational graphs. 
+Graphs entail nodes (or vertices) and edges connecting nodes (structural equations are our edges in the SCM).
+One can think of nodes as our variables (latent and observed) and our edges as the causal relationship between these nodes. 
+We can differentiate between a directed, partially directed and a un-directed graph.
+There is also a distinction between a acyclic and a cyclic graph.
+A un-directed graph has edges without directions, connecting the nodes.
+A directed graph entails edges with arrows.
+An edge starts at the parent and is directed to the child node.
+A Node with common children is called a spouse node. 
+Another manifestation is an edge with two arrows, which symbolize confounding factors. 
+These graphs have bi-directional edges.
+Directed graphs can either behave cyclical, e.g. in the case of mutual causation $(A \rightarrow T, T \rightarrow A)$ or the implementation of feedback, or behave acyclic.
+Note that acyclic graphs by definition do not have cycles.
+This means that there are no variables $(T \rightarrow T)$ with self-directed feedback loops.
+Research has pre-dominantly focused on directed acyclic graphs (DAGs) for a number of reasons.^[Note that when we talk about DAGs in this paper we talk about Structural Causal Models. Another common name for them is a 'causal graphs'] 
+Pearl (2009) suggests that: 
+
+* The framework allows for room for introspection
+* Policy Interventions can be modeled easily because of flexible changes in our underlying model. (do-calculus)
+* We can isolate policy interventions because we can easily hold other mechanisms constant (Pearl, 2009)
+* Independence assumptions are more stable
+
+Similar to Pearl, Creager et al. (2020) suggest that there are manifold benefits of using this DAG framework: 
+
+* DAGs visualize complex models, conveying assumptions to non-technical stakeholders
+* DAGs assist in the process of making sense of observations from policy intervention
+
+```{tikz,fig.cap= "Probabilistic DAG", fig.align="center", echo =F}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+  \begin{tikzpicture}[
+    sharp corners=2pt,
+    inner sep=6pt,
+    node distance=2cm,
+    >=latex]
+\tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
+\node[my node, fill=gray!30] (A){A};
+\node[my node, fill=gray!30] at ($(A)!0.5!(A)-(0pt,1.5cm)$) (T) {T};
+\node[my node,right = 1cm of T, fill=gray!30](C){C};
+\draw[->] (A) -- (T);
+\draw[->] (A) -- (C);
+\draw[->] (T) -- (C);
+\end{tikzpicture}
+```
+
+We will not go into detail about how to obtain information on the true data generating process and the underlying causal assumptions of the model.^[For further information on these issues, see the document of the 'pcalg' package and see algorithms like the IC-Algorithm.]
+
+```{tikz,fig.cap="Structural Causal Model" ,fig.align="center", echo =F}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+  \begin{tikzpicture}[
+    sharp corners=2pt,
+    inner sep=6pt,
+    node distance=2cm,
+    >=latex]
+\tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
+\tikzstyle{latent}=[draw, shape = rectangle, minimum height=1cm,minimum width=1cm]
+\node[my node, fill=gray!30] (A){A};
+\node[latent,left of=A](UA){$U_A$};
+\node[my node, fill=gray!30] at ($(A)!0.5!(A)-(0pt,1.5cm)$) (T) {T};
+\node[my node,right = 1 cm of T, fill=gray!30](C){C};
+\node[latent,left = 1cm of T](UT){$U_T$};
+\node[latent,right = 1cm of A](UC){$U_C$};
+\draw[->] (A) -- (T);
+\draw[->] (UA) -- (A);
+\draw[->] (UT) -- (T);
+\draw[->] (UC) -- (C);
+\draw[->] (A) -- (C);
+\draw[->] (T) -- (C);
+\end{tikzpicture}
+```
+
+The unobserved latent factors are the variables filled in white.
+The observed variables are the circles filled with gray color.
+Essentially these latent factors differentiate the SCM from probabilistic approaches.
+Keep in mind, in a SCM we have structural equations (functions). 
+The probabilistic model is focused on conditional probabilities.
+
+## Potential Queries
+
+Essentially, there are 3 different queries, namely prediction, intervention and counterfactuals. 
+**Prediction** would deal with questions like: Would the prison sentence be fair if we find the defendant to be black. (observation)
+**Intervention** would instead deal with issues such as: Would the prison sentence be fair if we make sure that defendant is black. (do-calculus)
+
+```{tikz,fig.cap="Atomic Intervention", fig.align="center", echo =F}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+  \begin{tikzpicture}[
+    sharp corners=2pt,
+    inner sep=7pt,
+    node distance=3cm,
+    >=latex]
+\tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
+\tikzstyle{latent}=[draw, shape = rectangle, minimum height=1cm,minimum width=1cm]
+\node[my node, fill=gray!30] (A){A};
+\node[latent,left =1 cm of A](UA){$U_A$};
+\node[my node, fill=gray!30] at ($(A)!0.5!(A)-(0pt,1.5 cm)$) (T) {t};
+\node[my node,right = 1 cm of T, fill=gray!30](C){C};
+\node[latent,right=1 cm of A](UC){$U_C$};
+\draw[->] (UA) -- (A);
+\draw[->] (UC) -- (C);
+\draw[->] (A) -- (C);
+\draw[->] (T) -- (C);
+\end{tikzpicture}
+```
+
+There are two popular types of intervention, one being the atomic intervention.
+Atomic intervention means that we take a specific variable and replace it with a constant (T=t).
+Another popular method is using policy intervention.
+With policy intervention we replace a specific structural equation and define a new probability distribution $\pi$.
+We can do that because we make the assumption that these structural equations are autonomous (Pearl, 2009).
+
+Note, $\pi$ is different from historical policies ($f_T=\pi_{hist}$) and often not within our historical data at all ($\pi\neq\pi_{hist}$). (Creager et al., 2020)
+When we do not have this historical data and make an estimate solely based on this historical information without having information on the targeted policy, we call this issue an off-policy intervention.
+
+```{tikz,fig.cap="Policy Intervention",  fig.align= "center", echo =F}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+  \begin{tikzpicture}[
+    sharp corners=2pt,
+    inner sep=6pt,
+    node distance=2cm,
+    >=latex]
+\tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
+\tikzstyle{latent}=[draw, shape = rectangle, minimum height=1cm,minimum width=1cm]
+\node[my node, fill=gray!30] (A){A};
+\node[latent,left of=A](UA){$U_A$};
+\node[my node, fill=gray!70] at ($(A)!0.5!(A)-(0pt,1.5cm)$) (T) {$T_\pi$};
+\node[my node,right = 1 cm of T, fill=gray!30](C){C};
+\node[latent,left = 1cm of T](UT){$U_T$};
+\node[latent,right = 1cm of A](UC){$U_C$};
+\draw[->] (A) -- (T);
+\draw[->] (UA) -- (A);
+\draw[->] (UT) -- (T);
+\draw[->] (UC) -- (C);
+\draw[->] (A) -- (C);
+\draw[->] (T) -- (C);
+\end{tikzpicture}
+```
+
+To derive our estimates based on interventions, we can control whether our model fulfills certain conditions (Markov Condition) making estimation computationally easier for sequential and simultaneous interventions.^[For a detailed explanation of independence assumptions, Markov conditions and respective factorization for causal bayesian networks compared and structural causal models, see: Pearl, 2009)]
+A model is considered semi-markovian, if the diagram derived from our causal model is acyclic.
+A semi-markovian model has unobserved, latent variables and background-variables are not independent. 
+The model is considered markovian if the error terms are jointly independent and the graph is acyclic (Pearl, 2009).
+Based on this condition follows a truncated factorization.
+This truncated factorization is defined as: 
+
+\begin{equation}
+f(x)= \prod ^M_{i=1}f(x_i|pa_j)
+\end{equation}
+
+$pa_j$ is our parent node.
+M is our set of structural equations.
+Estimation with truncated factorization is very flexibly.(Peters et al.,2017)
+Judea Pearl provides an extensive chapter (Cpt. 3) on this issue in his 'Causality' book from 2009. 
+
+Buidling on that, **Counterfactuals** deal with these questions like: *Would the prison sentence be fair had the defendant been black (given that the applicant is white and the sentence is fair)?*
+This is the most challenging query because we need to define the relationship of our variables with latent factors and we need to understand the distribution of our latent factors.
+Probabilistic Models cannot provide counterfactual observations because we have no information on our latent factors solely given conditional probabilities.^[see supplementary material]
+The process is described as follows:
+
+(a) Abduction: Cast probability $P(u)$ as conditional probability $P(u|\epsilon)$ 
+(b) Action: Exchange $(X = x)$ 
+(c) Prediction: Compute $(Y = y)$
+
+In the first step we contextualize the past based on the event $\epsilon$.
+In step two we compute $\Delta$ historical data^[minimally] by introducing hypothetical condition.
+In step three we compute predictions for new historical observations.
+
+# DAG Models vs. Agent Based Models
+
+Ness et al. (2019) argue that a Markov Process is focused on underlying mechanisms within a system while being unable to undertake counterfactual inference.
+Meanwhile, a DAG-based model like the structural causal model is able to undertake counterfactual inference but is unable to identify underlying structural mechanisms.
+Furthermore, Hernan (2015) suggests that one can differentiate between the two approaches based on their reliance on data vs theory. 
+DAGs are more dependent on data and Agent-based Models are more dependent on theory. 
+Arnold et al. (2019) argue that DAGs primarily are interested in fixed effect estimations, looking at average treatment effects in particular. 
+ABMs on the other hand are focusing on individual level models, also allowing for loops and spillovers (DAGs do not leave room for loops because of their structure, ensuring that no variable causes itself). 
+The focus of ABMs is placed on modelling complexity.
+Nevertheless, causal effects within ABMs have been subject to discourse and there is no consensus on how to ensure that estimates are causal within agent based models (Arnold et al., 2019).
+Further, the authors argue that DAG-based models are less interested in distributional properties and patterns within natural heterogeneity.
+This is pre-dominantly caused because of the strong assumptions underlying DAG-based models,leaving little room to breathe.
+
+# Structural Causal Models for Dynamic Systems
+
+The contribution of Creager et al. (2020) is connecting existing dynamic fairness models and rephrasing them as a structural causal model.^[For a more mathematical approach to the problem of how to recast a MDP as a SCM starting from random differential equations see: Bongers and Mooij, 2018] 
+To cast a MDP as a SCM, one needs to modify certain assumptions. 
+Firstly, the fair Markov-Decision Process suggested here, is not fully Markovian because the sensitive attributes persist across states.
+Irrespective, one can converge the fair-MDP to a MDP if we condition on the sensitive attribute.
+This means, we include the sensitive attributes directly in our set of structural equations.
+By doing so, we enable fairness considerations for this attribute. 
+
+\begin{equation}
+A = F_A(U_A)
+\end{equation}
+\begin{equation}
+X^0=F_{X^0}(A, U_{X^0})
+\end{equation}
+\begin{equation}
+T^{k+1} = f_X(X^k,T^k, A, U_{X^{k+1}}), k =0...K
+\end{equation}
+
+A is attribute (in the following paper A was used to assign people to group 1 or group 2).
+U is our utility.
+X is our state.
+T is our actions.
+$X^k$ is our final reward.
+
+## Off Policy Evaluation 
+
+Off-Policy evaluation describes the circumstance where we want to evaluate an policy intervention but there is no data on this policy in our historical data while we are also unable to derive this information because an experimental study would be un-ethical.
+Off-Policy evaluation for reinforced learning has been problematic due to issues such as confounding and the lack of introspection (Oberst and Sontag, 2019).
+We can use different methods for off-policy evaluation.
+Essentially, this paper will focus on model-based off policy evaluation and importance sampling.
+There are further combinations of these methods.
+Creager et al. (2020) compare such a hybrid model (doubly-estimator) with model-based policy evaluation via a standard regression model.
+Model-based off-policy evaluation builds on a parametric model of an underlying Markov-Decision-Process (MDP).
+The Markov-Structure definition specifies that our predictions are independent of the historical observations.
+When we do not have observations we can also build a model where we make the assumption that they exist, without actually observing them.^[These models in turn are called partially observable Markov Decision Processes (POMDP) (Oberst, 2019)]
+The general off policy evaluation process is structured as follows:
+We need to firstly define our system of equations.
+First, we define the distribution of our attributes (X), secondly we define the historical policies (T) and thirdly we define the outcome distribution (Y).
+
+\begin{equation}
+X=f_X(A,U_X)
+\end{equation}
+\begin{equation}
+T=f_T(X,A,U_T)
+\end{equation}
+\begin{equation}
+Y=f_Y(X,A,U_Y)
+\end{equation}
+
+This lending example is based on Liu et al. (2018). 
+Liu et al. (2018) assume that the dynamics parameters^[transition probabilities in MDP] are known. 
+But as suggested by Creager et al. (2020) these parameters are mostly unknown in a real world setting.
+These parameters need to be estimated based on our historical data.
+One possible estimation is a regression estimate. 
+To further improve performance, we can also use the backdoor criterion.
+Using the backdoor criterion we ensure that there are no confounding factors.^[As e.g. defined by Pearl (2009) this criterion has two conditions: *1. There are no objects within our admissible set that are descendant of X.* *2. Objects of our admissible set account for all back-door paths (examining X and Y) preventing any spurious relationships.*]
+
+Creager et al. (2020) advocate for the usage of the doubly robust estimator, a hybrid estimator based on a regression- and inverse -propensity estimator.
+The regression estimator in our doubly estimator is our control variate. 
+The authors define the following steps in their approach:
+
+(a) Define u as a causal quantity (outcome)
+(b) Define structural causal model to detect variables suitable for the backdoor criterion
+(c) Apply doubly estimator
+
+D'Amour et al. (2020) use the equal opportunity parity equalizing the true positive rate between groups and the maximum profit parity.
+We can define the equal opportunity parity as follows: 
+
+\begin{equation}
+P(\hat{Y}|A=0, Y=1)=P(\hat{Y}|A=1, Y=1)
+\end{equation}
+
+Which adds the additional condition that Y has to be 1 in both probabilities.
+Adding this additional condition makes equal opportunity the less strict constraint, because it only needs to hold for Y =1.
+
+Creager et al. (2020) also use the demographic parity in their second example with multiple actors.
+Mathematically, we can define the demographic parity as follows: 
+
+\begin{equation}
+P(\hat{Y}|A=1)=P(\hat{Y}|A=0)
+\end{equation}
+
+$\hat{Y}$ is the predicted outcome and X the attribute.
+This attribute could be a variable like e.g. gender or race. 
+The predicted outcome should be equal for different states of the attribute (e.g. between males and females).
+The authors use a trade-off parameter, lambda, weighing the importance of our equal opportunity objective relative to the maximum profit parity (Parameter U).
+
+\begin{equation}
+\delta_{EQOPP} = |(P(T=1|A=0, Y=1)-P(T=1|A=1,Y=1))|
+\end{equation}
+\begin{equation}
+V_\pi =U - \lambda\delta_{EQOPP}
+\end{equation}
+
+Evidence suggest that the double robust estimator is much stronger than the regression estimator looking at the off-policy estimate relative to the trade-off parameter lambda.
+As suggested in the paper, this example illustrates that we do not need concise information on system dynamics (transitional probabilities).
+
+## Set Dynamics and Causal Structure with Multi-Agent Intervention
+
+In their second application, they model the intervention of a third party, manually setting the credit score for everyone to 600.
+The SCM defines the feature (Group) as a sensitive attribute related to creditworthiness.
+We can see a number of interesting results within this model.
+The Demographic Parity is more sensitive to intervention and offers more people loans.
+The Equal Opportunity Parity is less sensitive because it obeys a less strict fairness constraints and offers less loans to people.
+Offering more people loans in this use case also entails a worse outcome for many minority group members. 
+Getting a loan but being unable to repay this loans leaves these members bankrupt, worsening their overall outcome.^[see the results section of Creager et al. (2020)]
+One advantage of causal graphs specified as SCMs is that they are stable because they are not narrowed done or dependent on the specification of our parameters.
+We are solely specifying causal mechanisms and not confining our model to a specific parametric structure.
+Nevertheless, sensitivity is a substantial consideration, especially looking at specific model assumptions. 
+To ensure that results are robust, they compare various interventional distribution shifts.
+Minority group outcomes suggest to be very volatile to this shift over various time steps.
+Institutional profits remain robust within their analysis, even when shifting interventional distribution.
+This implies that the outcome of minorities is more susceptible to be affected by these fairness measures.
+
+# Conclusions in Creager et al. (2020)
+
+Creager et al. (2020) illustrate the versatility of structural causal models as an expressive simulator for dynamical systems which can be applied to model fairness parities.
+These methods function in off-policy interventions and interventions with known dynamics. 
+Their approach is an illustration of how causal inference unifies dynamic system modelling and interventions.
+Further, different fairness parities behave differently and Creager et al. (2020) illustrate that currently it is not possible to maximize them simultaneously. 
+Their findings suggest that the outcomes for the minority groups are **very sensitive** while the overall institutional profits in their example are stable.
+The tools that have been introduced, allow for a deep analysis and optimization of various different interventions, including off-policy interventions where there is no historical data and where ethical constraints might render real world experiments troublesome. 
+Regardless, these causal methods demand a high level of understanding and further assumptions that, due to the scope of this paper, have merely been touched upon in an incomplete and diluted manner.
+Future research on fairness in machine learning could definitely utilize these methods, adding additional complexity providing even more realistic fairness models.
+
+# Considerations 
+
+Note, that when working with SCMs need information on the causal structure, also entailing the relationship of unobserved characteristics.
+We need to be certain that we have all necessary latent and observed variables within our specification.^[Further, we need some variables that fulfill the backdoor criterion, enabling one to estimate causal effects. In many disciplines such as medicine or economics that may be the case for manifold applications, but unquestionably this may not be the case. ]
+While the SCM does not estimate causal effects, the quality is dependent on the quality of the underlying assumptions and structure that we have cast for the SCM.
+To summarize, we need to already have a model and cannot determine this model via the SCM.
+There are also issues with respect to identification e.g. the identification of our **counterfactual estimates** and the identification of the identification of **fixed solutions** for various initial conditions.
+There might be multiple SCMs leading to the same interventional distribution but to different counterfactual estimates (e.g. Probability of Necessity - Probability that treatment was necessary for the outcome).
+Some assumptions like the monotonicity assumption work for binary treatment but other treatments such as categorical treatment are less explored. 
+Oberst and Sonntag suggest the **Gumbel-Max Structural Causal Models** (2019).^[This method is still rather novel and little has been done with respect to fairness applications.]
+This might be an interesting model for applied fairness research in the future.
+Sometimes SCMs are unable to provide complete specifications at the equilibrium within dynamical systems.
+Blom et al. (2019) examine further generalizations of SCMs, specifically, the causal constraint model (CCM).
+These models can give a more flexible representation when there is not a solvable solution.
+Solutions might dependent on initial conditions which contradict common assumptions in SCMs.
+CCMs provide a more flexible framework to model complex dynamical systems.
+Especially looking at future research in this area, it is not unlikely that as fairness models become more complex, such generalizations of SCMs might gain traction.
+Unfortunately, currently CCMs are not able to provide graphical representations like the SCM.^[The Authors of the paper suggested that they are currently working on computational graphs for CCMs]
+Lastly, we might also be interested in cyclical graphs. 
+Likely there are also many fairness applications where variables do reinforce themselves and have reinforcing feedback-loops^[thinking about e.g. 'Learn to Serve' and predictive Policing].
+Lastly, Creager et al. (2020) did not explore counterfactuals for dynamical systems. 
+
+\newpage
+
+# References
+
+\footnotesize
