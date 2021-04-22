@@ -18,27 +18,50 @@ abstract: This paper provides a gentle introduction into causal inference, focus
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-The values of variables are described as functions of exogeneous and endogeneous variables. 
-These mechanisms can also be described with directed graphs. 
-Typically one requires for the endogenous variables to fulfill causal sufficiency and the corresponding graph to be acyclic.
-Also, one requires mechanisms to be independent.
-The student should convey and explain the notation on a number of examples and explain the motivation and role of the aforementioned assumptions.
-
 # Introduction 
 
 In causal research, we are interested in the relationship of our variables outside of a fixed time frame. 
 We want to capture relationships that hold outside of an available dataset and results are intended to be generalizable to other time periods^[other datasets].
 This paper focuses on structural causal models. 
-A lot of research ignores the distinction between structural equation models(SEM) and structural causal models (SCM).
+A lot of research ignores the distinction between structural equation models (SEM) and structural causal models (SCM).
 Essentially, the SCM builds on the SEM but there are some important differences.
 Firstly, the structural equation model specification stems from disciplines like economics and psychology and is inherently a parametric specification. 
-The SCM on the other hand is a non-parametric specification.
-Secondly, the SCM allows one to create causal graphs.^[Note that we can also create causal graphs with other models like a Bayesian Causal Network Model]
+The SCM is a non-parametric specification with additional mechanisms to cast causal graphs.^[Note that we can also create causal graphs with other models like a Bayesian Causal Network Model]
 
 Nevertheless, both models also have a lot in common. 
+Structural equation models entail a fully specified set of equations.
+Henceforth the model looks at a system perspective of different variables.
+These different equations are autonomous which allows us to manipulate equations without modifying the rest of the system. 
+
 Structural Causal Models specify the relationship in functional forms, including latent/unobserved variables.
 This is very different to working with conditional probabilities. 
 There are two popular schools of thought on how to specify causal mechanisms.
+
+## Baysian Causal Models
+
+Meanwhile structural causal models approach causality via functions.
+There are some different inherent to these two approaches.
+Conditional probabilities are less stable for causal methods (prediction and intervention).
+
+SCM are able to create counterfactuals, hypothetical knowledge. 
+CBN are unable to produce counterfactuals because we fail to specify exogenous variables in a probabilistic model.
+CBN only specify observable characteristics. 
+SCMs on the other hand specify latent factors too and are built on various distributional assumptions.
+In a SCM we may specify the counterfactual distribution from which we can draw counterfactual observations.
+
+ |Method         | CBN |  SCM
+|----------------|---------------------------|------------------------|
+| Prediction     | $\boldsymbol{\cdot}$ Unstable                                                                                        | $\boldsymbol{\cdot}$ Stable                 
+|                | $\boldsymbol{\cdot}$ Volatile to parameter changes                                                                   | $\boldsymbol{\cdot}$ More Natural Specification 
+|                | $\boldsymbol{\cdot}$ Re-Estimate entire model                                                                        | $\boldsymbol{\cdot}$ Only estimate $\Delta$ CM
+|                |                                                                                                                      | 
+| Intervention   | $\boldsymbol{\cdot}$ Costly for Non-Markovian Models                                                                 | $\boldsymbol{\cdot}$ Pot. Cyclic Representation
+|                | $\boldsymbol{\cdot}$ Unstable(Nature CP)                                                                             | $\boldsymbol{\cdot}$ Stable(Nature Eq.)
+|                | $\boldsymbol{\cdot}$ Only generic estimates($\Delta$ CP)                                                             | $\boldsymbol{\cdot}$ Context specific(Invariance of Eq.)
+|                |                                                                                                                      | 
+|Counterfactuals | $\boldsymbol{\cdot}$ **Impossible**                                                                                  | $\boldsymbol{\cdot}$ Possible
+|                | $\boldsymbol{\cdot}$ no information on latent factors($\epsilon$)                                                    | $\boldsymbol{\cdot}$ Inclusion of latent factors
+
 
 There are a number of reasons why people are interested in structural causal models.
 We can specify exogenous and endogenous variables in our model specification for a SCM. 
@@ -46,8 +69,6 @@ When all our variables are fully specified within our model specification (endog
 
 Note that while this is very unreasonable because we assume we can explain all exogenous error terms and further we assume that there are no unobserved variables. 
 Henceforth, when applying these models, they are seldom fully deterministic. 
-
-
 
 ```{tikz,fig.cap="Structural Causal Model" ,fig.align="center", echo =F}
 \usetikzlibrary{calc}
@@ -78,8 +99,11 @@ Henceforth, when applying these models, they are seldom fully deterministic.
 \end{tikzpicture}
 ```
 
-
 # Common Queries in Causal Models
+
+We can apply a number of different queries in these different causal models.
+Note that one central advantage of SCMs is that we can cast counterfactuals.
+This is unique to structural causal models due to the specification of our distribution of unobserved variables. 
 
  |Method          | Action |  Example
 |-----------------|---------------------------|------------------------|
@@ -93,7 +117,11 @@ Table: Pearl - Hierachy of Causation
 
 ## Intervention 
 
-This paper focuses on atomic, policy and off-policy intervention. 
+This paper focuses on atomic, policy and off-policy intervention.
+Atomic intervention means that we replace a variable with a constant so we replace variable $T$ with constant $t$.
+Policy intervention means we replace a variable with a new distribution $\pi$.
+Off-policy intervention is an intervention when we only have historical data and no data on the specific intervention. 
+Off-policy has gained traction in discplines like reinforced learning.
 
 
 ```{tikz,fig.cap="Atomic Intervention", fig.align="center", echo =F}
@@ -156,28 +184,35 @@ Process is described as follows:
 (b) Action: Exchange $(X = x)$ 
 (c) Prediction: Compute $(Y = y)$
 
-## Bayesian Models vs. SCM 
+## Causal Graphs 
 
-Bayesian approach causal models via conditional probabilities.
-Meanwhile structural causal models approach causality via functions.
-There are some different inherent to these two approaches.
-Conditional probabilities are less stable for causal methods (prediction and intervention).
+Causal graphs are graphical models to visualize causal models. 
+Causal graphs are based on various different causal models.
+A graphical models contains nodes and edges (vertices).
+If we are dealing with a causal graph based on a structural causal model, we usually see latent variables.
+These latent variables are typically differentiated by either using a different color and/or shape than the nodes in probabilistic models where we only special conditional probabilities.
+The absence of a edge between nodes can many different things depending on the underlying model.
+Absence in a SCM means that there is no causal relationship.
+Absence in a BCN means that there is no conditional probability.  
 
-SCM are able to create counterfactuals, hypothetical knowledge. 
-CBN are unable to produce counterfactuals because we fail to specify exogenous variables in a probabilistic model.
-CBN only specify observable characteristics. 
-SCMs on the other hand specify latent factors too and are built on various distributional assumptions.
-In a SCM we may specify the counterfactual distribution from which we can draw counterfactual observations.
+The most common causal graph is the acyclic directed graph. 
+A directed graph is a graph where every edge has a direction.
+An un-directed graph has edges but there is no arrow which means that the relationship is unclear.
+An acyclic graph is a graph without cycles.
+That means that a variable does not cause itself, directly or indirectly.
+Given the way we look at time where the relationship between variables is indifferent to time, this representation provides a foundation for graphical models. 
 
- |Method         | CBN |  SCM
-|----------------|---------------------------|------------------------|
-| Prediction     | $\boldsymbol{\cdot}$ Unstable                                                                                        | $\boldsymbol{\cdot}$ Stable                 
-|                | $\boldsymbol{\cdot}$ Volatile to parameter changes                                                                   | $\boldsymbol{\cdot}$ More Natural Specification 
-|                | $\boldsymbol{\cdot}$ Re-Estimate entire model                                                                        | $\boldsymbol{\cdot}$ Only estimate $\Delta$ CM
-|                |                                                                                                                      | 
-| Intervention   | $\boldsymbol{\cdot}$ Costly for Non-Markovian Models                                                                 | $\boldsymbol{\cdot}$ Pot. Cyclic Representation
-|                | $\boldsymbol{\cdot}$ Unstable(Nature CP)                                                                             | $\boldsymbol{\cdot}$ Stable(Nature Eq.)
-|                | $\boldsymbol{\cdot}$ Only generic estimates($\Delta$ CP)                                                             | $\boldsymbol{\cdot}$ Context specific(Invariance of Eq.)
-|                |                                                                                                                      | 
-|Counterfactuals | $\boldsymbol{\cdot}$ **Impossible**                                                                                  | $\boldsymbol{\cdot}$ Possible
-|                | $\boldsymbol{\cdot}$ no information on latent factors($\epsilon$)                                                    | $\boldsymbol{\cdot}$ Inclusion of latent factors
+## Causal Mechanisms via Differential Equations 
+
+Differential equations can describe a dynamic system accounting for time.
+
+# Conclusion 
+
+This paper illustrates the versatile nature of structural causal models.
+Casting causal mechanisms via a functional specification entails many advantages.
+SCMs provide a stable foundation for causal graphs.
+
+# References 
+
+
+

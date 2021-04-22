@@ -1,0 +1,15 @@
+---
+title: "peters_elements_causal_inference"
+author: "Daniel Saggau"
+date: "4/22/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Chapter 1 
+
+Probability theory: 
+Statistical learning: 
