@@ -25,7 +25,27 @@ If we have high capacity, our functional specification is very applicable to dif
 If we have low capacity, our specification is not representative of many datasets. 
 
 Apart from having the problem of statistical ill posedness (once because the conditional expectation is undefined for values outside of our sample). 
-The second problem is that we usually have no full information for a underlying causal model even when having a fully specified observational distribution. 
+The second problem is that we usually have no full information for a underlying causal model even when having a fully specified observational distribution.
+
+Importance of noise and additional complexity due to causal nature. 
+This is called causal learning.
+
+SCM using equations in terms of assignment rather than mathematical equations.
+SCM entails a joint distribution over all observables. 
+
+# Time 
+
+Time often necessary but not modelled specifically or well defined. 
+Usually relationship envolved dynamical process but it is not always well defined.
+Typically hard sciences involve more concise measures of time than social sciences. 
+
+# Relationship mechanical models 
+
+SCM somewhere betweren mechanisitic model with differential equations and statistical model 
+
+## Chapter 2
+
+
 
 
 
