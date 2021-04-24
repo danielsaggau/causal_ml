@@ -34,8 +34,8 @@ Probability theory deals with outcomes given a specific underlying data generati
 This paper focuses on structural causal models. 
 A lot of research ignores the distinction between structural equation models (SEM) and structural causal models (SCM).
 Essentially, the SCM builds on the SEM but there are some important differences.
-Firstly, the structural equation model specification stems from disciplines like economics and psychology and is inherently a parametric specification.
-The SCM is a non-parametric specification with additional mechanisms to cast causal graphs.^[Note that we can also create causal graphs with other models like a Bayesian Causal Network Model]
+Firstly, the structural equation model specification stems from disciplines like economics and psychology and is inherently a parametric specification with algebraic equations.
+The SCM is a non-parametric specification (with assignment equations stemming from CS) with additional mechanisms to cast causal graphs.^[Note that we can also create causal graphs with other models like a Bayesian Causal Network Model]
 
 Nevertheless, both models also have a lot in common. 
 Structural equation models entail a fully specified set of equations.

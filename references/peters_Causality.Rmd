@@ -41,11 +41,11 @@ Typically hard sciences involve more concise measures of time than social scienc
 
 # Relationship mechanical models 
 
-SCM somewhere betweren mechanisitic model with differential equations and statistical model 
+SCM somewhere between mechanisitic model with differential equations and statistical model 
 
 ## Chapter 2
 
-
+SEM vs SCM: SEM: Algebraic equations rather than assignments from CS in SCM
 
 
 
