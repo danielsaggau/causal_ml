@@ -15,7 +15,7 @@ linestretch: 1.5
 header-includes:
 - \usepackage{amsmath}
 - \usepackage[makeroom]{cancel}
-abstract: This paper provides a gentle introduction into causal inference focusing on structural causal models. 
+abstract: This paper provides a gentle introduction into causal inference focusing on structural causal models. Structural Causal Models are abstractions of underlying physical mechanisms. SCMs are used for causal inference. This paper briefly introduces the role of time in causality. I will use a two and three variable model to illustrate underlying assumptions of structural causal models.
 ---
 
 ```{r setup, include=FALSE}
@@ -24,25 +24,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Introduction 
 
-## Time in Causality
-
-In causal research, we are interested in the relationship of our variables outside of a fixed time frame. 
-We want to capture relationships that hold outside of an available dataset and results are intended to be generalizable to other time periods^[other datasets].
+In causal research,we want to capture relationships that hold outside of an available dataset and results are intended to be generalizable to other time periods^[other datasets].
 The causal model entails a probabilistic specification but also entails additional information.
 This additional information is a specification for the model when intervention, outcome or feature distributions are modified (Peters et al.,2017).
-Probability theory deals with outcomes given a specific underlying data generating process. 
 
 
-## SEM and Structural Causal Model 
+
 
 A lot of research ignores the distinction between structural equation models(SEM) and structural causal models (SCM).
 Essentially, the SCM builds on the SEM but there are some differences.
-Firstly, the structural equation model specification stems from disciplines like economics and psychology and is inherently a parametric specification. 
-The SCM on the other hand is a non-parametric specification.
-Secondly, the SCM allows one to create causal graphs.^[Note that we can also create causal graphs with other models like a bayesian causal network model]
-
-
-Nevertheless, both models also have a lot in common. 
 
 Structural Causal Models specify the relationship in functional forms.
 This is very different to working with conditional probabilities. 
@@ -56,20 +46,19 @@ When all our variables are fully specified within our model specification (endog
 Note that while this is very unreasonable because we assume we can explain all exogenous error terms and further we assume that there are no unobserved variables. 
 Henceforth, when applying these models, they are seldom fully deterministic. 
 This paper focuses on structural causal models. 
-A lot of research ignores the distinction between structural equation models (SEM) and structural causal models (SCM).
-Essentially, the SCM builds on the SEM but there are some important differences.
+
 Firstly, the structural equation model specification stems from disciplines like economics and psychology and is inherently a parametric specification with algebraic equations.
 The SCM is a non-parametric specification (with assignment equations stemming from CS) with additional mechanisms to cast causal graphs.^[Note that we can also create causal graphs with other models like a Bayesian Causal Network Model]
 
 Nevertheless, both models also have a lot in common. 
 Structural equation models entail a fully specified set of equations.
 Henceforth the model looks at a system perspective of different variables.
-These different equations are autonomous which allows us to manipulate equations without modifying the rest of the system. 
+These different equations are autonomous.
+This allows us to manipulate equations without modifying the rest of the system. 
 
 Structural Causal Models specify the relationship in functional forms, including latent/unobserved variables.
 This is very different to working with conditional probabilities. 
-There are two popular schools of thought on how to specify causal mechanisms.
-
+There are two popular schools of thought on how to specify causal mechanisms
 The first section provides introduces probabilities and will focus on clarifying the difference between observations and causal concepts.
 
 ## Criteria 
