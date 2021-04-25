@@ -47,5 +47,14 @@ SCM somewhere between mechanisitic model with differential equations and statist
 
 SEM vs SCM: SEM: Algebraic equations rather than assignments from CS in SCM
 
+Independent mechanisms
+
+Autonomous modules
+in Case example between cause distribution and effect distribution.
+
+Confusion economics + statistics 
+
+Economics = E(Y|do(x)) - claim stats no substance 
+Statistics =E(Y|x) - claim SE have no meaning 
 
 

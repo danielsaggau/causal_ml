@@ -235,6 +235,17 @@ Note that there may be a different explanation for the dependence (selection bia
 
 ## Independence Assumption 
 
+The first principle is independence of our mechanisms.
+As a reminder, each equation in a SCM is a separate independent mechanism.
+In a two-variable case of a causal model one can differentiate between the cause distribution and the effect distribution(Peters et al.,2017).
+
+Implications:
+
+1. Change mechanism without changing the rest of the model 
+2. Change of one mechanism does not contain information on other changes
+3. Systems can never be isolated from environment, henceforth weak dependence of noise possible without violating assumption about independent mechanisms 
+
+
 
 ## D-Seperation 
 
