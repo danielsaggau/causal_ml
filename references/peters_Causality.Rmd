@@ -1,0 +1,31 @@
+---
+title: "peters_elements_causal_inference"
+author: "Daniel Saggau"
+date: "4/22/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Chapter 1 
+
+Probability theory: 
+
+Statistical learning: Capacity measures
+
+Peters et al. (2017) suggest that statistical learning theory has a inverse problem: We have data and want to understand the underlying data generating process and respective underlying structures. 
+This true underlying data generating process is unknown.
+We cannot observe the true DGP based on observational data, alone.
+Learning theory proposes the usage of functional specifications of our model to define the true underlying process that is rule based.
+These rules are pivotal because they allow us to specify the behavior of the model when exposed to unseen observation data.
+To ensure that this specification works, Peters et al. (2017) suggests that statistical learning theory uses the concept of capacity measures. 
+If we have high capacity, our functional specification is very applicable to different dataset.
+If we have low capacity, our specification is not representative of many datasets. 
+
+Apart from having the problem of statistical ill posedness (once because the conditional expectation is undefined for values outside of our sample). 
+The second problem is that we usually have no full information for a underlying causal model even when having a fully specified observational distribution. 
+
+
+
