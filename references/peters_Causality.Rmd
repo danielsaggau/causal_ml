@@ -25,7 +25,52 @@ If we have high capacity, our functional specification is very applicable to dif
 If we have low capacity, our specification is not representative of many datasets. 
 
 Apart from having the problem of statistical ill posedness (once because the conditional expectation is undefined for values outside of our sample). 
-The second problem is that we usually have no full information for a underlying causal model even when having a fully specified observational distribution. 
+The second problem is that we usually have no full information for a underlying causal model even when having a fully specified observational distribution.
+
+Importance of noise and additional complexity due to causal nature. 
+This is called causal learning.
+
+SCM using equations in terms of assignment rather than mathematical equations.
+SCM entails a joint distribution over all observables. 
+
+# Time 
+
+Time often necessary but not modelled specifically or well defined. 
+Usually relationship envolved dynamical process but it is not always well defined.
+Typically hard sciences involve more concise measures of time than social sciences. 
+
+# Relationship mechanical models 
+
+SCM somewhere between mechanisitic model with differential equations and statistical model 
+
+## Chapter 2
+
+SEM vs SCM: SEM: Algebraic equations rather than assignments from CS in SCM
+
+Independent mechanisms
+
+Autonomous modules
+in Case example between cause distribution and effect distribution.
+
+Confusion economics + statistics 
+
+Economics = E(Y|do(x)) - claim stats no substance 
+Statistics =E(Y|x) - claim SE have no meaning 
+
+**statistical vs. algorithmic independence**
+
+# The role of Time
+
+When interested in general cyclic system, we can use differential equations rather than SCMs as the SCM is an abstraction of underlying physical processes. 
+Econometrics decided to view structural equations as algebraic equations.
+Ignore interpretation as abstractions.
+Natural intervention does not violate independence. 
+Others may be complex.
+
+When interested in cyclic systems differential equation unavoidable. 
 
 
-
+```{r, fig.cap="Peters et al. (2017) Ranking SCMs", include =F}
+library(knitr)
+include_graphics("~/Desktop/SOSE2021/causal_ml/paper/relation_physics.png")
+```
