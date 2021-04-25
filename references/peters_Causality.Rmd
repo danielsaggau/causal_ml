@@ -57,4 +57,20 @@ Confusion economics + statistics
 Economics = E(Y|do(x)) - claim stats no substance 
 Statistics =E(Y|x) - claim SE have no meaning 
 
+**statistical vs. algorithmic independence**
 
+# The role of Time
+
+When interested in general cyclic system, we can use differential equations rather than SCMs as the SCM is an abstraction of underlying physical processes. 
+Econometrics decided to view structural equations as algebraic equations.
+Ignore interpretation as abstractions.
+Natural intervention does not violate independence. 
+Others may be complex.
+
+When interested in cyclic systems differential equation unavoidable. 
+
+
+```{r, fig.cap="Peters et al. (2017) Ranking SCMs", include =F}
+library(knitr)
+include_graphics("~/Desktop/SOSE2021/causal_ml/paper/relation_physics.png")
+```
