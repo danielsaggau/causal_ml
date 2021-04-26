@@ -1,0 +1,66 @@
+---
+title: "Fairness in Machine Learning WS20/21"
+subtitle: "Fostering Notions of Dynamic Fairness via Structural Causal Models"
+date: "03/05/2021"
+author: "Daniel Saggau"
+output:
+  beamer_presentation:
+    theme: Madrid
+    colortheme: spruce
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction 
+
+- Fairness in dynamical system has become important because equalizing true positive rate at each step does not converge as fast in systems with e.g. population dynamics 
+- Research on dynamical systems has focused on markov decision processes
+- Prior research on causal fairness has focused in static systems 
+- Recently Creager et al. (2020) proposed a structural causal model for dynamical systems 
+
+# Why care about causal fairness models?
+
+- Fairness is not static (D'Amour et al. 2020) introduce shortcomings of existing fairness correction measures
+- From a modelling perspective, we can improve the specification (Markov Decision Process)
+- Regular models may express a model in conditional probabilities (probabilistic model) or may be expressed as differential equation 
+- SCMs are cast in functional form which is more stable (but may also be expressed as differential equation)
+- Additionally, we specify the model beyond conditional probabilities -> we specify the latent variables (exogenous variables not observable within our dataset)
+
+# What is a SCM 
+
+- Functional specification of our model including latent factors
+- Probabilistic specification + additional knowledge 
+
+# SCMs for Fairness in dynamical Systems 
+
+- Fair-MDP
+- Judea Pearl:do-calculus
+-
+
+# SCM vs Causal Bayesian Network (Probabilistic Model)
+
+
+
+# Exisiting Considerations 
+
+- Counterfactuals for Fairness in Dynamical Systems 
+- Off-policy estimation (model based (regression) or model free estimation (propensity weight))
+
+# Time and Causal Inference 
+
+- Structural causal models are abstractions of physical processes
+- 
+
+# Adding to existing Literature
+
+**Methodological:**
+
+- Cyclic Structural Causal Models with actual reinforcing loops
+- Semi-Deterministic SCMs (deterministic -> all variables are known)
+
+**Application:**
+
+- Off Policy Interventions 
+
