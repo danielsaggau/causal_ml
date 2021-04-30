@@ -20,4 +20,14 @@ header-includes:
 
 # Abstract 
 
-Interest in a deeper understand of relationships between variables has increased the popularity of causal models. I will explore two popular causal specifications namely (1) Bayesian Causal Networks (BCN) and (2) Structural Causal Models (SCM) focusing on the latter. Probabilistic specifications such as a BCN cast a model based on conditional probabilities. SCMs cast a model based on functions. Further, SCMs extend probabilistic models by specifying the data generating process rather than solely employing on conditional probabilities. Causal models can be applied to number of different modelling problems. Using Pearl's hierarchy of causation (2009), I focus on predictions, interventions and counterfactuals. To clarify central notions of causal modelling, this paper briefly discusses the role of time in causality and provides a general overview of the history of causal modelling to contextualize the SCM modelling approach. I will also introduce causal graphs, concentrating on the popular directed acyclical graphical (DAG) models, to highlight differences in mentioned queries and modelling approaches.
+The interest in understanding relationships of variables beyond co-occurrence has increased the popularity of causal modelling. 
+To provide a comprehensive understanding of causal modelling, I introduce two prominent causal model specifications namely (1) Bayesian Causal Networks (BCN) and (2) Structural Causal Models (SCM), focusing on the latter.
+Probabilistic specifications such as a BCN cast a model based on conditional probabilities. 
+SCMs cast a model based on assignment functions and extend probabilistic models by specifying the data generating process rather than solely utilizing conditional probabilities.
+Another difference between these models is their ability to address different queries such as *predictions*, *interventions* and *counterfactuals*.
+These queries are part of Pearl's causal hierarchy (2009). 
+Pearl matches these queries with their respective actions namely *observing*, *doing* and *imagining*.
+I compare the feasibility of addressing these queries and undertaking respective actions for both specifications.
+To contextualize SCMs within the field of causality, I also discuss the role of time in causal inference and provide a brief overview of the history of causal modelling.
+This paper uses various directed acyclic graphs to highlight the differences in these modelling approaches.
+The insights of this paper can be used as a baseline for subsequent research on structural causal models.
