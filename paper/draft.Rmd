@@ -15,7 +15,7 @@ linestretch: 1.5
 header-includes:
 - \usepackage{amsmath}
 - \usepackage[makeroom]{cancel}
-abstract: This paper provides a gentle introduction into causal inference focusing on structural causal models. Structural Causal Models are abstractions of underlying physical mechanisms. SCMs are used for causal inference. This paper briefly introduces the role of time in causality. I will use a two and three variable model to illustrate underlying assumptions of structural causal models.
+abstract: This paper provides a gentle introduction into causal inference focusing on structural causal models. Structural Causal Models (SCM) are abstractions of underlying physical mechanisms, extending probabilisitc models by providing an exhaustive specification for the data generating process. Probabilistic models specify conditional probabilities, meanwhile SCMs specify the underlying structure of both endogenous and exogenous variables. Structural Causal Models are an generalization of structural equation models with some further extensions to compute causal graphs. This essay will explore fundamental pillars within causal inference starting with the differences between probablisitic models and causal models, followed by the hierachy of causation. I will briefly dicuss the role of time in causal models and provide instructions on various causal graphs focusing on acyclic graphical models, the most prominent causal graph model. 
 ---
 
 ```{r setup, include=FALSE}

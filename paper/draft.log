@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.4.12)  25 APR 2021 15:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.4.12)  30 APR 2021 16:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -558,20 +558,20 @@ LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 8
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 103.
+(Font)              <10> on input line 111.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 103.
+(Font)              <7> on input line 111.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 103.
+(Font)              <5> on input line 111.
 [1
 
 {/Users/danielsaggau/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.m
 ap}]
-<draft_files/figure-latex/backdoor-1.pdf, id=113, 117.43875pt x 73.27374pt>
+<draft_files/figure-latex/backdoor-1.pdf, id=112, 117.43875pt x 73.27374pt>
 File: draft_files/figure-latex/backdoor-1.pdf Graphic file (type pdf)
 <use draft_files/figure-latex/backdoor-1.pdf>
 Package pdftex.def Info: draft_files/figure-latex/backdoor-1.pdf  used on input
- line 195.
+ line 203.
 (pdftex.def)             Requested size: 117.43845pt x 73.27354pt.
 [2] [3 <./draft_files/figure-latex/backdoor-1.pdf>]
 <draft_files/figure-latex/unnamed-chunk-1-1.pdf, id=158, 143.53625pt x 72.27pt>
@@ -579,7 +579,7 @@ Package pdftex.def Info: draft_files/figure-latex/backdoor-1.pdf  used on input
 File: draft_files/figure-latex/unnamed-chunk-1-1.pdf Graphic file (type pdf)
 <use draft_files/figure-latex/unnamed-chunk-1-1.pdf>
 Package pdftex.def Info: draft_files/figure-latex/unnamed-chunk-1-1.pdf  used o
-n input line 278.
+n input line 286.
 (pdftex.def)             Requested size: 143.54027pt x 72.272pt.
 
 Overfull \vbox (1.90239pt too high) has occurred while \output is active []
@@ -590,14 +590,14 @@ pt>
 File: draft_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
 <use draft_files/figure-latex/unnamed-chunk-2-1.pdf>
 Package pdftex.def Info: draft_files/figure-latex/unnamed-chunk-2-1.pdf  used o
-n input line 366.
+n input line 374.
 (pdftex.def)             Requested size: 145.54338pt x 73.27354pt.
 <draft_files/figure-latex/unnamed-chunk-3-1.pdf, id=188, 146.5475pt x 73.27374p
 t>
 File: draft_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use draft_files/figure-latex/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: draft_files/figure-latex/unnamed-chunk-3-1.pdf  used o
-n input line 375.
+n input line 383.
 (pdftex.def)             Requested size: 146.54712pt x 73.27354pt.
 [5]
 Overfull \vbox (156.45901pt too high) has occurred while \output is active []
@@ -636,7 +636,7 @@ t/fonts/type1/public/lm/lmr8.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dis
 t/fonts/type1/public/lm/lmr9.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dis
 t/fonts/type1/public/lm/lmsy10.pfb></Users/danielsaggau/Library/TinyTeX/texmf-d
 ist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on draft.pdf (6 pages, 389830 bytes).
+Output written on draft.pdf (6 pages, 392103 bytes).
 PDF statistics:
  319 PDF objects out of 1000 (max. 8388607)
  268 compressed objects within 3 object streams
