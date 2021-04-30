@@ -15,7 +15,8 @@ linestretch: 1.5
 header-includes:
 - \usepackage{amsmath}
 - \usepackage[makeroom]{cancel}
-abstract: This paper provides a gentle introduction into causal inference focusing on structural causal models. Structural Causal Models (SCM) are abstractions of underlying physical mechanisms, extending probabilisitc models by providing an exhaustive specification for the data generating process. Probabilistic models specify conditional probabilities, meanwhile SCMs specify the underlying structure of both endogenous and exogenous variables. Structural Causal Models are an generalization of structural equation models with some further extensions to compute causal graphs. This essay will explore fundamental pillars within causal inference starting with the differences between probablisitic models and causal models, followed by the hierachy of causation. I will briefly dicuss the role of time in causal models and provide instructions on various causal graphs focusing on acyclic graphical models, the most prominent causal graph model. 
+abstract: Interest in a deeper understand of relationships between variables has increased the popularity of causal models. There are various different causal model specifications.
+I will explore two models namely (1) Bayesian causal networks (BCN) and (2) structural causal models (SCM). Probabilisitic specifications such as a BCN cast a model based on conditional probabilities. SCMs cast a model based on functions. SCMs extend probabilisitic models by specifying the data generating process rather than solely focusing on conditional probabilities. These SCMs can be applied to number of different queries. Using Pearl's hierachy of causation (2009), I focus on prediction, intervention and counterfactuals. To further clarify central notions of causal modelling, this paper briefly discusses the role of time in causality and will illustrate an general overview of the history of causal modelling to contexualize the SCM modelling approach. I will also introduce causal graphs, specifically focusing on the popular directed acyclical graphical (DAG) models, to highlight differences in various queries and modelling assumptions.
 ---
 
 ```{r setup, include=FALSE}
@@ -23,6 +24,10 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Introduction 
+
+
+"Correlation does not imply Causation" is one of the most pivotal lessons many students learn during introductory undergraduate statistics courses.  
+
 
 In causal research,we want to capture relationships that hold outside of an available dataset and results are intended to be generalizable to other time periods^[other datasets].
 The causal model entails a probabilistic specification but also entails additional information.
