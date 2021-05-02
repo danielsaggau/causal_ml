@@ -98,6 +98,12 @@ SCMs use assignment equations to specify an underlying data-generation-process, 
 Beyond the school of thought, there is also a hierarchy of causation which Pearl introduced in 2009.
 This hierarchy 
 
+ |Method          | Action |  Example
+|-----------------|---------------------------|------------------------|
+| Prediction      | Observation/Co-occurrence | What happened...
+| Intervention    | Do-manipulation           | What happens if ...
+| Counterfactual  | Hypothetical Realities    | What would have happened if...
+
 
 Another important factor in causal research is the understanding of time. 
 Causal models mostly disregard concise notions of time and make the strong assumption that relationships between variables hold beyond the confinement of time.
@@ -118,7 +124,7 @@ The insights in this paper are an abstraction of these pieces of work, offering 
 
 The rest of the paper is structured as follows: 
 The subsequent section examines central assumptions in causal modelling. 
-The second section looks at the difference SCMs and BCNs.
 The section thereafter studies the hierachy of causation, looking at the different queries in the SCM and the BCN.
+
 
 # References
