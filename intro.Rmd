@@ -96,13 +96,44 @@ SCMs use assignment equations to specify an underlying data-generation-process, 
 ```
 
 Beyond the school of thought, there is also a hierarchy of causation which Pearl introduced in 2009.
-This hierarchy 
 
  |Method          | Action |  Example
 |-----------------|---------------------------|------------------------|
 | Prediction      | Observation/Co-occurrence | What happened...
 | Intervention    | Do-manipulation           | What happens if ...
 | Counterfactual  | Hypothetical Realities    | What would have happened if...
+
+
+This hierarchy examines different queries, their actions and the respective hierachical rank.
+The first query is prediction where we examine based on observations.
+The second query is interventions, where we can use Pearls (2009) do-calculus to examine what happens if certain conditions holds.
+Note that there are various different types of intervention, such as atomic intervention, where we set a variable to a constant, or e.g. policy intervention where we specify a different function for this specific variable.
+
+```{tikz,fig.cap="Policy Intervention",  fig.align= "center", echo =F}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+  \begin{tikzpicture}[
+    sharp corners=2pt,
+    inner sep=6pt,
+    node distance=2cm,
+    >=latex]
+\tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
+\tikzstyle{latent}=[draw, shape = rectangle, minimum height=1cm,minimum width=1cm]
+\node[my node, fill=gray!30] (A){A};
+\node[latent,left of=A](UA){$U_A$};
+\node[my node, fill=gray!70] at ($(A)!0.5!(A)-(0pt,1.5cm)$) (T) {$T_\pi$};
+\node[my node,right = 1 cm of T, fill=gray!30](C){C};
+\node[latent,left = 1cm of T](UT){$U_T$};
+\node[latent,right = 1cm of A](UC){$U_C$};
+\draw[->] (A) -- (T);
+\draw[->] (UA) -- (A);
+\draw[->] (UT) -- (T);
+\draw[->] (UC) -- (C);
+\draw[->] (A) -- (C);
+\draw[->] (T) -- (C);
+\end{tikzpicture}
+```
 
 
 Another important factor in causal research is the understanding of time. 

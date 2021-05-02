@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.1)  3 MAY 2021 00:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.1)  3 MAY 2021 00:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -575,19 +575,27 @@ File: intro_files/figure-latex/unnamed-chunk-1-1.pdf Graphic file (type pdf)
 Package pdftex.def Info: intro_files/figure-latex/unnamed-chunk-1-1.pdf  used o
 n input line 185.
 (pdftex.def)             Requested size: 143.54027pt x 72.272pt.
+<intro_files/figure-latex/unnamed-chunk-2-1.pdf, id=30, 146.5475pt x 73.27374pt
+>
+File: intro_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
+<use intro_files/figure-latex/unnamed-chunk-2-1.pdf>
+Package pdftex.def Info: intro_files/figure-latex/unnamed-chunk-2-1.pdf  used o
+n input line 218.
+(pdftex.def)             Requested size: 146.54712pt x 73.27354pt.
 
-Overfull \vbox (92.68472pt too high) has occurred while \output is active []
+Overfull \vbox (107.9027pt too high) has occurred while \output is active []
 
 [2 <./intro_files/figure-latex/notwell-1.pdf> <./intro_files/figure-latex/unnam
-ed-chunk-1-1.pdf>] [3] (./intro.aux)
+ed-chunk-1-1.pdf> <./intro_files/figure-latex/unnamed-chunk-2-1.pdf>] [3] (./in
+tro.aux)
 Package rerunfilecheck Info: File `intro.out' has not changed.
 (rerunfilecheck)             Checksum: 687EC4E01B981F02BDBBA6B188492470;197.
  ) 
 Here is how much of TeX's memory you used:
- 10667 strings out of 480954
- 154872 string characters out of 5906106
- 457970 words of memory out of 5000000
- 27669 multiletter control sequences out of 15000+600000
+ 10676 strings out of 480954
+ 155237 string characters out of 5906106
+ 458011 words of memory out of 5000000
+ 27676 multiletter control sequences out of 15000+600000
  477333 words of font info for 80 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  71i,12n,74p,510b,328s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -607,10 +615,10 @@ m/lmr9.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type1/public/l
 m/lmri10.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type1/public
 /lm/lmri9.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type1/publi
 c/lm/lmtt12.pfb>
-Output written on intro.pdf (3 pages, 316201 bytes).
+Output written on intro.pdf (3 pages, 342897 bytes).
 PDF statistics:
- 125 PDF objects out of 1000 (max. 8388607)
- 97 compressed objects within 1 object stream
- 17 named destinations out of 1000 (max. 500000)
- 27 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 147 PDF objects out of 1000 (max. 8388607)
+ 111 compressed objects within 2 object streams
+ 18 named destinations out of 1000 (max. 500000)
+ 32 words of extra memory for PDF output out of 10000 (max. 10000000)
 
