@@ -1,0 +1,70 @@
+---
+title: "A Gentle Introduction into Structural Causal Models"
+author: 
+- Daniel Saggau $\boldsymbol{\cdot}$ `daniel.saggau@campus.lmu.de`
+- Department of Statistics, Ludwig Maximilian University Munich, Germany
+date: " April 5th, 2021"
+output: 
+  pdf_document:
+        number_sections: yes
+        fig_caption: yes
+fontsize: 12
+linestretch: 1.5
+citation_package: --biblatex
+bibliography: [ref.bib]
+nocite: '@*'
+abstract: The interest in understanding relationships of variables beyond co-occurrence has increased the popularity of causal modelling.  To provide a comprehensive understanding of causal modelling, I introduce two prominent causal model specifications namely (1) Bayesian Causal Networks (BCN) and (2) Structural Causal Models (SCM), focusing on the latter. Probabilistic specifications such as a BCN cast a model based on conditional probabilities. SCMs cast a model based on assignment functions and extend probabilistic models by specifying the data generating process rather than solely utilizing conditional probabilities. Another difference between these models is their ability to address different queries such as *predictions*, *interventions* and *counterfactuals*. These queries are part of Pearl's causal hierarchy (2009).Pearl matches these queries with their respective actions namely *observing*, *doing* and *imagining*. I compare the feasibility of addressing these queries and undertaking respective actions for both specifications. To contextualize SCMs within the field of causality, I also discuss the role of time in causal inference and provide a brief overview of the history of causal modelling. This paper uses various directed acyclic graphs to highlight the differences in these modelling approaches. The insights of this paper can be used as a baseline for subsequent research on structural causal models.
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction 
+
+Most undergraduate students that take a class in introductory statistics have heard the phrase 'correlation does not imply causation'.
+While correlation implies co-occurrence, people are frequently interesting a causal understanding of relationships between variables.
+One may argue that especially in high stake settings, algorithmic decision making based on co-occurrence is insufficient.
+Causal modelling has become a pivotal tool for interpretable modelling.
+There are different schools of thought on how to optimally model causal relationships.
+Structural Causal Models and Bayesian Causal Networks are two prominent causal models.
+Bayesian Causal Networks cast a model based on conditional probabilities.
+All relationships are defined in conditional probabilities, excluding exogenous variables.
+
+Structural Causal Models (SCM) are a nonparametric modification of structural equations models.
+Structural equations models (SEM) are parametric causal models which are very popular in fields like economics, psychology and sociology.
+Here we differentiate between these two models because I focus on SCMs rather than SEMs.
+While both have a similar basis, they are some differences that I will further addressed in this essay.
+One should point out that there is a lot of controversy around SEMs because many scholars challenge the value of these parameters.
+As pointed out by Pearl (2012), SEMs have been deemed useless because these parametric specifications are never correct.
+The central idea of a SCM is to provide a model specifying an underlying causal process, without getting caught up in redundant parameter specifications that are never reflective of the true data generating process regardless of specification. 
+Henceforth SCMs can be seen as heuristic versions of a SEM.
+SCMs use assignment equations to specify an underlying data-generation-process, or in short DGP.^[There is a lot of confusion around equations and what exactly they imply. Here we call them assignment equations rather than just equations to ensure that there is no misconception. I want to clarify that I mean equations as used in a computer science rather than an equation in mathematics.]
+
+
+Beyond the school of thought, there is also a hierarchy of causation which Pearl introduced in 2009.
+This hierarchy 
+
+
+Another important factor in causal research is the understanding of time. 
+Causal models mostly disregard concise notions of time and make the strong assumption that relationships between variables hold beyond the confinement of time.
+Nevertheless, some research has also looked at causal models with a more concrete specification of time, treating time more like one would in a physical mechanism in hard sciences. 
+In these specifications, we can use differential equations rather than assignment equations. 
+
+
+Understanding statistical models beyond black-box specifications sparked the wave of interpretable machine learning.
+One stream of research in interpretable machine learning is causal modelling. 
+This paper addresses the linkage between standard machine learning approaches and causal machine learning. 
+
+Existing literature has provided an excellent introduction to structural causal models and bayesian causal networks. 
+Judea Pearl (2009) provided a comprehensive and accessible introduction into this topic with his book on causality.
+Peters et al. (2017) added some elements, paying a lot of attention to the similarities and differences between causal modelling and physical sciences. 
+
+This paper brings together these contributions and attempts to provide a comprehensive summary of structural causal models.
+The insights in this paper are an abstraction of these pieces of work, offering the reading a basic understanding of the topic for future research and an overview of the current research.
+
+The subsequent section examines central assumptions in causal modelling. 
+The second section looks at the difference SCMs and BCNs.
+The section thereafter studies the hierachy of causation, looking at the different queries in the SCM and the BCN.
+
+# References

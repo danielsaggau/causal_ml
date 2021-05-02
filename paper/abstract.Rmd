@@ -6,7 +6,6 @@ author:
 date: "April 2021"
 output: 
   pdf_document: 
-
     number_sections: yes
     fig_caption: yes
 citation_package: --biblatex
