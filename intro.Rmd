@@ -29,7 +29,31 @@ Causal modelling has become a pivotal tool for interpretable modelling.
 There are different schools of thought on how to optimally model causal relationships.
 Structural Causal Models and Bayesian Causal Networks are two prominent causal models.
 Bayesian Causal Networks cast a model based on conditional probabilities.
+
 All relationships are defined in conditional probabilities, excluding exogenous variables.
+In Figure 1 we can see that an example of what a probabilistic model looks like.
+All variables in our graph are observable variables. 
+We do not specify an exogenous variables.
+
+```{tikz, notwell,  fig.cap ="Probabilistic Model",  fig.align="center", echo =F, fig.show="hold", out.width="50%" }
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\begin{tikzpicture}[
+    sharp corners=2pt,
+    inner sep=7pt,
+    node distance=3cm,
+    >=latex]
+\tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
+\node[my node] (A){A};
+\node[my node,right =1 cm of A](C){C};
+\node[my node] at ($(A)!0.5!(C)-(0pt,1.5cm)$) (T) {T};
+\draw[->] (A) -- (T);
+\draw[->] (A) -- (C);
+\draw[->] (T) -- (C);
+\end{tikzpicture}
+```
+
 
 Structural Causal Models (SCM) are a nonparametric modification of structural equations models.
 Structural equations models (SEM) are parametric causal models which are very popular in fields like economics, psychology and sociology.
@@ -41,6 +65,35 @@ The central idea of a SCM is to provide a model specifying an underlying causal 
 Henceforth SCMs can be seen as heuristic versions of a SEM.
 SCMs use assignment equations to specify an underlying data-generation-process, or in short DGP.^[There is a lot of confusion around equations and what exactly they imply. Here we call them assignment equations rather than just equations to ensure that there is no misconception. I want to clarify that I mean equations as used in a computer science rather than an equation in mathematics.]
 
+
+```{tikz,fig.cap="Structural Causal Model" ,fig.align="center", echo =F}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+  \begin{tikzpicture}[
+    sharp corners=2pt,
+    inner sep=6pt,
+    node distance=2cm,
+    >=latex]
+\tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
+\tikzstyle{latent}=[draw, shape = rectangle, minimum height=1cm,minimum width=1cm]
+\node[my node, fill=gray!30] (A){A};
+\node[latent,left of=A](UA){$U_A$};
+\node[my node, fill=gray!30] at ($(A)!0.5!(A)-(0pt,1.5cm)$) (T) {T};
+\node[my node,right = 1 cm of T, fill=gray!30](C){C};
+\node[latent,left = 1cm of T](UT){$U_T$};
+\node[latent,right = 1cm of A](UC){$U_C$};
+\draw[->] (A) -- (T);
+\draw[->] (UA) -- (A);
+\draw[->] (UT) -- (T);
+\draw[->] (UC) -- (C);
+\draw[->] (A) -- (C);
+\draw[->] (T) -- (C);
+\end{tikzpicture}
+```
 
 Beyond the school of thought, there is also a hierarchy of causation which Pearl introduced in 2009.
 This hierarchy 
@@ -63,6 +116,7 @@ Peters et al. (2017) added some elements, paying a lot of attention to the simil
 This paper brings together these contributions and attempts to provide a comprehensive summary of structural causal models.
 The insights in this paper are an abstraction of these pieces of work, offering the reading a basic understanding of the topic for future research and an overview of the current research.
 
+The rest of the paper is structured as follows: 
 The subsequent section examines central assumptions in causal modelling. 
 The second section looks at the difference SCMs and BCNs.
 The section thereafter studies the hierachy of causation, looking at the different queries in the SCM and the BCN.
