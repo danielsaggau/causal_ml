@@ -65,7 +65,6 @@ The central idea of a SCM is to provide a model specifying an underlying causal 
 Henceforth SCMs can be seen as heuristic versions of a SEM.
 SCMs use assignment equations to specify an underlying data-generation-process, or in short DGP.^[There is a lot of confusion around equations and what exactly they imply. Here we call them assignment equations rather than just equations to ensure that there is no misconception. I want to clarify that I mean equations as used in a computer science rather than an equation in mathematics.]
 
-
 ```{tikz,fig.cap="Structural Causal Model" ,fig.align="center", echo =F}
 \usetikzlibrary{calc}
 \usetikzlibrary{positioning}
@@ -95,18 +94,20 @@ SCMs use assignment equations to specify an underlying data-generation-process, 
 \end{tikzpicture}
 ```
 
+In figure 2 we can see a structural causal model. 
+The square nodes represent the latent variables
+The circle nodes represent the observed variables.
+The arrows are our structural equations and depict the relationship between two variables.
+We can immediately differentiate probabilistic and structural equation models by looking for latent variables in our directed acyclic graph.
+^[Note that there are also cyclic structural causal models but no cyclic bayesian causal networks. For further information see Pearl (2009). Due to the confined scope of this paper, I will not explore cyclic structures.]
+
 Beyond the school of thought, there is also a hierarchy of causation which Pearl introduced in 2009.
 
-\footnotesize
- |Method          | Action |  Example | ML Method | 
-|---------------------|-------------|-------------------------|-------------------|
-| Prediction $P(a|b)$               | Co-occurrence             | What happened...               | Supervised/Unsupervised  
-| Intervention $P(a|do(b),c)$       | Do-manipulation           | What happens if ...            | Reinforcement Learning      
-| Counterfactual $P(a_b|a`,b`)$     | Hypotheticals   | What would have happened if... | Reinforcement Learning/Interpretable ML             
 
-Table: Pearls Hierachy of Causation (2009)
-
-\normalsize
+Note that there are further applications of these different queries, but they are applied to assosciational learning. 
+One example is the application of counterfactuals for deep unsupervised learning. 
+Qin et. al (2019) use counterfactuals for story generation.
+While they employ counterfactuals for their loss function, technically they still learn associational structures namely word embeddings.
 
 This hierarchy examines different queries, their actions and the respective hierachical rank.
 The first query is prediction where we examine based on observations.
@@ -144,7 +145,6 @@ Another important factor in causal research is the understanding of time.
 Causal models mostly disregard concise notions of time and make the strong assumption that relationships between variables hold beyond the confinement of time.
 Nevertheless, some research has also looked at causal models with a more concrete specification of time, treating time more like one would in a physical mechanism in hard sciences. 
 In these specifications, we can use differential equations rather than assignment equations. 
-
 
 Understanding statistical models beyond black-box specifications sparked the wave of interpretable machine learning.
 One stream of research in interpretable machine learning is causal modelling. 

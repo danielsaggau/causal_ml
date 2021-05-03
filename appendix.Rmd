@@ -1,0 +1,18 @@
+---
+title: "appendix"
+author: "Daniel Saggau"
+date: "5/3/2021"
+output: pdf_document
+---
+
+
+
+\footnotesize
+ |Method          | Action |  Example | ML Method | 
+|---------------------|-------------|-------------------------|-------------------|
+| Prediction $P(a|b)$               | Co-occurrence             | What happened...               | Supervised/Unsupervised  
+| Intervention $P(a|do(b),c)$       | Do-manipulation           | What happens if ...            | Reinforcement Learning      
+| Counterfactual $P(a_b|a`,b`)$     | Hypotheticals   | What would have happened if... | Reinforcement Learning / Interpretable ML             
+
+Table: Pearls Hierachy of Causation (2009)
+\normalsize
