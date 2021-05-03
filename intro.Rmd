@@ -13,7 +13,6 @@ linestretch: 1.5
 citation_package: --biblatex
 bibliography: [ref.bib]
 nocite: '@*'
-abstract: The interest in understanding relationships of variables beyond co-occurrence has increased the popularity of causal modelling.  To provide a comprehensive understanding of causal modelling, I introduce two prominent causal model specifications namely (1) Bayesian Causal Networks (BCN) and (2) Structural Causal Models (SCM), focusing on the latter. Probabilistic specifications such as a BCN cast a model based on conditional probabilities. SCMs cast a model based on assignment functions and extend probabilistic models by specifying the data generating process rather than solely utilizing conditional probabilities. Another difference between these models is their ability to address different queries such as *predictions*, *interventions* and *counterfactuals*. These queries are part of Pearl's causal hierarchy (2009).Pearl matches these queries with their respective actions namely *observing*, *doing* and *imagining*. I compare the feasibility of addressing these queries and undertaking respective actions for both specifications. To contextualize SCMs within the field of causality, I also discuss the role of time in causal inference and provide a brief overview of the history of causal modelling. This paper uses various directed acyclic graphs to highlight the differences in these modelling approaches. The insights of this paper can be used as a baseline for subsequent research on structural causal models.
 ---
 
 ```{r setup, include=FALSE}
@@ -27,10 +26,15 @@ While correlation implies co-occurrence, people are frequently interesting a cau
 One may argue that especially in high stake settings, algorithmic decision making based on co-occurrence is insufficient.
 Causal modelling has become a pivotal tool for interpretable modelling.
 There are different schools of thought on how to optimally model causal relationships.
+While various fields have tried to provide parametric causal models, there are various challenges.
+One example is the consistency of causal models based on observational data.
+The consistency of observational data is more often than not violated, making the correct parametric estimation challenging. 
+Henceforth, models with non-parametric specification are gaining prominence within scholarshop.
 Structural Causal Models and Bayesian Causal Networks are two prominent causal models.
 Bayesian Causal Networks cast a model based on conditional probabilities.
-
 All relationships are defined in conditional probabilities, excluding exogenous variables.
+Because we ignore the interventional distribution, we cannot create counterfactuals based on bayesian causal networks. 
+
 ```{tikz, notwell,  fig.cap ="Probabilistic Model",  fig.align="center", echo =F, fig.show="hold", out.width="50%" }
 \usetikzlibrary{calc}
 \usetikzlibrary{positioning}
@@ -49,19 +53,25 @@ All relationships are defined in conditional probabilities, excluding exogenous 
 \draw[->] (T) -- (C);
 \end{tikzpicture}
 ```
+
 In Figure 1 we can see that an example of what a probabilistic model looks like.
 All variables in our graph are observable variables. 
 We do not specify an exogenous variables.
 
-Structural Causal Models (SCM) are a nonparametric modification of structural equations models.
+Compared to the BCN, the SCM specifies the intervention distribution for data outside of our observations and also specifies relationships based on equations.
+Structural Causal Models (SCM) are a nonparametric modification of structural equations models with some extensions.
 Structural equations models (SEM) are parametric causal models which are very popular in fields like economics, psychology and sociology.
-Here we differentiate between these two models because I focus on SCMs rather than SEMs.
-While both have a similar basis, they are some differences that I will further addressed in this essay.
 One should point out that there is a lot of controversy around SEMs because many scholars challenge the value of these parameters.
 As pointed out by Pearl (2012), SEMs have been deemed useless because these parametric specifications are never correct.
-The central idea of a SCM is to provide a model specifying an underlying causal process, without getting caught up in redundant parameter specifications that are never reflective of the true data generating process regardless of specification. 
+The central idea of a SCM is to provide a model specifying an underlying causal process, without getting caught up in redundant parameter specifications.
+The SCM combines central ideas from the potential outcome framework, the structural equation model and graphical models that have developed a langauge to test some assumptions that are not testable in the SEM.
 Henceforth SCMs can be seen as heuristic versions of a SEM.
-SCMs use assignment equations to specify an underlying data-generation-process, or in short DGP.^[There is a lot of confusion around equations and what exactly they imply. Here we call them assignment equations rather than just equations to ensure that there is no misconception. I want to clarify that I mean equations as used in a computer science rather than an equation in mathematics.]
+
+SCMs use assignment equations to specify an underlying data-generation-process, or in short DGP.
+Note that these equations have not always had a concise mathematical notation. 
+Intially there was no sign to express the assignment equation and people used the '=' and would e.g. write A=B.
+But treating an equation as a algebraic equation, an equation that is symmetric makes no sense in the causality context because it would imply that B=A.
+Henceforth, the initial = sign was replaced with thw ':=' which is asymmetric (Pearl, 2009).
 
 ```{tikz,fig.cap="Structural Causal Model" ,fig.align="center", echo =F}
 \usetikzlibrary{calc}
@@ -104,7 +114,7 @@ We can immediately differentiate probabilistic and structural equation models by
 |------------------|-------------|--------------------|-------------------|
 | Association $P(a|b)$               | Co-occurrence             | What happened...               |(Un-)Supervised ML, BN, Reg.  
 | Intervention $P(a|do(b),c)$       | Do-manipulation           | What happens if ...            |CBN,MDP,RL    
-| Counterfactual $P(a_b|a`,b`)$     | Hypotheticals   | What would have happened if...           |SCM             
+| Counterfactual $P(a_b|a`,b`)$     | Hypotheticals   | What would have happened if...           |SCM ,PO            
 
 Table: Pearls Hierachy of Causation (2009)
 
