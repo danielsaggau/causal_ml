@@ -24,16 +24,12 @@ knitr::opts_chunk$set(echo = TRUE)
 Most undergraduate students that take a class in introductory statistics have heard the phrase 'correlation does not imply causation'.
 While correlation implies co-occurrence, people are frequently interesting a causal understanding of relationships between variables.
 One may argue that especially in high stake settings, algorithmic decision making based on co-occurrence is insufficient.
-Causal modelling has become a pivotal tool for interpretable modelling.
+This paper tries to clarify structural differences between association-based models and causal models. 
 There are different schools of thought on how to optimally model causal relationships.
-While various fields have tried to provide parametric causal models, there are various challenges.
-One example is the consistency of causal models based on observational data.
-The consistency of observational data is more often than not violated, making the correct parametric estimation challenging. 
-Henceforth, models with non-parametric specification are gaining prominence within scholarshop.
 Structural Causal Models and Bayesian Causal Networks are two prominent causal models.
-Bayesian Causal Networks cast a model based on conditional probabilities.
-All relationships are defined in conditional probabilities, excluding exogenous variables.
-Because we ignore the interventional distribution, we cannot create counterfactuals based on bayesian causal networks. 
+Bayesian Causal Networks (BCN) cast a model based on conditional probabilities.
+All relationships are defined in conditional probabilities.
+BCNs ignore exogenous variables. 
 
 ```{tikz, notwell,  fig.cap ="Probabilistic Model",  fig.align="center", echo =F, fig.show="hold", out.width="50%" }
 \usetikzlibrary{calc}
@@ -58,20 +54,22 @@ In Figure 1 we can see that an example of what a probabilistic model looks like.
 All variables in our graph are observable variables. 
 We do not specify an exogenous variables.
 
-Compared to the BCN, the SCM specifies the intervention distribution for data outside of our observations and also specifies relationships based on equations.
-Structural Causal Models (SCM) are a nonparametric modification of structural equations models with some extensions.
+Compared to the BCN, the SCM specifies the intervention distribution for data outside of our observations and specifies relationships based on equations.
+Structural Causal Models (SCM) are a nonparametric modification of structural equations models with some extensions such as graphical methods and the implementation of features from the potential outcome framework.
 Structural equations models (SEM) are parametric causal models which are very popular in fields like economics, psychology and sociology.
 One should point out that there is a lot of controversy around SEMs because many scholars challenge the value of these parameters.
 As pointed out by Pearl (2012), SEMs have been deemed useless because these parametric specifications are never correct.
 The central idea of a SCM is to provide a model specifying an underlying causal process, without getting caught up in redundant parameter specifications.
+To accommodate the lack of data on exogenous variables, the field of causal inference introduced tools to combine various different sources of knowledge such as theoretical knowledge.
 The SCM combines central ideas from the potential outcome framework, the structural equation model and graphical models that have developed a langauge to test some assumptions that are not testable in the SEM.
 Henceforth SCMs can be seen as heuristic versions of a SEM.
-
 SCMs use assignment equations to specify an underlying data-generation-process, or in short DGP.
-Note that these equations have not always had a concise mathematical notation. 
-Intially there was no sign to express the assignment equation and people used the '=' and would e.g. write A=B.
-But treating an equation as a algebraic equation, an equation that is symmetric makes no sense in the causality context because it would imply that B=A.
-Henceforth, the initial = sign was replaced with thw ':=' which is asymmetric (Pearl, 2009).
+Note that these equations have not always had a concise mathematical notation (Pearl, 2009).
+Initially there was no sign to express the assignment equation and people used the '=' and one would e.g. write A=B.
+But treating an equation as a algebraic equation, an equation that is symmetric, makes no sense in the causality context.
+This would imply that B=A because the order has no concrete meaning in algebraic equations.
+Henceforth, the initial = sign was replaced with the ':=' which is asymmetric (Pearl, 2009).
+This misconception has caused a lot of challenges which I will adddress further on in this paper. 
 
 ```{tikz,fig.cap="Structural Causal Model" ,fig.align="center", echo =F}
 \usetikzlibrary{calc}
@@ -102,12 +100,20 @@ Henceforth, the initial = sign was replaced with thw ':=' which is asymmetric (P
 \end{tikzpicture}
 ```
 
-In figure 2 we can see a structural causal model. 
+In figure 2 we can see a vanilla-structural causal model. 
 The square nodes represent the latent variables
 The circle nodes represent the observed variables.
 The arrows are our structural equations and depict the relationship between two variables.
 We can immediately differentiate probabilistic and structural equation models by looking for latent variables in our directed acyclic graph.
 ^[Note that there are also cyclic structural causal models but no cyclic bayesian causal networks. For further information see Pearl (2009). Due to the confined scope of this paper, I will not explore cyclic structures.]
+
+Beyond the school of thought, there is also a hierarchy of causation which Pearl introduced in 2009.
+Pearl focuses on three layers namely association, intervention and counterfactuals. 
+A higher level implies a deeper more detailed knowledge of the relationship between your variables.
+This hierarchy examines different queries, their actions and the respective hierachical rank.
+The first query is prediction where we examine based on observations.
+We can see that vanilla-machine learning methods, bayesian networks and classical regression are at the lowest level in the causal hierarchy.
+
 
 \footnotesize
  |Method          | Action |  Example | Usage | 
@@ -119,13 +125,6 @@ We can immediately differentiate probabilistic and structural equation models by
 Table: Pearls Hierachy of Causation (2009)
 
 \normalsize
-
-Beyond the school of thought, there is also a hierarchy of causation which Pearl introduced in 2009.
-Pearl focuses on three layers namely association, intervention and counterfactuals. 
-A higher level implies a deeper more detailed knowledge of the relationship between your variables.
-This hierarchy examines different queries, their actions and the respective hierachical rank.
-The first query is prediction where we examine based on observations.
-We can see that vanilla-machine learning methods, bayesian networks and classical regression are at the lowest level in the causal hierarchy.
 The second query is interventions, where we can use Pearls (2009) do-calculus to examine what happens if certain conditions holds.
 Note that there are various different types of intervention, such as atomic intervention, where we set a variable to a constant, or e.g. policy intervention where we specify a different function for this specific variable.
 Causal bayesian networks, markov decision processes and reinforcement learning frequent these intervention methods for e.g. policy estimation.
