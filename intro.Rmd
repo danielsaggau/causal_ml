@@ -31,10 +31,6 @@ Structural Causal Models and Bayesian Causal Networks are two prominent causal m
 Bayesian Causal Networks cast a model based on conditional probabilities.
 
 All relationships are defined in conditional probabilities, excluding exogenous variables.
-In Figure 1 we can see that an example of what a probabilistic model looks like.
-All variables in our graph are observable variables. 
-We do not specify an exogenous variables.
-
 ```{tikz, notwell,  fig.cap ="Probabilistic Model",  fig.align="center", echo =F, fig.show="hold", out.width="50%" }
 \usetikzlibrary{calc}
 \usetikzlibrary{positioning}
@@ -53,7 +49,9 @@ We do not specify an exogenous variables.
 \draw[->] (T) -- (C);
 \end{tikzpicture}
 ```
-
+In Figure 1 we can see that an example of what a probabilistic model looks like.
+All variables in our graph are observable variables. 
+We do not specify an exogenous variables.
 
 Structural Causal Models (SCM) are a nonparametric modification of structural equations models.
 Structural equations models (SEM) are parametric causal models which are very popular in fields like economics, psychology and sociology.
@@ -101,18 +99,26 @@ The arrows are our structural equations and depict the relationship between two 
 We can immediately differentiate probabilistic and structural equation models by looking for latent variables in our directed acyclic graph.
 ^[Note that there are also cyclic structural causal models but no cyclic bayesian causal networks. For further information see Pearl (2009). Due to the confined scope of this paper, I will not explore cyclic structures.]
 
+\footnotesize
+ |Method          | Action |  Example | Usage | 
+|------------------|-------------|--------------------|-------------------|
+| Association $P(a|b)$               | Co-occurrence             | What happened...               |(Un-)Supervised ML, BN, Reg.  
+| Intervention $P(a|do(b),c)$       | Do-manipulation           | What happens if ...            |CBN,MDP,RL    
+| Counterfactual $P(a_b|a`,b`)$     | Hypotheticals   | What would have happened if...           |SCM             
+
+Table: Pearls Hierachy of Causation (2009)
+
+\normalsize
+
 Beyond the school of thought, there is also a hierarchy of causation which Pearl introduced in 2009.
-
-
-Note that there are further applications of these different queries, but they are applied to assosciational learning. 
-One example is the application of counterfactuals for deep unsupervised learning. 
-Qin et. al (2019) use counterfactuals for story generation.
-While they employ counterfactuals for their loss function, technically they still learn associational structures namely word embeddings.
-
+Pearl focuses on three layers namely association, intervention and counterfactuals. 
+A higher level implies a deeper more detailed knowledge of the relationship between your variables.
 This hierarchy examines different queries, their actions and the respective hierachical rank.
 The first query is prediction where we examine based on observations.
+We can see that vanilla-machine learning methods, bayesian networks and classical regression are at the lowest level in the causal hierarchy.
 The second query is interventions, where we can use Pearls (2009) do-calculus to examine what happens if certain conditions holds.
 Note that there are various different types of intervention, such as atomic intervention, where we set a variable to a constant, or e.g. policy intervention where we specify a different function for this specific variable.
+Causal bayesian networks, markov decision processes and reinforcement learning frequent these intervention methods for e.g. policy estimation.
 
 ```{tikz,fig.cap="Policy Intervention",  fig.align= "center", echo =F}
 \usetikzlibrary{calc}
