@@ -13,6 +13,8 @@ linestretch: 1.5
 citation_package: --biblatex
 bibliography: [ref.bib]
 nocite: '@*'
+abtract: The interest in understanding relationships of variables beyond co-occurrence has increased the popularity of causal modelling. To provide a comprehensive understanding of causal modelling, I introduce two prominent causal model specifications namely (1) Bayesian Causal Networks (BCN) and (2) Structural Causal Models (SCM), focusing on the latter.Probabilistic specifications such as a BCN cast a model based on conditional probabilities. SCMs cast a model based on assignment functions and extend probabilistic models by specifying the data generating process rather than solely utilizing conditional probabilities. Another difference between these models is their ability to address different queries such as *predictions*, *interventions* and *counterfactuals*. These queries are part of Pearl's causal hierarchy (2009). Pearl matches these queries with their respective actions namely *observing*, *doing* and *imagining*. I compare the feasibility of addressing these queries and undertaking respective actions for both specifications. To contextualize SCMs within the field of causality, I also discuss the role of time in causal inference and provide a brief overview of the history of causal modelling. This paper uses various directed acyclic graphs to highlight the differences in these modelling approaches. The insights of this paper can be used as a baseline for subsequent research on structural causal models.
+
 ---
 
 ```{r setup, include=FALSE}
@@ -157,5 +159,51 @@ The upcoming section studies the hierarchy of causation, looking at the differen
 The third section provides further reference to the intersection of machine learning and structural causal models. 
 The fourth section studies historical differences and similarities between SCMs and causal models (SEM,PO) that emerged in the social sciences. 
 The fifth section examines the relationship of physical sciences and SCMs, addressing the issue of time and modelling based on differential equations.
+
+# The Causal Hierachy Compared
+
+
+ |Method         | CBN |  SCM
+|----------------|---------------------------|------------------------|
+| Prediction     | $\boldsymbol{\cdot}$ Unstable                                                                                        | $\boldsymbol{\cdot}$ Stable                 
+|                | $\boldsymbol{\cdot}$ Volatile to parameter changes                                                                   | $\boldsymbol{\cdot}$ More Natural Specification 
+|                | $\boldsymbol{\cdot}$ Re-Estimate entire model                                                                        | $\boldsymbol{\cdot}$ Only estimate $\Delta$ CM
+|                |                                                                                                                      | 
+| Intervention   | $\boldsymbol{\cdot}$ Costly for Non-Markovian Models                                                                 | $\boldsymbol{\cdot}$ Pot. Cyclic Representation
+|                | $\boldsymbol{\cdot}$ Unstable(Nature CP)                                                                             | $\boldsymbol{\cdot}$ Stable(Nature Eq.)
+|                | $\boldsymbol{\cdot}$ Only generic estimates($\Delta$ CP)                                                             | $\boldsymbol{\cdot}$ Context specific(Invariance of Eq.)
+|                |                                                                                                                      | 
+|Counterfactuals | $\boldsymbol{\cdot}$ **Impossible**                                                                                  | $\boldsymbol{\cdot}$ Possible
+|                | $\boldsymbol{\cdot}$ no information on latent factors($\epsilon$)                                                    | $\boldsymbol{\cdot}$ Inclusion of latent factors
+
+
+**Counterfactuals**
+
+Process is described as follows:
+
+(a) Abduction: Cast probability $P(u)$ as conditional probability $P(u|\epsilon)$ 
+(b) Action: Exchange $(X = x)$ 
+(c) Prediction: Compute $(Y = y)$
+
+# Causal Modelling and Machine Learning 
+
+
+
+# Causal Models and Social Sciences
+
+Judea Pearl argues that path analysis, a method proposed by Sewall Wright in the 1920s is the foundation of modern structural causal models.
+Sewall Wright, a Statistican and Geneticist, sparked the interest in causal modelling with his path analysis which subsequently was adopted by various other disciplines such as econometrics, psychometrics and sociology.
+This path analysis is a structural equation model with one variable per indicator.
+
+Thereafter the Norwegian Economist Trygve Haavelmo (1944) provided a modelling framework for the field of economics in is paper 'The Probability Approach in Econometrics.'
+One could argue that this paper provided a new of level of sophistication to the discipline of Econometrics as a distinct field. 
+Haavelmo was awarded the Nobel Memorial Prize in Economic Science in 1989 for his work on this issue. 
+His work focused on 
+
+# Causal Models and Physical Sciences
+
+
+# Conclusion
+
 
 # References
