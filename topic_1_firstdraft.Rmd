@@ -155,12 +155,24 @@ This paper brings together these contributions.
 The objective of this paper is to provide a comprehensive summary of structural causal models and respective applications in social sciences, physical sciences and machine learning.
 The insights in this paper are an abstraction of these pieces of work, offering the reading a basic understanding of the topic for future research and an overview of the current research.
 The rest of the paper is structured as follows: 
-The upcoming section studies the hierarchy of causation, looking at the different queries in the SCM and the BCN and what implications the functional/conditional probability specification carry.
-The third section provides further reference to the intersection of machine learning and structural causal models. 
-The fourth section studies historical differences and similarities between SCMs and causal models (SEM,PO) that emerged in the social sciences. 
-The fifth section examines the relationship of physical sciences and SCMs, addressing the issue of time and modelling based on differential equations.
 
-# The Causal Hierachy Compared
+
+
+# Foundations of Structural Causal Models 
+
+Judea Pearl argues that path analysis, a method proposed by Sewall Wright in the 1920s is the foundation of modern structural causal models.
+Sewall Wright, a Statistican and Geneticist, sparked the interest in causal modelling with his path analysis which subsequently was adopted by various other disciplines such as econometrics, psychometrics and sociology.
+This path analysis is a structural equation model with one variable per indicator.
+
+Thereafter the Norwegian Economist Trygve Haavelmo (1944) provided a modelling framework for the field of economics in is paper 'The Probability Approach in Econometrics.'
+One could argue that this paper provided a new of level of sophistication to the discipline of Econometrics as a distinct field. 
+Haavelmo was awarded the Nobel Memorial Prize in Economic Science in 1989 for his work on this issue. 
+
+## Assumptions 
+
+Independence 
+
+## Pearl Causal Hierachy 
 
 
  |Method         | CBN |  SCM
@@ -185,23 +197,9 @@ Process is described as follows:
 (b) Action: Exchange $(X = x)$ 
 (c) Prediction: Compute $(Y = y)$
 
-# Causal Modelling and Machine Learning 
+## Causal Inference and Time 
 
-
-
-# Causal Models and Social Sciences
-
-Judea Pearl argues that path analysis, a method proposed by Sewall Wright in the 1920s is the foundation of modern structural causal models.
-Sewall Wright, a Statistican and Geneticist, sparked the interest in causal modelling with his path analysis which subsequently was adopted by various other disciplines such as econometrics, psychometrics and sociology.
-This path analysis is a structural equation model with one variable per indicator.
-
-Thereafter the Norwegian Economist Trygve Haavelmo (1944) provided a modelling framework for the field of economics in is paper 'The Probability Approach in Econometrics.'
-One could argue that this paper provided a new of level of sophistication to the discipline of Econometrics as a distinct field. 
-Haavelmo was awarded the Nobel Memorial Prize in Economic Science in 1989 for his work on this issue. 
-His work focused on 
-
-# Causal Models and Physical Sciences
-
+## Graphical Models 
 
 # Conclusion
 
