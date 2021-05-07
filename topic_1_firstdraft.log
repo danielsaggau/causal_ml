@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.4.12)  7 MAY 2021 12:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.1)  7 MAY 2021 17:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -142,7 +142,27 @@ Package: inputenc 2020/08/01 v1.3d Input encoding file
 \inpenc@posthook=\toks21
 ) (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
-) (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
+) (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/parskip/parskip.sty
+Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
+
+(/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.s
+ty
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
+(/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks22
+)
+(/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+)
+(/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/generic/kvsetkeys/kvsetkeys
+.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+))
+(/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count199
+)) (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cf
@@ -168,9 +188,6 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2021-02-27 v7.00k Hypertext links for LaTeX
 
-(/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
-)
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcm
 ds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
@@ -183,13 +200,6 @@ Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-) (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks22
-)
-(/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/generic/kvsetkeys/kvsetkeys
-.sty
-Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 )
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefi
 nekeys.sty
@@ -207,13 +217,9 @@ Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 ) (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
-(/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.s
-ty
-Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
-)
 \@linkdim=\dimen148
-\Hy@linkcounter=\count199
-\Hy@pagecounter=\count266
+\Hy@linkcounter=\count266
+\Hy@pagecounter=\count267
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2021-02-27 v7.00k Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -231,7 +237,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count267
+\Hy@SavedSpaceFactor=\count268
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2021-02-27 v7.00k Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -245,7 +251,7 @@ Package hyperref Info: Plain pages OFF on input line 4207.
 Package hyperref Info: Backreferencing OFF on input line 4212.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4445.
-\c@Hy@tempcnt=\count268
+\c@Hy@tempcnt=\count269
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
@@ -260,7 +266,7 @@ lc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count269
+\Fld@menulength=\count270
 \Field@Width=\dimen150
 \Fld@charsize=\dimen151
 Package hyperref Info: Hyper figures OFF on input line 6075.
@@ -278,9 +284,9 @@ Package: atbegshi-ltx 2020/08/17 v1.0a Emulation of the original atbegshi packa
 ge
 with kernel methods
 )
-\Hy@abspage=\count270
-\c@Item=\count271
-\c@Hfootnote=\count272
+\Hy@abspage=\count271
+\c@Item=\count272
+\c@Hfootnote=\count273
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
@@ -292,8 +298,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
 e
 with kernel methods
 )
-\Fld@listcount=\count273
-\c@bookmark@seq@number=\count274
+\Fld@listcount=\count274
+\c@bookmark@seq@number=\count275
 
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunf
 ilecheck.sty
@@ -313,9 +319,9 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count275
-\Gm@cntv=\count276
-\c@Gm@tempcnt=\count277
+\Gm@cnth=\count276
+\Gm@cntv=\count277
+\c@Gm@tempcnt=\count278
 \Gm@bindingoffset=\dimen152
 \Gm@wd@mp=\dimen153
 \Gm@odd@mp=\dimen154
@@ -331,16 +337,16 @@ Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
 \LTright=\skip54
 \LTpre=\skip55
 \LTpost=\skip56
-\LTchunksize=\count278
+\LTchunksize=\count279
 \LTcapwidth=\dimen160
 \LT@head=\box49
 \LT@firsthead=\box50
 \LT@foot=\box51
 \LT@lastfoot=\box52
-\LT@cols=\count279
-\LT@rows=\count280
-\c@LT@tables=\count281
-\c@LT@chunks=\count282
+\LT@cols=\count280
+\LT@rows=\count281
+\c@LT@tables=\count282
+\c@LT@chunks=\count283
 \LT@p@ftn=\toks24
 )
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
@@ -355,12 +361,12 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen168
 \cmidrulekern=\dimen169
 \defaultaddspace=\dimen170
-\@cmidla=\count283
-\@cmidlb=\count284
+\@cmidla=\count284
+\@cmidlb=\count285
 \@aboverulesep=\dimen171
 \@belowrulesep=\dimen172
-\@thisruleclass=\count285
-\@lastruleclass=\count286
+\@thisruleclass=\count286
+\@lastruleclass=\count287
 \@thisrulewidth=\dimen173
 ) (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/tools/array.sty
 Package: array 2020/10/01 v2.5c Tabular extension package (FMi)
@@ -373,20 +379,16 @@ Package: array 2020/10/01 v2.5c Tabular extension package (FMi)
 \ar@cellbox=\box54
 ) (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count287
-\calc@Bcount=\count288
+\calc@Acount=\count288
+\calc@Bcount=\count289
 \calc@Adimen=\dimen176
 \calc@Bdimen=\dimen177
 \calc@Askip=\skip59
 \calc@Bskip=\skip60
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count289
+\calc@Ccount=\count290
 \calc@Cskip=\skip61
-)
-(/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count290
 )
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/mdwtools/footnote.sty
 Package: footnote 1997/01/28 1.13 Save footnotes around boxes
@@ -593,18 +595,18 @@ Overfull \hbox (4.33514pt too wide) in alignment at lines 213--221
  []
 
 [2 <./topic_1_firstdraft_files/figure-latex/unnamed-chunk-1-1.pdf>] [3] [4] [5]
-(./topic_1_firstdraft.aux)
+[6] (./topic_1_firstdraft.aux)
 Package rerunfilecheck Info: File `topic_1_firstdraft.out' has not changed.
 (rerunfilecheck)             Checksum: D3BBE7662995F5D7A2A214458979C17B;1151.
  ) 
 Here is how much of TeX's memory you used:
- 10689 strings out of 480954
- 155411 string characters out of 5906449
- 459653 words of memory out of 5000000
- 27665 multiletter control sequences out of 15000+600000
+ 10718 strings out of 480954
+ 155977 string characters out of 5906106
+ 461430 words of memory out of 5000000
+ 27691 multiletter control sequences out of 15000+600000
  483859 words of font info for 88 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 71i,12n,74p,337b,412s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,12n,74p,523b,431s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}
 {/Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.en
 c}{/Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.
@@ -628,10 +630,10 @@ public/lm/lmsy10.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type
 1/public/lm/lmsy7.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/typ
 e1/public/lm/lmsy8.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/ty
 pe1/public/lm/lmtt12.pfb>
-Output written on topic_1_firstdraft.pdf (5 pages, 319889 bytes).
+Output written on topic_1_firstdraft.pdf (6 pages, 322853 bytes).
 PDF statistics:
- 208 PDF objects out of 1000 (max. 8388607)
- 172 compressed objects within 2 object streams
- 41 named destinations out of 1000 (max. 500000)
+ 214 PDF objects out of 1000 (max. 8388607)
+ 177 compressed objects within 2 object streams
+ 43 named destinations out of 1000 (max. 500000)
  75 words of extra memory for PDF output out of 10000 (max. 10000000)
 

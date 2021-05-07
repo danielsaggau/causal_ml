@@ -164,13 +164,40 @@ Judea Pearl argues that path analysis, a method proposed by Sewall Wright in the
 Sewall Wright, a Statistican and Geneticist, sparked the interest in causal modelling with his path analysis which subsequently was adopted by various other disciplines such as econometrics, psychometrics and sociology.
 This path analysis is a structural equation model with one variable per indicator.
 
+Aside from path diagrams also introduced graph rules for writing down relationships.
+
 Thereafter the Norwegian Economist Trygve Haavelmo (1944) provided a modelling framework for the field of economics in is paper 'The Probability Approach in Econometrics.'
 One could argue that this paper provided a new of level of sophistication to the discipline of Econometrics as a distinct field. 
 Haavelmo was awarded the Nobel Memorial Prize in Economic Science in 1989 for his work on this issue. 
 
+Causal assumptions are encoded in missing links. 
+
 ## Assumptions 
 
-Independence 
+Causal assumptions differentiate causal models from association learning methods.
+
+ | Association-based Concepts |  Causal Concepts
+|--------------------------|------------------------|
+| Correlation              | Randomization  
+| Regression               | Confounding
+| Conditional Independence | Disturbance
+| Likelihood               | Error Terms      
+| Odds Ratio               | Structural Coefficients       
+| Propensity Score         | Spurious Correlation    
+
+Table: Concepts in Causality and Association concepts
+
+These causal concepts are not expressible based on distribution functions/statistical associations. (Pearl 2010)
+
+Disturbance in SCM: Correlated and causal factor ; responsible for variation
+Disturbance in Regression: Uncorrelated 
+
+Causal assumption not testable (e.g. $Cov(U_a, U_b)=0$).
+d-seperation to test assumptions in totality (cannot make assumptions in isolation).
+
+exploit invariant characteristics of SEM whithout committing to shape. 
+structural if function autonomous and invariant to change in form of other functions. 
+
 
 ## Pearl Causal Hierachy 
 
