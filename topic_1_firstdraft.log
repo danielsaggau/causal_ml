@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.1)  7 MAY 2021 17:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.1)  8 MAY 2021 22:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -606,7 +606,7 @@ Here is how much of TeX's memory you used:
  27691 multiletter control sequences out of 15000+600000
  483859 words of font info for 88 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 71i,12n,74p,523b,431s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,12n,74p,523b,336s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}
 {/Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.en
 c}{/Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.
@@ -630,7 +630,7 @@ public/lm/lmsy10.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type
 1/public/lm/lmsy7.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/typ
 e1/public/lm/lmsy8.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/ty
 pe1/public/lm/lmtt12.pfb>
-Output written on topic_1_firstdraft.pdf (6 pages, 322853 bytes).
+Output written on topic_1_firstdraft.pdf (6 pages, 323463 bytes).
 PDF statistics:
  214 PDF objects out of 1000 (max. 8388607)
  177 compressed objects within 2 object streams

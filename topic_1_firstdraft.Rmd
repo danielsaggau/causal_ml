@@ -230,5 +230,12 @@ Process is described as follows:
 
 # Conclusion
 
+This paper provides a gentle introduction into structural causal models.
+SCMs entail many features, complementing research on association learning by providing depth. 
+This in turn, is of particular benefit for high stake decision settings. 
+SCMs differentiate from other methods through the specification of endogenous and exogenous variables, treating the exogenous factors as pivotal components of the actual model rather than assuming they are ommitable errors that are uncorrelated. 
+As suggested by Pearls Hierachy, there are different levels to learning and each higher step can do anything the prior step can but with more detail and information. 
+Henceforth, as machin
+
 
 # References
