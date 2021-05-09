@@ -199,7 +199,8 @@ structural if function autonomous and invariant to change in form of other funct
 ### Causal Inference on Observational Data
 
 Select Admissable set based on backdoor criterion.
-Bacxkdoor criterion missing in PO framework where subset is selected based on mental reasoning.
+Backdoor criterion missing in PO framework where subset is selected based on mental reasoning.
+Conditional Ignorability is mirror of backdoor criterion in PO-Framework.
 
 
 ## Pearl Causal Hierachy 
@@ -230,6 +231,8 @@ Process is described as follows:
 ## Causal Inference and Time 
 
 ## Graphical Models 
+
+
 
 # Conclusion
 

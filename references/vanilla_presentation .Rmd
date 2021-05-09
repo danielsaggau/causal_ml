@@ -1,6 +1,6 @@
 ---
-title: "Fairness in Machine Learning WS20/21"
-subtitle: "Fostering Notions of Dynamic Fairness via Structural Causal Models"
+title: "Fairness in Machine Learning SS21"
+subtitle: "Beyond Static Fairness"
 date: "03/05/2021"
 author: "Daniel Saggau"
 output:
@@ -13,12 +13,21 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Dynamical Repercussions 
+
+- Apple card discriminating women 
+
+
+
 # Introduction 
 
 - Fairness in dynamical system has become important because equalizing true positive rate at each step does not converge as fast in systems with e.g. population dynamics 
 - Research on dynamical systems has focused on markov decision processes
 - Prior research on causal fairness has focused in static systems 
-- Recently Creager et al. (2020) proposed a structural causal model for dynamical systems 
+
+# Fairness-Gym
+
+- Environment to simulate fairness 
 
 # Why care about causal fairness models?
 
@@ -37,10 +46,79 @@ knitr::opts_chunk$set(echo = TRUE)
 
 - Fair-MDP
 - Judea Pearl:do-calculus
--
 
-# SCM vs Causal Bayesian Network (Probabilistic Model)
+# Graphical Illustration
 
+```{tikz,fig.align="center",fig.cap="Probabilistic Model", echo =F}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\begin{tikzpicture}[
+    sharp corners=2pt,
+    inner sep=7pt,
+    node distance=3cm,
+    >=latex]
+\tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
+\node[my node] (A){A};
+\node[my node,right =1 cm of A](C){C};
+\node[my node] at ($(A)!0.5!(C)-(0pt,1.5cm)$) (T) {T};
+\draw[->] (A) -- (T);
+\draw[->] (A) -- (C);
+\draw[->] (T) -- (C);
+\end{tikzpicture}
+```
+
+```{tikz,fig.cap="Structural Causal Model", fig.align="center", echo =F}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+  \begin{tikzpicture}[
+    sharp corners=2pt,
+    inner sep=6pt,
+    node distance=2cm,
+    >=latex]
+\tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
+\tikzstyle{latent}=[draw, shape = rectangle, minimum height=1cm,minimum width=1cm]
+\node[my node, fill=gray!30] (A){A};
+\node[latent,left of=A](UA){$U_A$};
+\node[my node, fill=gray!30] at ($(A)!0.5!(A)-(0pt,1.5cm)$) (T) {T};
+\node[my node,right = 1 cm of T, fill=gray!30](C){C};
+\node[latent,left = 1cm of T](UT){$U_T$};
+\node[latent,right = 1cm of A](UC){$U_C$};
+\draw[->] (A) -- (T);
+\draw[->] (UA) -- (A);
+\draw[->] (UT) -- (T);
+\draw[->] (UC) -- (C);
+\draw[->] (A) -- (C);
+\draw[->] (T) -- (C);
+\end{tikzpicture}
+```
+
+# Interventions 
+
+- Atomic Intervention 
+- Policy Intervention 
+- Off-Policy Intervention (model-based; model-free)
+
+# Results Off Policy Intervention - Lambda 
+
+* Introduce trade off parameter lambda 
+* V of Pi is the overall objective, Pi is our policy and U is utility
+
+$$V_\pi =U - \lambda\delta_{EQOPP}$$
+
+# Causal Hierachy
+
+ |Method          | Action |  Example | Usage | 
+|------------------|-------------|--------------------|-------------------|
+| Association $P(a|b)$               | Co-occurrence             | What happened...               |(Un-)Supervised ML, BN, Reg.  
+| Intervention $P(a|do(b),c)$       | Do-manipulation           | What happens if ...            |CBN,MDP,RL    
+| Counterfactual $P(a_b|a`,b`)$     | Hypotheticals   | What would have happened if...           | SCM ,PO            
+
+Table: Pearls Hierachy of Causation (2009)
 
 
 # Exisiting Considerations 
@@ -48,17 +126,13 @@ knitr::opts_chunk$set(echo = TRUE)
 - Counterfactuals for Fairness in Dynamical Systems 
 - Off-policy estimation (model based (regression) or model free estimation (propensity weight))
 
-# Time and Causal Inference 
-
-- Structural causal models are abstractions of physical processes
-- 
-
 # Adding to existing Literature
 
 **Methodological:**
 
 - Cyclic Structural Causal Models with actual reinforcing loops
 - Semi-Deterministic SCMs (deterministic -> all variables are known)
+-
 
 **Application:**
 
