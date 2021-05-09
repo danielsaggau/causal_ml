@@ -156,8 +156,6 @@ The objective of this paper is to provide a comprehensive summary of structural 
 The insights in this paper are an abstraction of these pieces of work, offering the reading a basic understanding of the topic for future research and an overview of the current research.
 The rest of the paper is structured as follows: 
 
-
-
 # Foundations of Structural Causal Models 
 
 Judea Pearl argues that path analysis, a method proposed by Sewall Wright in the 1920s is the foundation of modern structural causal models.
@@ -197,6 +195,11 @@ d-seperation to test assumptions in totality (cannot make assumptions in isolati
 
 exploit invariant characteristics of SEM whithout committing to shape. 
 structural if function autonomous and invariant to change in form of other functions. 
+
+### Causal Inference on Observational Data
+
+Select Admissable set based on backdoor criterion.
+Bacxkdoor criterion missing in PO framework where subset is selected based on mental reasoning.
 
 
 ## Pearl Causal Hierachy 

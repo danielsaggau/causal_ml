@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.1)  8 MAY 2021 22:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.1)  9 MAY 2021 13:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -553,7 +553,7 @@ LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<topic_1_firstdraft_files/figure-latex/notwell-1.pdf, id=36, 90.3375pt x 73.273
+<topic_1_firstdraft_files/figure-latex/notwell-1.pdf, id=40, 90.3375pt x 73.273
 74pt>
 File: topic_1_firstdraft_files/figure-latex/notwell-1.pdf Graphic file (type pd
 f)
@@ -571,7 +571,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 {/Users/danielsaggau/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.m
 ap} <./topic_1_firstdraft_files/figure-latex/notwell-1.pdf>]
-<topic_1_firstdraft_files/figure-latex/unnamed-chunk-1-1.pdf, id=62, 143.53625p
+<topic_1_firstdraft_files/figure-latex/unnamed-chunk-1-1.pdf, id=66, 143.53625p
 t x 72.27pt>
 File: topic_1_firstdraft_files/figure-latex/unnamed-chunk-1-1.pdf Graphic file 
 (type pdf)
@@ -597,16 +597,16 @@ Overfull \hbox (4.33514pt too wide) in alignment at lines 213--221
 [2 <./topic_1_firstdraft_files/figure-latex/unnamed-chunk-1-1.pdf>] [3] [4] [5]
 [6] (./topic_1_firstdraft.aux)
 Package rerunfilecheck Info: File `topic_1_firstdraft.out' has not changed.
-(rerunfilecheck)             Checksum: D3BBE7662995F5D7A2A214458979C17B;1151.
+(rerunfilecheck)             Checksum: A7B37108713481BD382C2416BF65F3E6;1420.
  ) 
 Here is how much of TeX's memory you used:
- 10718 strings out of 480954
- 155977 string characters out of 5906106
- 461430 words of memory out of 5000000
- 27691 multiletter control sequences out of 15000+600000
+ 10722 strings out of 480954
+ 156095 string characters out of 5906106
+ 461508 words of memory out of 5000000
+ 27693 multiletter control sequences out of 15000+600000
  483859 words of font info for 88 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 71i,12n,74p,523b,336s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,12n,74p,523b,326s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}
 {/Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.en
 c}{/Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.
@@ -630,10 +630,10 @@ public/lm/lmsy10.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type
 1/public/lm/lmsy7.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/typ
 e1/public/lm/lmsy8.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/ty
 pe1/public/lm/lmtt12.pfb>
-Output written on topic_1_firstdraft.pdf (6 pages, 323463 bytes).
+Output written on topic_1_firstdraft.pdf (6 pages, 324544 bytes).
 PDF statistics:
- 214 PDF objects out of 1000 (max. 8388607)
- 177 compressed objects within 2 object streams
- 43 named destinations out of 1000 (max. 500000)
- 75 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 219 PDF objects out of 1000 (max. 8388607)
+ 182 compressed objects within 2 object streams
+ 45 named destinations out of 1000 (max. 500000)
+ 83 words of extra memory for PDF output out of 10000 (max. 10000000)
 
