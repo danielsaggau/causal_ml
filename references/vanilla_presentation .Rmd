@@ -15,13 +15,16 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Dynamical Repercussions 
 
-- Apple card discriminating women 
+- What to do once we learned a certain statistical model, we implement an action
+- Workflow: Typically we create fairness algorithms such as equal opportunity parities or demographic parities to evaluate classifiers
+- We can evaluate these methods via simulation studies
+- fairness for dynamical systems is nothing new but recently study pointed out that simulations are great tool for this setting
+- This approach models fairness as dynamical system with agents and environments 
 
 
-
-# Introduction 
 
 - Fairness in dynamical system has become important because equalizing true positive rate at each step does not converge as fast in systems with e.g. population dynamics 
+- Widdening gap between two policies 
 - Research on dynamical systems has focused on markov decision processes
 - Prior research on causal fairness has focused in static systems 
 
