@@ -1,5 +1,5 @@
 ---
-title: "scm_presentation"
+title: "A Gentle Introduction to Structural Causal Models"
 author: "Daniel Saggau"
 date: "5/11/2021"
 output: beamer_presentation
@@ -9,7 +9,16 @@ output: beamer_presentation
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# Introduction 
+# Introduction (1)
+
+- Machine learning has provided many insights into different research problems 
+- One issue is the consideration of 'What are we actually predicting'?
+- Mainstream tools are build on association-based learning 
+- Associations are not enough for high stake settings 
+- In disciplines like psychology or economics people are less interested in associational learning
+- We want causation and not correlation 
+
+# Introduction (2)
 
 Causal assumptions differentiate causal models from association learning methods.
 
@@ -22,33 +31,25 @@ Causal assumptions differentiate causal models from association learning methods
 | Odds Ratio               | Structural Coefficients       
 | Propensity Score         | Spurious Correlation    
 
-# Fundamental Differences to begin
+# History
 
-SCM: 
+* Path Analysis -> SEM -> SCM
+* 
 
+# How to build a SCM
+
+- Consists of system of equations 
+- Assignment equation ':=' rather than regular equation '=' 
 - is a nonparametric SEM 
 - has functional form rather than using probabilities
 - entails features from the PO framework and graphical representation 
-- conflict whether to use graphs or not 
+- Exogenous factors are part of the model specification
 
-* A SEM is a parametric specification used in applied sciences (parameters contested)
-* A Bayesian causal network is another popular causal model using conditional probabilities and NO functions 
-* Differences in performance between BCN and SCM
+# SCM Applications: 
 
-#
-
- |Method         | CBN |  SCM
-|----------------|---------------------------|------------------------|
-| Prediction     | $\boldsymbol{\cdot}$ Unstable                                                                                        | $\boldsymbol{\cdot}$ Stable                 
-|                | $\boldsymbol{\cdot}$ Volatile to parameter changes                                                                   | $\boldsymbol{\cdot}$ More Natural Specification 
-|                | $\boldsymbol{\cdot}$ Re-Estimate entire model                                                                        | $\boldsymbol{\cdot}$ Only estimate $\Delta$ CM
-|                |                                                                                                                      | 
-| Intervention   | $\boldsymbol{\cdot}$ Costly for Non-Markovian Models                                                                 | $\boldsymbol{\cdot}$ Pot. Cyclic Representation
-|                | $\boldsymbol{\cdot}$ Unstable(Nature CP)                                                                             | $\boldsymbol{\cdot}$ Stable(Nature Eq.)
-|                | $\boldsymbol{\cdot}$ Only generic estimates($\Delta$ CP)                                                             | $\boldsymbol{\cdot}$ Context specific(Invariance of Eq.)
-|                |                                                                                                                      | 
-|Counterfactuals | $\boldsymbol{\cdot}$ **Impossible**                                                                                  | $\boldsymbol{\cdot}$ Possible
-|                | $\boldsymbol{\cdot}$ no information on latent factors($\epsilon$)                                                    | $\boldsymbol{\cdot}$ Inclusion of latent factors
+- Flexible simulations for higher order problems (intervention, counterfactual)
+- Graphical visualization via directed acyclic graph
+-
 
 # Graphical Illustration
 
@@ -101,6 +102,38 @@ SCM:
 ```
 
 
+# Fundamental Differences (1)
+
+- conflict whether to use graphs or not 
+* A SEM is a parametric specification used in applied sciences (parameters contested)
+* A Bayesian causal network is another popular causal model using conditional probabilities and NO functions 
+* Differences in performance between BCN and SCM
+
+
+# Performance Evaluation
+
+ |Method         | CBN |  SCM
+|----------------|---------------------------|------------------------|
+| Prediction     | $\boldsymbol{\cdot}$ Unstable                                                                                        | $\boldsymbol{\cdot}$ Stable                 
+|                | $\boldsymbol{\cdot}$ Volatile to parameter changes                                                                   | $\boldsymbol{\cdot}$ More Natural Specification 
+|                | $\boldsymbol{\cdot}$ Re-Estimate entire model                                                                        | $\boldsymbol{\cdot}$ Only estimate $\Delta$ CM
+|                |                                                                                                                      | 
+| Intervention   | $\boldsymbol{\cdot}$ Costly for Non-Markovian Models                                                                 | $\boldsymbol{\cdot}$ Pot. Cyclic Representation
+|                | $\boldsymbol{\cdot}$ Unstable(Nature CP)                                                                             | $\boldsymbol{\cdot}$ Stable(Nature Eq.)
+|                | $\boldsymbol{\cdot}$ Only generic estimates($\Delta$ CP)                                                             | $\boldsymbol{\cdot}$ Context specific(Invariance of Eq.)
+|                |                                                                                                                      | 
+|Counterfactuals | $\boldsymbol{\cdot}$ **Impossible**                                                                                  | $\boldsymbol{\cdot}$ Possible
+|                | $\boldsymbol{\cdot}$ no information on latent factors($\epsilon$)                                                    | $\boldsymbol{\cdot}$ Inclusion of latent factors
+
+
+# Assumptions 
+
+**Error terms**
+
+Regression: Omittable outside factor 
+SCM/SEM; Latent influencial factor that is pivotal for the model specification but not observable 
+
+
 # Pearls Causal Hierachy 
 
 \footnotesize
@@ -113,3 +146,16 @@ SCM:
 Table: Pearls Hierachy of Causation (2009)
 
 \normalsize
+
+# Causality -In Between Physical and Social Sciences
+
+
+# Causality and Time
+
+- Time in Physical Sciences: Mechanical and exact 
+- Time in Social Sciences: Often Vague 
+- Regular Time Specification is also more vague 
+- To accomodate that issue, research on differential equation based SCMs started 
+
+
+
