@@ -6,7 +6,7 @@ author: "Daniel Saggau"
 output:
   beamer_presentation:
     theme: Madrid
-    colortheme: spruce
+    colortheme: crane
 ---
 
 ```{r setup, include=FALSE}
