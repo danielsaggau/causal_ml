@@ -127,10 +127,16 @@ Table: Pearls Hierachy of Causation (2009)
 \normalsize
 
 In table 1 we can see that machine learning (ML) methods, bayesian networks (BN) and regression models (Reg) are at the lowest level in the causal hierarchy.
-These methods depend on association alone and lack information on what happens if we make changes in our root nodes (our nodes that are not caused by other variables) and what would happen if we had a different setting. 
+These methods depend on association alone.
+Associational methods neglect information on changes in our root nodes. 
+Root nodes are nodes that are not caused by any other variable.
 The second query deals with interventions.
-Here we can use Pearls (2009) do-calculus to examine what happens if root nodes are manipulated.
-Note that there are various different types of intervention, such as atomic intervention, where we set a variable to a constant, or e.g. policy intervention where we specify a different function for a specific equation in our set of equations.
+Here we can use Pearls (2009) do-calculus.
+The do-calculus enables us to study the manipulation of parent nodes.
+ There are various types of intervention.
+One example is **atomic intervention,** where we set a variable to a constant.
+In **policy intervention** we specify a different function for an equation.
+
 Additionally there is also off-policy intervention, where we model a different intervention that is not in our historical data based on the historical data [@oberst2019counterfactual].
 Causal bayesian networks , markov decision processes (MDP) and reinforcement learning frequent these intervention methods.
 The third query is counterfactual modelling. 

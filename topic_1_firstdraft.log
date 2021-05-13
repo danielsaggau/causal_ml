@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.1)  9 MAY 2021 13:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.9)  13 MAY 2021 14:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **topic_1_firstdraft.tex
 (./topic_1_firstdraft.tex
 LaTeX2e <2020-10-01> patch level 4
-L3 programming layer <2021-02-18> (/Users/danielsaggau/Library/TinyTeX/texmf-di
+L3 programming layer <2021-05-07> (/Users/danielsaggau/Library/TinyTeX/texmf-di
 st/tex/latex/base/article.cls
 Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/base/size10.clo
@@ -417,7 +417,7 @@ Package graphics Info: Driver file: pdftex.def on input line 105.
 
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-p
 dftex.def
-File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2021-05-07 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count291
 \l__pdf_internal_box=\box56
 )
@@ -600,13 +600,13 @@ Package rerunfilecheck Info: File `topic_1_firstdraft.out' has not changed.
 (rerunfilecheck)             Checksum: A7B37108713481BD382C2416BF65F3E6;1420.
  ) 
 Here is how much of TeX's memory you used:
- 10722 strings out of 480954
- 156095 string characters out of 5906106
- 461508 words of memory out of 5000000
- 27693 multiletter control sequences out of 15000+600000
+ 10814 strings out of 480806
+ 158469 string characters out of 5903690
+ 465092 words of memory out of 5000000
+ 27933 multiletter control sequences out of 15000+600000
  483859 words of font info for 88 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 71i,12n,74p,523b,326s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,12n,63p,523b,326s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}
 {/Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.en
 c}{/Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.
@@ -630,7 +630,7 @@ public/lm/lmsy10.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type
 1/public/lm/lmsy7.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/typ
 e1/public/lm/lmsy8.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/ty
 pe1/public/lm/lmtt12.pfb>
-Output written on topic_1_firstdraft.pdf (6 pages, 324544 bytes).
+Output written on topic_1_firstdraft.pdf (6 pages, 324909 bytes).
 PDF statistics:
  219 PDF objects out of 1000 (max. 8388607)
  182 compressed objects within 2 object streams
