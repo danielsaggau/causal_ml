@@ -13,8 +13,7 @@ linestretch: 1.5
 citation_package: --biblatex
 bibliography: [ref.bib]
 nocite: '@*'
-abtract: The interest in understanding relationships of variables beyond co-occurrence has increased the popularity of causal modelling. To provide a comprehensive understanding of causal modelling, I introduce two prominent causal model specifications namely (1) Bayesian Causal Networks (BCN) and (2) Structural Causal Models (SCM), focusing on the latter.Probabilistic specifications such as a BCN cast a model based on conditional probabilities. SCMs cast a model based on assignment functions and extend probabilistic models by specifying the data generating process rather than solely utilizing conditional probabilities. Another difference between these models is their ability to address different queries such as *predictions*, *interventions* and *counterfactuals*. These queries are part of Pearl's causal hierarchy (2009). Pearl matches these queries with their respective actions namely *observing*, *doing* and *imagining*. I compare the feasibility of addressing these queries and undertaking respective actions for both specifications. To contextualize SCMs within the field of causality, I also discuss the role of time in causal inference and provide a brief overview of the history of causal modelling. This paper uses various directed acyclic graphs to highlight the differences in these modelling approaches. The insights of this paper can be used as a baseline for subsequent research on structural causal models.
-
+abtract: The interest in understanding relationships of variables beyond co-occurrence has increased the popularity of causal modelling. To provide a comprehensive understanding of causal modelling, I introduce two prominent causal model specifications namely (1) Bayesian Causal Networks (BCN) and (2) Structural Causal Models (SCM), focusing on the latter.Probabilistic specifications such as a BCN cast a model based on conditional probabilities. SCMs cast a model based on assignment functions and extend probabilistic models by specifying the data generating process rather than solely utilizing conditional probabilities. Another difference between these models is their ability to address different queries such as *predictions*, *interventions* and *counterfactuals*. These queries are part of Pearl's causal hierarchy (2009). Pearl matches these queries with their respective actions namely *observing*, *doing* and *imagining*. I compare the feasibility of addressing these queries and undertaking respective actions for both specifications. To contextualize SCMs within the field of causality, I also discuss the role of time in causality. This paper uses various directed acyclic graphs to highlight the differences in these modelling approaches. The insights of this paper can be used as a baseline for subsequent research on structural causal models.
 ---
 
 ```{r setup, include=FALSE}
@@ -173,24 +172,47 @@ I structure the rest of the paper as follows:
 
 # Foundations of Structural Causal Models 
 
+Consists of graph and assignments: 
+Baseline: 
+
+$$C:= N_c$$
+$$E:=f_E(C,N_E)$$
+
+source: Peters et al. (2017)
+
+# Brief historical introduction: 
+
 Path analysis is the foundation of modern structural causal models.
 This path analysis is a structural equation model with one variable per indicator.
 Sewall Wright, a Statistican and Geneticist, introduced the topic in the 1920s. (Pearl, 2012)
 Various other disciplines such as econometrics, psychometrics and sociology adopted path analysis.
 Aside from path diagrams also introduced graph rules to formalise relationships.
 
-(tbc.)
+(tbc. Cowles, Haavelmo,Aldrich, )
 
-## Reichenbachs common causal Principle 
-- noise independent -> called **causal suffieciency** clause. 
+# Assumptions in Causality 
 
-SCM fullfills via : 
+**Reichenbachs common causal Principle** 
+**Independence**
+
+If we specify the causal structure correctly: 
+
+(a) possible to undertake local intervention -> change f(x), regardless of f(y|x)
+(b) these components are autonmous objects -> set of autonmous equations 
+
+Further: independence of noise -> $$N_T , N_A$$
+
+Example conditional probabilities: independence conditional probabilities/distribution and mechanism (ICM)
+
+(peters et al., 2017)
+
+- noise independent -> called **causal sufficiency** clause. 
+- Algorithmic independence
+
+SCM fulfills via : 
 
 - dependecy only via vertice connection (noise)
 - condition on noise, variables become independent  
-
-## Assumptions 
-
 - Independence of mechanisms 
 - conditional independence: 
 - joint distribution 
@@ -210,7 +232,7 @@ d-seperation to test assumptions in totality (cannot make assumptions in isolati
 exploit invariant characteristics of SEM whithout committing to shape. 
 structural if function autonomous and invariant to change in form of other functions. 
 
-## Pearl Causal Hierachy 
+# Pearl Causal Hierachy 
 
  |Method         | CBN |  SCM
 |----------------|---------------------------|------------------------|
@@ -301,10 +323,6 @@ $$
 \end{array}
 $$
 Table: Source: Peters et al. (2017)
-
-
-
-
 
 # Conclusion
 

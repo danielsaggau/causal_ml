@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.12)  14 MAY 2021 22:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.12)  14 MAY 2021 23:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -588,28 +588,33 @@ Overfull \hbox (4.33514pt too wide) in alignment at lines 205--213
  [] [] [] [] 
  []
 
-[2 <./draft_files/figure-latex/unnamed-chunk-1-1.pdf>]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
-85.
+[2 <./draft_files/figure-latex/unnamed-chunk-1-1.pdf>] [3]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 3
+16.
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [3] [4]
-Overfull \hbox (8.85071pt too wide) detected at line 452
+)
+Underfull \hbox (badness 10000) in paragraph at lines 329--331
+
+ []
+
+[4] [5]
+Overfull \hbox (8.85071pt too wide) detected at line 478
 []
  []
 
-[5] [6] [7] (./draft.aux)
+[6] [7] (./draft.aux)
 Package rerunfilecheck Info: File `draft.out' has not changed.
-(rerunfilecheck)             Checksum: 357510E8F5B8CD48038651FEF4A1E3BC;1397.
+(rerunfilecheck)             Checksum: B20C4A5484BA286ACE55068911099715;1393.
  ) 
 Here is how much of TeX's memory you used:
- 10821 strings out of 480806
- 158244 string characters out of 5903689
- 464238 words of memory out of 5000000
+ 10823 strings out of 480806
+ 158238 string characters out of 5903689
+ 464224 words of memory out of 5000000
  27937 multiletter control sequences out of 15000+600000
  487205 words of font info for 90 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 60i,13n,63p,324b,441s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,13n,63p,324b,326s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}
 {/Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.en
 c}{/Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc
@@ -634,10 +639,10 @@ ublic/lm/lmsy10.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type1
 /public/lm/lmsy7.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type
 1/public/lm/lmsy8.pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/typ
 e1/public/lm/lmtt12.pfb>
-Output written on draft.pdf (7 pages, 328174 bytes).
+Output written on draft.pdf (7 pages, 330857 bytes).
 PDF statistics:
- 229 PDF objects out of 1000 (max. 8388607)
- 191 compressed objects within 2 object streams
- 46 named destinations out of 1000 (max. 500000)
+ 231 PDF objects out of 1000 (max. 8388607)
+ 193 compressed objects within 2 object streams
+ 48 named destinations out of 1000 (max. 500000)
  83 words of extra memory for PDF output out of 10000 (max. 10000000)
 
