@@ -292,7 +292,7 @@ Another issue in this paper is understanding the relationship of time and causal
 SCMs make the assumption that causal relationships hold over time[@peters_elements_2017].
 These vague definitions of time is more prevalent in social sciences. 
 Meanwhile hard sciences deal with time in a more concise manner. 
-Differential equations model time on a more mechanic manner (@mooij2013ordinary).
+Differential equations model time on a more mechanic manner [@mooij2013ordinary].
 
 $$
 \begin{array}{|l|l|l|l|l|l|}
