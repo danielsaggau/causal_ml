@@ -142,7 +142,7 @@ One example is **atomic intervention,** where we set a variable to a constant.
 In **policy intervention** we specify a different function for an equation.
 off-policy intervention models different intervention that is not in our historical data [@oberst2019counterfactual].
 
-Hypothetical interventions: 
+(tbc.) Hypothetical interventions: 
 
 Causal bayesian networks , Markov Decision Processes (MDP) and reinforcement learning model intervention.
 
@@ -168,7 +168,7 @@ They also look at causal inference for observational data.
 E.g. [@bareinboim2020pearl] worked on the application of causal methods in machine learning. 
 @tarka2018overview discuss the history of SEMs and SCMs.
 This paper combines these contributions. 
-The aim of this paper is to summarise SCMs and it's intersection with social sciences, physics, and machine learning.
+The aim of this paper is to summarise SCMs and it's intersection with social sciences and physics.
 I structure the rest of the paper as follows: 
 
 # Foundations of Structural Causal Models 
@@ -182,7 +182,6 @@ Aside from path diagrams also introduced graph rules to formalise relationships.
 (tbc.)
 
 ## Reichenbachs common causal Principle 
-
 - noise independent -> called **causal suffieciency** clause. 
 
 SCM fullfills via : 
@@ -199,17 +198,6 @@ SCM fullfills via :
 Density factorizes and their expectation 
 
 Causal assumptions differentiate causal models from association learning methods.
-
- | Association-based Concepts |  Causal Concepts
-|--------------------------|------------------------|
-| Correlation              | Randomization  
-| Regression               | Confounding
-| Conditional Independence | Disturbance
-| Likelihood               | Error Terms      
-| Odds Ratio               | Structural Coefficients       
-| Propensity Score         | Spurious Correlation    
-
-Table: Concepts in Causality and Association concepts
 
 These causal concepts are not expressible based on distribution functions/statistical associations. (Pearl 2010)
 
@@ -313,6 +301,9 @@ $$
 \end{array}
 $$
 Table: Source: Peters et al. (2017)
+
+
+
 
 
 # Conclusion

@@ -3,6 +3,19 @@
 Repo for essay on structural causal models 
 
 
+ | Association-based Concepts |  Causal Concepts
+|--------------------------|------------------------|
+| Correlation              | Randomization  
+| Regression               | Confounding
+| Conditional Independence | Disturbance
+| Likelihood               | Error Terms      
+| Odds Ratio               | Structural Coefficients       
+| Propensity Score         | Spurious Correlation    
+
+Table: Concepts in Causality and Association concepts
+
+
+
  |Method          | Action |  Example | Usage | 
 |------------------|-------------|--------------------|-------------------|
 | Association $P(a|b)$               | Co-occurrence             | What happened...               |(Un-)Supervised ML, BN, Reg.  
