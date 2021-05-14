@@ -13,6 +13,9 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
+#
+
 # Dynamical Repercussions 
 
 - What to do once we learned a certain statistical model, we implement an action
@@ -20,7 +23,6 @@ knitr::opts_chunk$set(echo = TRUE)
 - We can evaluate these methods via simulation studies
 - fairness for dynamical systems is nothing new but recently study pointed out that simulations are great tool for this setting
 - This approach models fairness as dynamical system with agents and environments 
-
 
 
 - Fairness in dynamical system has become important because equalizing true positive rate at each step does not converge as fast in systems with e.g. population dynamics 

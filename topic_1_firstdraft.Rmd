@@ -23,19 +23,18 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Introduction 
 
-Most undergraduate students that take a class in introductory statistics have heard the phrase 'correlation does not imply causation'.
-While correlation implies co-occurrence, people are frequently interested in a causal understanding of relationships between variables.
-One may argue that especially in high stake settings, algorithmic decision making based on co-occurrence is insufficient [@bareinboim2020pearl].
+Most students have heard the phrase 'correlation does not imply causation.'
+While correlation implies co-occurrence, for many problems correlation is not enough. 
+Algorithmic decision making based on co-occurrence is insufficient  in high stake settings [@bareinboim2020pearl].
+For many problems we want to understand causal relationships between variables.
 There are different approaches on how to model causal relationships.
-Structural Causal Models and Bayesian Causal Networks are arguably the two most prominent causal models.
-Bayesian Causal Networks (BCN) cast a model based on conditional probabilities.
-All relationships are defined in **conditional probabilities.**
-BCNs ignore exogenous variables [@pearl2009causality].
-In Figure 1 we can see an example of what a probabilistic model looks like in a directed acylic graph.
-Our nodes are the white circles.
+This paper focuses on Structural Causal Models and Bayesian Causal Networks.
+Bayesian Causal Networks (BCN) cast a model based on **conditional probabilities.**
+In Figure 1 we can see an example of a probabilistic model depicted  as a directed acyclic graph (DAG).
+The nodes are the white circles.
 The edges are the arrows, defined by the conditional probabilities.
-All variables in our graph are observed variables. 
 C is our **collider** variable because the affect of A on C and T on C collide [@pearl2009causality].
+
 
 ```{tikz, notwell,  fig.cap ="Probabilistic Model",  fig.align="center", echo =F, fig.show="hold", out.width="50%" }
 \usetikzlibrary{calc}
@@ -56,25 +55,30 @@ C is our **collider** variable because the affect of A on C and T on C collide [
 \end{tikzpicture}
 ```
 
-The field of causal inference introduced tools to combine various different sources of knowledge such as theoretical knowledge [@morgan_winship_2014] for more realistic models beyond the confinement of our observations.
-Structural Causal Models (SCM) specify relationships based on **functional equations** [@pearl2009causality] including unobserved variables.
-SCMs are a nonparametric modification of structural equations models (a set of functional equations) with some extensions.
-These extensions are a combination of the mathematical language from graphical models and the implementation of the potential outcome framework [@pearl2012causal].
-Structural equations models (SEM) are parametric causal models which are very popular in fields like economics, psychology and sociology (Pearl 2009).
-One should point out that there is a lot of controversy around SEMs because many scholars challenge the value of the parameters in a SEM [@pearl2012causal].
-The central idea of SCMs is to provide a model specifying an underlying data generating process, without the redundancy of creating inconsistent parameter specifications.^[Inconsistency refers to inherent nature of creating parameters based of observational data. One inherent feature of observational data is that it is seldom consistent and henceforth respective estimates are questionable.For further information see @hernan2008does] 
-SCMs use assignment equations to specify an underlying data-generation-process.
-Note that these equations have not always had a concise mathematical notation (Pearl, 2009).
-Initially there was no sign to express the assignment equation and people used the '=' and one would e.g. write $A=B$.
-But treating an equation as a **algebraic equation**, makes no sense in the causality context because this equation has no causal information.
+Causal inference introduced tools that combine combine different sources of knowledge. 
+We can e.g. include theoretical knowledge [@morgan_winship_2014] and observational knowledge with structural causal models.
+Structural Causal Models (SCM) specify relationships based on **functional equations** [@pearl2009causality].
+SCMs are non-parametric structural equations models with added features.  
+A structural equation model (SEM) is a set of autonous equations.
+This set represents the 'state of the world'. 
+SEMs are popular in fields like economics, psychology and sociology (Pearl 2009).
+SCM are also defined by a (sub-)set of structural equations.
+Additionally, SCMs  feature mathematical components from graphical models and the potential-outcome framework [@pearl2012causal].
+There is a lot of controversy around SEMs.
+Many scholars challenge the parameter-specification in a SEM [@pearl2012causal]. ^[Inconsistency refers to inherent nature of creating parameters based of observational data. Observational data  is seldom consistent. Henceforth respective estimates are often questioned. For further information see @hernan2008does] 
+SCMs specify an underlying data generating process without the computational effort of creating a parametric model.
+Note, that structural equations refer to assignment equations, used in computer science. 
+Equations in causal models did not always have a concise notation (Pearl, 2009).
+First, there was no sign to express the assignment equation and people used the '=' and one would e.g. write $A=B$.
+Treating an equation as a **algebraic equation** led to confusion because those have no causal information.
 This algebraic equation would imply that $B=A$ because the order has no concrete meaning in algebraic equations.
 The problem is that the equation is symmetric.
 The initial $'='$ sign was replaced with the ':=' which is asymmetric (Pearl, 2009) and called an **assignment**.
 This misconception has caused a lot of challenges which I will address further on in this paper. 
-As mentioned, we define variables as functions therefore a variable for example $A=f_A(B,U_A)$.
-A is defined by B and the latent factor $U_A$.
+As mentioned, we define variables as functions e.g. $A=f_A(B,U_A)$.
+B defines A and the latent factor $U_A$.
 To summarize, a SCM consists of a set of (autonomous) equations to generate (a) endogenous variables and (b) exogenous variables.
-In figure 2 we can see a plain-vanilla structural causal model. 
+In figure 2 we can see a vanilla structural causal model. 
 The square nodes represent the latent variables.
 The circle nodes represent the observed variables.
 The arrows are our structural equations and depict the relationship between variables.
@@ -109,10 +113,9 @@ The arrows are our structural equations and depict the relationship between vari
 \end{tikzpicture}
 ```
 
-
-Beyond the different causal model specifications, Judea Pearl (2009) introduced the hierarchy of causation.
-Pearl focuses on three layers namely association, intervention and counterfactuals. 
-A higher level implies a more detailed knowledge of the relationship between the variables.
+To contextualise causal methods, Judea Pearl (2009) introduced the hierarchy of causation.
+Pearl focuses on three layers: association, intervention and counterfactuals. 
+A higher level implies more detailed knowledge of the relationship between the variables.
 The first query is association, where we examine relationships based on observations.
 
 \footnotesize
@@ -126,55 +129,58 @@ Table: Pearls Hierachy of Causation (2009)
 
 \normalsize
 
-In table 1 we can see that machine learning (ML) methods, bayesian networks (BN) and regression models (Reg) are at the lowest level in the causal hierarchy.
-These methods depend on association alone.
-Associational methods neglect information on changes in our root nodes. 
-Root nodes are nodes that are not caused by any other variable.
+Vanilla machine learning (ML), bayesian networks (BN) and regression models (Reg) are at the lowest level in the causal hierarchy (see table 1).
+These methods demand the least information and depend on association alone.
+Associational methods ignore external changes outside of our data.
+The interventional distribution has information on these external changes.
+The interventional distribution is only defined in high level causal methods. 
 The second query deals with interventions.
 Here we can use Pearls (2009) do-calculus.
 The do-calculus enables us to study the manipulation of parent nodes.
  There are various types of intervention.
 One example is **atomic intervention,** where we set a variable to a constant.
 In **policy intervention** we specify a different function for an equation.
+off-policy intervention models different intervention that is not in our historical data [@oberst2019counterfactual].
+Causal bayesian networks , Markov Decision Processes (MDP) and reinforcement learning model intervention.
 
-Additionally there is also off-policy intervention, where we model a different intervention that is not in our historical data based on the historical data [@oberst2019counterfactual].
-Causal bayesian networks , markov decision processes (MDP) and reinforcement learning frequent these intervention methods.
 The third query is counterfactual modelling. 
 Here we deal with hypothetical settings. 
 SCMs and potential outcome models allow for counterfactual modelling.
-The reason why these models can model counterfactuals is because they also include information on the interventional distribution [@oberst2019counterfactual].
-Given that e.g. BCN only entail conditional probabilities and no information on relationships outside of the observations in the data, they cannot create counterfactuals (Pearl 2009).
+These models can model counterfactuals because they include a interventional distribution [@oberst2019counterfactual].
+BCNs only entail conditional probabilities.
+There is no information on relationships outside of the observations in the data.
+Henceforth, they cannot create counterfactuals (Pearl 2009).
 
-Another issue in this paper is understanding the relationship of time and causal modelling.
-Causal models mostly disregard concise notions of time and make the strong assumption that relationships between variables hold beyond the confinement of time (Peters et al. 2017).
+Another issue in this paper is understanding the relationship of time and causality.
+SCMs make the assumption that causal relationships hold over time (Peters et al. 2017).
 These vague definitions of time is more prevalent in social sciences. 
 Meanwhile hard sciences deal with time in a more concise manner. 
-Some research has also looked at causal models with a more concise specification of time using differential equations (Mooij et al. 2013).
+Differential equations model time on a more mechanic manner (Mooij et al. 2013).
 
-To summarize, existing literature has provided an excellent introduction to structural causal models and bayesian causal networks. 
-Judea Pearl (2009) provided a comprehensive and accessible introduction into this topic with his book on causality.
-His work has addressed various misconceptions in social sciences, economics, causality and statistics. 
-Peters et al. (2017) added to this discourse by addressing the relationship of causal modelling to physical sciences and causal inference for observational data.
-Additionally, other scholars e.g. [@bareinboim2020pearl] have worked on the application of causal methods in machine learning. 
+Existing literature has provided an excellent introduction to SCMs and BCNs. 
+Pearl (2009) provided a comprehensive introduction into this topic with his book 'Causality'.
+His work addressed misconceptions in social sciences, causality and statistics. 
+Peters et al. (2017) address the relationship of causality, physical sciences, and causal inference.
+They also look at causal inference for observational data.
+E.g. [@bareinboim2020pearl] worked on the application of causal methods in machine learning. 
 @tarka2018overview discuss the history of SEMs and SCMs.
-This paper brings together these contributions. 
-The objective of this paper is to provide a comprehensive summary of structural causal models and respective applications in social sciences, physical sciences and machine learning.
-The insights in this paper are an abstraction of these pieces of work, offering the reading a basic understanding of the topic for future research and an overview of the current research.
-The rest of the paper is structured as follows: 
+This paper combines these contributions. 
+The aim of this paper is to summarise SCMs and it's intersection with social sciences, physics, and machine learning.
+I structure the rest of the paper as follows: 
 
 # Foundations of Structural Causal Models 
 
-Judea Pearl argues that path analysis, a method proposed by Sewall Wright in the 1920s is the foundation of modern structural causal models.
-Sewall Wright, a Statistican and Geneticist, sparked the interest in causal modelling with his path analysis which subsequently was adopted by various other disciplines such as econometrics, psychometrics and sociology.
+Path analysis is the foundation of modern structural causal models.
 This path analysis is a structural equation model with one variable per indicator.
+Sewall Wright, a Statistican and Geneticist, introduced the topic in the 1920s. (Pearl, 2012)
+Various other disciplines such as econometrics, psychometrics and sociology adopted path analysis.
+Aside from path diagrams also introduced graph rules to formalise relationships.
 
-Aside from path diagrams also introduced graph rules for writing down relationships.
+Trygve Haavelmo (1944) provided a framework for Economics in his paper 'The Probability Approach in Econometrics'.
+This paper introduced a new of level of sophistication to the discipline of Econometrics. 
+Haavelmo won the Nobel Memorial Prize in Economic Science in 1989 for his work on this issue. 
 
-Thereafter the Norwegian Economist Trygve Haavelmo (1944) provided a modelling framework for the field of economics in is paper 'The Probability Approach in Econometrics.'
-One could argue that this paper provided a new of level of sophistication to the discipline of Econometrics as a distinct field. 
-Haavelmo was awarded the Nobel Memorial Prize in Economic Science in 1989 for his work on this issue. 
-
-Causal assumptions are encoded in missing links. 
+# TODO (other authors)
 
 ## Assumptions 
 
@@ -208,9 +214,7 @@ Select Admissable set based on backdoor criterion.
 Backdoor criterion missing in PO framework where subset is selected based on mental reasoning.
 Conditional Ignorability is mirror of backdoor criterion in PO-Framework.
 
-
 ## Pearl Causal Hierachy 
-
 
  |Method         | CBN |  SCM
 |----------------|---------------------------|------------------------|
@@ -225,7 +229,6 @@ Conditional Ignorability is mirror of backdoor criterion in PO-Framework.
 |Counterfactuals | $\boldsymbol{\cdot}$ **Impossible**                                                                                  | $\boldsymbol{\cdot}$ Possible
 |                | $\boldsymbol{\cdot}$ no information on latent factors($\epsilon$)                                                    | $\boldsymbol{\cdot}$ Inclusion of latent factors
 
-
 **Counterfactuals**
 
 Process is described as follows:
@@ -236,9 +239,12 @@ Process is described as follows:
 
 ## Causal Inference and Time 
 
+
+
 ## Graphical Models 
 
-
+- Tests for causal relationship 
+- d-seperation 
 
 # Conclusion
 
