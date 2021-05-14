@@ -46,7 +46,7 @@ Existing literature has provided an excellent introduction to SCMs and BCNs.
 Pearl (2009) provided a comprehensive introduction into this topic with his book 'Causality'.
 His work addressed misconceptions in social sciences, causality and statistics.
 His contribution on the hierarchy of causation advanced the comprehensive understanding of causality. 
-Peters et al. (2017) address the relationship of causality, physical sciences, and causal inference.
+@peters_elements_2017 address the relationship of causality, physical sciences, and causal inference.
 Their work highlights the importance of time in causality and inference based on observational data alone. 
 E.g. [@bareinboim2020pearl] worked on the application of causal methods in machine learning. 
 @tarka2018overview discuss the history of SEMs and SCMs.
@@ -64,7 +64,7 @@ Baseline:
 $$C:= N_c$$
 $$E:=f_E(C,N_E)$$
 
-source: Peters et al. (2017)
+source: @peters_elements_2017
 
 ## Assumptions in Causality 
 
@@ -79,7 +79,7 @@ Further: independence of noise -> $$N_T , N_A$$
 
 Example conditional probabilities: independence conditional probabilities/distribution and mechanism (ICM)
 
-(peters et al., 2017)
+[@peters_elements_2017]
 
 - noise independent -> called **causal sufficiency** clause. 
 - Algorithmic independence
@@ -289,7 +289,7 @@ given joint disrtribution can be discover grahp? Markov condition
 # Causal Inference and Time 
 
 Another issue in this paper is understanding the relationship of time and causality.
-SCMs make the assumption that causal relationships hold over time (Peters et al. 2017).
+SCMs make the assumption that causal relationships hold over time[@peters_elements_2017].
 These vague definitions of time is more prevalent in social sciences. 
 Meanwhile hard sciences deal with time in a more concise manner. 
 Differential equations model time on a more mechanic manner (Mooij et al. 2013).
@@ -339,7 +339,7 @@ $$
 \end{array}
 $$
 
-Table: Source: Peters et al. (2017)
+Table: Source: @peters_elements_2017
 
 # Conclusion
 
