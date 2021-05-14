@@ -13,12 +13,19 @@ linestretch: 1.5
 citation_package: --biblatex
 bibliography: [ref.bib]
 nocite: '@*'
-abtract: The interest in understanding relationships of variables beyond co-occurrence has increased the popularity of causal modelling. To provide a comprehensive understanding of causal modelling, I introduce two prominent causal model specifications namely (1) Bayesian Causal Networks (BCN) and (2) Structural Causal Models (SCM), focusing on the latter.Probabilistic specifications such as a BCN cast a model based on conditional probabilities. SCMs cast a model based on assignment functions and extend probabilistic models by specifying the data generating process rather than solely utilizing conditional probabilities. Another difference between these models is their ability to address different queries such as *predictions*, *interventions* and *counterfactuals*. These queries are part of Pearl's causal hierarchy (2009). Pearl matches these queries with their respective actions namely *observing*, *doing* and *imagining*. I compare the feasibility of addressing these queries and undertaking respective actions for both specifications. To contextualize SCMs within the field of causality, I also discuss the role of time in causality. This paper uses various directed acyclic graphs to highlight the differences in these modelling approaches. The insights of this paper can be used as a baseline for subsequent research on structural causal models.
+
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+
+**Abstract** The interest in understanding relationships of variables beyond co-occurrence has increased the popularity of causal modelling. To provide a comprehensive understanding of causal modelling, I introduce two prominent causal model specifications namely (1) Bayesian Causal Networks (BCN) and (2) Structural Causal Models (SCM), focusing on the latter.Probabilistic specifications such as a BCN cast a model based on conditional probabilities. SCMs cast a model based on assignment functions and extend probabilistic models by specifying the data generating process rather than solely utilizing conditional probabilities. Another difference between these models is their ability to address different queries such as *predictions*, *interventions* and *counterfactuals*. These queries are part of Pearl's causal hierarchy (2009). Pearl matches these queries with their respective actions namely *observing*, *doing* and *imagining*. I compare the feasibility of addressing these queries and undertaking respective actions for both specifications. To contextualize SCMs within the field of causality, I also discuss the role of time in causality. This paper uses various directed acyclic graphs to highlight the differences in these modelling approaches. The insights of this paper can be used as a baseline for subsequent research on structural causal models.
+
+\newpage
+\tableofcontents
+\newpage
 
 # Introduction 
 
@@ -29,146 +36,21 @@ For many problems we want to understand causal relationships between variables.
 There are different approaches on how to model causal relationships.
 This paper focuses on Structural Causal Models and Bayesian Causal Networks.
 Bayesian Causal Networks (BCN) cast a model based on **conditional probabilities.**
-In Figure 1 we can see an example of a probabilistic model depicted  as a directed acyclic graph (DAG).
-The nodes are the white circles.
-The edges are the arrows, defined by the conditional probabilities.
-C is our **collider** variable because the affect of A on C and T on C collide [@pearl2009causality].
-
-
-```{tikz, notwell,  fig.cap ="Probabilistic Model",  fig.align="center", echo =F, fig.show="hold", out.width="50%" }
-\usetikzlibrary{calc}
-\usetikzlibrary{positioning}
-\usetikzlibrary{arrows}
-\begin{tikzpicture}[
-    sharp corners=2pt,
-    inner sep=7pt,
-    node distance=3cm,
-    >=latex]
-\tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
-\node[my node] (A){A};
-\node[my node,right =1 cm of A](C){C};
-\node[my node] at ($(A)!0.5!(C)-(0pt,1.5cm)$) (T) {T};
-\draw[->] (A) -- (T);
-\draw[->] (A) -- (C);
-\draw[->] (T) -- (C);
-\end{tikzpicture}
-```
-
-Causal inference introduced tools that combine combine different sources of knowledge. 
-We can e.g. include theoretical knowledge [@morgan_winship_2014] and observational knowledge with structural causal models.
 Structural Causal Models (SCM) specify relationships based on **functional equations** [@pearl2009causality].
-SCMs are non-parametric structural equations models with added features.  
-A structural equation model (SEM) is a set of autonous equations.
-This set represents the 'state of the world'. 
-SEMs are popular in fields like economics, psychology and sociology (Pearl 2009).
-SCM are also defined by a (sub-)set of structural equations.
-Additionally, SCMs  feature mathematical components from graphical models and the potential-outcome framework [@pearl2012causal].
-There is a lot of controversy around SEMs.
-Many scholars challenge the parameter-specification in a SEM [@pearl2012causal]. ^[Inconsistency refers to inherent nature of creating parameters based of observational data. Observational data  is seldom consistent. Henceforth respective estimates are often questioned. For further information see @hernan2008does] 
-SCMs specify an underlying data generating process without the computational effort of creating a parametric model.
-Note, that structural equations refer to assignment equations, used in computer science. 
-Equations in causal models did not always have a concise notation (Pearl, 2009).
-First, there was no sign to express the assignment equation and people used the '=' and one would e.g. write $A=B$.
-Treating an equation as a **algebraic equation** led to confusion because those have no causal information.
-This algebraic equation would imply that $B=A$ because the order has no concrete meaning in algebraic equations.
-The problem is that the equation is symmetric.
-The initial $'='$ sign was replaced with the ':=' which is asymmetric (Pearl, 2009) and called an **assignment**.
-This misconception has caused a lot of challenges which I will address further on in this paper. 
-As mentioned, we define variables as functions e.g. $A=f_A(B,U_A)$.
-B defines A and the latent factor $U_A$.
-To summarize, a SCM consists of a set of (autonomous) equations to generate (a) endogenous variables and (b) exogenous variables.
-In figure 2 we can see a vanilla structural causal model. 
-The square nodes represent the latent variables.
-The circle nodes represent the observed variables.
-The arrows are our structural equations and depict the relationship between variables.
-^[Note that there are also cyclic structural causal models but no cyclic bayesian causal networks. For further information see Pearl (2009). Due to the confined scope of this paper, I will not explore cyclic structures.]
-
-```{tikz,fig.cap="Structural Causal Model" ,fig.align="center", echo =F}
-\usetikzlibrary{calc}
-\usetikzlibrary{positioning}
-\usetikzlibrary{arrows}
-\usetikzlibrary{calc}
-\usetikzlibrary{positioning}
-\usetikzlibrary{arrows}
-  \begin{tikzpicture}[
-    sharp corners=2pt,
-    inner sep=6pt,
-    node distance=2cm,
-    >=latex]
-\tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
-\tikzstyle{latent}=[draw, shape = rectangle, minimum height=1cm,minimum width=1cm]
-\node[my node, fill=gray!30] (A){A};
-\node[latent,left of=A](UA){$U_A$};
-\node[my node, fill=gray!30] at ($(A)!0.5!(A)-(0pt,1.5cm)$) (T) {T};
-\node[my node,right = 1 cm of T, fill=gray!30](C){C};
-\node[latent,left = 1cm of T](UT){$U_T$};
-\node[latent,right = 1cm of A](UC){$U_C$};
-\draw[->] (A) -- (T);
-\draw[->] (UA) -- (A);
-\draw[->] (UT) -- (T);
-\draw[->] (UC) -- (C);
-\draw[->] (A) -- (C);
-\draw[->] (T) -- (C);
-\end{tikzpicture}
-```
-
-To contextualise causal methods, Judea Pearl (2009) introduced the hierarchy of causation.
-Pearl focuses on three layers: association, intervention and counterfactuals. 
-A higher level implies more detailed knowledge of the relationship between the variables.
-The first query is association, where we examine relationships based on observations.
-
-\footnotesize
- |Method          | Action |  Example | Usage | 
-|------------------|-------------|--------------------|-------------------|
-| Association $P(a|b)$               | Co-occurrence             | What happened...               |(Un-)Supervised ML, BN, Reg.  
-| Intervention $P(a|do(b),c)$       | Do-manipulation           | What happens if ...            |CBN,MDP,RL    
-| Counterfactual $P(a_b|a`,b`)$     | Hypotheticals   | What would have happened if...           | SCM ,PO            
-
-Table: Pearls Hierachy of Causation (2009)
-
-\normalsize
-
-Vanilla machine learning (ML), bayesian networks (BN) and regression models (Reg) are at the lowest level in the causal hierarchy (see table 1).
-These methods demand the least information and depend on association alone.
-Associational methods ignore external changes outside of our data.
-The interventional distribution has information on these external changes.
-The interventional distribution is only defined in high level causal methods. 
-The second query deals with interventions.
-Here we can use Pearls (2009) do-calculus.
-The do-calculus enables us to study the manipulation of parent nodes.
- There are various types of intervention.
-One example is **atomic intervention,** where we set a variable to a constant.
-In **policy intervention** we specify a different function for an equation.
-off-policy intervention models different intervention that is not in our historical data [@oberst2019counterfactual].
-
-(tbc.) Hypothetical interventions: 
-
-Causal bayesian networks , Markov Decision Processes (MDP) and reinforcement learning model intervention.
-
-The third query is counterfactual modelling. 
-Here we deal with hypothetical settings. 
-SCMs and potential outcome models allow for counterfactual modelling.
-These models can model counterfactuals because they include a interventional distribution [@oberst2019counterfactual].
-BCNs only entail conditional probabilities.
-There is no information on relationships outside of the observations in the data.
-Henceforth, they cannot create counterfactuals (Pearl 2009).
-
-Another issue in this paper is understanding the relationship of time and causality.
-SCMs make the assumption that causal relationships hold over time (Peters et al. 2017).
-These vague definitions of time is more prevalent in social sciences. 
-Meanwhile hard sciences deal with time in a more concise manner. 
-Differential equations model time on a more mechanic manner (Mooij et al. 2013).
-
+SCMs are non-parametric structural equations models with added features.
 Existing literature has provided an excellent introduction to SCMs and BCNs. 
 Pearl (2009) provided a comprehensive introduction into this topic with his book 'Causality'.
-His work addressed misconceptions in social sciences, causality and statistics. 
+His work addressed misconceptions in social sciences, causality and statistics.
+His contribution on the hierarchy of causation advanced the comprehensive understanding of causality. 
 Peters et al. (2017) address the relationship of causality, physical sciences, and causal inference.
-They also look at causal inference for observational data.
+Their work highlights the importance of time in causality and inference based on observational data alone. 
 E.g. [@bareinboim2020pearl] worked on the application of causal methods in machine learning. 
 @tarka2018overview discuss the history of SEMs and SCMs.
-This paper combines these contributions. 
 The aim of this paper is to summarise SCMs and it's intersection with social sciences and physics.
 I structure the rest of the paper as follows: 
+Section 2 introduces the assumptions in causal modelling. Further, section 2 discusses different causal differencecs, fundamental differences and a brief history of the methods. 
+Section 3 addresses Pearls Causal Hierachy
+
 
 # Foundations of Structural Causal Models 
 
@@ -180,20 +62,9 @@ $$E:=f_E(C,N_E)$$
 
 source: Peters et al. (2017)
 
-# Brief historical introduction: 
+## Assumptions in Causality 
 
-Path analysis is the foundation of modern structural causal models.
-This path analysis is a structural equation model with one variable per indicator.
-Sewall Wright, a Statistican and Geneticist, introduced the topic in the 1920s. (Pearl, 2012)
-Various other disciplines such as econometrics, psychometrics and sociology adopted path analysis.
-Aside from path diagrams also introduced graph rules to formalise relationships.
-
-(tbc. Cowles, Haavelmo,Aldrich, )
-
-# Assumptions in Causality 
-
-**Reichenbachs common causal Principle** 
-**Independence**
+*Definition:***Independence**
 
 If we specify the causal structure correctly: 
 
@@ -232,22 +103,145 @@ d-seperation to test assumptions in totality (cannot make assumptions in isolati
 exploit invariant characteristics of SEM whithout committing to shape. 
 structural if function autonomous and invariant to change in form of other functions. 
 
-# Pearl Causal Hierachy 
+*Definition:* **Reichenbachs common causal Principle** 
 
- |Method         | CBN |  SCM
-|----------------|---------------------------|------------------------|
-| Prediction     | $\boldsymbol{\cdot}$ Unstable                                                                                        | $\boldsymbol{\cdot}$ Stable                 
-|                | $\boldsymbol{\cdot}$ Volatile to parameter changes                                                                   | $\boldsymbol{\cdot}$ More Natural Specification 
-|                | $\boldsymbol{\cdot}$ Re-Estimate entire model                                                                        | $\boldsymbol{\cdot}$ Only estimate $\Delta$ CM
-|                |                                                                                                                      | 
-| Intervention   | $\boldsymbol{\cdot}$ Costly for Non-Markovian Models                                                                 | $\boldsymbol{\cdot}$ Pot. Cyclic Representation
-|                | $\boldsymbol{\cdot}$ Unstable(Nature CP)                                                                             | $\boldsymbol{\cdot}$ Stable(Nature Eq.)
-|                | $\boldsymbol{\cdot}$ Only generic estimates($\Delta$ CP)                                                             | $\boldsymbol{\cdot}$ Context specific(Invariance of Eq.)
-|                |                                                                                                                      | 
-|Counterfactuals | $\boldsymbol{\cdot}$ **Impossible**                                                                                  | $\boldsymbol{\cdot}$ Possible
-|                | $\boldsymbol{\cdot}$ no information on latent factors($\epsilon$)                                                    | $\boldsymbol{\cdot}$ Inclusion of latent factors
+## Comparing Causal Tools
 
-**Counterfactuals**
+A structural equation model (SEM) is a set of autonous equations.
+This set represents the 'state of the world'. 
+SEMs are popular in fields like economics, psychology and sociology (Pearl 2009).
+SCM are also defined by a (sub-)set of structural equations.
+Additionally, SCMs  feature mathematical components from graphical models and the potential-outcome framework [@pearl2012causal].
+There is a lot of controversy around SEMs.
+Many scholars challenge the parameter-specification in a SEM [@pearl2012causal]. ^[Inconsistency refers to inherent nature of creating parameters based of observational data. Observational data  is seldom consistent. Henceforth respective estimates are often questioned. For further information see @hernan2008does] 
+SCMs specify an underlying data generating process without the computational effort of creating a parametric model.
+Note, that structural equations refer to assignment equations, used in computer science. 
+Equations in causal models did not always have a concise notation (Pearl, 2009).
+First, there was no sign to express the assignment equation and people used the '=' and one would e.g. write $A=B$.
+Treating an equation as a **algebraic equation** led to confusion because those have no causal information.
+This algebraic equation would imply that $B=A$ because the order has no concrete meaning in algebraic equations.
+The problem is that the equation is symmetric.
+The initial $'='$ sign was replaced with the ':=' which is asymmetric (Pearl, 2009) and called an **assignment**.
+This misconception has caused a lot of challenges which I will address further on in this paper. 
+As mentioned, we define variables as functions e.g. $A=f_A(B,U_A)$.
+B defines A and the latent factor $U_A$.
+To summarize, a SCM consists of a set of (autonomous) equations to generate (a) endogenous variables and (b) exogenous variables.
+
+In Figure 1 we can see an example of a probabilistic model depicted  as a directed acyclic graph (DAG).
+The nodes are the white circles.
+The edges are the arrows, defined by the conditional probabilities.
+C is our **collider** variable because the affect of A on C and T on C collide [@pearl2009causality].
+
+
+```{tikz, notwell,  fig.cap ="Probabilistic Model",  fig.align="center", echo =F, fig.show="hold", out.width="50%" }
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\begin{tikzpicture}[
+    sharp corners=2pt,
+    inner sep=7pt,
+    node distance=3cm,
+    >=latex]
+\tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
+\node[my node] (A){A};
+\node[my node,right =1 cm of A](C){C};
+\node[my node] at ($(A)!0.5!(C)-(0pt,1.5cm)$) (T) {T};
+\draw[->] (A) -- (T);
+\draw[->] (A) -- (C);
+\draw[->] (T) -- (C);
+\end{tikzpicture}
+```
+
+In figure 2 we can see a vanilla structural causal model. 
+The square nodes represent the latent variables.
+
+```{tikz,fig.cap="Structural Causal Model" ,fig.align="center", echo =F}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+  \begin{tikzpicture}[
+    sharp corners=2pt,
+    inner sep=6pt,
+    node distance=2cm,
+    >=latex]
+\tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
+\tikzstyle{latent}=[draw, shape = rectangle, minimum height=1cm,minimum width=1cm]
+\node[my node, fill=gray!30] (A){A};
+\node[latent,left of=A](UA){$U_A$};
+\node[my node, fill=gray!30] at ($(A)!0.5!(A)-(0pt,1.5cm)$) (T) {T};
+\node[my node,right = 1 cm of T, fill=gray!30](C){C};
+\node[latent,left = 1cm of T](UT){$U_T$};
+\node[latent,right = 1cm of A](UC){$U_C$};
+\draw[->] (A) -- (T);
+\draw[->] (UA) -- (A);
+\draw[->] (UT) -- (T);
+\draw[->] (UC) -- (C);
+\draw[->] (A) -- (C);
+\draw[->] (T) -- (C);
+\end{tikzpicture}
+```
+
+The circle nodes represent the observed variables.
+The arrows are our structural equations and depict the relationship between variables.
+^[Note that there are also cyclic structural causal models but no cyclic bayesian causal networks. For further information see Pearl (2009). Due to the confined scope of this paper, I will not explore cyclic structures.]
+
+## A Brief History of Causal Modeling
+
+Path analysis is the foundation of modern structural causal models.
+This path analysis is a structural equation model with one variable per indicator.
+Sewall Wright, a Statistican and Geneticist, introduced the topic in the 1920s. (Pearl, 2012)
+Various other disciplines such as econometrics, psychometrics and sociology adopted path analysis.
+Aside from path diagrams also introduced graph rules to formalise relationships.
+(tbc. Cowles, Haavelmo,Aldrich, )
+
+# Pearl's Causal Hierachy
+
+To contextualise causal methods, Judea Pearl (2009) introduced the hierarchy of causation.
+Pearl focuses on three layers: association, intervention and counterfactuals (Table 1).
+
+ |Method          | Action | | Usage | 
+|------------------|-------------|-------------------|
+| Association $P(a|b)$               | Co-occurrence                           |(Un-)Supervised ML, BN, Reg.  
+| Intervention $P(a|do(b),c)$       | Do-manipulation                       |CBN,MDP,RL    
+| Counterfactual $P(a_b|a`,b`)$     | Hypotheticals            | SCM ,PO            
+
+A higher level implies more detailed knowledge of the relationship between the variables.
+The first query is association, where we examine relationships based on observations.
+
+Table: Pearls Hierachy of Causation (2009)
+
+## Prediction
+
+Vanilla machine learning (ML), bayesian networks (BN) and regression models (Reg) are at the lowest level in the causal hierarchy (see table 1).
+These methods demand the least information and depend on association alone.
+Associational methods ignore external changes outside of our data.
+The interventional distribution has information on these external changes.
+The interventional distribution is only defined in high level causal methods. 
+
+## Intervention
+
+The second query deals with interventions.
+Here we can use Pearls (2009) do-calculus.
+The do-calculus enables us to study the manipulation of parent nodes.
+ There are various types of intervention.
+One example is **atomic intervention,** where we set a variable to a constant.
+In **policy intervention** we specify a different function for an equation.
+off-policy intervention models different intervention that is not in our historical data [@oberst2019counterfactual].
+Causal bayesian networks , Markov Decision Processes (MDP) and reinforcement learning model intervention.
+(tbc.) Hypothetical interventions: 
+
+## Counterfactuals
+
+The third query is counterfactual modelling. 
+Here we deal with hypothetical settings. 
+SCMs and potential outcome models allow for counterfactual modelling.
+These models can model counterfactuals because they include a interventional distribution [@oberst2019counterfactual].
+BCNs only entail conditional probabilities.
+There is no information on relationships outside of the observations in the data.
+Henceforth, they cannot create counterfactuals (Pearl 2009).
 
 Process is described as follows:
 
@@ -255,7 +249,16 @@ Process is described as follows:
 (b) Action: Exchange $(X = x)$ 
 (c) Prediction: Compute $(Y = y)$
 
-## Graphical Models 
+
+## Implications
+
+BCN:
+
+SCM:
+
+# Graphical Models 
+
+## Features
 
 A graph in a SCM contains endogenous and exogenous variables. 
 In a directed graph all edges have arrows.
@@ -273,10 +276,19 @@ There are various tools to derive graphical models.^[The PC-Algorithm and the IC
 - d-seperation 
 - vertices variables and arrows are direct effects. 
 
+## Implications 
+
 Any DAG can be written as  SCM.
 given joint disrtribution can be discover grahp? Markov condition 
 
-## Causal Inference and Time 
+
+# Causal Inference and Time 
+
+Another issue in this paper is understanding the relationship of time and causality.
+SCMs make the assumption that causal relationships hold over time (Peters et al. 2017).
+These vague definitions of time is more prevalent in social sciences. 
+Meanwhile hard sciences deal with time in a more concise manner. 
+Differential equations model time on a more mechanic manner (Mooij et al. 2013).
 
 $$
 \begin{array}{|l|l|l|l|l|l|}
@@ -322,6 +334,7 @@ $$
 \hline
 \end{array}
 $$
+
 Table: Source: Peters et al. (2017)
 
 # Conclusion
@@ -333,5 +346,6 @@ SCMs differentiate from other methods through the specification of endogenous an
 As suggested by Pearls Hierachy, there are different levels to learning and each higher step can do anything the prior step can but with more detail and information. 
 Henceforth, as machin
 
+\newpage 
 
 # References
