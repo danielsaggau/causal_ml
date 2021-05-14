@@ -14,17 +14,6 @@ Repo for essay on structural causal models
 
 Table: Concepts in Causality and Association concepts
 
-
-
- |Method          | Action |  Example | Usage | 
-|------------------|-------------|--------------------|-------------------|
-| Association $P(a|b)$               | Co-occurrence             | What happened...               |(Un-)Supervised ML, BN, Reg.  
-| Intervention $P(a|do(b),c)$       | Do-manipulation           | What happens if ...            |CBN,MDP,RL    
-| Counterfactual $P(a_b|a`,b`)$     | Hypotheticals   | What would have happened if...           | SCM ,PO            
-
-Table: Pearls Hierachy of Causation (2009)
-
-
 ## Pearl Causal Hierachy 
 
  |Method         | CBN |  SCM
@@ -43,7 +32,6 @@ Table: Pearls Hierachy of Causation (2009)
 
 ## Causal Inference and Time 
 
-$$
 \begin{array}{|l|l|l|l|l|l|}
 \hline \text { model } & \begin{array}{l}
 \text { predict in IID } \\
@@ -86,4 +74,4 @@ $$
 \end{array} & \mathrm{Y} & \mathrm{N} & \mathrm{N} & \mathrm{N} & \mathrm{Y} \\
 \hline
 \end{array}
-$$
+
