@@ -141,6 +141,9 @@ The do-calculus enables us to study the manipulation of parent nodes.
 One example is **atomic intervention,** where we set a variable to a constant.
 In **policy intervention** we specify a different function for an equation.
 off-policy intervention models different intervention that is not in our historical data [@oberst2019counterfactual].
+
+Hypothetical interventions: 
+
 Causal bayesian networks , Markov Decision Processes (MDP) and reinforcement learning model intervention.
 
 The third query is counterfactual modelling. 
@@ -176,13 +179,24 @@ Sewall Wright, a Statistican and Geneticist, introduced the topic in the 1920s. 
 Various other disciplines such as econometrics, psychometrics and sociology adopted path analysis.
 Aside from path diagrams also introduced graph rules to formalise relationships.
 
-Trygve Haavelmo (1944) provided a framework for Economics in his paper 'The Probability Approach in Econometrics'.
-This paper introduced a new of level of sophistication to the discipline of Econometrics. 
-Haavelmo won the Nobel Memorial Prize in Economic Science in 1989 for his work on this issue. 
+(tbc.)
 
-# TODO (other authors)
+## Reichenbachs common causal Principle 
+
+- noise independent -> called **causal suffieciency** clause. 
+
+SCM fullfills via : 
+
+- dependecy only via vertice connection (noise)
+- condition on noise, variables become independent  
 
 ## Assumptions 
+
+- Independence of mechanisms 
+- conditional independence: 
+- joint distribution 
+
+Density factorizes and their expectation 
 
 Causal assumptions differentiate causal models from association learning methods.
 
@@ -208,12 +222,6 @@ d-seperation to test assumptions in totality (cannot make assumptions in isolati
 exploit invariant characteristics of SEM whithout committing to shape. 
 structural if function autonomous and invariant to change in form of other functions. 
 
-### Causal Inference on Observational Data
-
-Select Admissable set based on backdoor criterion.
-Backdoor criterion missing in PO framework where subset is selected based on mental reasoning.
-Conditional Ignorability is mirror of backdoor criterion in PO-Framework.
-
 ## Pearl Causal Hierachy 
 
  |Method         | CBN |  SCM
@@ -237,14 +245,75 @@ Process is described as follows:
 (b) Action: Exchange $(X = x)$ 
 (c) Prediction: Compute $(Y = y)$
 
-## Causal Inference and Time 
-
-
-
 ## Graphical Models 
 
-- Tests for causal relationship 
+A graph in a SCM contains endogenous and exogenous variables. 
+In a directed graph all edges have arrows.
+Directed arrows are direct (causal) effects.
+No edge between variables means that there is no causal effect. 
+If we have some edges without arrows, we call that graph semi-directed.
+If we have all edges without arrows, we call that graph un-directed.
+The most famous graphical model is the acyclic graph.
+An acyclic graph has no roots that cause itself (directly and indirectly).
+Because we do not specify changes over time we typically only deal with acyclic models.
+This is partially because we assume the relationship to be constant over time. 
+
+There are various tools to derive graphical models.^[The PC-Algorithm and the IC-Algorthm are two prominent examples.]
+
 - d-seperation 
+- vertices variables and arrows are direct effects. 
+
+Any DAG can be written as  SCM.
+given joint disrtribution can be discover grahp? Markov condition 
+
+## Causal Inference and Time 
+
+$$
+\begin{array}{|l|l|l|l|l|l|}
+\hline \text { model } & \begin{array}{l}
+\text { predict in IID } \\
+\text { setting }
+\end{array} & \begin{array}{l}
+\text { predict under } \\
+\text { changing } \\
+\text { distributions / } \\
+\text { interventions }
+\end{array} & \begin{array}{l}
+\text { answer } \\
+\text { counter- } \\
+\text { factual } \\
+\text { questions }
+\end{array} & \begin{array}{l}
+\text { obtain } \\
+\text { physical } \\
+\text { insight }
+\end{array} & \begin{array}{l}
+\text { automatically } \\
+\text { learn from } \\
+\text { data }
+\end{array} \\
+\hline \begin{array}{l}
+\text { mechanistic } \\
+\text { model } \\
+\end{array} & \mathrm{Y} & \mathrm{Y} & \mathrm{Y} & \mathrm{Y} & ? \\
+\hline \begin{array}{l}
+\text { structural } \\
+\text { causal model }
+\end{array} & \mathrm{Y} & \mathrm{Y} & \mathrm{Y} & \mathrm{N} & \mathrm{Y} ? ? \\
+\hline \begin{array}{l}
+\text { causal } \\
+\text { graphical } \\
+\text { model }
+\end{array} & \mathrm{Y} & \mathrm{Y} & \mathrm{N} & \mathrm{N} & \mathrm{Y} ? \\
+\hline \begin{array}{l}
+\text { statistical } \\
+\text { model }
+\end{array} & \mathrm{Y} & \mathrm{N} & \mathrm{N} & \mathrm{N} & \mathrm{Y} \\
+\hline
+\end{array}
+$$
+Table: Source: Peters et al. (2017)
+
 
 # Conclusion
 
