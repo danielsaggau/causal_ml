@@ -8,6 +8,8 @@ output:
   pdf_document:
         number_sections: yes
         fig_caption: yes
+link-citations: yes
+linkcolor: blue
 fontsize: 12
 linestretch: 1.5
 citation_package: --biblatex
@@ -20,12 +22,14 @@ nocite: '@*'
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
 **Abstract** The interest in understanding relationships of variables beyond co-occurrence has increased the popularity of causal modelling. To provide a comprehensive understanding of causal modelling, I introduce two prominent causal model specifications namely (1) Bayesian Causal Networks (BCN) and (2) Structural Causal Models (SCM), focusing on the latter.Probabilistic specifications such as a BCN cast a model based on conditional probabilities. SCMs cast a model based on assignment functions and extend probabilistic models by specifying the data generating process rather than solely utilizing conditional probabilities. Another difference between these models is their ability to address different queries such as *predictions*, *interventions* and *counterfactuals*. These queries are part of Pearl's causal hierarchy (2009). Pearl matches these queries with their respective actions namely *observing*, *doing* and *imagining*. I compare the feasibility of addressing these queries and undertaking respective actions for both specifications. To contextualize SCMs within the field of causality, I also discuss the role of time in causality. This paper uses various directed acyclic graphs to highlight the differences in these modelling approaches. The insights of this paper can be used as a baseline for subsequent research on structural causal models.
 
 \newpage
+\hypersetup{linkcolor=black}
 \tableofcontents
 \newpage
+
+\hypersetup{linkcolor=blue}
 
 # Introduction 
 
