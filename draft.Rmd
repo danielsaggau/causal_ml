@@ -43,7 +43,7 @@ Bayesian Causal Networks (BCN) cast a model based on **conditional probabilities
 Structural Causal Models (SCM) specify relationships based on **functional equations** [@pearl2009causality].
 SCMs are non-parametric structural equations models with added features.
 Existing literature has provided an excellent introduction to SCMs and BCNs. 
-Pearl (2009) provided a comprehensive introduction into this topic with his book 'Causality'.
+@pearl2009causality provided a comprehensive introduction into this topic with his book 'Causality'.
 His work addressed misconceptions in social sciences, causality and statistics.
 His contribution on the hierarchy of causation advanced the comprehensive understanding of causality. 
 @peters_elements_2017 address the relationship of causality, physical sciences, and causal inference.
@@ -113,7 +113,7 @@ structural if function autonomous and invariant to change in form of other funct
 
 A structural equation model (SEM) is a set of autonous equations.
 This set represents the 'state of the world'. 
-SEMs are popular in fields like economics, psychology and sociology (Pearl 2009).
+SEMs are popular in fields like economics, psychology and sociology [@pearl2009causality].
 SCM are also defined by a (sub-)set of structural equations.
 Additionally, SCMs  feature mathematical components from graphical models and the potential-outcome framework [@pearl2012causal].
 There is a lot of controversy around SEMs.
@@ -228,7 +228,7 @@ The interventional distribution is only defined in high level causal methods.
 ## Intervention
 
 The second query deals with interventions.
-Here we can use Pearls (2009) do-calculus.
+Here we can use @pearl2009causality do-calculus.
 The do-calculus enables us to study the manipulation of parent nodes.
  There are various types of intervention.
 One example is **atomic intervention,** where we set a variable to a constant.
@@ -245,7 +245,7 @@ SCMs and potential outcome models allow for counterfactual modelling.
 These models can model counterfactuals because they include a interventional distribution [@oberst2019counterfactual].
 BCNs only entail conditional probabilities.
 There is no information on relationships outside of the observations in the data.
-Henceforth, they cannot create counterfactuals (Pearl 2009).
+Henceforth, they cannot create counterfactuals [@pearl2009causality].
 
 Process is described as follows:
 
@@ -292,7 +292,7 @@ Another issue in this paper is understanding the relationship of time and causal
 SCMs make the assumption that causal relationships hold over time[@peters_elements_2017].
 These vague definitions of time is more prevalent in social sciences. 
 Meanwhile hard sciences deal with time in a more concise manner. 
-Differential equations model time on a more mechanic manner (Mooij et al. 2013).
+Differential equations model time on a more mechanic manner (@mooij2013ordinary).
 
 $$
 \begin{array}{|l|l|l|l|l|l|}
