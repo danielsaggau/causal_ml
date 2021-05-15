@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.12)  16 MAY 2021 01:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.12)  16 MAY 2021 01:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -569,13 +569,13 @@ LaTeX Font Info:    Font shape `U/msb/m/n' will be
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (Font)              scaled to size 5.21004pt on input line 281.
 [4]
-<draft_files/figure-latex/notwell-1.pdf, id=138, 90.3375pt x 73.27374pt>
+<draft_files/figure-latex/notwell-1.pdf, id=143, 90.3375pt x 73.27374pt>
 File: draft_files/figure-latex/notwell-1.pdf Graphic file (type pdf)
 <use draft_files/figure-latex/notwell-1.pdf>
 Package pdftex.def Info: draft_files/figure-latex/notwell-1.pdf  used on input 
 line 308.
 (pdftex.def)             Requested size: 90.33727pt x 73.27354pt.
-<draft_files/figure-latex/unnamed-chunk-1-1.pdf, id=139, 143.53625pt x 72.27pt>
+<draft_files/figure-latex/unnamed-chunk-1-1.pdf, id=144, 143.53625pt x 72.27pt>
 
 File: draft_files/figure-latex/unnamed-chunk-1-1.pdf Graphic file (type pdf)
 <use draft_files/figure-latex/unnamed-chunk-1-1.pdf>
@@ -590,15 +590,15 @@ Overfull \hbox (5.76085pt too wide) detected at line 520
 []
  []
 
-[8] [9] [10] (./draft.aux)
+[8] [9] [10] [11] (./draft.aux)
 Package rerunfilecheck Info: File `draft.out' has not changed.
-(rerunfilecheck)             Checksum: 4F5FA8522F9218FCC36CA21E6419C0CC;2299.
+(rerunfilecheck)             Checksum: B5B6AA2C624F48D98764D1068AECF0AA;2382.
  ) 
 Here is how much of TeX's memory you used:
- 10975 strings out of 480806
- 159585 string characters out of 5903689
+ 10980 strings out of 480806
+ 159628 string characters out of 5903689
  481390 words of memory out of 5000000
- 28073 multiletter control sequences out of 15000+600000
+ 28075 multiletter control sequences out of 15000+600000
  447311 words of font info for 130 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  60i,13n,63p,324b,410s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -612,10 +612,10 @@ X/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/danielsaggau/Librar
 y/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/danielsaggau/L
 ibrary/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/danielsag
 gau/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on draft.pdf (10 pages, 150278 bytes).
+Output written on draft.pdf (11 pages, 150761 bytes).
 PDF statistics:
- 291 PDF objects out of 1000 (max. 8388607)
- 246 compressed objects within 3 object streams
- 65 named destinations out of 1000 (max. 500000)
- 139 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 302 PDF objects out of 1000 (max. 8388607)
+ 256 compressed objects within 3 object streams
+ 68 named destinations out of 1000 (max. 500000)
+ 147 words of extra memory for PDF output out of 10000 (max. 10000000)
 
