@@ -11,11 +11,11 @@ output:
 link-citations: yes
 linkcolor: blue
 fontsize: 12
+fontfamily: mathpazo 
 linestretch: 1.5
 citation_package: --biblatex
 bibliography: [ref.bib]
 nocite: '@*'
-
 ---
 
 ```{r setup, include=FALSE}
