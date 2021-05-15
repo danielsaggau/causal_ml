@@ -13,10 +13,8 @@ linkcolor: blue
 fontsize: 12
 fontfamily: mathpazo 
 linestretch: 1.5
-#citation_package: --biblatex
+citation_package: --biblatex
 bibliography: [ref.bib]
-citation_package: natbib
-biblio-style: alphadin
 nocite: '@*'
 ---
 

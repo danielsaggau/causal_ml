@@ -3,6 +3,7 @@ title: "appendix"
 author: "Daniel Saggau"
 date: "5/3/2021"
 output: pdf_document
+bibliography: [ref.bib]
 ---
 
 
