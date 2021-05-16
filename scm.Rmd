@@ -9,6 +9,10 @@ output: beamer_presentation
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+# Motivation
+
+
+
 # Introduction (1)
 
 - Machine learning has provided many insights into different research problems 
@@ -30,6 +34,27 @@ Causal assumptions differentiate causal models from association learning methods
 | Likelihood               | Error Terms      
 | Odds Ratio               | Structural Coefficients       
 | Propensity Score         | Spurious Correlation    
+
+
+# Table of Contents
+
+* Foundations of SCMs 
+  * Assumptions 
+  * Comparative Causal Tools 
+  * Historical Development 
+* Pearl's Causal Hierachy 
+  * prediction 
+  * intervention 
+  * Counterfactuals 
+  * Implications 
+* Graphical Models 
+  * Features 
+  * Implications
+* Causality and Time 
+
+
+
+
 
 # History
 
