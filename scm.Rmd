@@ -56,16 +56,7 @@ Causal assumptions differentiate causal models from association learning methods
   * Implications
 * Causality and Time 
 
-
-
-
-
-# History
-
-* Path Analysis -> SEM -> SCM
-* 
-
-# How to build a SCM
+# Assumptions 
 
 - Consists of system of equations 
 - Assignment equation ':=' rather than regular equation '=' 
@@ -74,11 +65,68 @@ Causal assumptions differentiate causal models from association learning methods
 - entails features from the PO framework and graphical representation 
 - Exogenous factors are part of the model specification
 
+
+# Assumptions 
+
+**Error terms**
+
+Regression: Omittable outside factor 
+SCM/SEM; Latent influencial factor that is pivotal for the model specification but not observable 
+
+Consists of graph and assignments: 
+Baseline: 
+
+$$C:= N_c$$
+$$E:=f_E(C,N_E)$$
+
+source: @peters_elements_2017
+
 # SCM Applications: 
 
 - Flexible simulations for higher order problems (intervention, counterfactual)
 - Graphical visualization via directed acyclic graph
--
+
+# Comparative Causal Tools 
+
+# Historical Development 
+
+* Path Analysis -> SEM -> SCM
+
+# Fundamental Differences (1)
+
+- conflict whether to use graphs or not 
+* A SEM is a parametric specification used in applied sciences (parameters contested)
+* A Bayesian causal network is another popular causal model using conditional probabilities and NO functions 
+* Differences in performance between BCN and SCM# Performance Evaluation
+
+# Implications
+
+ |Method         | CBN |  SCM
+|----------------|---------------------------|------------------------|
+| Prediction     | $\boldsymbol{\cdot}$ Unstable                                                                                        | $\boldsymbol{\cdot}$ Stable                 
+|                | $\boldsymbol{\cdot}$ Volatile to parameter changes                                                                   | $\boldsymbol{\cdot}$ More Natural Specification 
+|                | $\boldsymbol{\cdot}$ Re-Estimate entire model                                                                        | $\boldsymbol{\cdot}$ Only estimate $\Delta$ CM
+|                |                                                                                                                      | 
+| Intervention   | $\boldsymbol{\cdot}$ Costly for Non-Markovian Models                                                                 | $\boldsymbol{\cdot}$ Pot. Cyclic Representation
+|                | $\boldsymbol{\cdot}$ Unstable(Nature CP)                                                                             | $\boldsymbol{\cdot}$ Stable(Nature Eq.)
+|                | $\boldsymbol{\cdot}$ Only generic estimates($\Delta$ CP)                                                             | $\boldsymbol{\cdot}$ Context specific(Invariance of Eq.)
+|                |                                                                                                                      | 
+|Counterfactuals | $\boldsymbol{\cdot}$ **Impossible**                                                                                  | $\boldsymbol{\cdot}$ Possible
+|                | $\boldsymbol{\cdot}$ no information on latent factors($\epsilon$)                                                    | $\boldsymbol{\cdot}$ Inclusion of latent factors
+
+
+# Pearls Causal Hierachy 
+
+\footnotesize
+ |Method          | Action |  Example | Usage | 
+|------------------|-------------|--------------------|-------------------|
+| Association $P(a|b)$               | Co-occurrence             | What happened...               |(Un-)Supervised ML, BN, Reg.  
+| Intervention $P(a|do(b),c)$       | Do-manipulation           | What happens if ...            |CBN,MDP,RL    
+| Counterfactual $P(a_b|a`,b`)$     | Hypotheticals   | What would have happened if...           | SCM ,PO            
+
+Table: Pearls Hierachy of Causation (2009)
+
+\normalsize
 
 # Graphical Illustration
 
@@ -129,55 +177,6 @@ Causal assumptions differentiate causal models from association learning methods
 \draw[->] (T) -- (C);
 \end{tikzpicture}
 ```
-
-
-# Fundamental Differences (1)
-
-- conflict whether to use graphs or not 
-* A SEM is a parametric specification used in applied sciences (parameters contested)
-* A Bayesian causal network is another popular causal model using conditional probabilities and NO functions 
-* Differences in performance between BCN and SCM
-
-
-# Performance Evaluation
-
- |Method         | CBN |  SCM
-|----------------|---------------------------|------------------------|
-| Prediction     | $\boldsymbol{\cdot}$ Unstable                                                                                        | $\boldsymbol{\cdot}$ Stable                 
-|                | $\boldsymbol{\cdot}$ Volatile to parameter changes                                                                   | $\boldsymbol{\cdot}$ More Natural Specification 
-|                | $\boldsymbol{\cdot}$ Re-Estimate entire model                                                                        | $\boldsymbol{\cdot}$ Only estimate $\Delta$ CM
-|                |                                                                                                                      | 
-| Intervention   | $\boldsymbol{\cdot}$ Costly for Non-Markovian Models                                                                 | $\boldsymbol{\cdot}$ Pot. Cyclic Representation
-|                | $\boldsymbol{\cdot}$ Unstable(Nature CP)                                                                             | $\boldsymbol{\cdot}$ Stable(Nature Eq.)
-|                | $\boldsymbol{\cdot}$ Only generic estimates($\Delta$ CP)                                                             | $\boldsymbol{\cdot}$ Context specific(Invariance of Eq.)
-|                |                                                                                                                      | 
-|Counterfactuals | $\boldsymbol{\cdot}$ **Impossible**                                                                                  | $\boldsymbol{\cdot}$ Possible
-|                | $\boldsymbol{\cdot}$ no information on latent factors($\epsilon$)                                                    | $\boldsymbol{\cdot}$ Inclusion of latent factors
-
-
-# Assumptions 
-
-**Error terms**
-
-Regression: Omittable outside factor 
-SCM/SEM; Latent influencial factor that is pivotal for the model specification but not observable 
-
-
-# Pearls Causal Hierachy 
-
-\footnotesize
- |Method          | Action |  Example | Usage | 
-|------------------|-------------|--------------------|-------------------|
-| Association $P(a|b)$               | Co-occurrence             | What happened...               |(Un-)Supervised ML, BN, Reg.  
-| Intervention $P(a|do(b),c)$       | Do-manipulation           | What happens if ...            |CBN,MDP,RL    
-| Counterfactual $P(a_b|a`,b`)$     | Hypotheticals   | What would have happened if...           | SCM ,PO            
-
-Table: Pearls Hierachy of Causation (2009)
-
-\normalsize
-
-# Causality -In Between Physical and Social Sciences
-
 
 # Causality and Time
 
