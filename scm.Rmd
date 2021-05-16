@@ -11,11 +11,15 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Motivation
 
-
+```{r, out.width= "70%", out.height = "70%", fig.align='center'}
+library(knitr)
+setwd("~/Desktop/SOSE2021/causal_ml")
+include_graphics('./images/correlation.jpg')
+```
 
 # Introduction (1)
 
-- Machine learning has provided many insights into different research problems 
+- Machine learning has provided many insights into different problems 
 - One issue is the consideration of 'What are we actually predicting'?
 - Mainstream tools are build on association-based learning 
 - Associations are not enough for high stake settings 
