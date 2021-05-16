@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Motivation
 
-```{r, out.width= "70%", out.height = "70%", fig.align='center'}
+```{r, out.width= "80%", out.height = "80%", fig.align='center'}
 library(knitr)
 setwd("~/Desktop/SOSE2021/causal_ml")
 include_graphics('./images/correlation.jpg')
@@ -58,7 +58,7 @@ Causal assumptions differentiate causal models from association learning methods
   * Implications
 * Causality and Time 
 
-# Assumptions 
+# Assumptions (1)
 
 - Consists of system of equations 
 - Assignment equation ':=' rather than regular equation '=' 
@@ -67,7 +67,7 @@ Causal assumptions differentiate causal models from association learning methods
 - entails features from the PO framework and graphical representation 
 - Exogenous factors are part of the model specification
 
-# Assumptions 
+# Assumptions (2)
 
 **Error terms**
 
@@ -128,6 +128,33 @@ source: @peters_elements_2017
 Table: Pearls Hierachy of Causation (2009)
 
 \normalsize
+
+# Prediction 
+
+Vanilla machine learning (ML), bayesian networks (BN) and regression models (Reg) are at the lowest level in the causal hierarchy (see table 1).
+These methods demand the least information and depend on association alone.
+Associational methods ignore external changes outside of our data.
+The interventional distribution has information on these external changes.
+The interventional distribution is only defined in high level causal methods. 
+
+# Intervention 
+
+The second query deals with interventions.
+Here we can use @pearl2009causality do-calculus.
+The do-calculus enables us to study the manipulation of parent nodes.
+ There are various types of intervention.
+One example is **atomic intervention,** where we set a variable to a constant.
+In **policy intervention** we specify a different function for an equation.
+off-policy intervention models different intervention that is not in our historical data [@oberst2019counterfactual].
+Causal bayesian networks , Markov Decision Processes (MDP) and reinforcement learning model intervention.
+
+# Counterfactuals 
+
+Process is described as follows:
+
+(a) Abduction: Cast probability $P(u)$ as conditional probability $P(u|\epsilon)$ 
+(b) Action: Exchange $(X = x)$ 
+(c) Prediction: Compute $(Y = y)$
 
 # Graphical Illustration
 
