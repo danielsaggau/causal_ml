@@ -92,6 +92,13 @@ The initial $'='$ sign was replaced with the ':=' which is asymmetric (Pearl, 20
 This misconception has caused a lot of challenges.^[For more information see @pearl2009causality]
 As mentioned, we define variables as functions e.g. $A=f_A(B,U_A)$.
 
+# Assumptions (4)
+
+**Independence**
+
+*Definition:*
+
+
 # SCM Applications: 
 
 - Flexible simulations for higher order problems (intervention, counterfactual)
