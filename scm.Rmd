@@ -3,6 +3,8 @@ title: "A Gentle Introduction to Structural Causal Models"
 author: "Daniel Saggau"
 date: "5/11/2021"
 output: beamer_presentation
+citation_package: --biblatex
+bibliography: [ref.bib]
 ---
 
 ```{r setup, include=FALSE}
@@ -65,13 +67,12 @@ Causal assumptions differentiate causal models from association learning methods
 - entails features from the PO framework and graphical representation 
 - Exogenous factors are part of the model specification
 
-
 # Assumptions 
 
 **Error terms**
 
 Regression: Omittable outside factor 
-SCM/SEM; Latent influencial factor that is pivotal for the model specification but not observable 
+SCM/SEM; Latent influential factor that is pivotal for the model specification but not observable 
 
 Consists of graph and assignments: 
 Baseline: 
@@ -185,5 +186,5 @@ Table: Pearls Hierachy of Causation (2009)
 - Regular Time Specification is also more vague 
 - To accomodate that issue, research on differential equation based SCMs started 
 
-
+# References
 
