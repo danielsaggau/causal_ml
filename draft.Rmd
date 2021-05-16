@@ -111,7 +111,7 @@ structural if function autonomous and invariant to change in form of other funct
 
 ## Comparing Causal Tools
 
-A structural equation model (SEM) is a set of autonous equations.
+A structural equation model (SEM) is a set of autonomous equations.
 This set represents the 'state of the world'. 
 SEMs are popular in fields like economics, psychology and sociology [@pearl2009causality].
 SCM are also defined by a (sub-)set of structural equations.
@@ -126,7 +126,7 @@ Treating an equation as a **algebraic equation** led to confusion because those 
 This algebraic equation would imply that $B=A$ because the order has no concrete meaning in algebraic equations.
 The problem is that the equation is symmetric.
 The initial $'='$ sign was replaced with the ':=' which is asymmetric (Pearl, 2009) and called an **assignment**.
-This misconception has caused a lot of challenges which I will address further on in this paper. 
+This misconception has caused a lot of challenges.^[For more information see @pearl2009causality]
 As mentioned, we define variables as functions e.g. $A=f_A(B,U_A)$.
 B defines A and the latent factor $U_A$.
 To summarize, a SCM consists of a set of (autonomous) equations to generate (a) endogenous variables and (b) exogenous variables.
@@ -135,7 +135,6 @@ In Figure 1 we can see an example of a probabilistic model depicted  as a direct
 The nodes are the white circles.
 The edges are the arrows, defined by the conditional probabilities.
 C is our **collider** variable because the affect of A on C and T on C collide [@pearl2009causality].
-
 
 ```{tikz, notwell,  fig.cap ="Probabilistic Model",  fig.align="center", echo =F, fig.show="hold", out.width="50%" }
 \usetikzlibrary{calc}

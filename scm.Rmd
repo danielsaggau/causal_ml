@@ -82,6 +82,16 @@ $$E:=f_E(C,N_E)$$
 
 source: @peters_elements_2017
 
+# Assumptions (3)
+
+First, there was no sign to express the assignment equation and people used the '=' and one would e.g. write $A=B$.
+Treating an equation as a **algebraic equation** led to confusion because those have no causal information.
+This algebraic equation would imply that $B=A$ because the order has no concrete meaning in algebraic equations.
+The problem is that the equation is symmetric.
+The initial $'='$ sign was replaced with the ':=' which is asymmetric (Pearl, 2009) and called an **assignment**.
+This misconception has caused a lot of challenges.^[For more information see @pearl2009causality]
+As mentioned, we define variables as functions e.g. $A=f_A(B,U_A)$.
+
 # SCM Applications: 
 
 - Flexible simulations for higher order problems (intervention, counterfactual)
