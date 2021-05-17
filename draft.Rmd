@@ -212,7 +212,6 @@ The circle nodes represent the observed variables.
 The arrows are our structural equations and depict the relationship between variables.
 ^[Note that there are also cyclic structural causal models but no cyclic bayesian causal networks. For further information see  @pearl2009causality. Due to the confined scope of this paper, I will not explore cyclic structures.
 
-
 Potential outcomes treat outcomes merely as potential outcomes rather rather than true outcomes. 
 - Only observe outcomes for units that are treated
 - ATE is a typical query
@@ -296,7 +295,7 @@ SCM:
 
 ## Features
 
-A graph in a SCM contains endogenous and exogenous variables. 
+A graph in a SCM contains endogenous and exogenous variables 
 In a directed graph all edges have arrows.
 Directed arrows are direct (causal) effects.
 No edge between variables means that there is no causal effect. 
@@ -305,7 +304,7 @@ If we have all edges without arrows, we call that graph un-directed.
 The most famous graphical model is the acyclic graph.
 An acyclic graph has no roots that cause itself (directly and indirectly).
 Because we do not specify changes over time we typically only deal with acyclic models.
-This is partially because we assume the relationship to be constant over time. 
+This is partially because we assume the relationship to be constant over time. [@creager]
 
 There are various tools to derive graphical models.^[The PC-Algorithm and the IC-Algorthm are two prominent examples.]
 

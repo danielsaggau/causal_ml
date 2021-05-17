@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.17)  17 MAY 2021 13:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.17)  17 MAY 2021 14:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -585,7 +585,7 @@ n input line 353.
 (pdftex.def)             Requested size: 143.54027pt x 72.272pt.
 [6 <./draft_files/figure-latex/notwell-1.pdf> <./draft_files/figure-latex/unnam
 ed-chunk-1-1.pdf>] [7] [8]
-Overfull \hbox (5.76085pt too wide) detected at line 569
+Overfull \hbox (5.76085pt too wide) detected at line 570
 []
  []
 
@@ -594,8 +594,8 @@ Package rerunfilecheck Info: File `draft.out' has not changed.
 (rerunfilecheck)             Checksum: 5E2EB4198D7BD08016702200A966868D;2387.
  ) 
 Here is how much of TeX's memory you used:
- 10984 strings out of 480796
- 159679 string characters out of 5903520
+ 10985 strings out of 480796
+ 159690 string characters out of 5903520
  481614 words of memory out of 5000000
  28087 multiletter control sequences out of 15000+600000
  447311 words of font info for 130 fonts, out of 8000000 for 9000
@@ -611,10 +611,10 @@ X/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/danielsaggau/Librar
 y/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/danielsaggau/L
 ibrary/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/danielsag
 gau/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on draft.pdf (12 pages, 154031 bytes).
+Output written on draft.pdf (12 pages, 154747 bytes).
 PDF statistics:
- 324 PDF objects out of 1000 (max. 8388607)
- 277 compressed objects within 3 object streams
- 70 named destinations out of 1000 (max. 500000)
+ 327 PDF objects out of 1000 (max. 8388607)
+ 280 compressed objects within 3 object streams
+ 71 named destinations out of 1000 (max. 500000)
  147 words of extra memory for PDF output out of 10000 (max. 10000000)
 
