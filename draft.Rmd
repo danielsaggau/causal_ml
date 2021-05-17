@@ -41,6 +41,7 @@ There are different approaches on how to model causal relationships.
 This paper focuses on Structural Causal Models and Bayesian Causal Networks.
 Bayesian Causal Networks (BCN) cast a model based on **conditional probabilities.**
 Structural Causal Models (SCM) specify relationships based on **functional equations** [@pearl2009causality].
+Summarized, *'they are simulators that generate a distribution based noise variables (independent) and a unique joint distribution...'* [@hardtrecht].
 SCMs are non-parametric structural equations models with added features.
 Existing literature has provided an excellent introduction to SCMs and BCNs. 
 @pearl2009causality provided a comprehensive introduction into this topic with his book 'Causality'.
@@ -67,6 +68,26 @@ $$E:=f_E(C,N_E)$$
 source: @peters_elements_2017
 
 ## Assumptions in Causality 
+
+
+**Established Conditions:**
+
+Definition: **SUTVA**
+
+'The treatment that one unit receives does not change the effect of treatment for any other unit.'[@hardtrecht]
+
+Definition: **Consistency** 
+
+The outcome Y agrees with the potential outcome corresponding to the treatment indicator.' [@hardtrecht]
+
+Definition: **Ignorability**
+
+The potential outcomes are conditionally independent of treatment given some set of deconfounding variables. [@hardtrecht]
+(perfect RCT)
+
+- First tow hold for SCM counterfactuals 
+- third not testable but can check via backdoor criterion in SCM 
+
 
 *Definition:***Independence**
 
@@ -189,7 +210,16 @@ The square nodes represent the latent variables.
 
 The circle nodes represent the observed variables.
 The arrows are our structural equations and depict the relationship between variables.
-^[Note that there are also cyclic structural causal models but no cyclic bayesian causal networks. For further information see Pearl (2009). Due to the confined scope of this paper, I will not explore cyclic structures.]
+^[Note that there are also cyclic structural causal models but no cyclic bayesian causal networks. For further information see  @pearl2009causality. Due to the confined scope of this paper, I will not explore cyclic structures.
+
+
+Potential outcomes treat outcomes merely as potential outcomes rather rather than true outcomes. 
+- Only observe outcomes for units that are treated
+- ATE is a typical query
+- Every SCM can generate PO 
+- Cannot derive SCM from PO alone 
+- SCM has more concepts : causal graphs, mediating paths, counterfactuals for every variable etc. 
+- PO Easier to apply because apply to observational data [@hardtrecht]
 
 ## A Brief History of Causal Modeling
 
@@ -200,9 +230,10 @@ Various other disciplines such as econometrics, psychometrics and sociology adop
 Aside from path diagrams also introduced graph rules to formalise relationships.
 (tbc. Cowles, Haavelmo,Aldrich, )
 
+
 # Pearl's Causal Hierachy
 
-To contextualise causal methods, Judea Pearl (2009) introduced the hierarchy of causation.
+To contextualise causal methods,  @pearl2009causality introduced the hierarchy of causation.
 Pearl focuses on three layers: association, intervention and counterfactuals (Table 1).
 
  |Method          | Action | | Usage | 
@@ -212,11 +243,13 @@ Pearl focuses on three layers: association, intervention and counterfactuals (Ta
 | Counterfactual $P(a_b|a`,b`)$     | Hypotheticals            | SCM ,PO            
 
 A higher level implies more detailed knowledge of the relationship between the variables.
+ @pearl2009causality introduced the do-calculus.
+ The do-calculus is a mathematical framework allowing for active substitution (E.g. $X:=10$) [@hardtrecht].
 The first query is association, where we examine relationships based on observations.
 
 Table: Pearls Hierachy of Causation (2009)
 
-## Prediction
+## Association
 
 Vanilla machine learning (ML), bayesian networks (BN) and regression models (Reg) are at the lowest level in the causal hierarchy (see table 1).
 These methods demand the least information and depend on association alone.
