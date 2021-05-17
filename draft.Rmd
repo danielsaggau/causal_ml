@@ -42,6 +42,7 @@ This paper focuses on Structural Causal Models and Bayesian Causal Networks.
 Bayesian Causal Networks (BCN) cast a model based on **conditional probabilities.**
 Structural Causal Models (SCM) specify relationships based on **functional equations** [@pearl2009causality].
 Summarized, *'they are simulators that generate a distribution based noise variables (independent) and a unique joint distribution...'* [@hardtrecht].
+- noise variables helo generate joint distribution [@barocas].
 SCMs are non-parametric structural equations models with added features.
 Existing literature has provided an excellent introduction to SCMs and BCNs. 
 @pearl2009causality provided a comprehensive introduction into this topic with his book 'Causality'.
@@ -293,6 +294,10 @@ SCM:
 
 # Graphical Models 
 
+Also called causal diagram
+- collider, mediator, fork [@barocas]
+
+
 ## Features
 
 A graph in a SCM contains endogenous and exogenous variables 
@@ -313,7 +318,9 @@ There are various tools to derive graphical models.^[The PC-Algorithm and the IC
 
 ## Implications 
 
-Any DAG can be written as  SCM.
+- backdoor criterion non experimental way remove confounding [@barocas]
+
+Any DAG can be written as SCM.
 given joint disrtribution can be discover grahp? Markov condition 
 
 
@@ -389,3 +396,20 @@ Henceforth, as machin
 \newpage
 
 # Appendix
+
+
+
+ |Method         | CBN |  SCM
+|----------------|---------------------------|------------------------|
+| Prediction     | $\boldsymbol{\cdot}$ Unstable                                                                                        | $\boldsymbol{\cdot}$ Stable                 
+|                | $\boldsymbol{\cdot}$ Volatile to parameter changes                                                                   | $\boldsymbol{\cdot}$ More Natural Specification 
+|                | $\boldsymbol{\cdot}$ Re-Estimate entire model                                                                        | $\boldsymbol{\cdot}$ Only estimate $\Delta$ CM
+|                |                                                                                                                      | 
+| Intervention   | $\boldsymbol{\cdot}$ Costly for Non-Markovian Models                                                                 | $\boldsymbol{\cdot}$ Pot. Cyclic Representation
+|                | $\boldsymbol{\cdot}$ Unstable(Nature CP)                                                                             | $\boldsymbol{\cdot}$ Stable(Nature Eq.)
+|                | $\boldsymbol{\cdot}$ Only generic estimates($\Delta$ CP)                                                             | $\boldsymbol{\cdot}$ Context specific(Invariance of Eq.)
+|                |                                                                                                                      | 
+|Counterfactuals | $\boldsymbol{\cdot}$ **Impossible**                                                                                  | $\boldsymbol{\cdot}$ Possible
+|                | $\boldsymbol{\cdot}$ no information on latent factors($\epsilon$)                                                    | $\boldsymbol{\cdot}$ Inclusion of latent factors
+
+Table: Source: Pearl (2009)
