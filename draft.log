@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.17)  17 MAY 2021 16:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.17)  17 MAY 2021 20:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -585,7 +585,7 @@ n input line 355.
 (pdftex.def)             Requested size: 143.54027pt x 72.272pt.
 [6 <./draft_files/figure-latex/notwell-1.pdf> <./draft_files/figure-latex/unnam
 ed-chunk-1-1.pdf>] [7] [8]
-Overfull \hbox (5.76085pt too wide) detected at line 582
+Overfull \hbox (5.76085pt too wide) detected at line 589
 []
  []
 
@@ -612,10 +612,10 @@ X/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></Users/danielsaggau/Library
 /Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/daniels
 aggau/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/da
 nielsaggau/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on draft.pdf (12 pages, 158231 bytes).
+Output written on draft.pdf (12 pages, 158508 bytes).
 PDF statistics:
- 339 PDF objects out of 1000 (max. 8388607)
- 291 compressed objects within 3 object streams
+ 340 PDF objects out of 1000 (max. 8388607)
+ 292 compressed objects within 3 object streams
  73 named destinations out of 1000 (max. 500000)
  147 words of extra memory for PDF output out of 10000 (max. 10000000)
 

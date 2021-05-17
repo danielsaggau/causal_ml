@@ -318,7 +318,14 @@ There are various tools to derive graphical models.^[The PC-Algorithm and the IC
 
 ## Implications 
 
+- no need functional dependency -> less assumptions about form
+- show collider variables
+- iv backdoor, estimation by mechanism
+[@morgan_winship_2014]
+
+
 - backdoor criterion non experimental way remove confounding [@barocas]
+
 
 Any DAG can be written as SCM.
 given joint disrtribution can be discover grahp? Markov condition 
