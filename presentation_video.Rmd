@@ -49,8 +49,8 @@ Causal assumptions differentiate causal models from association learning methods
   * Comparative Causal Tools 
   * Historical Development 
 * Pearl's Causal Hierachy 
-  * prediction 
-  * intervention 
+  * Prediction 
+  * Intervention 
   * Counterfactuals 
   * Implications 
 * Graphical Models 
@@ -62,8 +62,8 @@ Causal assumptions differentiate causal models from association learning methods
 
 - Consists of system of equations 
 - Assignment equation ':=' rather than regular equation '=' 
-- is a nonparametric SEM 
-- has functional form rather than using probabilities
+- Nonparametric SEM 
+- Functional form rather than using  conditional probabilities
 - entails features from the PO framework and graphical representation 
 - Exogenous factors are part of the model specification
 
