@@ -2,9 +2,12 @@
 title: "A Gentle Introduction to Structural Causal Models"
 author: "Daniel Saggau"
 date: "5/11/2021"
-output: beamer_presentation
 citation_package: --biblatex
 bibliography: [ref.bib]
+output: 
+  beamer_presentation:
+    theme: Madrid
+
 ---
 
 ```{r setup, include=FALSE}
@@ -45,7 +48,7 @@ Causal assumptions differentiate causal models from association learning methods
 # Table of Contents
 
 * Foundations of SCMs 
-  * Assumptions 
+* Assumptions 
   * Comparative Causal Tools 
   * Historical Development 
 * Pearl's Causal Hierachy 
@@ -60,11 +63,12 @@ Causal assumptions differentiate causal models from association learning methods
 
 # Assumptions (1)
 
-- Consists of system of equations 
+- System of equations 
 - Assignment equation ':=' rather than regular equation '=' 
 - Nonparametric SEM 
-- Functional form rather than using  conditional probabilities
-- entails features from the PO framework and graphical representation 
+- Functional form rather than using conditional probabilities
+- SCM = PO + Graphical Tools
+
 - Exogenous factors are part of the model specification
 
 # Assumptions (2)
@@ -97,7 +101,6 @@ As mentioned, we define variables as functions e.g. $A=f_A(B,U_A)$.
 **Independence**
 
 *Definition:*
-
 
 # SCM Applications: 
 
@@ -148,11 +151,11 @@ Table: Pearls Hierachy of Causation (2009)
 
 # Prediction 
 
-Vanilla machine learning (ML), bayesian networks (BN) and regression models (Reg) are at the lowest level in the causal hierarchy (see table 1).
-These methods demand the least information and depend on association alone.
-Associational methods ignore external changes outside of our data.
-The interventional distribution has information on these external changes.
-The interventional distribution is only defined in high level causal methods. 
+ -ML, BN and regression are at the lowest level in the causal hierarchy
+- Prediction methods demand the least information and depend on association alone
+- Associational methods ignore external changes outside of our data.
+- intervention distribution has information on these external changes.
+- intervention distribution is only defined in high level causal methods. 
 
 # Intervention 
 
