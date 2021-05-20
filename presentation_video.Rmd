@@ -28,7 +28,6 @@ include_graphics('./images/correlation.jpg')
 - One issue is the consideration of 'What are we actually predicting'?
 - Mainstream tools are build on association-based learning 
 - Associations are not enough for high stake settings 
-- In disciplines like psychology or economics people are less interested in associational learning
 - We want causation and not correlation 
 
 # Introduction (2)
@@ -48,9 +47,8 @@ Causal assumptions differentiate causal models from association learning methods
 # Table of Contents
 
 * Foundations of SCMs 
-* Assumptions 
-  * Comparative Causal Tools 
-  * Historical Development 
+  * Assumptions 
+  * Comparing Causal Tools 
 * Pearl's Causal Hierachy 
   * Prediction 
   * Intervention 
@@ -171,7 +169,7 @@ Table: Pearls Hierachy of Causation (2009)
 # Intervention 
 
 - The second query deals with interventions
-- Here we can use do-calculus
+- Mathematical Tool: do-calculus
 - The do-calculus enables us to study the manipulation of parent nodes
 - There are various types of intervention
 - One example is **atomic intervention,** where we set a variable to a constant
