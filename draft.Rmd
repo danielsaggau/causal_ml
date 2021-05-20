@@ -70,7 +70,6 @@ source: @peters_elements_2017
 
 ## Assumptions in Causality 
 
-
 **Established Conditions:**
 
 Definition: **SUTVA**
@@ -83,19 +82,18 @@ The outcome Y agrees with the potential outcome corresponding to the treatment i
 
 Definition: **Ignorability**
 
-The potential outcomes are conditionally independent of treatment given some set of deconfounding variables. [@hardtrecht]
+The potential outcomes are conditionally independent of treatment given some set of de-confounding variables. [@hardtrecht]
 (perfect RCT)
 
 - First tow hold for SCM counterfactuals 
 - third not testable but can check via backdoor criterion in SCM 
-
 
 *Definition:***Independence**
 
 If we specify the causal structure correctly: 
 
 (a) possible to undertake local intervention -> change f(x), regardless of f(y|x)
-(b) these components are autonmous objects -> set of autonmous equations 
+(b) these components are autonomous objects -> set of autonomous equations 
 
 Further: independence of noise -> $$N_T , N_A$$
 
@@ -108,7 +106,7 @@ Example conditional probabilities: independence conditional probabilities/distri
 
 SCM fulfills via : 
 
-- dependecy only via vertice connection (noise)
+- dependency only via vertice connection (noise)
 - condition on noise, variables become independent  
 - Independence of mechanisms 
 - conditional independence: 

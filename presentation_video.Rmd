@@ -61,7 +61,7 @@ Causal assumptions differentiate causal models from association learning methods
   * Implications
 * Causality and Time 
 
-# Assumptions (1)
+# Foundations of SCMs (1)
 
 - System of equations 
 - Assignment equation ':=' rather than regular equation '=' 
@@ -71,7 +71,7 @@ Causal assumptions differentiate causal models from association learning methods
 
 - Exogenous factors are part of the model specification
 
-# Assumptions (2)
+# SCM vs SEM
 
 **Error terms**
 
@@ -86,32 +86,40 @@ $$E:=f_E(C,N_E)$$
 
 source: @peters_elements_2017
 
-# Assumptions (3)
+# Assumptions 
 
-First, there was no sign to express the assignment equation and people used the '=' and one would e.g. write $A=B$.
-Treating an equation as a **algebraic equation** led to confusion because those have no causal information.
-This algebraic equation would imply that $B=A$ because the order has no concrete meaning in algebraic equations.
-The problem is that the equation is symmetric.
-The initial $'='$ sign was replaced with the ':=' which is asymmetric (Pearl, 2009) and called an **assignment**.
-This misconception has caused a lot of challenges.^[For more information see @pearl2009causality]
-As mentioned, we define variables as functions e.g. $A=f_A(B,U_A)$.
+- First, there was no sign to express the assignment equation and people used the '=' and one would e.g. write $A=B$.
+- Treating an equation as a **algebraic equation** led to confusion because those have no causal information.
+- This algebraic equation would imply that $B=A$ because the order has no concrete meaning in algebraic equations.
+- The problem is that the equation is symmetric.
+- The initial $'='$ sign was replaced with the ':=' which is asymmetric (Pearl, 2009) and called an **assignment**.
+- This misconception has caused a lot of challenges.^[For more information see @pearl2009causality]
+- As mentioned, we define variables as functions e.g. $A=f_A(B,U_A)$.
 
-# Assumptions (4)
+# Assumptions in Causality 
 
-**Independence**
+**Established Conditions:**
 
-*Definition:*
+Definition: **SUTVA**
+
+'The treatment that one unit receives does not change the effect of treatment for any other unit.'[@hardtrecht]
+
+Definition: **Consistency** 
+
+The outcome Y agrees with the potential outcome corresponding to the treatment indicator.' [@hardtrecht]
+
+Definition: **Ignorability**
+
+The potential outcomes are conditionally independent of treatment given some set of de-confounding variables. [@hardtrecht]
+(perfect RCT)
+
+- First tow hold for SCM counterfactuals 
+- third not testable but can check via backdoor criterion in SCM
 
 # SCM Applications: 
 
 - Flexible simulations for higher order problems (intervention, counterfactual)
 - Graphical visualization via directed acyclic graph
-
-# Comparative Causal Tools 
-
-# Historical Development 
-
-* Path Analysis -> SEM -> SCM
 
 # Fundamental Differences (1)
 
@@ -122,6 +130,8 @@ As mentioned, we define variables as functions e.g. $A=f_A(B,U_A)$.
 
 # Implications
 
+\footnotesize
+
  |Method         | CBN |  SCM
 |----------------|---------------------------|------------------------|
 | Prediction     | $\boldsymbol{\cdot}$ Unstable                                                                                        | $\boldsymbol{\cdot}$ Stable                 
@@ -129,12 +139,13 @@ As mentioned, we define variables as functions e.g. $A=f_A(B,U_A)$.
 |                | $\boldsymbol{\cdot}$ Re-Estimate entire model                                                                        | $\boldsymbol{\cdot}$ Only estimate $\Delta$ CM
 |                |                                                                                                                      | 
 | Intervention   | $\boldsymbol{\cdot}$ Costly for Non-Markovian Models                                                                 | $\boldsymbol{\cdot}$ Pot. Cyclic Representation
-|                | $\boldsymbol{\cdot}$ Unstable(Nature CP)                                                                             | $\boldsymbol{\cdot}$ Stable(Nature Eq.)
-|                | $\boldsymbol{\cdot}$ Only generic estimates($\Delta$ CP)                                                             | $\boldsymbol{\cdot}$ Context specific(Invariance of Eq.)
+|                | $\boldsymbol{\cdot}$ Unstable(Nature CP)                                                                             | $\boldsymbol{\cdot}$ Stable
+|                | $\boldsymbol{\cdot}$ Only generic estimates($\Delta$ CP)                                                             | $\boldsymbol{\cdot}$ Context specific 
 |                |                                                                                                                      | 
 |Counterfactuals | $\boldsymbol{\cdot}$ **Impossible**                                                                                  | $\boldsymbol{\cdot}$ Possible
 |                | $\boldsymbol{\cdot}$ no information on latent factors($\epsilon$)                                                    | $\boldsymbol{\cdot}$ Inclusion of latent factors
 
+\normalsize
 
 # Pearls Causal Hierachy 
 
@@ -151,7 +162,7 @@ Table: Pearls Hierachy of Causation (2009)
 
 # Prediction 
 
- -ML, BN and regression are at the lowest level in the causal hierarchy
+- ML, BN and regression are at the lowest level in the causal hierarchy
 - Prediction methods demand the least information and depend on association alone
 - Associational methods ignore external changes outside of our data.
 - intervention distribution has information on these external changes.
@@ -159,14 +170,14 @@ Table: Pearls Hierachy of Causation (2009)
 
 # Intervention 
 
-The second query deals with interventions.
-Here we can use @pearl2009causality do-calculus.
-The do-calculus enables us to study the manipulation of parent nodes.
- There are various types of intervention.
-One example is **atomic intervention,** where we set a variable to a constant.
-In **policy intervention** we specify a different function for an equation.
-off-policy intervention models different intervention that is not in our historical data [@oberst2019counterfactual].
-Causal bayesian networks , Markov Decision Processes (MDP) and reinforcement learning model intervention.
+- The second query deals with interventions
+- Here we can use do-calculus
+- The do-calculus enables us to study the manipulation of parent nodes
+- There are various types of intervention
+- One example is **atomic intervention,** where we set a variable to a constant
+- In **policy intervention** we specify a different function for an equation
+- Off-policy intervention models different intervention that is not in our historical data
+- CBN , MDP and reinforcement learning model intervention.
 
 # Counterfactuals 
 
@@ -176,7 +187,14 @@ Process is described as follows:
 (b) Action: Exchange $(X = x)$ 
 (c) Prediction: Compute $(Y = y)$
 
-# Graphical Illustration
+# Graphical Tools
+
+- Nodes 
+- Edges
+- Parents/Ancestors
+- 
+
+# Graphical Illustration - Probabilisitic Model 
 
 ```{tikz,fig.align="center",fig.cap="Probabilistic Model", echo =F}
 \usetikzlibrary{calc}
@@ -196,6 +214,8 @@ Process is described as follows:
 \draw[->] (T) -- (C);
 \end{tikzpicture}
 ```
+
+# Graphical Illustration - Structural Causal Model 
 
 ```{tikz,fig.cap="Structural Causal Model", fig.align="center", echo =F}
 \usetikzlibrary{calc}
@@ -231,7 +251,56 @@ Process is described as follows:
 - Time in Physical Sciences: Mechanical and exact 
 - Time in Social Sciences: Often Vague 
 - Regular Time Specification is also more vague 
-- To accomodate that issue, research on differential equation based SCMs started 
+- To accommodate that issue, research on differential equation based SCMs started 
+
+# Graphical Overview
+
+\tiny
+$$
+\begin{array}{|l|l|l|l|l|l|}
+\hline \text { model } & \begin{array}{l}
+\text { predict in IID } \\
+\text { setting }
+\end{array} & \begin{array}{l}
+\text { predict under } \\
+\text { changing } \\
+\text { distributions / } \\
+\text { interventions }
+\end{array} & \begin{array}{l}
+\text { answer } \\
+\text { counter- } \\
+\text { factual } \\
+\text { questions }
+\end{array} & \begin{array}{l}
+\text { obtain } \\
+\text { physical } \\
+\text { insight }
+\end{array} & \begin{array}{l}
+\text { automatically } \\
+\text { learn from } \\
+\text { data }
+\end{array} \\
+\hline \begin{array}{l}
+\text { mechanistic } \\
+\text { model } \\
+\end{array} & \mathrm{Y} & \mathrm{Y} & \mathrm{Y} & \mathrm{Y} & ? \\
+\hline \begin{array}{l}
+\text { structural } \\
+\text { causal model }
+\end{array} & \mathrm{Y} & \mathrm{Y} & \mathrm{Y} & \mathrm{N} & \mathrm{Y} ? ? \\
+\hline \begin{array}{l}
+\text { causal } \\
+\text { graphical } \\
+\text { model }
+\end{array} & \mathrm{Y} & \mathrm{Y} & \mathrm{N} & \mathrm{N} & \mathrm{Y} ? \\
+\hline \begin{array}{l}
+\text { statistical } \\
+\text { model }
+\end{array} & \mathrm{Y} & \mathrm{N} & \mathrm{N} & \mathrm{N} & \mathrm{Y} \\
+\hline
+\end{array}
+$$
+\normalsize
 
 # References
 
