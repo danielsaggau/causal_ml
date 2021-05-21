@@ -193,7 +193,7 @@ $$E:=f_E(C_1,C_2,N_E)$$
 - Edges -> relationship (equations)
 - Parents/Ancestors/Descendants
 - No need to specify exact parametric shape
-- Focus on acyclical structures (DAG)
+- Focus on acyclic structures (DAG)
 - Estimation back door criterion 
 - Test theoretical model structure via causal algorithms to detect structure in data (IC/PC Algo.) 
 - More information: [@morgan_winship_2014]
