@@ -64,7 +64,7 @@ $$E:=f_E(C,N_E)$$
 
 source: @peters_elements_2017
 
-# Assumptions in Causality (1) 
+# Assumptions (1) 
 
 Independence: 
 
@@ -73,7 +73,7 @@ Independence:
 - Change in distribution stems from change in mechanism 
 - Causal Markov Condition
 
-# Assumptions under which causal inference is possible (2) 
+# Assumptions (2) 
 
 *  **SUTVA** 'The treatment that one unit receives does not change the effect of treatment for any other unit.'
 * **Consistency** The outcome Y agrees with the potential outcome corresponding to the treatment indicator.' 
