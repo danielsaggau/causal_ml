@@ -15,6 +15,7 @@ fontfamily: mathpazo
 linestretch: 1.5
 citation_package: --biblatex
 bibliography: [ref.bib]
+csl: ieee.csl
 nocite: '@*'
 ---
 
