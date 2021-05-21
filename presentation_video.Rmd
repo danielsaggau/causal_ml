@@ -1,7 +1,7 @@
 ---
 title: "Introduction to Structural Causal Models"
 author: "Daniel Saggau"
-date: "5/11/2021"
+date: "May 2021"
 citation_package: --biblatex
 bibliography: [ref.bib]
 #csl: ieee.csl
@@ -95,7 +95,7 @@ Independence:
 * A Bayesian causal network (BCN) use conditional probabilities instead of functions 
 * PO is mostly equivalent but has not graphical framework
 * SCM and PO are only frameworks that allow for counterfactuals
-- Every SCM has the same information as respective probabilisitc model + more (DGP)
+- Every SCM has the same information as respective probabilistic model + more (DGP)
 - SCMs can derive potential outcomes but PO cannot derive SCMs
 
 # Table of Contents
@@ -247,7 +247,7 @@ Process is described as follows:
 * Foundations of SCMs 
   * Assumptions 
   * Comparing Causal Tools 
-* Pearl's Causal Hierachy
+* Pearl's Causal Hierarchy
   * Prediction 
   * Intervention 
   * Counterfactuals 
