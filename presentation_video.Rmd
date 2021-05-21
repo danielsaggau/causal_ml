@@ -171,7 +171,7 @@ $$E:=f_E(C_1,C_2,N_E)$$
 * **Consistency** The outcome Y agrees with the potential outcome corresponding to the treatment indicator.' 
 * **Ignorability** The potential outcomes are conditionally independent of treatment given some set of de-confounding variables. (perfect RCT) 
 
-- First tow hold for Counterfactuals in SCM
+- First two hold for Counterfactuals in SCM
 - third not testable but can check via backdoor criterion in SCM
 - Source: [@hardtrecht]
 
