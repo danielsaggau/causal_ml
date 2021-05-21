@@ -73,7 +73,7 @@ Independence:
 - Change in distribution stems from change in mechanism 
 - Causal Markov Condition
 
-# Assumptions in Causality (2) 
+# Assumptions under which causal inference is possible (2) 
 
 *  **SUTVA** 'The treatment that one unit receives does not change the effect of treatment for any other unit.'
 * **Consistency** The outcome Y agrees with the potential outcome corresponding to the treatment indicator.' 
@@ -84,7 +84,7 @@ Independence:
 
 # SCM Applications: 
 
-- Flexible simulations for higher order problems (intervention, counterfactual)
+- Flexible simulations for higher order problems (intervention, counterfactual) based on elementary noise variables
 - Graphical visualization via directed acyclic graph
 - Example: SCM for fairness in dynamical system [@creager] : credit loan approval, time allocation, college admission  
 
@@ -95,6 +95,8 @@ Independence:
 * A Bayesian causal network (BCN) use conditional probabilities instead of functions 
 * PO is mostly equivalent but has not graphical framework
 * SCM and PO are only frameworks that allow for counterfactuals
+- Every SCM has the same information as respective probabilisitc model + more (DGP)
+- SCMs can derive potential outcomes but PO cannot derive SCMs
 
 # Table of Contents
 
@@ -131,7 +133,7 @@ Table: Pearls Hierachy of Causation (2009)
 # Intervention 
 
 - Mathematical Tool: do-calculus
-- The do-calculus enables us to study the manipulation of parent nodes
+- The do-calculus enables us to study the manipulation of parent nodes (direct effect)
 - **Atomic intervention:** where we set a variable to a constant
 - **Policy intervention:** we specify a different function for an equation
 - CBN , MDP and reinforcement learning model intervention.
@@ -181,11 +183,12 @@ Process is described as follows:
 
 - Nodes -> Variables (endogenous/exogenous)
 - Edges -> relationship (equations)
-- Parents/Ancestors/Descendents
+- Parents/Ancestors/Descendants
 - No need to specify exact parametric shape
 - Highlight colliders 
 - Estimation back door criterion 
 - Test theoretical model structure via causal algorithms to detect structure in data (IC/PC Algo.) 
+- More information: [@morgan_winship_2014]
 
 # Graphical Illustration - Probabilisitic Model 
 
@@ -325,11 +328,12 @@ Source: [@peters_elements_2017]
 
 # Concluding Remarks
 
-- Assosicational learning is easy to model because of lower information neccessary
-- but not always appropiate in high stake settings 
-- SCM as simulator for causal modelling, entailing a lot of information (DGP, intervention distribution)
+- Association-based learning is easy to model because of lower information neccessary
+- but not always appropriate in high stake settings 
+- SCM as simulator for causal modelling based on noise variables
+- SCMS entail a lot of information (DGP, intervention distribution)
 - Note: *"Garbage in, Garbage out"*
-- computational advantage casting causal model as system of assignments 
+- computational advantage casting causal model as assignments 
 - Enables modelling of higher order concepts like counterfactuals 
 - Extensions through differential equations for concise modelling of time 
 

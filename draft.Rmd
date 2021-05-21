@@ -42,8 +42,8 @@ There are different approaches on how to model causal relationships.
 This paper focuses on Structural Causal Models and Bayesian Causal Networks.
 Bayesian Causal Networks (BCN) cast a model based on **conditional probabilities.**
 Structural Causal Models (SCM) specify relationships based on **functional equations** [@pearl2009causality].
-Summarized, *'they are simulators that generate a distribution based noise variables (independent) and a unique joint distribution...'* [@hardtrecht].
-- noise variables helo generate joint distribution [@barocas].
+Summarized, *'they are simulators that generate a distribution based on noise variables (independent) and a unique joint distribution...'* [@hardtrecht].
+- noise variables help generate joint distribution [@barocas].
 SCMs are non-parametric structural equations models with added features.
 Existing literature has provided an excellent introduction to SCMs and BCNs. 
 @pearl2009causality provided a comprehensive introduction into this topic with his book 'Causality'.
