@@ -98,6 +98,19 @@ source: @peters_elements_2017
 
 # Assumptions in Causality 
 
+Independence: 
+
+- noise terms independent
+- mechanisms independent (other variables invariant)(local changes)
+- change in distribution stems from change in mechanism 
+
+- Causal Markov Condition allows to factorize 
+- Each Conditional is a causal mechanism
+
+Source: [@peters_elements_2017]
+
+# Assumptions in Causality (2)
+
 **Established Conditions:**
 
 Definition: **SUTVA**
@@ -184,8 +197,8 @@ Table: Pearls Hierachy of Causation (2009)
 
 - by replacing function with a constant
 
-$$C_1:= f_{c_1}(p,q) \rightarrow C_1:=600$$
-$$C_2:= f_{c_2}(a,b)$$
+$$C_1:= f_{c_1}(p,u_1) \rightarrow C_1:=600$$
+$$C_2:= f_{c_2}(a,u_2)$$
 $$E:=f_E(C_1,C_2,N_E)$$
 
 # Example Intevention (2)
@@ -194,11 +207,16 @@ $$E:=f_E(C_1,C_2,N_E)$$
 
 - Intervention by replacing function with a different conditional probability
 
-$$C_1:= f_{c_1}(p,q) \rightarrow C_1:=f(\pi)$$
-$$C_2:= f_{c_2}(a,b)$$
-$$E:=f_E(C_1,C_2,N_E)$$
+$$C_1:= f_{c_1}(p,u_1) \rightarrow C_1:=f(\pi)$$
+$$C_2:= f_{c_2}(a,u_2)$$
+$$E:=f_E(C_1,C_2,u_1,u_2)$$
+
 
 # Counterfactuals 
+
+
+
+- missing data problem in PO framework 
 
 Process is described as follows:
 
@@ -279,11 +297,30 @@ Process is described as follows:
 - Regular Time Specification is also more vague 
 - To accommodate that issue, research on differential equation based SCMs started 
 
+# Causal Modelling with Differential Equations 
+
+Intial Value: 
+
+$$
+\mathbf{x}\left(t_{0}\right)=\mathbf{x}_{0}
+$$
+
+
+
+$$
+\frac{d \mathbf{x}}{d t}=f(\mathbf{x}), \mathbf{x} \in \mathbb{R}^{d}
+$$
+
+$$
+\mathbf{x}(t+d t)=\mathbf{x}(t)+d t \cdot f(\mathbf{x}(t))
+$$
+
 # Graphical Overview
 
-\tiny
+\scriptsize
+
 $$
-\begin{array}{|l|l|l|l|l|l|}
+\begin{array}{|l|l|l|l|l|}
 \hline \text { model } & \begin{array}{l}
 \text { predict in IID } \\
 \text { setting }
@@ -292,7 +329,7 @@ $$
 \text { changing } \\
 \text { distributions / } \\
 \text { interventions }
-\end{array} & \begin{array}{l}
+\end{array} & \begin{array}{c}
 \text { answer } \\
 \text { counter- } \\
 \text { factual } \\
@@ -301,32 +338,36 @@ $$
 \text { obtain } \\
 \text { physical } \\
 \text { insight }
-\end{array} & \begin{array}{l}
-\text { automatically } \\
-\text { learn from } \\
-\text { data }
 \end{array} \\
 \hline \begin{array}{l}
 \text { mechanistic } \\
-\text { model } \\
-\end{array} & \mathrm{Y} & \mathrm{Y} & \mathrm{Y} & \mathrm{Y} & ? \\
+\text { model }
+\end{array} & \mathrm{Y} & \mathrm{Y} & \mathrm{Y} & \mathrm{Y} \\
 \hline \begin{array}{l}
 \text { structural } \\
 \text { causal model }
-\end{array} & \mathrm{Y} & \mathrm{Y} & \mathrm{Y} & \mathrm{N} & \mathrm{Y} ? ? \\
+\end{array} & \mathrm{Y} & \mathrm{Y} & \mathrm{Y} & \mathrm{N} \\
 \hline \begin{array}{l}
 \text { causal } \\
 \text { graphical } \\
 \text { model }
-\end{array} & \mathrm{Y} & \mathrm{Y} & \mathrm{N} & \mathrm{N} & \mathrm{Y} ? \\
+\end{array} & \mathrm{Y} & \mathrm{Y} & \mathrm{N} & \mathrm{N} \\
 \hline \begin{array}{l}
 \text { statistical } \\
 \text { model }
-\end{array} & \mathrm{Y} & \mathrm{N} & \mathrm{N} & \mathrm{N} & \mathrm{Y} \\
+\end{array} & \mathrm{Y} & \mathrm{N} & \mathrm{N} & \mathrm{N} \\
 \hline
 \end{array}
 $$
+Source: [@peters_elements_2017]
 \normalsize
+
+# Extensions 
+
+- Mediation Analysis 
+- 
+
+# Conclusions 
 
 # References
 
