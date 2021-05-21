@@ -4,6 +4,7 @@ author: "Daniel Saggau"
 date: "5/11/2021"
 citation_package: --biblatex
 bibliography: [ref.bib]
+csl: ieee.csl
 output: 
   beamer_presentation:
     theme: Madrid
@@ -46,62 +47,42 @@ Table: [@pearl2012causal]
   * Prediction 
   * Intervention 
   * Counterfactuals 
-  * Implications 
 * Graphical Models 
-  * Features 
-  * Implications
 * Causality and Time 
 
-# Foundations of SCMs (1)
+# Foundations of SCMs 
 
-- System of equations with functions
-- Assignment equation ':=' rather than regular equation '=' 
 - Nonparametric SEM 
-- This algebraic equation would imply that $B=A$ because the order has no concrete meaning in algebraic equations (symmetry)
-- The initial $'='$ sign was replaced with the ':=' which is asymmetric (Pearl, 2009) and called an **assignment**.
+- System of equations with functions
+- Assignments ':=' (non-symmetric) instead of algebraic equation '=' (symmetry)
 - As mentioned, we define variables as functions e.g. $A=f_A(B,U_A)$.
-
-**Error:* **
-Regression: Omittable outside factor 
-SCM/SEM; Latent influential factor that is pivotal for the model specification but not observable 
+**Error in Regression:** Omittable outside factor 
+**Error in SCM/SEM:** Latent (influential) factor that is pivotal for the model 
 
 $$C:= N_c$$
 $$E:=f_E(C,N_E)$$
 
 source: @peters_elements_2017
 
-# Assumptions in Causality 
+# Assumptions in Causality (1) 
 
 Independence: 
 
-- noise terms independent
-- mechanisms independent (other variables invariant)(local changes)
-- change in distribution stems from change in mechanism 
+- Noise terms independent $(N_c,N_e)$
+- Mechanisms independent (other variables invariant)(local changes)
+- Change in distribution stems from change in mechanism 
+- Causal Markov Condition
 
-- Causal Markov Condition allows to factorize 
-- Each Conditional is a causal mechanism
+# Assumptions in Causality (2) 
 
-Source: [@peters_elements_2017]
+ **SUTVA**; 'The treatment that one unit receives does not change the effect of treatment for any other unit.'
 
-# Assumptions in Causality (2)
+**Consistency**: The outcome Y agrees with the potential outcome corresponding to the treatment indicator.' 
 
-**Established Conditions:**
-
-Definition: **SUTVA**
-
-'The treatment that one unit receives does not change the effect of treatment for any other unit.'[@hardtrecht]
-
-Definition: **Consistency** 
-
-The outcome Y agrees with the potential outcome corresponding to the treatment indicator.' [@hardtrecht]
-
-Definition: **Ignorability**
-
-The potential outcomes are conditionally independent of treatment given some set of de-confounding variables. [@hardtrecht]
-(perfect RCT)
+**Ignorability**: The potential outcomes are conditionally independent of treatment given some set of de-confounding variables. (perfect RCT) 
 
 - First tow hold for SCM counterfactuals 
-- third not testable but can check via backdoor criterion in SCM
+- third not testable but can check via backdoor criterion in SCM [@hardtrecht]
 
 # SCM Applications: 
 
@@ -115,6 +96,18 @@ The potential outcomes are conditionally independent of treatment given some set
 * A SEM is a parametric specification used in applied sciences (parameters contested)
 * A Bayesian causal network is another popular causal model using conditional probabilities and NO functions 
 * Differences in performance between BCN and SCM# Performance Evaluation
+
+# Table of Contents
+
+* Foundations of SCMs 
+  * Assumptions 
+  * Comparing Causal Tools 
+* **Pearl's Causal Hierachy**
+  * Prediction 
+  * Intervention 
+  * Counterfactuals 
+* Graphical Models 
+* Causality and Time
 
 # Pearls Causal Hierachy 
 
@@ -133,40 +126,35 @@ Table: Pearls Hierachy of Causation (2009)
 
 - ML, BN and regression are at the lowest level in the causal hierarchy
 - Prediction methods demand the least information and depend on association alone
-- Associational methods ignore external changes outside of our data.
-- intervention distribution has information on these external changes.
-- intervention distribution is only defined in high level causal methods. 
+- Association-based methods ignore external changes outside of our data
+- Intervention distribution needed for higher level information 
 
 # Intervention 
 
-- The second query deals with interventions
 - Mathematical Tool: do-calculus
 - The do-calculus enables us to study the manipulation of parent nodes
-- There are various types of intervention
-- One example is **atomic intervention,** where we set a variable to a constant
-- In **policy intervention** we specify a different function for an equation
-- Off-policy intervention models different intervention that is not in our historical data
+- **Atomic intervention:** where we set a variable to a constant
+- **Policy intervention:** we specify a different function for an equation
 - CBN , MDP and reinforcement learning model intervention.
 
 # Example Intevention (1)
 **Atomic Intervention**:
 
-- by replacing function with a constant
+- replacing function with a constant
 
-$$C_1:= f_{c_1}(p,N_1) \rightarrow C_1:=600$$
-$$C_2:= f_{c_2}(a,N_2)$$
+$$C_1:= f_{c_1}(p,N_{c_1}) \rightarrow C_1:=600$$
+$$C_2:= f_{c_2}(a,N_{c_2})$$
 $$E:=f_E(C_1,C_2,N_E)$$
 
 # Example Intevention (2)
 
 **Policy Intervention:**
 
-- Intervention by replacing function with a different conditional probability
+- replacing function with a different conditional probability
 
-$$C_1:= f_{c_1}(p,N_1) \rightarrow C_1:=f(\pi)$$
-$$C_2:= f_{c_2}(a,N_2)$$
+$$C_1:= f_{c_1}(p,N_{c_1}) \rightarrow C_1:=f(\pi)$$
+$$C_2:= f_{c_2}(a,N_{c_2})$$
 $$E:=f_E(C_1,C_2,N_E)$$
-
 
 # Counterfactuals 
 
@@ -178,14 +166,26 @@ Process is described as follows:
 (b) Action: Exchange $(X = x)$ 
 (c) Prediction: Compute $(Y = y)$
 
+# Table of Contents
+
+* Foundations of SCMs 
+  * Assumptions 
+  * Comparing Causal Tools 
+* Pearl's Causal Hierachy
+  * Prediction 
+  * Intervention 
+  * Counterfactuals 
+* **Graphical Models**
+* Causality and Time
+
 # Graphical Tools
 
 - Nodes -> Variables (endogenous/exogenous)
 - Edges -> relationship (equations)
 - Parents/Ancestors/Descendents
 - No need to specify exact parametric shape
-- highlight colliders 
-- estimation back door criterion 
+- Highlight colliders 
+- Estimation back door criterion 
 - Test theoretical model structure via causal algorithms to detect structure in data (IC/PC Algo.) 
 
 # Graphical Illustration - Probabilisitic Model 
@@ -240,6 +240,18 @@ Process is described as follows:
 \end{tikzpicture}
 ```
 
+# Table of Contents
+
+* Foundations of SCMs 
+  * Assumptions 
+  * Comparing Causal Tools 
+* Pearl's Causal Hierachy
+  * Prediction 
+  * Intervention 
+  * Counterfactuals 
+* Graphical Models
+* **Causality and Time**
+
 # Causality and Time
 
 - Time in Physical Sciences: Mechanical and exact 
@@ -255,15 +267,18 @@ $$
 \mathbf{x}\left(t_{0}\right)=\mathbf{x}_{0}
 $$
 
-
+Derivative of function x with respect to time t: 
 
 $$
 \frac{d \mathbf{x}}{d t}=f(\mathbf{x}), \mathbf{x} \in \mathbb{R}^{d}
 $$
+Value of Function at time t + dt: 
 
 $$
 \mathbf{x}(t+d t)=\mathbf{x}(t)+d t \cdot f(\mathbf{x}(t))
 $$
+
+- dependence on prior time point and change in time contribute to the value at time point
 
 # Graphical Overview
 
@@ -317,21 +332,26 @@ Source: [@peters_elements_2017]
 - Mediation Analysis 
 - PO-Framework
 - Causal Algorithms
+- IV-Estimation
 - Causal Constraints Model 
+- Causal Trees
 
-# Conclusions 
+# Concluding Remarks
 
 - Assosicational learning is easy to model because of lower information neccessary
 - but not always appropiate in high stake settings 
-- SCM as expressive simulator for causal modelling outperforms many other models
-- computational advantage casting causal model as system of assignment equations 
+- SCM as simulator for causal modelling, entailing a lot of information (DGP, intervention distribution)
+- Note: *"Garbage in, Garbage out"*
+- computational advantage casting causal model as system of assignments 
 - Enables modelling of higher order concepts like counterfactuals 
 - Extensions through differential equations for concise modelling of time 
 
 \newpage 
 # References
+\tiny
 
 <div id="refs"></div>
+\normalsize
 \newpage
 
 # Appendix 
