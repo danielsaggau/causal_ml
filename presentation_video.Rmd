@@ -1,5 +1,5 @@
 ---
-title: "A Gentle Introduction to Structural Causal Models"
+title: "Introduction to Structural Causal Models"
 author: "Daniel Saggau"
 date: "5/11/2021"
 citation_package: --biblatex
@@ -7,7 +7,9 @@ bibliography: [ref.bib]
 output: 
   beamer_presentation:
     theme: Madrid
-
+header-includes:
+- \definecolor{UBCblue}{rgb}{0.04706, 0.13725, 0.26667}
+- \usecolortheme[named=UBCblue]{structure}
 ---
 
 ```{r setup, include=FALSE}
@@ -15,6 +17,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 # Motivation
+
 
 ```{r, out.width= "80%", out.height = "80%", fig.align='center'}
 library(knitr)
@@ -177,6 +180,13 @@ Table: Pearls Hierachy of Causation (2009)
 - Off-policy intervention models different intervention that is not in our historical data
 - CBN , MDP and reinforcement learning model intervention.
 
+# Example Intevention 
+
+```{r}
+
+```
+
+
 # Counterfactuals 
 
 Process is described as follows:
@@ -189,8 +199,8 @@ Process is described as follows:
 
 - Nodes 
 - Edges
-- Parents/Ancestors
-- 
+- Parents/Ancestors/Descendents
+- (Missing) Arrows 
 
 # Graphical Illustration - Probabilisitic Model 
 
