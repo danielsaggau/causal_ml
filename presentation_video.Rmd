@@ -107,6 +107,7 @@ The potential outcomes are conditionally independent of treatment given some set
 
 - Flexible simulations for higher order problems (intervention, counterfactual)
 - Graphical visualization via directed acyclic graph
+- Example: SCM for fairness in dynamical system [@creager] : credit loan approval, time allocation, college admission  
 
 # Fundamental Differences (1)
 
@@ -169,8 +170,6 @@ $$E:=f_E(C_1,C_2,N_E)$$
 
 # Counterfactuals 
 
-
-
 - missing data problem in PO framework 
 
 Process is described as follows:
@@ -181,17 +180,13 @@ Process is described as follows:
 
 # Graphical Tools
 
+- Nodes -> Variables (endogenous/exogenous)
+- Edges -> relationship (equations)
+- Parents/Ancestors/Descendents
 - No need to specify exact parametric shape
 - highlight colliders 
 - estimation back door criterion 
--
-- Nodes 
-- Edges
-- Parents/Ancestors/Descendents
-- (Missing) Arrows 
-
-# Difference Path Diagramm and Pearls Causal Diagrams 
-
+- Test theoretical model structure via causal algorithms to detect structure in data (IC/PC Algo.) 
 
 # Graphical Illustration - Probabilisitic Model 
 
@@ -250,7 +245,7 @@ Process is described as follows:
 - Time in Physical Sciences: Mechanical and exact 
 - Time in Social Sciences: Often Vague 
 - Regular Time Specification is also more vague 
-- To accommodate that issue, research on differential equation based SCMs started 
+- To accommodate that issue, research on differential equation based SCMs started
 
 # Causal Modelling with Differential Equations 
 
@@ -324,11 +319,36 @@ Source: [@peters_elements_2017]
 - Causal Algorithms
 - Causal Constraints Model 
 
-
 # Conclusions 
 
-# References 
+- Assosicational learning is easy to model because of lower information neccessary
+- but not always appropiate in high stake settings 
+- SCM as expressive simulator for causal modelling outperforms many other models
+- computational advantage casting causal model as system of assignment equations 
+- Enables modelling of higher order concepts like counterfactuals 
+- Extensions through differential equations for concise modelling of time 
+
+\newpage 
+# References
+
+<div id="refs"></div>
+\newpage
 
 # Appendix 
 
+\footnotesize
 
+ |Method         | CBN |  SCM
+|----------------|---------------------------|------------------------|
+| Prediction     | $\boldsymbol{\cdot}$ Unstable                                                                                        | $\boldsymbol{\cdot}$ Stable                 
+|                | $\boldsymbol{\cdot}$ Volatile to parameter changes                                                                   | $\boldsymbol{\cdot}$ More Natural Specification 
+|                | $\boldsymbol{\cdot}$ Re-Estimate entire model                                                                        | $\boldsymbol{\cdot}$ Only estimate $\Delta$ CM
+|                |                                                                                                                      | 
+| Intervention   | $\boldsymbol{\cdot}$ Costly for Non-Markovian Models                                                                 | $\boldsymbol{\cdot}$ Pot. Cyclic Representation
+|                | $\boldsymbol{\cdot}$ Unstable(Nature CP)                                                                             | $\boldsymbol{\cdot}$ Stable
+|                | $\boldsymbol{\cdot}$ Only generic estimates($\Delta$ CP)                                                             | $\boldsymbol{\cdot}$ Context specific 
+|                |                                                                                                                      | 
+|Counterfactuals | $\boldsymbol{\cdot}$ **Impossible**                                                                                  | $\boldsymbol{\cdot}$ Possible
+|                | $\boldsymbol{\cdot}$ no information on latent factors($\epsilon$)                                                    | $\boldsymbol{\cdot}$ Inclusion of latent factors
+
+\normalsize

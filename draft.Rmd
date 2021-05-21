@@ -329,7 +329,6 @@ There are various tools to derive graphical models.^[The PC-Algorithm and the IC
 Any DAG can be written as SCM.
 given joint disrtribution can be discover grahp? Markov condition 
 
-
 # Causal Inference and Time 
 
 Another issue in this paper is understanding the relationship of time and causality.
