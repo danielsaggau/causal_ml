@@ -38,10 +38,6 @@ include_graphics('./images/correlation.jpg')
 
 Table: [@pearl2012causal]
 
-# Seminar Topics
-
-
-
 # Table of Contents
 
 * Foundations of SCMs 
@@ -54,12 +50,25 @@ Table: [@pearl2012causal]
 * Graphical Models 
 * Causality and Time 
 
-# Foundations of SCMs 
+# Seminar Topics
 
-- Flexible simulations for higher order problems (intervention, counterfactual) based on elementary noise variables
+* Topic 1: **Structural Causal Models**
+* Topic 2: Linking d-separation with (conditional) independence & Causal Structure Learning
+* Topic 3: do-calculus: estimating the effect of interventions & counterfactuals 
+* Topic 4: Rubin’s Potential Outcome Framework & Causal Trees
+* Topic 5: Algorithmic Recourse 
+* Topic 6: Causal Interpretation of Black-Box Models
+
+# Foundations of SCMs (1)
+
+- Flexible simulations for higher order problems (intervention, counterfactual) 
+- based on (elementary) 'noise'/latent variables
 - Graphical visualization via directed acyclic graph
 - Nonparametric SEM 
 - System of equations with functions
+
+# Foundations of SCMs (2)
+
 - **Assignments** ':=' (non-symmetric) 
 - algebraic equation '=' (symmetry)
 - **Error in Regression:** Omittable outside factor 
@@ -70,16 +79,14 @@ $$E:=f_E(C,N_E)$$
 
 Source: @peters_elements_2017
 
-# Assumptions (1) 
-
-Independence: 
+# Assumptions - Independence
 
 - Noise terms independent $(N_c,N_e)$
 - Mechanisms independent (other variables invariant)(local changes)
 - Change in distribution stems from change in mechanism 
 - Causal Markov Condition
 
-# Fundamental Differences (1)
+# Fundamental Differences 
 
 - Conflict whether to use **graphs** or not and to use **parameters** in SEM
 * SEM is a parametric model used in applied sciences 
@@ -157,7 +164,8 @@ $$E:=f_E(C_1,C_2,N_E)$$
 * **Ignorability** The potential outcomes are conditionally independent of treatment given some set of de-confounding variables. (perfect RCT) 
 
 - First tow hold for Counterfactuals in SCM
-- third not testable but can check via backdoor criterion in SCM [@hardtrecht]
+- third not testable but can check via backdoor criterion in SCM
+- Source: [@hardtrecht]
 
 # Table of Contents
 
@@ -351,25 +359,6 @@ $$
 Source: [@peters_elements_2017]
 \normalsize
 
-# Does and Do nots
-
-**If you...**
-
-* ...only have conditional probabilities 
-* ...are only interested in association 
-* ...have very limited knowledge of your actual underlying causal structure 
-
-$\rightarrow$ you should probably go for a probabilistic model, association based model or a model based on conditional probabilities 
-
-**But if you**
-
-* ... have a good understanding of underlying latent factors 
-* ... have a lot of information on your underlying relationship in your data 
-* ... are dealing with high stake settings 
-* ... want to simulate different interventions before implementing them
-
-$\rightarrow$ you should probably go for a SCM 
-
 # Concluding Remarks
 
 - Association-based learning is easy to model because of lower information neccessary
@@ -380,6 +369,24 @@ $\rightarrow$ you should probably go for a SCM
 - computational advantage casting causal model as assignments 
 - Enables modelling of higher order concepts like counterfactuals 
 - Extensions through differential equations for concise modelling of time 
+
+# Dos and Do nots
+
+**If you...**
+
+* ...only have conditional probabilities 
+* ...are only interested in association 
+* ...have very limited knowledge of your actual underlying structure 
+
+$\rightarrow$ you should probably go for a probabilistic model, association based model or a model based on conditional probabilities 
+
+**But if you**
+
+* ... have an understanding of underlying relationships in the data
+* ... are dealing with high stake settings 
+* ... want to simulate different interventions
+
+$\rightarrow$ you should probably go for a SCM 
 
 \newpage 
 # References
@@ -407,3 +414,12 @@ $\rightarrow$ you should probably go for a SCM
 |                | $\boldsymbol{\cdot}$ no information on latent factors($\epsilon$)                                                    | $\boldsymbol{\cdot}$ Inclusion of latent factors
 
 \normalsize
+
+# Questions: 
+
+Thank you so much for your time!
+
+If you have any questions contact me via:
+
+* Mattermost: daniel.saggau
+* Email: daniel.saggau@campus.lmu.de
