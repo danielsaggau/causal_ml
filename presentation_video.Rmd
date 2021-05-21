@@ -86,14 +86,22 @@ Source: @peters_elements_2017
 - Change in distribution stems from change in mechanism 
 - Causal Markov Condition
 
-# Fundamental Differences 
+# Differences 
+
+**SEM:**
 
 - Conflict whether to use **graphs** or not and to use **parameters** in SEM
-* SEM is a parametric model used in applied sciences 
-* A Bayesian causal network (BCN) use conditional probabilities instead of functions 
-* PO is mostly equivalent but has not graphical framework
-* SCM and PO are only frameworks that allow for counterfactuals
+- SEM is a parametric model used in applied sciences 
+
+**BCN**: 
+
+- A Bayesian causal network (BCN) use conditional probabilities instead of functions 
 - Every SCM has the same information as respective probabilistic model + more (DGP)
+- Computationally less efficient and cannot cast counterfactuals 
+
+**Potential Outcome Framework:**
+
+- PO is mostly equivalent but has not graphical framework
 - SCMs can derive potential outcomes but PO cannot derive SCMs
 
 # Table of Contents
@@ -364,9 +372,9 @@ Source: [@peters_elements_2017]
 - Association-based learning is easy to model because of lower information neccessary
 - but not always appropriate in high stake settings 
 - SCM as simulator for causal modelling based on noise variables
-- SCMS entail a lot of information (DGP, intervention distribution)
-- Note: *"Garbage in, Garbage out"*
-- computational advantage casting causal model as assignments 
+- SCMs entail a lot of information (DGP, intervention distribution)
+- BUT: **"Garbage in, Garbage out"**
+- Computational advantage casting causal model as assignments 
 - Enables modelling of higher order concepts like counterfactuals 
 - Extensions through differential equations for concise modelling of time 
 
@@ -374,19 +382,19 @@ Source: [@peters_elements_2017]
 
 **If you...**
 
-* ...only have conditional probabilities 
-* ...are only interested in association 
-* ...have very limited knowledge of your actual underlying structure 
+* ..only have conditional probabilities 
+* ..are only interested in association 
+* ..have very limited knowledge of your actual underlying structure 
 
 $\rightarrow$ you should probably go for a probabilistic model, association based model or a model based on conditional probabilities 
 
 **But if you**
 
-* ... have an understanding of underlying relationships in the data
-* ... are dealing with high stake settings 
-* ... want to simulate different interventions
+* ..have an understanding of underlying relationships in the data
+* ..are dealing with high stake settings 
+* ..want to simulate different interventions
 
-$\rightarrow$ you should probably go for a SCM 
+$\rightarrow$ you could probably go for a SCM
 
 \newpage 
 # References
