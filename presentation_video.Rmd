@@ -56,8 +56,8 @@ Table: [@pearl2012causal]
 - System of equations with functions
 - **Assignments** ':=' (non-symmetric) 
 - algebraic equation '=' (symmetry)
-**Error in Regression:** Omittable outside factor 
-**Error in SCM:** Latent (influential) factor that is pivotal for the model 
+- **Error in Regression:** Omittable outside factor 
+- **Error in SCM:** Latent (influential) factor that is pivotal for the model 
 
 $$C:= N_c$$
 $$E:=f_E(C,N_E)$$
