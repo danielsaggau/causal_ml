@@ -24,17 +24,7 @@ setwd("~/Desktop/SOSE2021/causal_ml")
 include_graphics('./images/correlation.jpg')
 ```
 
-# Introduction (1)
-
-- Machine learning has provided many insights into different problems 
-- One issue is the consideration of 'What are we actually predicting'?
-- Mainstream tools are build on association-based learning 
-- Associations are not enough for high stake settings 
-- We want causation and not correlation 
-
-# Introduction (2)
-
-Causal assumptions differentiate causal models from association learning methods.
+# Introduction
 
  | Association-based Concepts |  Causal Concepts
 |--------------------------|------------------------|
@@ -45,6 +35,7 @@ Causal assumptions differentiate causal models from association learning methods
 | Odds Ratio               | Structural Coefficients       
 | Propensity Score         | Spurious Correlation    
 
+Table: [@pearl2012causal]
 
 # Table of Contents
 
@@ -63,38 +54,21 @@ Causal assumptions differentiate causal models from association learning methods
 
 # Foundations of SCMs (1)
 
-- System of equations 
+- System of equations with functions
 - Assignment equation ':=' rather than regular equation '=' 
 - Nonparametric SEM 
-- Functional form rather than using conditional probabilities
-- SCM = PO + Graphical Tools
+- This algebraic equation would imply that $B=A$ because the order has no concrete meaning in algebraic equations (symmetry)
+- The initial $'='$ sign was replaced with the ':=' which is asymmetric (Pearl, 2009) and called an **assignment**.
+- As mentioned, we define variables as functions e.g. $A=f_A(B,U_A)$.
 
-- Exogenous factors are part of the model specification
-
-# SCM vs SEM
-
-**Error terms**
-
+**Error:* **
 Regression: Omittable outside factor 
 SCM/SEM; Latent influential factor that is pivotal for the model specification but not observable 
-
-Consists of graph and assignments: 
-Baseline: 
 
 $$C:= N_c$$
 $$E:=f_E(C,N_E)$$
 
 source: @peters_elements_2017
-
-# Assumptions 
-
-- First, there was no sign to express the assignment equation and people used the '=' and one would e.g. write $A=B$.
-- Treating an equation as a **algebraic equation** led to confusion because those have no causal information.
-- This algebraic equation would imply that $B=A$ because the order has no concrete meaning in algebraic equations.
-- The problem is that the equation is symmetric.
-- The initial $'='$ sign was replaced with the ':=' which is asymmetric (Pearl, 2009) and called an **assignment**.
-- This misconception has caused a lot of challenges.^[For more information see @pearl2009causality]
-- As mentioned, we define variables as functions e.g. $A=f_A(B,U_A)$.
 
 # Assumptions in Causality 
 
@@ -141,25 +115,6 @@ The potential outcomes are conditionally independent of treatment given some set
 * A Bayesian causal network is another popular causal model using conditional probabilities and NO functions 
 * Differences in performance between BCN and SCM# Performance Evaluation
 
-# Implications
-
-\footnotesize
-
- |Method         | CBN |  SCM
-|----------------|---------------------------|------------------------|
-| Prediction     | $\boldsymbol{\cdot}$ Unstable                                                                                        | $\boldsymbol{\cdot}$ Stable                 
-|                | $\boldsymbol{\cdot}$ Volatile to parameter changes                                                                   | $\boldsymbol{\cdot}$ More Natural Specification 
-|                | $\boldsymbol{\cdot}$ Re-Estimate entire model                                                                        | $\boldsymbol{\cdot}$ Only estimate $\Delta$ CM
-|                |                                                                                                                      | 
-| Intervention   | $\boldsymbol{\cdot}$ Costly for Non-Markovian Models                                                                 | $\boldsymbol{\cdot}$ Pot. Cyclic Representation
-|                | $\boldsymbol{\cdot}$ Unstable(Nature CP)                                                                             | $\boldsymbol{\cdot}$ Stable
-|                | $\boldsymbol{\cdot}$ Only generic estimates($\Delta$ CP)                                                             | $\boldsymbol{\cdot}$ Context specific 
-|                |                                                                                                                      | 
-|Counterfactuals | $\boldsymbol{\cdot}$ **Impossible**                                                                                  | $\boldsymbol{\cdot}$ Possible
-|                | $\boldsymbol{\cdot}$ no information on latent factors($\epsilon$)                                                    | $\boldsymbol{\cdot}$ Inclusion of latent factors
-
-\normalsize
-
 # Pearls Causal Hierachy 
 
 \footnotesize
@@ -197,8 +152,8 @@ Table: Pearls Hierachy of Causation (2009)
 
 - by replacing function with a constant
 
-$$C_1:= f_{c_1}(p,u_1) \rightarrow C_1:=600$$
-$$C_2:= f_{c_2}(a,u_2)$$
+$$C_1:= f_{c_1}(p,N_1) \rightarrow C_1:=600$$
+$$C_2:= f_{c_2}(a,N_2)$$
 $$E:=f_E(C_1,C_2,N_E)$$
 
 # Example Intevention (2)
@@ -207,9 +162,9 @@ $$E:=f_E(C_1,C_2,N_E)$$
 
 - Intervention by replacing function with a different conditional probability
 
-$$C_1:= f_{c_1}(p,u_1) \rightarrow C_1:=f(\pi)$$
-$$C_2:= f_{c_2}(a,u_2)$$
-$$E:=f_E(C_1,C_2,u_1,u_2)$$
+$$C_1:= f_{c_1}(p,N_1) \rightarrow C_1:=f(\pi)$$
+$$C_2:= f_{c_2}(a,N_2)$$
+$$E:=f_E(C_1,C_2,N_E)$$
 
 
 # Counterfactuals 
@@ -365,9 +320,15 @@ Source: [@peters_elements_2017]
 # Extensions 
 
 - Mediation Analysis 
-- 
+- PO-Framework
+- Causal Algorithms
+- Causal Constraints Model 
+
 
 # Conclusions 
 
-# References
+# References 
+
+# Appendix 
+
 
