@@ -18,7 +18,6 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Motivation
 
-
 ```{r, out.width= "80%", out.height = "80%", fig.align='center'}
 library(knitr)
 setwd("~/Desktop/SOSE2021/causal_ml")
@@ -180,12 +179,24 @@ Table: Pearls Hierachy of Causation (2009)
 - Off-policy intervention models different intervention that is not in our historical data
 - CBN , MDP and reinforcement learning model intervention.
 
-# Example Intevention 
+# Example Intevention (1)
+**Atomic Intervention**:
 
-```{r}
+- by replacing function with a constant
 
-```
+$$C_1:= f_{c_1}(p,q) \rightarrow C_1:=600$$
+$$C_2:= f_{c_2}(a,b)$$
+$$E:=f_E(C_1,C_2,N_E)$$
 
+# Example Intevention (2)
+
+**Policy Intervention:**
+
+- Intervention by replacing function with a different conditional probability
+
+$$C_1:= f_{c_1}(p,q) \rightarrow C_1:=f(\pi)$$
+$$C_2:= f_{c_2}(a,b)$$
+$$E:=f_E(C_1,C_2,N_E)$$
 
 # Counterfactuals 
 
@@ -197,10 +208,17 @@ Process is described as follows:
 
 # Graphical Tools
 
+- No need to specify exact parametric shape
+- highlight colliders 
+- estimation back door criterion 
+-
 - Nodes 
 - Edges
 - Parents/Ancestors/Descendents
 - (Missing) Arrows 
+
+# Difference Path Diagramm and Pearls Causal Diagrams 
+
 
 # Graphical Illustration - Probabilisitic Model 
 
