@@ -4,7 +4,7 @@ author: "Daniel Saggau"
 date: "5/11/2021"
 citation_package: --biblatex
 bibliography: [ref.bib]
-csl: ieee.csl
+#csl: ieee.csl
 output: 
   beamer_presentation:
     theme: Madrid
@@ -54,10 +54,10 @@ Table: [@pearl2012causal]
 
 - Nonparametric SEM 
 - System of equations with functions
-- Assignments ':=' (non-symmetric) instead of algebraic equation '=' (symmetry)
-- As mentioned, we define variables as functions e.g. $A=f_A(B,U_A)$.
+- **Assignments** ':=' (non-symmetric) 
+- algebraic equation '=' (symmetry)
 **Error in Regression:** Omittable outside factor 
-**Error in SCM/SEM:** Latent (influential) factor that is pivotal for the model 
+**Error in SCM:** Latent (influential) factor that is pivotal for the model 
 
 $$C:= N_c$$
 $$E:=f_E(C,N_E)$$
@@ -75,13 +75,11 @@ Independence:
 
 # Assumptions in Causality (2) 
 
- **SUTVA**; 'The treatment that one unit receives does not change the effect of treatment for any other unit.'
+*  **SUTVA** 'The treatment that one unit receives does not change the effect of treatment for any other unit.'
+* **Consistency** The outcome Y agrees with the potential outcome corresponding to the treatment indicator.' 
+* **Ignorability** The potential outcomes are conditionally independent of treatment given some set of de-confounding variables. (perfect RCT) 
 
-**Consistency**: The outcome Y agrees with the potential outcome corresponding to the treatment indicator.' 
-
-**Ignorability**: The potential outcomes are conditionally independent of treatment given some set of de-confounding variables. (perfect RCT) 
-
-- First tow hold for SCM counterfactuals 
+- First tow hold for Counterfactuals in SCM
 - third not testable but can check via backdoor criterion in SCM [@hardtrecht]
 
 # SCM Applications: 
@@ -92,10 +90,11 @@ Independence:
 
 # Fundamental Differences (1)
 
-- conflict whether to use graphs or not 
-* A SEM is a parametric specification used in applied sciences (parameters contested)
-* A Bayesian causal network is another popular causal model using conditional probabilities and NO functions 
-* Differences in performance between BCN and SCM# Performance Evaluation
+- Conflict whether to use **graphs** or not and to use **parameters** in SEM
+* SEM is a parametric model used in applied sciences 
+* A Bayesian causal network (BCN) use conditional probabilities instead of functions 
+* PO is mostly equivalent but has not graphical framework
+* SCM and PO are only frameworks that allow for counterfactuals
 
 # Table of Contents
 
@@ -252,33 +251,26 @@ Process is described as follows:
 * Graphical Models
 * **Causality and Time**
 
-# Causality and Time
-
-- Time in Physical Sciences: Mechanical and exact 
-- Time in Social Sciences: Often Vague 
-- Regular Time Specification is also more vague 
-- To accommodate that issue, research on differential equation based SCMs started
-
 # Causal Modelling with Differential Equations 
 
-Intial Value: 
+- Time in Social Sciences: Often Vague 
+- Time in Physical Sciences: Mechanical via **Differential equations** 
+- dependence on prior time point and change in time contribute to the value at time point
 
+Initial Value: 
 $$
 \mathbf{x}\left(t_{0}\right)=\mathbf{x}_{0}
 $$
 
 Derivative of function x with respect to time t: 
-
 $$
 \frac{d \mathbf{x}}{d t}=f(\mathbf{x}), \mathbf{x} \in \mathbb{R}^{d}
 $$
-Value of Function at time t + dt: 
 
+Value of Function at time t + dt: 
 $$
 \mathbf{x}(t+d t)=\mathbf{x}(t)+d t \cdot f(\mathbf{x}(t))
 $$
-
-- dependence on prior time point and change in time contribute to the value at time point
 
 # Graphical Overview
 
@@ -287,20 +279,15 @@ $$
 $$
 \begin{array}{|l|l|l|l|l|}
 \hline \text { model } & \begin{array}{l}
-\text { predict in IID } \\
-\text { setting }
+\text { IID setting }
 \end{array} & \begin{array}{l}
-\text { predict under } \\
 \text { changing } \\
-\text { distributions / } \\
-\text { interventions }
+\text { distributions } 
 \end{array} & \begin{array}{c}
-\text { answer } \\
 \text { counter- } \\
 \text { factual } \\
 \text { questions }
 \end{array} & \begin{array}{l}
-\text { obtain } \\
 \text { physical } \\
 \text { insight }
 \end{array} \\
