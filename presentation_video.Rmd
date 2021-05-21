@@ -38,6 +38,10 @@ include_graphics('./images/correlation.jpg')
 
 Table: [@pearl2012causal]
 
+# Seminar Topics
+
+
+
 # Table of Contents
 
 * Foundations of SCMs 
@@ -52,6 +56,8 @@ Table: [@pearl2012causal]
 
 # Foundations of SCMs 
 
+- Flexible simulations for higher order problems (intervention, counterfactual) based on elementary noise variables
+- Graphical visualization via directed acyclic graph
 - Nonparametric SEM 
 - System of equations with functions
 - **Assignments** ':=' (non-symmetric) 
@@ -62,7 +68,7 @@ Table: [@pearl2012causal]
 $$C:= N_c$$
 $$E:=f_E(C,N_E)$$
 
-source: @peters_elements_2017
+Source: @peters_elements_2017
 
 # Assumptions (1) 
 
@@ -72,21 +78,6 @@ Independence:
 - Mechanisms independent (other variables invariant)(local changes)
 - Change in distribution stems from change in mechanism 
 - Causal Markov Condition
-
-# Assumptions (2) 
-
-*  **SUTVA** 'The treatment that one unit receives does not change the effect of treatment for any other unit.'
-* **Consistency** The outcome Y agrees with the potential outcome corresponding to the treatment indicator.' 
-* **Ignorability** The potential outcomes are conditionally independent of treatment given some set of de-confounding variables. (perfect RCT) 
-
-- First tow hold for Counterfactuals in SCM
-- third not testable but can check via backdoor criterion in SCM [@hardtrecht]
-
-# SCM Applications: 
-
-- Flexible simulations for higher order problems (intervention, counterfactual) based on elementary noise variables
-- Graphical visualization via directed acyclic graph
-- Example: SCM for fairness in dynamical system [@creager] : credit loan approval, time allocation, college admission  
 
 # Fundamental Differences (1)
 
@@ -123,14 +114,7 @@ Table: Pearls Hierachy of Causation (2009)
 
 \normalsize
 
-# Prediction 
-
-- ML, BN and regression are at the lowest level in the causal hierarchy
-- Prediction methods demand the least information and depend on association alone
-- Association-based methods ignore external changes outside of our data
-- Intervention distribution needed for higher level information 
-
-# Intervention 
+# Intervention
 
 - Mathematical Tool: do-calculus
 - The do-calculus enables us to study the manipulation of parent nodes (direct effect)
@@ -159,13 +143,21 @@ $$E:=f_E(C_1,C_2,N_E)$$
 
 # Counterfactuals 
 
-- missing data problem in PO framework 
-
-Process is described as follows:
+- Missing data problem in PO framework 
+- SCM Process is described as follows:
 
 (a) Abduction: Cast probability $P(u)$ as conditional probability $P(u|\epsilon)$ 
 (b) Action: Exchange $(X = x)$ 
 (c) Prediction: Compute $(Y = y)$
+
+# Assumptions  
+
+*  **SUTVA** 'The treatment that one unit receives does not change the effect of treatment for any other unit.'
+* **Consistency** The outcome Y agrees with the potential outcome corresponding to the treatment indicator.' 
+* **Ignorability** The potential outcomes are conditionally independent of treatment given some set of de-confounding variables. (perfect RCT) 
+
+- First tow hold for Counterfactuals in SCM
+- third not testable but can check via backdoor criterion in SCM [@hardtrecht]
 
 # Table of Contents
 
@@ -185,10 +177,52 @@ Process is described as follows:
 - Edges -> relationship (equations)
 - Parents/Ancestors/Descendants
 - No need to specify exact parametric shape
-- Highlight colliders 
+- Focus on acyclical structures (DAG)
 - Estimation back door criterion 
 - Test theoretical model structure via causal algorithms to detect structure in data (IC/PC Algo.) 
 - More information: [@morgan_winship_2014]
+
+# Undirected/Semidirected Graph 
+
+```{tikz, well, fig.cap ="Undirected graph", fig.align="center", echo=F}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+  \begin{tikzpicture}[
+    sharp corners=2pt,
+    inner sep=7pt,
+    node distance=3cm,
+    >=latex]
+\tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
+\tikzstyle{line} = [thick,-,>=stealth, line width=0.5pt]
+\node[my node] (A){A};
+\node[my node,right of=A](C){C};
+\node[my node] at ($(A)!0.5!(C)-(0pt,1.5cm)$) (B) {B};
+\draw[line] (A) -- (B);
+\draw[line] (C) -- (A);
+\draw[line] (B) -- (C);
+\end{tikzpicture}
+```
+
+```{tikz, wela, fig.cap ="Semi-directed graph", fig.align="center", echo=F}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\begin{tikzpicture}[
+    sharp corners=2pt,
+    inner sep=7pt,
+    node distance=3cm,
+    >=latex]
+\tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
+\tikzstyle{line} = [thick,-,>=stealth, line width=0.5pt]
+\node[my node] (A){A};
+\node[my node,right of=A](C){C};
+\node[my node] at ($(A)!0.5!(C)-(0pt,1.5cm)$) (B) {B};
+\draw[line] (A) -- (B);
+\draw[line] (C) -- (A);
+\draw[->] (B) -- (C);
+\end{tikzpicture}
+```
 
 # Graphical Illustration - Probabilisitic Model 
 
@@ -204,10 +238,10 @@ Process is described as follows:
 \tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
 \node[my node] (A){A};
 \node[my node,right =1 cm of A](C){C};
-\node[my node] at ($(A)!0.5!(C)-(0pt,1.5cm)$) (T) {T};
-\draw[->] (A) -- (T);
+\node[my node] at ($(A)!0.5!(C)-(0pt,1.5cm)$) (E) {E};
+\draw[->] (A) -- (E);
 \draw[->] (A) -- (C);
-\draw[->] (T) -- (C);
+\draw[->] (E) -- (C);
 \end{tikzpicture}
 ```
 
@@ -229,16 +263,16 @@ Process is described as follows:
 \tikzstyle{latent}=[draw, shape = rectangle, minimum height=1cm,minimum width=1cm]
 \node[my node, fill=gray!30] (A){A};
 \node[latent,left of=A](UA){$U_A$};
-\node[my node, fill=gray!30] at ($(A)!0.5!(A)-(0pt,1.5cm)$) (T) {T};
-\node[my node,right = 1 cm of T, fill=gray!30](C){C};
-\node[latent,left = 1cm of T](UT){$U_T$};
+\node[my node, fill=gray!30] at ($(A)!0.5!(A)-(0pt,1.5cm)$) (E) {E};
+\node[my node,right = 1 cm of E, fill=gray!30](C){C};
+\node[latent,left = 1cm of E](UE){$U_E$};
 \node[latent,right = 1cm of A](UC){$U_C$};
-\draw[->] (A) -- (T);
+\draw[->] (A) -- (E);
 \draw[->] (UA) -- (A);
-\draw[->] (UT) -- (T);
+\draw[->] (UE) -- (E);
 \draw[->] (UC) -- (C);
 \draw[->] (A) -- (C);
-\draw[->] (T) -- (C);
+\draw[->] (E) -- (C);
 \end{tikzpicture}
 ```
 
@@ -317,14 +351,24 @@ $$
 Source: [@peters_elements_2017]
 \normalsize
 
-# Extensions 
+# Does and Do nots
 
-- Mediation Analysis 
-- PO-Framework
-- Causal Algorithms
-- IV-Estimation
-- Causal Constraints Model 
-- Causal Trees
+**If you...**
+
+* ...only have conditional probabilities 
+* ...are only interested in association 
+* ...have very limited knowledge of your actual underlying causal structure 
+
+$\rightarrow$ you should probably go for a probabilistic model, association based model or a model based on conditional probabilities 
+
+**But if you**
+
+* ... have a good understanding of underlying latent factors 
+* ... have a lot of information on your underlying relationship in your data 
+* ... are dealing with high stake settings 
+* ... want to simulate different interventions before implementing them
+
+$\rightarrow$ you should probably go for a SCM 
 
 # Concluding Remarks
 
