@@ -1,0 +1,73 @@
+---
+title: "Questions Presentation - Structural Causal Models"
+author: "Daniel Saggau"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1) What kind of models could the following DAGs be? Briefly justify your choices.
+
+\footnotesize
+```{tikz,fig.align="center",fig.cap="Model 1", echo =F}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\begin{tikzpicture}[
+    sharp corners=2pt,
+    inner sep=7pt,
+    node distance=3cm,
+    >=latex]
+\tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
+\node[my node] (A){A};
+\node[my node,right =1 cm of A](C){C};
+\node[my node] at ($(A)!0.5!(C)-(0pt,1.5cm)$) (E) {E};
+\draw[->] (A) -- (E);
+\draw[->] (A) -- (C);
+\draw[->] (E) -- (C);
+\end{tikzpicture}
+```
+
+```{tikz,fig.cap="Model 2", fig.align="center", echo =F}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+  \begin{tikzpicture}[
+    sharp corners=2pt,
+    inner sep=6pt,
+    node distance=2cm,
+    >=latex]
+\tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
+\tikzstyle{latent}=[draw, shape = rectangle, minimum height=1cm,minimum width=1cm]
+\node[my node, fill=gray!30] (A){A};
+\node[latent,left of=A](UA){$U_A$};
+\node[my node, fill=gray!30] at ($(A)!0.5!(A)-(0pt,1.5cm)$) (E) {E};
+\node[my node,right = 1 cm of E, fill=gray!30](C){C};
+\node[latent,left = 1cm of E](UE){$U_E$};
+\node[latent,right = 1cm of A](UC){$U_C$};
+\draw[->] (A) -- (E);
+\draw[->] (UA) -- (A);
+\draw[->] (UE) -- (E);
+\draw[->] (UC) -- (C);
+\draw[->] (A) -- (C);
+\draw[->] (E) -- (C);
+\end{tikzpicture}
+```
+\normalsize
+
+2) True or False Questions: Circle the correct answer. Only one answer is correct. 
+
+a) The SCM is the same thing as the SEM. There are no differences. 
+b) We can derive any potential outcome model based on a structural causal model.
+c) The SCM model specification will always outperform other models by design.
+d) A Bayesian Causal Network can do anything a Structural Causal Network can do. 
+
+3) Write down the respective system of equations for model 2 in question 1. 
+
+
+4) Name two arguments on why we care about SCMs. Also, give two arguments why SCMs might not always be the most suitable model choice. 
