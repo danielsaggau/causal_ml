@@ -1,0 +1,72 @@
+---
+title: "Introduction to Structural Causal Models"
+author: "Daniel Saggau"
+date: "May 2021"
+citation_package: --biblatex
+bibliography: [ref.bib]
+#csl: ieee.csl
+output: 
+  beamer_presentation:
+    theme: Madrid
+header-includes:
+- \definecolor{UBCblue}{rgb}{0.04706, 0.13725, 0.26667}
+- \usecolortheme[named=UBCblue]{structure}
+---
+
+# Overview 
+
+* Foundations of SCMs 
+  * Assumptions 
+  * Comparing Causal Tools 
+* Pearl's Causal Hierachy 
+  * Prediction 
+  * Intervention 
+  * Counterfactuals 
+* Graphical Models 
+* Causality and Time 
+
+# Example 
+
+```{tikz,fig.cap="Structural Causal Model", fig.align="center", echo =F}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+  \begin{tikzpicture}[
+    sharp corners=2pt,
+    inner sep=6pt,
+    node distance=2cm,
+    >=latex]
+\tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
+\tikzstyle{latent}=[draw, shape = rectangle, minimum height=1cm,minimum width=1cm]
+\node[my node, fill=gray!30] (A){A};
+\node[latent,left of=A](UA){$U_A$};
+\node[my node, fill=gray!30] at ($(A)!0.5!(A)-(0pt,1.5cm)$) (E) {E};
+\node[my node,right = 1 cm of E, fill=gray!30](C){C};
+\node[latent,left = 1cm of E](UE){$U_E$};
+\node[latent,right = 1cm of A](UC){$U_C$};
+\draw[->] (A) -- (E);
+\draw[->] (UA) -- (A);
+\draw[->] (UE) -- (E);
+\draw[->] (UC) -- (C);
+\draw[->] (A) -- (C);
+\draw[->] (E) -- (C);
+\end{tikzpicture}
+```
+
+# Pearl's Causal Hierachy
+
+\footnotesize
+ |Method          | Action |  Example | Usage | 
+|------------------|-------------|--------------------|-------------------|
+| Association $P(a|b)$               | Co-occurrence             | What happened...               |(Un-)Supervised ML, BN, Reg.  
+| Intervention $P(a|do(b),c)$       | Do-manipulation           | What happens if ...            |CBN,MDP,RL    
+| Counterfactual $P(a_b|a`,b`)$     | Hypotheticals   | What would have happened if...           | SCM ,PO            
+
+Table: Pearls Hierachy of Causation (2009)
+
+\normalsize
+ 
+# 
