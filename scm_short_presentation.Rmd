@@ -25,7 +25,21 @@ header-includes:
 * Graphical Models 
 * Causality and Time 
 
+# Definition & Assumptions SCM 
+
+- Noise terms independent $(N_c,N_e)$
+- Mechanisms independent (other variables invariant)(local changes)
+
+Definition 1: A structural causal model M is given by a set of variables $X1, ..., Xd$ and corresponding assignments of the form $X_i := f_i(Pi, Ui), i = 1, ..., d .$
+Here, $P_i \subseteq f_{X1}, ..., X_{dg}$ is a subset of the variables that we call the parents of $Xi$. The random variables $U1, ..., Ud$ are called noise variables, which we require to be jointly independent.
+The directed graph corresponding to the model has one node for each variable Xi, which has incoming edges from all the parents Pi. 
+We will call such a graph the causal graph corresponding to the structural causal model.
+
 # Example 
+ 
+\begin{columns}
+\begin{column}{0.48\textwidth}
+
 
 ```{tikz,fig.cap="Structural Causal Model", fig.align="center", echo =F}
 \usetikzlibrary{calc}
@@ -47,14 +61,30 @@ header-includes:
 \node[my node,right = 1 cm of E, fill=gray!30](C){C};
 \node[latent,left = 1cm of E](UE){$U_E$};
 \node[latent,right = 1cm of A](UC){$U_C$};
-\draw[->] (A) -- (E);
 \draw[->] (UA) -- (A);
 \draw[->] (UE) -- (E);
 \draw[->] (UC) -- (C);
 \draw[->] (A) -- (C);
+\draw[->] (A) -- (E);
 \draw[->] (E) -- (C);
 \end{tikzpicture}
 ```
+
+\end{column}
+\begin{column}{0.48\textwidth}
+$\{U_A\}$ - Numeric Ability
+
+$\{U_E\}$ - Literary Ability
+
+$\{U_C\}$ - Quality of the Student 
+
+$\{A\}$ - Math Test 
+
+$\{E\}$ - English-Test
+
+$\{C\}$ - GPA
+\end{column}
+\end{columns}
 
 # Pearl's Causal Hierachy
 
@@ -68,5 +98,12 @@ header-includes:
 Table: Pearls Hierachy of Causation (2009)
 
 \normalsize
- 
-# 
+
+# Questions for Discussion
+
+1. How do you think causal model will impact machine learning in the upcoming future? 
+2. 
+
+
+
+
