@@ -3,8 +3,6 @@ title: "Introduction to Structural Causal Models"
 author: "Daniel Saggau"
 date: "May 2021"
 citation_package: --biblatex
-bibliography: [ref.bib]
-#csl: ieee.csl
 output: 
   beamer_presentation:
     theme: Madrid
@@ -25,17 +23,14 @@ header-includes:
 * Graphical Models 
 * Causality and Time 
 
-# Definition & Assumptions SCM 
+# Assumptions SCM 
 
-- Noise terms independent $(N_c,N_e)$
-- Mechanisms independent (other variables invariant)(local changes)
+- Noise terms independent 
+- Mechanisms independent/autonomous 
+- Set of equations 
+- Endogenous and Exogenous Variables
 
-Definition 1: A structural causal model M is given by a set of variables $X1, ..., Xd$ and corresponding assignments of the form $X_i := f_i(Pi, Ui), i = 1, ..., d .$
-Here, $P_i \subseteq f_{X1}, ..., X_{dg}$ is a subset of the variables that we call the parents of $Xi$. The random variables $U1, ..., Ud$ are called noise variables, which we require to be jointly independent.
-The directed graph corresponding to the model has one node for each variable Xi, which has incoming edges from all the parents Pi. 
-We will call such a graph the causal graph corresponding to the structural causal model.
-
-# Example 
+# Graphical Example 
  
 \begin{columns}
 \begin{column}{0.48\textwidth}
@@ -55,26 +50,25 @@ We will call such a graph the causal graph corresponding to the structural causa
     >=latex]
 \tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
 \tikzstyle{latent}=[draw, shape = rectangle, minimum height=1cm,minimum width=1cm]
-\node[my node, fill=gray!30] (A){A};
-\node[latent,left of=A](UA){$U_A$};
-\node[my node, fill=gray!30] at ($(A)!0.5!(A)-(0pt,1.5cm)$) (E) {E};
-\node[my node,right = 1 cm of E, fill=gray!30](C){C};
-\node[latent,left = 1cm of E](UE){$U_E$};
-\node[latent,right = 1cm of A](UC){$U_C$};
-\draw[->] (UA) -- (A);
+\node[my node, fill=gray!30] (N){N};
+\node[latent,left of=N](UN){$U_N$};
+\node[my node, fill=gray!30] at ($(N)!0.5!(N)-(0pt,1.5cm)$) (L) {L};
+\node[my node,right = 1 cm of L, fill=gray!30](E){E};
+\node[latent,left = 1cm of L](UL){$U_L$};
+\node[latent,right = 1cm of N](UE){$U_E$};
+\draw[->] (UN) -- (N);
+\draw[->] (UL) -- (L);
 \draw[->] (UE) -- (E);
-\draw[->] (UC) -- (C);
-\draw[->] (A) -- (C);
-\draw[->] (A) -- (E);
-\draw[->] (E) -- (C);
+\draw[->] (N) -- (E);
+\draw[->] (L) -- (E);
 \end{tikzpicture}
 ```
 
 \end{column}
 \begin{column}{0.48\textwidth}
-$\{U_A\}$ - Numeric Ability
+$\{U_N\}$ - Numeric Ability
 
-$\{U_E\}$ - Literary Ability
+$\{U_L\}$ - Literary Ability
 
 $\{U_C\}$ - Quality of the Student 
 
@@ -83,6 +77,36 @@ $\{A\}$ - Math Test
 $\{E\}$ - English-Test
 
 $\{C\}$ - GPA
+
+\end{column}
+\end{columns}
+
+
+# Mathematical Example 
+
+\begin{columns}
+\begin{column}{0.48\textwidth}
+
+
+$N:= f_N(U_N)$\newline
+$L:=f_L(U_L)$\newline
+$E:= f_E(N,L,U_E)$\newline
+
+\end{column}
+\begin{column}{0.48\textwidth}
+
+$\{U_N\}$ - Numeric Ability
+
+$\{U_L\}$ - Literary Ability
+
+$\{U_E\}$ - Quality of the Student 
+
+$\{N\}$ - Math Test 
+
+$\{L\}$ - English-Test
+
+$\{E\}$ - GPA
+
 \end{column}
 \end{columns}
 
@@ -100,9 +124,6 @@ Table: Pearls Hierachy of Causation (2009)
 \normalsize
 
 # Questions for Discussion
-
-1. How do you think causal model will impact machine learning in the upcoming future? 
-2. 
 
 
 
