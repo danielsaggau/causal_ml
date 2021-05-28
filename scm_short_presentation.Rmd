@@ -25,10 +25,13 @@ header-includes:
 
 # Assumptions SCM 
 
-- Noise terms independent 
 - Mechanisms independent/autonomous 
-- Set of equations 
+- Set of equations (assignments ':=')
+- Observational Data 
 - Endogenous and Exogenous Variables
+- Latent noise variables 
+- Noise terms independent 
+
 
 # Graphical Example 
  
@@ -125,6 +128,4 @@ Table: Pearls Hierachy of Causation (2009)
 
 # Questions for Discussion
 
-
-
-
+Do you have any concepts that are still unclear to you? 
