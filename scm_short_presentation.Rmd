@@ -26,11 +26,11 @@ header-includes:
 # Assumptions SCM 
 
 - Mechanisms independent/autonomous 
-- Set of equations (assignments ':=')
+- Set of equations (assignments $':='$)
 - Observational Data 
 - Endogenous and Exogenous Variables
-- Latent noise variables 
-- Noise terms independent 
+- Latent noise variables to simulate joint distribution
+- Noise terms $U_1..U_i$ (joint) independence
 
 
 # Graphical Example 
