@@ -44,6 +44,11 @@ Bayesian Causal Networks (BCN) cast a model based on **conditional probabilities
 Structural Causal Models (SCM) specify relationships based on **functional equations** [@pearl2009causality].
 Summarized, *'they are simulators that generate a distribution based on noise variables (independent) and a unique joint distribution...'* [@hardtrecht].
 - noise variables help generate joint distribution [@barocas].
+
+- latent factors great [@creager][@oberst2019counterfactual].
+- untestable assumptions [@pearl2009causality] frowned upon by statistics for long time
+- graphical framework better for modeling [@morgan_winship_2014] and reason why this appraoch is better than others 
+
 SCMs are non-parametric structural equations models with added features.
 Existing literature has provided an excellent introduction to SCMs and BCNs. 
 @pearl2009causality provided a comprehensive introduction into this topic with his book 'Causality'.
@@ -120,13 +125,30 @@ Causal assumptions differentiate causal models from association learning methods
 These causal concepts are not expressible based on distribution functions/statistical associations. (Pearl 2010)
 
 Disturbance in SCM: Correlated and causal factor ; responsible for variation
-Disturbance in Regression: Uncorrelated 
+Disturbance in Regression: Uncorrelated [@pearl2009causality]
 
 Causal assumption not testable (e.g. $Cov(U_a, U_b)=0$).
 d-seperation to test assumptions in totality (cannot make assumptions in isolation).
 
-exploit invariant characteristics of SEM whithout committing to shape. 
+exploit invariant characteristics of SEM without committing to shape. 
 structural if function autonomous and invariant to change in form of other functions. 
+
+Example:
+
+(#TODO change to own example)
+Joint factorization sprinker
+
+$$
+P_{X_{3}=\mathrm{On}}\left(x_{1}, x_{2}, x_{4}, x_{5}\right)=P\left(x_{1}\right) P\left(x_{2} \mid x_{1}\right) P\left(x_{4} \mid x_{2}, X_{3}=\mathrm{On}\right) P\left(x_{5} \mid x_{4}\right)
+$$
+
+$$
+\begin{array}{l}
+P_{x}(v)=\prod_{\left\{i \mid V_{i} \notin X\right\}} P\left(v_{i} \mid p a_{i}\right)\\
+\text { for all } \boldsymbol{v} \text { consistent with } x
+\end{array}
+$$
+
 
 *Definition:* **Reichenbachs common causal Principle** 
 
@@ -336,48 +358,40 @@ SCMs make the assumption that causal relationships hold over time[@peters_elemen
 These vague definitions of time is more prevalent in social sciences. 
 Meanwhile hard sciences deal with time in a more concise manner. 
 Differential equations model time on a more mechanic manner [@mooij2013ordinary].
+scriptsize
 
 $$
-\begin{array}{|l|l|l|l|l|l|}
+\begin{array}{|l|l|l|l|l|}
 \hline \text { model } & \begin{array}{l}
-\text { predict in IID } \\
-\text { setting }
+\text { IID setting }
 \end{array} & \begin{array}{l}
-\text { predict under } \\
 \text { changing } \\
-\text { distributions / } \\
-\text { interventions }
-\end{array} & \begin{array}{l}
-\text { answer } \\
+\text { distributions } 
+\end{array} & \begin{array}{c}
 \text { counter- } \\
 \text { factual } \\
 \text { questions }
 \end{array} & \begin{array}{l}
-\text { obtain } \\
 \text { physical } \\
 \text { insight }
-\end{array} & \begin{array}{l}
-\text { automatically } \\
-\text { learn from } \\
-\text { data }
 \end{array} \\
 \hline \begin{array}{l}
 \text { mechanistic } \\
-\text { model } \\
-\end{array} & \mathrm{Y} & \mathrm{Y} & \mathrm{Y} & \mathrm{Y} & ? \\
+\text { model }
+\end{array} & \mathrm{Y} & \mathrm{Y} & \mathrm{Y} & \mathrm{Y} \\
 \hline \begin{array}{l}
 \text { structural } \\
 \text { causal model }
-\end{array} & \mathrm{Y} & \mathrm{Y} & \mathrm{Y} & \mathrm{N} & \mathrm{Y} ? ? \\
+\end{array} & \mathrm{Y} & \mathrm{Y} & \mathrm{Y} & \mathrm{N} \\
 \hline \begin{array}{l}
 \text { causal } \\
 \text { graphical } \\
 \text { model }
-\end{array} & \mathrm{Y} & \mathrm{Y} & \mathrm{N} & \mathrm{N} & \mathrm{Y} ? \\
+\end{array} & \mathrm{Y} & \mathrm{Y} & \mathrm{N} & \mathrm{N} \\
 \hline \begin{array}{l}
 \text { statistical } \\
 \text { model }
-\end{array} & \mathrm{Y} & \mathrm{N} & \mathrm{N} & \mathrm{N} & \mathrm{Y} \\
+\end{array} & \mathrm{Y} & \mathrm{N} & \mathrm{N} & \mathrm{N} \\
 \hline
 \end{array}
 $$
