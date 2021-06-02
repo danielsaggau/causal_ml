@@ -76,25 +76,11 @@ source: @peters_elements_2017
 
 ## Assumptions in Causality 
 
-**Established Conditions:**
+Definition:Independence
 
-Definition: **SUTVA**
-
-'The treatment that one unit receives does not change the effect of treatment for any other unit.'[@hardtrecht]
-
-Definition: **Consistency** 
-
-The outcome Y agrees with the potential outcome corresponding to the treatment indicator.' [@hardtrecht]
-
-Definition: **Ignorability**
-
-The potential outcomes are conditionally independent of treatment given some set of de-confounding variables. [@hardtrecht]
-(perfect RCT)
-
-- First tow hold for SCM counterfactuals 
-- third not testable but can check via backdoor criterion in SCM 
-
-*Definition:***Independence**
+*The causal generative process of a system’s variables is composed of autonomous modules that do not inform or influence each other.*
+*In the probabilistic case, this means that the conditional distribution of each variable given its causes (i.e., its mechanism) does not inform or influence the other conditional distributions*,
+*In case we have only two variables, this reduces to an independence between the cause distribution and the mechanism producing the effect distribution* [@peters_elements_2017].
 
 If we specify the causal structure correctly: 
 
@@ -305,6 +291,24 @@ Process is described as follows:
 (a) Abduction: Cast probability $P(u)$ as conditional probability $P(u|\epsilon)$ 
 (b) Action: Exchange $(X = x)$ 
 (c) Prediction: Compute $(Y = y)$
+
+**Established Conditions for counterfactuals:**
+
+Definition: **SUTVA**
+
+'The treatment that one unit receives does not change the effect of treatment for any other unit.'[@hardtrecht]
+
+Definition: **Consistency** 
+
+The outcome Y agrees with the potential outcome corresponding to the treatment indicator.' [@hardtrecht]
+
+Definition: **Ignorability**
+
+The potential outcomes are conditionally independent of treatment given some set of de-confounding variables. [@hardtrecht]
+(perfect RCT)
+
+- First tow hold for SCM counterfactuals 
+- third not testable but can check via backdoor criterion in SCM 
 
 
 ## Implications
