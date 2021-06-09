@@ -1,0 +1,217 @@
+---
+title: "A Gentle Introduction into Structural Causal Models"
+author: 
+- Daniel Saggau $\boldsymbol{\cdot}$ `daniel.saggau@campus.lmu.de`
+- Department of Statistics, Ludwig Maximilian University Munich, Germany
+date: "June 2021"
+output: 
+  pdf_document:
+        number_sections: yes
+        fig_caption: yes
+link-citations: yes
+linkcolor: blue
+fontsize: 12
+fontfamily: mathpazo 
+linestretch: 1.5
+citation_package: --biblatex
+bibliography: [ref.bib]
+csl: ieee.csl
+nocite: '@*'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**Abstract** The interest in understanding relationships of variables beyond co-occurrence has increased the popularity of causal modelling. To provide a comprehensive understanding of causal modelling, I introduce two prominent causal model specifications namely (1) Bayesian Causal Networks (BCN) and (2) Structural Causal Models (SCM), focusing on the latter.Probabilistic specifications such as a BCN cast a model based on conditional probabilities. SCMs cast a model based on assignment functions and extend probabilistic models by specifying the data generating process rather than solely utilizing conditional probabilities. Another difference between these models is their ability to address different queries such as *predictions*, *interventions* and *counterfactuals*. These queries are part of Pearl's causal hierarchy (2009). Pearl matches these queries with their respective actions namely *observing*, *doing* and *imagining*. I compare the feasibility of addressing these queries and undertaking respective actions for both specifications. To contextualize SCMs within the field of causality, I also discuss the role of time in causality. This paper uses various directed acyclic graphs to highlight the differences in these modelling approaches. The insights of this paper can be used as a baseline for subsequent research on structural causal models.
+
+\newpage
+\hypersetup{linkcolor=black}
+\tableofcontents
+\newpage
+
+\hypersetup{linkcolor=blue}
+
+# Introduction 
+
+For many research problems, we want to understand the relationship between variables beyond co-occurrence.
+The most popular causal model is the structural causal model or in short SCM.
+The SCM is an expressive simulator to estimate causal relationships, accounting latent factors. 
+The basis of these SCMs is a set of equations, or more precisely assignments, providing functions to derive the conditional probabilities for our model [@hardtrecht].
+These assignments describe our variables in our model.
+Compared to probabilistic models, where we only specify conditional probabilities, the SCM actually enables the combination of theoretical and observational data.
+Conditional probabilities cannot represent latent variables because there is no conditional probability in our observational data for unobserved variables [@pearl2009causality].
+
+
+
+
+The aim of this paper is to summarise SCMs and it's intersection with social sciences and physics.
+
+Section 2 introduces the assumptions in causal modelling. Further, section 2 discusses different assumptions in causal modelling. Section 3
+Section 4 addresses Pearls Causal Hierachy.
+Section 5 provides a brief introduction into graphical models.
+Section 6 focuses on the intersection of SCMs and the perception of time. 
+
+
+# Assumptions 
+
+This section discusses the independence assumption in SCMs.
+
+**Independence:** 
+
+
+**Independent Mechanisms:**
+
+**Markov Condition** 
+
+**Truncated Factorization**
+
+$$
+P_{X_{3}=\mathrm{On}}\left(x_{1}, x_{2}, x_{4}, x_{5}\right)=P\left(x_{1}\right) P\left(x_{2} \mid x_{1}\right) P\left(x_{4} \mid x_{2}, X_{3}=\mathrm{On}\right) P\left(x_{5} \mid x_{4}\right)
+$$
+
+$$
+\begin{array}{l}
+P_{x}(v)=\prod_{\left\{i \mid V_{i} \notin X\right\}} P\left(v_{i} \mid p a_{i}\right)\\
+\text { for all } \boldsymbol{v} \text { consistent with } x
+\end{array}
+$$
+
+
+# SCM Example 
+
+$N:= f_N(U_N)$\newline
+$L:=f_L(U_L)$\newline
+$E:= f_E(N,L,U_E)$\newline
+
+$\{U_N\}$ - Numeric Ability
+
+$\{U_L\}$ - Literary Ability
+
+$\{U_E\}$ - Quality of the Student 
+
+$\{N\}$ - Math Test 
+
+$\{L\}$ - English-Test
+
+$\{E\}$ - GPA
+
+
+# Pearl's Causal Hierachy 
+
+ |Method          | Action | | Usage | 
+|------------------|-------------|-------------------|
+| Association $P(a|b)$               | Co-occurrence                           |(Un-)Supervised ML, BN, Reg.  
+| Intervention $P(a|do(b),c)$       | Do-manipulation                       |CBN,MDP,RL    
+| Counterfactual $P(a_b|a`,b`)$     | Hypotheticals            | SCM ,PO            
+
+
+**Association:**
+
+**Intervention:**
+
+**Counterfactuals:**
+
+Process is described as follows:
+
+(a) Abduction: Cast probability $P(u)$ as conditional probability $P(u|\epsilon)$ 
+(b) Action: Exchange $(X = x)$ 
+(c) Prediction: Compute $(Y = y)$
+
+
+# Graphical Models 
+
+A structural causal model contains an underlying graphical model [@hardtrecht]. 
+The most popular graphical model is the directed acyclic graph or in short DAG.
+A DAG entails nodes and edges. 
+Nodes represent our different variables. 
+Edges depict the assignment equations. 
+All edges are directed in the DAG.
+The graph is called acyclic if no variable causes (directly or indirectly) itself [@morgan_winship_2014].
+There is a hierachy within DAGs. 
+
+
+```{tikz,fig.cap="Structural Causal Model" ,fig.align="center", echo =F}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+  \begin{tikzpicture}[
+    sharp corners=2pt,
+    inner sep=6pt,
+    node distance=2cm,
+    >=latex]
+\tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
+\tikzstyle{latent}=[draw, shape = rectangle, minimum height=1cm,minimum width=1cm]
+\node[my node, fill=gray!30] (A){A};
+\node[latent,left of=A](UA){$U_A$};
+\node[my node, fill=gray!30] at ($(A)!0.5!(A)-(0pt,1.5cm)$) (T) {T};
+\node[my node,right = 1 cm of T, fill=gray!30](C){C};
+\node[latent,left = 1cm of T](UT){$U_T$};
+\node[latent,right = 1cm of A](UC){$U_C$};
+\draw[->] (A) -- (T);
+\draw[->] (UA) -- (A);
+\draw[->] (UT) -- (T);
+\draw[->] (UC) -- (C);
+\draw[->] (A) -- (C);
+\draw[->] (T) -- (C);
+\end{tikzpicture}
+```
+
+# SCMs and Time 
+
+$$
+\begin{array}{|l|l|l|l|l|}
+\hline \text { model } & \begin{array}{l}
+\text { IID setting }
+\end{array} & \begin{array}{l}
+\text { changing } \\
+\text { distributions } 
+\end{array} & \begin{array}{c}
+\text { counter- } \\
+\text { factual } \\
+\text { questions }
+\end{array} & \begin{array}{l}
+\text { physical } \\
+\text { insight }
+\end{array} \\
+\hline \begin{array}{l}
+\text { mechanistic } \\
+\text { model }
+\end{array} & \mathrm{Y} & \mathrm{Y} & \mathrm{Y} & \mathrm{Y} \\
+\hline \begin{array}{l}
+\text { structural } \\
+\text { causal model }
+\end{array} & \mathrm{Y} & \mathrm{Y} & \mathrm{Y} & \mathrm{N} \\
+\hline \begin{array}{l}
+\text { causal } \\
+\text { graphical } \\
+\text { model }
+\end{array} & \mathrm{Y} & \mathrm{Y} & \mathrm{N} & \mathrm{N} \\
+\hline \begin{array}{l}
+\text { statistical } \\
+\text { model }
+\end{array} & \mathrm{Y} & \mathrm{N} & \mathrm{N} & \mathrm{N} \\
+\hline
+\end{array}
+$$
+
+Table: Source: @peters_elements_2017
+
+# Conclusion 
+
+
+
+
+
+\newpage 
+
+# References
+
+<div id="refs"></div>
+\newpage
+
+
+
