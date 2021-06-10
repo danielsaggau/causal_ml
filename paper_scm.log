@@ -1,36 +1,36 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.3)  9 JUN 2021 20:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.9)  10 JUN 2021 11:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **paper_scm.tex
 (./paper_scm.tex
-LaTeX2e <2021-06-01>
-L3 programming layer <2021-06-01> (/Users/danielsaggau/Library/TinyTeX/texmf-di
+LaTeX2e <2020-10-01> patch level 4
+L3 programming layer <2021-05-07> (/Users/danielsaggau/Library/TinyTeX/texmf-di
 st/tex/latex/base/article.cls
-Document Class: article 2021/02/12 v1.4n Standard LaTeX document class
+Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
+File: size10.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
 )
-\c@part=\count182
-\c@section=\count183
-\c@subsection=\count184
-\c@subsubsection=\count185
-\c@paragraph=\count186
-\c@subparagraph=\count187
-\c@figure=\count188
-\c@table=\count189
+\c@part=\count179
+\c@section=\count180
+\c@subsection=\count181
+\c@subsubsection=\count182
+\c@paragraph=\count183
+\c@subparagraph=\count184
+\c@figure=\count185
+\c@table=\count186
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
 ) (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2021/04/20 v2.17j AMS math features
+Package: amsmath 2020/09/23 v2.17i AMS math features
 \@mathmargin=\skip49
 For additional information on amsmath, use the `?' option.
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks16
+\@emptytoks=\toks15
 \ex@=\dimen139
 )) (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
@@ -38,41 +38,41 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 ) (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count190
+\inf@bad=\count187
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count191
-\leftroot@=\count192
+\uproot@=\count188
+\leftroot@=\count189
 LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count193
-\DOTSCASE@=\count194
+\classnum@=\count190
+\DOTSCASE@=\count191
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
-\Mathstrutbox@=\box50
-\strutbox@=\box51
+\Mathstrutbox@=\box47
+\strutbox@=\box48
 \big@size=\dimen141
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count195
-\c@MaxMatrixCols=\count196
+\macc@depth=\count192
+\c@MaxMatrixCols=\count193
 \dotsspace@=\muskip16
-\c@parentequation=\count197
-\dspbrk@lvl=\count198
-\tag@help=\toks17
-\row@=\count199
-\column@=\count266
-\maxfields@=\count267
-\andhelp@=\toks18
+\c@parentequation=\count194
+\dspbrk@lvl=\count195
+\tag@help=\toks16
+\row@=\count196
+\column@=\count197
+\maxfields@=\count198
+\andhelp@=\toks17
 \eqnshift@=\dimen142
 \alignsep@=\dimen143
 \tagshift@=\dimen144
 \tagwidth@=\dimen145
 \totwidth@=\dimen146
 \lineht@=\dimen147
-\@envbody=\toks19
+\@envbody=\toks18
 \multlinegap=\skip50
 \multlinetaggap=\skip51
-\mathdisplay@stack=\toks20
+\mathdisplay@stack=\toks19
 LaTeX Info: Redefining \[ on input line 2923.
 LaTeX Info: Redefining \] on input line 2924.
 ) (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.st
@@ -101,18 +101,38 @@ Package: iftex 2020/03/06 v1.0d TeX engine tests
 ty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 ) (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+Package: fontenc 2020/08/10 v2.0s Standard LaTeX package
 LaTeX Font Info:    Trying to load font information for T1+ppl on input line 11
 2.
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )) (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2021/02/14 v1.3d Input encoding file
-\inpenc@prehook=\toks21
-\inpenc@posthook=\toks22
+Package: inputenc 2020/08/01 v1.3d Input encoding file
+\inpenc@prehook=\toks20
+\inpenc@posthook=\toks21
 ) (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
-) (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
+) (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/parskip/parskip.sty
+Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
+
+(/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.s
+ty
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
+(/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks22
+)
+(/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+)
+(/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/generic/kvsetkeys/kvsetkeys
+.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+))
+(/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count199
+)) (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cf
@@ -145,9 +165,6 @@ File: x11nam.def 2016/05/11 v2.12 Predefined colors according to Unix/X11 (UK)
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2021-02-27 v7.00k Hypertext links for LaTeX
 
-(/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
-)
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcm
 ds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
@@ -160,13 +177,6 @@ Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-) (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks23
-)
-(/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/generic/kvsetkeys/kvsetkeys
-.sty
-Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 )
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefi
 nekeys.sty
@@ -184,13 +194,9 @@ Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 ) (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
-(/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.s
-ty
-Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
-)
 \@linkdim=\dimen148
-\Hy@linkcounter=\count268
-\Hy@pagecounter=\count269
+\Hy@linkcounter=\count266
+\Hy@pagecounter=\count267
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2021-02-27 v7.00k Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -208,7 +214,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count270
+\Hy@SavedSpaceFactor=\count268
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2021-02-27 v7.00k Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -222,7 +228,7 @@ Package hyperref Info: Plain pages OFF on input line 4207.
 Package hyperref Info: Backreferencing OFF on input line 4212.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4445.
-\c@Hy@tempcnt=\count271
+\c@Hy@tempcnt=\count269
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
@@ -237,7 +243,7 @@ lc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count272
+\Fld@menulength=\count270
 \Field@Width=\dimen150
 \Fld@charsize=\dimen151
 Package hyperref Info: Hyper figures OFF on input line 6075.
@@ -251,12 +257,13 @@ LaTeX Info: Redefining \ref on input line 6145.
 LaTeX Info: Redefining \pageref on input line 6149.
 
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty
-Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
-package with kernel methods
+Package: atbegshi-ltx 2020/08/17 v1.0a Emulation of the original atbegshi packa
+ge
+with kernel methods
 )
-\Hy@abspage=\count273
-\c@Item=\count274
-\c@Hfootnote=\count275
+\Hy@abspage=\count271
+\c@Item=\count272
+\c@Hfootnote=\count273
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
@@ -268,8 +275,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
 e
 with kernel methods
 )
-\Fld@listcount=\count276
-\c@bookmark@seq@number=\count277
+\Fld@listcount=\count274
+\c@bookmark@seq@number=\count275
 
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunf
 ilecheck.sty
@@ -291,9 +298,9 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count278
-\Gm@cntv=\count279
-\c@Gm@tempcnt=\count280
+\Gm@cnth=\count276
+\Gm@cntv=\count277
+\c@Gm@tempcnt=\count278
 \Gm@bindingoffset=\dimen152
 \Gm@wd@mp=\dimen153
 \Gm@odd@mp=\dimen154
@@ -302,25 +309,24 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layoutheight=\dimen157
 \Gm@layouthoffset=\dimen158
 \Gm@layoutvoffset=\dimen159
-\Gm@dimlist=\toks24
+\Gm@dimlist=\toks23
 ) (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
-Package: longtable 2021-05-07 v4.16 Multi-page Table package (DPC)
+Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
 \LTleft=\skip53
 \LTright=\skip54
 \LTpre=\skip55
 \LTpost=\skip56
-\LTchunksize=\count281
+\LTchunksize=\count279
 \LTcapwidth=\dimen160
-\LT@head=\box52
-\LT@firsthead=\box53
-\LT@foot=\box54
-\LT@lastfoot=\box55
-\LT@gbox=\box56
-\LT@cols=\count282
-\LT@rows=\count283
-\c@LT@tables=\count284
-\c@LT@chunks=\count285
-\LT@p@ftn=\toks25
+\LT@head=\box49
+\LT@firsthead=\box50
+\LT@foot=\box51
+\LT@lastfoot=\box52
+\LT@cols=\count280
+\LT@rows=\count281
+\c@LT@tables=\count282
+\c@LT@chunks=\count283
+\LT@p@ftn=\toks24
 )
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
@@ -334,49 +340,45 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen168
 \cmidrulekern=\dimen169
 \defaultaddspace=\dimen170
-\@cmidla=\count286
-\@cmidlb=\count287
+\@cmidla=\count284
+\@cmidlb=\count285
 \@aboverulesep=\dimen171
 \@belowrulesep=\dimen172
-\@thisruleclass=\count288
-\@lastruleclass=\count289
+\@thisruleclass=\count286
+\@lastruleclass=\count287
 \@thisrulewidth=\dimen173
 ) (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/tools/array.sty
-Package: array 2021/04/20 v2.5e Tabular extension package (FMi)
+Package: array 2020/10/01 v2.5c Tabular extension package (FMi)
 \col@sep=\dimen174
-\ar@mcellbox=\box57
+\ar@mcellbox=\box53
 \extrarowheight=\dimen175
-\NC@list=\toks26
+\NC@list=\toks25
 \extratabsurround=\skip57
 \backup@length=\skip58
-\ar@cellbox=\box58
+\ar@cellbox=\box54
 ) (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count290
-\calc@Bcount=\count291
+\calc@Acount=\count288
+\calc@Bcount=\count289
 \calc@Adimen=\dimen176
 \calc@Bdimen=\dimen177
 \calc@Askip=\skip59
 \calc@Bskip=\skip60
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count292
+\calc@Ccount=\count290
 \calc@Cskip=\skip61
-)
-(/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count293
 )
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/mdwtools/footnote.sty
 Package: footnote 1997/01/28 1.13 Save footnotes around boxes
-\fn@notes=\box59
+\fn@notes=\box55
 \fn@width=\dimen178
 )
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2020/12/05 v1.2c Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
@@ -384,7 +386,7 @@ Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 .cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 107.
+Package graphics Info: Driver file: pdftex.def on input line 105.
 )
 \Gin@req@height=\dimen179
 \Gin@req@width=\dimen180
@@ -395,8 +397,8 @@ Package graphics Info: Driver file: pdftex.def on input line 107.
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-p
 dftex.def
 File: l3backend-pdftex.def 2021-05-07 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count294
-\l__pdf_internal_box=\box60
+\l__color_backend_stack_int=\count291
+\l__pdf_internal_box=\box56
 )
 
 LaTeX Warning: Unused global option(s):
@@ -446,7 +448,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 itlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count295
+\c@section@level=\count292
 )
 LaTeX Info: Redefining \ref on input line 109.
 LaTeX Info: Redefining \pageref on input line 109.
@@ -539,202 +541,198 @@ ap}] (./paper_scm.toc)
 
 [2]
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 174.
+(Font)              scaled to size 10.42007pt on input line 176.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 174.
+(Font)              scaled to size 7.91925pt on input line 176.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 174.
+(Font)              scaled to size 6.25204pt on input line 176.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 174.
+(Font)              scaled to size 10.42007pt on input line 176.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 174.
+(Font)              scaled to size 7.91925pt on input line 176.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 174.
-[3] [4]
-<paper_scm_files/figure-latex/unnamed-chunk-1-1.pdf, id=88, 143.53625pt x 72.27
+(Font)              scaled to size 6.25204pt on input line 176.
+<paper_scm_files/figure-latex/notwell-1.pdf, id=58, 88.33pt x 73.27374pt>
+File: paper_scm_files/figure-latex/notwell-1.pdf Graphic file (type pdf)
+<use paper_scm_files/figure-latex/notwell-1.pdf>
+Package pdftex.def Info: paper_scm_files/figure-latex/notwell-1.pdf  used on in
+put line 193.
+(pdftex.def)             Requested size: 88.32977pt x 73.27354pt.
+[3 <./paper_scm_files/figure-latex/notwell-1.pdf>] [4]
+<paper_scm_files/figure-latex/unnamed-chunk-1-1.pdf, id=91, 143.53625pt x 72.27
 pt>
 File: paper_scm_files/figure-latex/unnamed-chunk-1-1.pdf Graphic file (type pdf
 )
 <use paper_scm_files/figure-latex/unnamed-chunk-1-1.pdf>
 Package pdftex.def Info: paper_scm_files/figure-latex/unnamed-chunk-1-1.pdf  us
-ed on input line 274.
+ed on input line 282.
 (pdftex.def)             Requested size: 143.54027pt x 72.272pt.
-LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 2
-92.
+LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 3
+00.
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
 )
 LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 
-306.
+314.
 (/Users/danielsaggau/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 ) [5 <./paper_scm_files/figure-latex/unnamed-chunk-1-1.pdf>] [6]
-Overfull \hbox (1.90002pt too wide) in paragraph at lines 361--366
+Overfull \hbox (1.90002pt too wide) in paragraph at lines 369--374
 [][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 361--366
+Underfull \hbox (badness 10000) in paragraph at lines 369--374
 
  []
 
 
-Overfull \hbox (1.90002pt too wide) in paragraph at lines 367--371
+Overfull \hbox (1.90002pt too wide) in paragraph at lines 375--379
 [][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 367--371
+Underfull \hbox (badness 10000) in paragraph at lines 375--379
 
  []
 
 
-Overfull \hbox (1.90002pt too wide) in paragraph at lines 372--377
+Overfull \hbox (1.90002pt too wide) in paragraph at lines 380--385
 [][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 372--377
+Underfull \hbox (badness 10000) in paragraph at lines 380--385
 
  []
 
 
-Overfull \hbox (1.90002pt too wide) in paragraph at lines 378--383
+Overfull \hbox (1.90002pt too wide) in paragraph at lines 386--391
 [][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 378--383
+Underfull \hbox (badness 10000) in paragraph at lines 386--391
 
  []
 
 
-Overfull \hbox (1.90002pt too wide) in paragraph at lines 384--389
+Overfull \hbox (1.90002pt too wide) in paragraph at lines 392--397
 [][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 384--389
+Underfull \hbox (badness 10000) in paragraph at lines 392--397
 
  []
 
 
-Overfull \hbox (1.90002pt too wide) in paragraph at lines 390--395
+Overfull \hbox (1.90002pt too wide) in paragraph at lines 398--403
 [][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 390--395
+Underfull \hbox (badness 10000) in paragraph at lines 398--403
 
  []
 
 
-Overfull \hbox (1.90002pt too wide) in paragraph at lines 396--402
+Overfull \hbox (1.90002pt too wide) in paragraph at lines 404--410
 [][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 396--402
+Underfull \hbox (badness 10000) in paragraph at lines 404--410
 
  []
 
 
-Overfull \hbox (1.90002pt too wide) in paragraph at lines 403--409
+Overfull \hbox (1.90002pt too wide) in paragraph at lines 411--417
 [][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--409
+Underfull \hbox (badness 10000) in paragraph at lines 411--417
 
  []
 
 
-Overfull \hbox (1.90002pt too wide) in paragraph at lines 410--416
+Overfull \hbox (1.90002pt too wide) in paragraph at lines 418--424
 [][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 410--416
+Underfull \hbox (badness 10000) in paragraph at lines 418--424
 
  []
 
 
-Overfull \hbox (1.90002pt too wide) in paragraph at lines 417--423
+Overfull \hbox (1.90002pt too wide) in paragraph at lines 425--431
 [][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 417--423
+Underfull \hbox (badness 10000) in paragraph at lines 425--431
 
  []
 
 
-Overfull \hbox (1.90002pt too wide) in paragraph at lines 424--431
+Overfull \hbox (1.90002pt too wide) in paragraph at lines 432--439
 [][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 424--431
+Underfull \hbox (badness 10000) in paragraph at lines 432--439
 
  []
 
 
-Overfull \hbox (1.90002pt too wide) in paragraph at lines 432--436
+Overfull \hbox (1.90002pt too wide) in paragraph at lines 440--444
 [][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 432--436
+Underfull \hbox (badness 10000) in paragraph at lines 440--444
 
  []
 
 
-Overfull \hbox (1.90002pt too wide) in paragraph at lines 437--443
+Overfull \hbox (1.90002pt too wide) in paragraph at lines 445--451
 [][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 437--443
-
- []
-
-
-Overfull \hbox (1.90002pt too wide) in paragraph at lines 444--448
-[][][] []
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 444--448
+Underfull \hbox (badness 10000) in paragraph at lines 445--451
 
  []
 
 [7]
-Overfull \hbox (1.90002pt too wide) in paragraph at lines 449--456
+Overfull \hbox (1.90002pt too wide) in paragraph at lines 452--456
 [][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 449--456
+Underfull \hbox (badness 10000) in paragraph at lines 452--456
 
  []
 
 
-Overfull \hbox (1.90002pt too wide) in paragraph at lines 457--463
+Overfull \hbox (1.90002pt too wide) in paragraph at lines 457--464
 [][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 457--463
+Underfull \hbox (badness 10000) in paragraph at lines 457--464
 
  []
 
 
-Overfull \hbox (1.90002pt too wide) in paragraph at lines 464--471
+Overfull \hbox (1.90002pt too wide) in paragraph at lines 465--471
 [][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 464--471
+Underfull \hbox (badness 10000) in paragraph at lines 465--471
 
  []
 
@@ -778,18 +776,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 496--503
 
  []
 
+
+Overfull \hbox (1.90002pt too wide) in paragraph at lines 504--511
+[][][] []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 504--511
+
+ []
+
 [8] (./paper_scm.aux)
 Package rerunfilecheck Info: File `paper_scm.out' has not changed.
-(rerunfilecheck)             Checksum: DA78A0727391F56E45C984FCC041BC8C;892.
+(rerunfilecheck)             Checksum: 42F2C396D7304BA758E1FB528A3F7D38;766.
  ) 
 Here is how much of TeX's memory you used:
- 11015 strings out of 480517
- 160426 string characters out of 5898850
- 485112 words of memory out of 5000000
- 28403 multiletter control sequences out of 15000+600000
+ 10991 strings out of 480806
+ 160252 string characters out of 5903690
+ 478462 words of memory out of 5000000
+ 28084 multiletter control sequences out of 15000+600000
  449442 words of font info for 140 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 60i,14n,66p,328b,360s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,14n,63p,514b,358s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc} 
 </Users/danielsaggau/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt
 1200.600pk></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type1/public/a
@@ -804,10 +812,10 @@ elsaggau/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users
 /Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.
 pfb></Users/danielsaggau/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/up
 lri8a.pfb>
-Output written on paper_scm.pdf (8 pages, 160129 bytes).
+Output written on paper_scm.pdf (8 pages, 160075 bytes).
 PDF statistics:
- 238 PDF objects out of 1000 (max. 8388607)
- 184 compressed objects within 2 object streams
- 53 named destinations out of 1000 (max. 500000)
- 70 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 230 PDF objects out of 1000 (max. 8388607)
+ 185 compressed objects within 2 object streams
+ 52 named destinations out of 1000 (max. 500000)
+ 67 words of extra memory for PDF output out of 10000 (max. 10000000)
 
