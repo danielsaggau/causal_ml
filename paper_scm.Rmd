@@ -15,7 +15,6 @@ fontfamily: mathpazo
 linestretch: 1.5
 citation_package: --biblatex
 bibliography: [ref.bib]
-csl: ieee.csl
 nocite: '@*'
 ---
 
@@ -52,30 +51,43 @@ Conditional probabilities cannot represent latent variables because there is no 
 
 The aim of this paper is to summarise SCMs and it's intersection with social sciences and physics.
 
-Section 2 introduces the assumptions in causal modelling. Further, section 2 discusses different assumptions in causal modelling. Section 3
-Section 4 addresses Pearls Causal Hierachy.
-Section 5 provides a brief introduction into graphical models.
-Section 6 focuses on the intersection of SCMs and the perception of time. 
+Section 2 introduces the assumptions in causal modelling
+Section 3 addresses Pearls Causal Hierachy.
+Section 4 provides a brief introduction into graphical models.
+Section 5 focuses on the intersection of SCMs and the perception of time. 
 
 
-
-# SCM Example 
+# SCM Foundation
 
 The structural causal model consists of a set of equations.
-These equations are asymmetric, because they are not bi-directional.
+These equations are asymmetric assignments, because they are not bi-directional.
 We cannot change the sides of the equation as one can do with regular equations [@pearl2012causal].
 
-$S:= f_S(U_S)$
-$E:= f_E(U_E)$
-$C:= f_C(S,E,U_C)$
+We can set up a generic example with tree variables. 
+One common example from epidemiology is looking at the impact of problem behaviour and health enhancing behaviour.
+Problem behaviour is a latent variable, but we can use observational data to characterize problem behaviour.
+One example of problem behaviour is smoking 
+To estimate smoking, we can for instance ask participants how frequently they smoke and then describe p. 
 
-$\{S\}$ - Smoking
-$\{C\}$ - Cancer
-$\{E\}$ - Exercise
+As we can see, these functions are driven by underling latent variables.
+These latent factors are the foundation of the structural causal model [@hardtrecht; @pearl2009causality; @pearl2012causal].
 
+\begin{equation}
+S:= f_S(U_S)
+\end{equation}
+\begin{equation}
+E:= f_E(U_E)
+\end{equation}
+\begin{equation}
+C:= f_C(S,E,U_C)
+\end{equation}
 
+where: 
+$\{S\}$ - Frequency of Smoking
+$\{E\}$ - Frequency of Exercise
+$\{C\}$ - Lung Cancer
 
-A structural causal model contains an underlying graphical model [@hardtrecht]. 
+Every structural causal model contains an underlying graphical model [@hardtrecht]. 
 The most popular graphical model is the directed acyclic graph or in short DAG.
 A DAG entails nodes and edges. 
 Nodes represent our different variables. 
@@ -98,8 +110,8 @@ There is a hierachy within DAGs.
     >=latex]
 \tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
 \tikzstyle{latent}=[draw, shape = rectangle, minimum height=1cm,minimum width=1cm]
-\node[my node, fill=gray!30] (A){A};
-\node[latent,left of=A](UA){$U_A$};
+\node[my node, fill=gray!30] (S){S};
+\node[latent,left of=S](US){$U_S$};
 \node[my node, fill=gray!30] at ($(A)!0.5!(A)-(0pt,1.5cm)$) (T) {T};
 \node[my node,right = 1 cm of T, fill=gray!30](C){C};
 \node[latent,left = 1cm of T](UT){$U_T$};
@@ -113,8 +125,9 @@ There is a hierachy within DAGs.
 \end{tikzpicture}
 ```
 
-
-Probabilisitic Representation
+For reference, we can also display this model based on other models. 
+One example is the causal bayesian network, which uses conditional probabilities instead of functions to describe the relationship between variables. 
+In the probabilistic representation, we ignore latent factors. 
 
 ```{tikz, notwell,  fig.cap ="Probabilistic Model",  fig.align="center", echo =F, fig.show="hold", out.width="50%" }
 \usetikzlibrary{calc}
