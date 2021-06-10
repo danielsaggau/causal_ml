@@ -34,22 +34,25 @@ knitr::opts_chunk$set(echo = TRUE)
 # Introduction 
 
 For many research problems, we want to understand the relationship between variables beyond co-occurrence.
-
-Research dealing with these question moved from traditional statistics, to , 
-
-
-
 The most popular causal model is the structural causal model or in short SCM.
-The SCM is an expressive simulator to estimate causal relationships, accounting latent factors. 
+The SCM is the non-parametric counterpart to structural equation models.
+Researchers on structural causal models tried to distance themselves from common practices for structural equation models [@pearl2009causality; @peters_elements_2017].
+The geneticist and statistican Sewall Wright introduced the first ancestor of the SCM, the path analysis [@pearl2009causality].
+Path analysis now falls into the broader class of structural equation models.
+Path analysis is a structural equation model with one variable per indicator.
+
+The SCM is an expressive simulator to estimate causal relationships, accounting for latent factors. 
+Latent factors are unobserved factors [@pearl2009causality].
+SCMs entail endogenous and exogenous variables. 
+Exogenous variables should not be confused with latent variables.
+@peters_elements_2017 define endogenous and exogenous as follows: *Endogeneous variables are those that the modeler tries to understand, while exogenous ones are determined by factors outside the model, and are taken as given.*
 The basis of these SCMs is a set of equations, or more precisely assignments, providing functions to derive the conditional probabilities for our model [@hardtrecht].
 These assignments describe our variables in our model.
-Compared to probabilistic models, where we only specify conditional probabilities, the SCM actually enables the combination of theoretical and observational data.
+Compared to probabilistic models, where we only specify conditional probabilities, the SCM actually enables the combination of latent variables and observational data.
 Conditional probabilities cannot represent latent variables because there is no conditional probability in our observational data for unobserved variables [@pearl2009causality].
 
+The aim of this paper is to provide a brief and intuitive introduction to SCMs. 
 
-
-
-The aim of this paper is to summarise SCMs and it's intersection with social sciences and physics.
 
 Section 2 introduces the assumptions in causal modelling
 Section 3 addresses Pearls Causal Hierachy.
@@ -62,39 +65,79 @@ Section 5 focuses on the intersection of SCMs and the perception of time.
 The structural causal model consists of a set of equations.
 These equations are asymmetric assignments, because they are not bi-directional.
 We cannot change the sides of the equation as one can do with regular equations [@pearl2012causal].
+[@peters_elements_2017] define a SCM as follows: 
 
-We can set up a generic example with tree variables. 
-One common example from epidemiology is looking at the impact of problem behaviour and health enhancing behaviour.
-Problem behaviour is a latent variable, but we can use observational data to characterize problem behaviour.
-One example of problem behaviour is smoking 
-To estimate smoking, we can for instance ask participants how frequently they smoke and then describe p. 
+**Definition 1:** Structural Causal Model: 
 
-As we can see, these functions are driven by underling latent variables.
+*An SCM* $\mathbb{C}$ *with graph* $C \rightarrow E$ *consists of two assignments*
+
+$$
+\begin{array}{l}
+C:=N_{C} \\
+E:=f_{E}\left(C, N_{E}\right)
+\end{array}
+$$
+*where* $N_{F} \perp \!\!\! \perp N_{C}$ *that is* $N_{F}$ *is independent of* $N_{C}$
+
+In their definition, C is the cause and E is the effect.
+
+
+
+
+We can set up an epidemiological example with three variables, looking at the impact of problem behavior and genetic code on lung cancer. 
+Problem behavior is a latent variable, but we can use observational data to characterize problem behavior.
+One example of problem behavior is smoking.
+Henceforth,to estimate problem behaviour, we can for instance ask participants how frequently they smoke.
+For genetic code, we could look for specific genes and and examine whether the presence of specific genes has an impact on getting cancer. 
+As we can see, these functions are driven by underlying latent variables.
 These latent factors are the foundation of the structural causal model [@hardtrecht; @pearl2009causality; @pearl2012causal].
 
 \begin{equation}
 S:= f_S(U_S)
 \end{equation}
 \begin{equation}
-E:= f_E(U_E)
+G:= f_G(U_G)
 \end{equation}
 \begin{equation}
-C:= f_C(S,E,U_C)
+C:= f_C(S,G,U_C)
 \end{equation}
 
 where: 
-$\{S\}$ - Frequency of Smoking
-$\{E\}$ - Frequency of Exercise
-$\{C\}$ - Lung Cancer
+$\{S\}$ - Frequency of smoking
+$\{G\}$ - Presence of specific genes
+$\{C\}$ - Lung cancer
 
 Every structural causal model contains an underlying graphical model [@hardtrecht]. 
+This is one important feature that differentiates SCMs from other frameworks^[e.g. the Potential Outcome framework[@pearl2009causality]]. 
+
+[@pearl2009causality] describes the SCM a process based tool, because it enables researchers to reflect on their underlying assumptions. 
+The SCM requires more assumptions and thought because we actually need to define an admissible set of variables, ensure they are independent and ensure that the underlying factors do not correlate. By being forced to think about all these steps, SCMs help to avoid poorly specified probabilistic specifications. 
+Various research has pointed outexamples where modeling without DAGs lead to severe mistakes: 
+@hirano2001estimation suggest a method for covariate selection that according to @pearl2009myth favours bias-enhancing features in the propensity score.
+Further @bollen2013eight (2013) argue that @rosenbaum2002overt and @rubin2007design falsely declared that 'there is no reason to avoid adjustment for a variable describing subjects before treatment'.
+
+
+We can craete graphical models based on various different algorithms.
+
 The most popular graphical model is the directed acyclic graph or in short DAG.
+A causal graph for a SCM contains endogenous and exogenous variables. 
 A DAG entails nodes and edges. 
+
 Nodes represent our different variables. 
 Edges depict the assignment equations. 
 All edges are directed in the DAG.
-The graph is called acyclic if no variable causes (directly or indirectly) itself [@morgan_winship_2014].
-There is a hierachy within DAGs. 
+An acyclic graph has no roots that cause itself (directly and indirectly) [@morgan_winship_2014].
+
+This acyclic structure is important for the conditional probabilities [@forre2020causal].
+
+may not find unique solution if cyclic in equilbrium [@peters_elements_2017]
+
+
+Variables have incoming paths from their parent nodes. 
+
+These DAGs can be built on theory.
+Another way to determine the DAG structure is using observational data. 
+One of the more prominent algorithm to estimate the underlying dag structure is the pc-algorithm [@kalisch2012causal] . 
 
 ```{tikz,fig.cap="Structural Causal Model" ,fig.align="center", echo =F}
 \usetikzlibrary{calc}
@@ -112,22 +155,21 @@ There is a hierachy within DAGs.
 \tikzstyle{latent}=[draw, shape = rectangle, minimum height=1cm,minimum width=1cm]
 \node[my node, fill=gray!30] (S){S};
 \node[latent,left of=S](US){$U_S$};
-\node[my node, fill=gray!30] at ($(A)!0.5!(A)-(0pt,1.5cm)$) (T) {T};
-\node[my node,right = 1 cm of T, fill=gray!30](C){C};
-\node[latent,left = 1cm of T](UT){$U_T$};
-\node[latent,right = 1cm of A](UC){$U_C$};
-\draw[->] (A) -- (T);
-\draw[->] (UA) -- (A);
-\draw[->] (UT) -- (T);
+\node[my node, fill=gray!30] at ($(S)!0.5!(S)-(0pt,1.5cm)$) (G) {G};
+\node[my node,right = 1 cm of G, fill=gray!30](C){C};
+\node[latent,left = 1cm of G](UG){$U_G$};
+\node[latent,right = 1cm of S](UC){$U_C$};
+\draw[->] (US) -- (S);
+\draw[->] (UG) -- (G);
 \draw[->] (UC) -- (C);
-\draw[->] (A) -- (C);
-\draw[->] (T) -- (C);
+\draw[->] (S) -- (C);
+\draw[->] (G) -- (C);
 \end{tikzpicture}
 ```
 
 For reference, we can also display this model based on other models. 
-One example is the causal bayesian network, which uses conditional probabilities instead of functions to describe the relationship between variables. 
-In the probabilistic representation, we ignore latent factors. 
+One example is the causal bayesian network, which uses conditional probabilities instead of functions to describe the relationship between variables [@pearl2009causality]
+In the probabilistic representation, we ignore latent factors [@creager; @pearl2009causality]. 
 
 ```{tikz, notwell,  fig.cap ="Probabilistic Model",  fig.align="center", echo =F, fig.show="hold", out.width="50%" }
 \usetikzlibrary{calc}
@@ -140,34 +182,46 @@ In the probabilistic representation, we ignore latent factors.
     >=latex]
 \tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
 \node[my node] (S){S};
-\node[my node,right =1 cm of S](E){E};
-\node[my node] at ($(S)!0.5!(E)-(0pt,1.5cm)$) (C) {C};
+\node[my node,right =1 cm of S](G){G};
+\node[my node] at ($(S)!0.5!(G)-(0pt,1.5cm)$) (C) {C};
 \draw[->] (S) -- (C);
-\draw[->] (E) -- (C);
+\draw[->] (G) -- (C);
 \end{tikzpicture}
 ```
 
 
+Graphical models developed a mathematical langauge to assess certain conditions. 
+One pivotal feature is the d-separation [@judea2010introduction]:
 
+**Definition 2** ( $d$ -separation) A set $S$ of nodes is said to block a path $p$ if either (i) $p$ contains at least one arrow-emitting node that is in $S$, or $($ ii $)$ p contains at least one collision node that is outside $S$ and has no descendant in $S .$ 
+If $S$ blocks all paths from $X$ to $Y$, it is said to " $d$ -separate $X$ and $Y, "$ and then, $X$ and $Y$ are independent given $S$, written $X \perp \!\!\! \perp Y \mid S .$
 
-# Assumptions 
+Select subset of variables with backdoor criterion: 
 
-This section discusses the independence assumption in SCMs.
+**Definition:** Independence 
 
-Independence of Noise, Independence of Mechanism, Causal Sufficiency, and why time is ignored.
-The question should be really, what are we commiting to when we use SCMs.
-
-
-**Acyclicity**
-
-Assume acyclic because conditional probabilities with variables causing itself very hard .
-
-
-**Independence:** 
+Independence of Noise, 
 
 Noise indepedent so noise smoking and noise eating should be independent. 
 
+
 **Independent Mechanisms:**
+
+\begin{equation}
+\begin{aligned}
+p(a, t) &=p(a \mid t) p(t) \\
+&=p(t \mid a) p(a)
+\end{aligned}
+\end{equation}
+
+**Definition:** Causal Sufficiency
+
+A set of variables X is usually said to be causally sufficient if there is no hidden
+common cause $C \notin X$ that is causing more than one variable in X [@peters_elements_2017; @spirtes2010introduction] 
+
+
+ and why time is ignored.
+
 
 **Markov Condition** 
 
@@ -199,11 +253,85 @@ $$
 
 $P(C|s)$ 
 
+Associational methods ignore external changes outside of our data.
+The interventional distribution has information on these external changes.
+Note, that the interventional distribution is only defined in high level causal methods. 
+
 **Intervention:**
+
+Here we can use @pearl2009causality do-calculus.
+The do-calculus enables us to study the manipulation of parent nodes.
+ There are various types of intervention.
+One example is **atomic intervention,** where we set a variable to a constant.
+
+```{tikz,fig.cap="Structural Causal Model" ,fig.align="center", echo =F}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+  \begin{tikzpicture}[
+    sharp corners=2pt,
+    inner sep=6pt,
+    node distance=2cm,
+    >=latex]
+\tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
+\tikzstyle{latent}=[draw, shape = rectangle, minimum height=1cm,minimum width=1cm]
+\node[my node, fill=gray!30] (p){s};
+\node[my node, fill=gray!30] at ($(p)!0.5!(p)-(0pt,1.5cm)$) (G) {G};
+\node[my node,right = 1 cm of G, fill=gray!30](C){C};
+\node[latent,left = 1cm of G](UG){$U_G$};
+\node[latent,right = 1cm of p](UC){$U_C$};
+\draw[->] (UG) -- (G);
+\draw[->] (UC) -- (C);
+\draw[->] (p) -- (C);
+\draw[->] (G) -- (C);
+\end{tikzpicture}
+```
+
+
+
+In **policy intervention** we specify a different function for an equation.
+off-policy intervention models different intervention that is not in our historical data [@oberst2019counterfactual].
+
 
 $P(a|do(t),c)$ 
 
 $do(t)$ -> replace function $T:=f_T(\pi)$ with different conditional probability (or constant) [@pearl2009causality].
+
+
+Suppose the government wants to examine, whether increasing fines for smoking prohibited areas will led to less smoking and henceforth less lung cancer.
+The government could suggest to increase fines similar to the charges in Singapore by fining people up to a $1000 for smoking in these areas.
+Alternative, the government could also undertake treatment by imposing higher tabacco taxes.
+
+```{tikz,fig.cap="Structural Causal Model" ,fig.align="center", echo =F}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+  \begin{tikzpicture}[
+    sharp corners=2pt,
+    inner sep=6pt,
+    node distance=2cm,
+    >=latex]
+\tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
+\tikzstyle{latent}=[draw, shape = rectangle, minimum height=1cm,minimum width=1cm]
+\node[my node, fill=gray!30] (p){$\pi$};
+\node[latent,left of=p](US){$U_S$};
+\node[my node, fill=gray!30] at ($(p)!0.5!(p)-(0pt,1.5cm)$) (G) {G};
+\node[my node,right = 1 cm of G, fill=gray!30](C){C};
+\node[latent,left = 1cm of G](UG){$U_G$};
+\node[latent,right = 1cm of p](UC){$U_C$};
+\draw[->] (US) -- (p);
+\draw[->] (UG) -- (G);
+\draw[->] (UC) -- (C);
+\draw[->] (p) -- (C);
+\draw[->] (G) -- (C);
+\end{tikzpicture}
+```
 
 **Counterfactuals:**
 
@@ -212,6 +340,15 @@ Process is described as follows:
 (a) Abduction: Cast probability $P(u)$ as conditional probability $P(u|\epsilon)$ 
 (b) Action: Exchange $(X = x)$ 
 (c) Prediction: Compute $(Y = y)$
+
+**Stable Unit Treatment Value Assumption {SUTVA}** 'The treatment that one unit receives does not change the effect of treatment for any other unit.'
+**Consistency** The outcome Y agrees with the potential outcome corresponding to the treatment indicator.' 
+**Ignorability** The potential outcomes are conditionally independent of treatment given some set of de-confounding variables. 
+As suggested by [@hardtrecht], this condition ensures that we are dealing with a perfect randomized controlled trial. 
+
+- First two hold for Counterfactuals in SCM
+- third not testable but can check via backdoor criterion in SCM
+- Source: [@hardtrecht]
 
 # SCMs and Time 
 
@@ -277,6 +414,13 @@ $$
 Table: Source: @peters_elements_2017
 
 # Conclusion 
+
+Structural causal models are flexible simulators to disentangle causality for manifold different queries.
+There are many advantages of structural causal models:
+(1) We are able to model latent fators forcing us to reconsider existing assumptions about the relationship in our data.
+(2) Further, we get a underlying graphical representation including a mathematical language for this graphical systems to test causal assumptions that are otherwise untestable.
+(3) Additionally, one is able to model queries beyond mere association going as far as dealing with hyptoethical situations. 
+Simultaneously, 
 
 
 \newpage 
