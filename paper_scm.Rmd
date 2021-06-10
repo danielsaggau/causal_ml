@@ -43,6 +43,8 @@ Compared to probabilistic models, where we only specify conditional probabilitie
 Conditional probabilities cannot represent latent variables because there is no conditional probability in our observational data for unobserved variables [@pearl2009causality].
 
 
+History
+
 
 
 The aim of this paper is to summarise SCMs and it's intersection with social sciences and physics.
@@ -53,12 +55,33 @@ Section 5 provides a brief introduction into graphical models.
 Section 6 focuses on the intersection of SCMs and the perception of time. 
 
 
+
+# SCM Example 
+
+$S:= f_S(U_S)$
+$E:= f_E(U_E)$
+$C:= f_C(S,E,U_C)$
+
+$\{S\}$ - Smoking
+$\{C\}$ - Cancer
+$\{E\}$ - Eating
+
 # Assumptions 
 
 This section discusses the independence assumption in SCMs.
 
+Independence of Noise, Independence of Mechanism, Causal Sufficiency, and why time is ignored.
+The question should be really, what are we commiting to when we use SCMs.
+
+
+**Acyclicity**
+
+Assume acyclic because conditional probabilities with variables causing itself very hard .
+
+
 **Independence:** 
 
+Noise indepedent so noise smoking and noise eating should be independent. 
 
 **Independent Mechanisms:**
 
@@ -77,38 +100,26 @@ P_{x}(v)=\prod_{\left\{i \mid V_{i} \notin X\right\}} P\left(v_{i} \mid p a_{i}\
 \end{array}
 $$
 
-
-# SCM Example 
-
-$N:= f_N(U_N)$\newline
-$L:=f_L(U_L)$\newline
-$E:= f_E(N,L,U_E)$\newline
-
-$\{U_N\}$ - Numeric Ability
-
-$\{U_L\}$ - Literary Ability
-
-$\{U_E\}$ - Quality of the Student 
-
-$\{N\}$ - Math Test 
-
-$\{L\}$ - English-Test
-
-$\{E\}$ - GPA
-
-
 # Pearl's Causal Hierachy 
 
  |Method          | Action | | Usage | 
 |------------------|-------------|-------------------|
-| Association $P(a|b)$               | Co-occurrence                           |(Un-)Supervised ML, BN, Reg.  
-| Intervention $P(a|do(b),c)$       | Do-manipulation                       |CBN,MDP,RL    
-| Counterfactual $P(a_b|a`,b`)$     | Hypotheticals            | SCM ,PO            
+| Association $P(a|t)$               | Co-occurrence                           |(Un-)Supervised ML, BN, Reg.  
+| Intervention $P(a|do(t),c)$       | Do-manipulation                       |CBN,MDP,RL    
+| Counterfactual $P(a_t|a`,t`)$     | Hypotheticals            | SCM ,PO            
 
 
 **Association:**
 
+-> example probabilistic terms 
+
+$P(C|s)$ 
+
 **Intervention:**
+
+$P(a|do(t),c)$ 
+
+$do(t)$ -> replace function $T:=f_T(\pi)$ with different conditional probability (or constant) [@pearl2009causality].
 
 **Counterfactuals:**
 
@@ -117,7 +128,6 @@ Process is described as follows:
 (a) Abduction: Cast probability $P(u)$ as conditional probability $P(u|\epsilon)$ 
 (b) Action: Exchange $(X = x)$ 
 (c) Prediction: Compute $(Y = y)$
-
 
 # Graphical Models 
 
@@ -129,6 +139,9 @@ Edges depict the assignment equations.
 All edges are directed in the DAG.
 The graph is called acyclic if no variable causes (directly or indirectly) itself [@morgan_winship_2014].
 There is a hierachy within DAGs. 
+
+-> how to obtain scm 
+
 
 
 ```{tikz,fig.cap="Structural Causal Model" ,fig.align="center", echo =F}
@@ -161,6 +174,29 @@ There is a hierachy within DAGs.
 ```
 
 # SCMs and Time 
+
+largely ingore time 
+
+time in mechanical modeling crucial [@peters_elements_2017].
+
+- Time in Social Sciences: Often Vague 
+- Time in Physical Sciences: Mechanical via **Differential equations** 
+- dependence on prior time point and change in time contribute to the value at time point
+
+Initial Value: 
+$$
+\mathbf{x}\left(t_{0}\right)=\mathbf{x}_{0}
+$$
+
+Derivative of function x with respect to time t: 
+$$
+\frac{d \mathbf{x}}{d t}=f(\mathbf{x}), \mathbf{x} \in \mathbb{R}^{d}
+$$
+
+Value of Function at time t + dt: 
+$$
+\mathbf{x}(t+d t)=\mathbf{x}(t)+d t \cdot f(\mathbf{x}(t))
+$$
 
 $$
 \begin{array}{|l|l|l|l|l|}
@@ -201,9 +237,6 @@ $$
 Table: Source: @peters_elements_2017
 
 # Conclusion 
-
-
-
 
 
 \newpage 
