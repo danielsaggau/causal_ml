@@ -22,7 +22,14 @@ nocite: '@*'
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-**Abstract** The interest in understanding relationships of variables beyond co-occurrence has increased the popularity of causal modelling. To provide a comprehensive understanding of causal modelling, I introduce two prominent causal model specifications namely (1) Bayesian Causal Networks (BCN) and (2) Structural Causal Models (SCM), focusing on the latter.Probabilistic specifications such as a BCN cast a model based on conditional probabilities. SCMs cast a model based on assignment functions and extend probabilistic models by specifying the data generating process rather than solely utilizing conditional probabilities. Another difference between these models is their ability to address different queries such as *predictions*, *interventions* and *counterfactuals*. These queries are part of Pearl's causal hierarchy (2009). Pearl matches these queries with their respective actions namely *observing*, *doing* and *imagining*. I compare the feasibility of addressing these queries and undertaking respective actions for both specifications. To contextualize SCMs within the field of causality, I also discuss the role of time in causality. This paper uses various directed acyclic graphs to highlight the differences in these modelling approaches. The insights of this paper can be used as a baseline for subsequent research on structural causal models.
+**Abstract** The interest in understanding relationships of variables beyond co-occurrence has increased the popularity of causal modelling. Probabilistic specifications cast a model based on conditional probabilities. SCMs cast a model based on  assymetric assignments and extend probabilistic models by specifying the entire data generating process rather than solely utilizing conditional probabilities. 
+Another difference between these models is their ability to address different queries such as *predictions*, *interventions* and *counterfactuals*. 
+These queries are part of Pearl's causal hierarchy (2009).
+Pearl matches these queries with their respective actions namely *observing*, *doing* and *imagining*. 
+I compare the feasibility of addressing these queries and undertaking respective actions for both specifications.
+To contextualize SCMs within the field of causality, I also discuss the role of time in causality.
+This paper uses various directed acyclic graphs to highlight the differences in these modelling approaches.
+The insights of this paper can be used as a baseline for subsequent research on structural causal models.
 
 \newpage
 \hypersetup{linkcolor=black}
@@ -45,7 +52,7 @@ The SCM is an expressive simulator to estimate causal relationships, accounting 
 Latent factors are unobserved factors [@pearl2009causality].
 SCMs entail endogenous and exogenous variables. 
 Exogenous variables should not be confused with latent variables.
-@peters_elements_2017 define endogenous and exogenous as follows: *Endogeneous variables are those that the modeler tries to understand, while exogenous ones are determined by factors outside the model, and are taken as given.*
+For reference, @peters_elements_2017 define endogenous and exogenous as follows: *Endogeneous variables are those that the modeler tries to understand, while exogenous ones are determined by factors outside the model, and are taken as given.*
 The basis of these SCMs is a set of equations, or more precisely assignments, providing functions to derive the conditional probabilities for our model [@hardtrecht].
 These assignments describe our variables in our model.
 Compared to probabilistic models, where we only specify conditional probabilities, the SCM actually enables the combination of latent variables and observational data.
@@ -60,7 +67,7 @@ Section 4 provides a brief introduction into graphical models.
 Section 5 focuses on the intersection of SCMs and the perception of time. 
 
 
-# SCM Foundation
+# Assumptions in Structural Causal Models 
 
 The structural causal model consists of a set of equations.
 These equations are asymmetric assignments, because they are not bi-directional.
@@ -132,7 +139,6 @@ This acyclic structure is important for the conditional probabilities [@forre202
 
 may not find unique solution if cyclic in equilbrium [@peters_elements_2017]
 
-
 Variables have incoming paths from their parent nodes. 
 
 These DAGs can be built on theory.
@@ -167,8 +173,102 @@ One of the more prominent algorithm to estimate the underlying dag structure is 
 \end{tikzpicture}
 ```
 
-For reference, we can also display this model based on other models. 
-One example is the causal bayesian network, which uses conditional probabilities instead of functions to describe the relationship between variables [@pearl2009causality]
+Graphical models developed a mathematical langauge to assess certain conditions. 
+One pivotal feature is the d-separation [@judea2010introduction]:
+
+**Definition 2** ( $d$ -separation) A set $S$ of nodes is said to block a path $p$ if either (i) $p$ contains at least one arrow-emitting node that is in $S$, or $($ ii $)$ p contains at least one collision node that is outside $S$ and has no descendant in $S .$ 
+If $S$ blocks all paths from $X$ to $Y$, it is said to " $d$ -separate $X$ and $Y, "$ and then, $X$ and $Y$ are independent given $S$, written $X \perp \!\!\! \perp Y \mid S .$
+
+Select subset of variables with backdoor criterion: 
+
+
+
+## Independence
+
+**Definition:** Independence 
+*The causal generative process of a system’s variables is composed of autonomous modules that do not inform or influence each other.*
+*In the probabilistic case, this means that the conditional distribution of each variable given its causes (i.e., its mechanism) does not inform or influence the other conditional distributions*,
+*In case we have only two variables, this reduces to an independence between the cause distribution and the mechanism producing the effect distribution* [@peters_elements_2017].
+
+If we specify the causal structure correctly: 
+
+(a) possible to undertake local intervention -> change f(x), regardless of f(y|x)
+(b) these components are autonomous objects -> set of autonomous equations 
+
+
+Independence of Noise, 
+
+Noise independent so problematic behaviour and genetic code should be independent. 
+
+**Mechanism**
+
+\begin{equation}
+\begin{aligned}
+p(a, t) &=p(a \mid t) p(t) \\
+&=p(t \mid a) p(a)
+\end{aligned}
+\end{equation}
+
+
+\begin{equation}
+p^{\mathrm{o}}(a, t)=p(t \mid a) p^{\mathrm{o}}(a) \text { and } p^{\mathrm{s}}(a, t)=p(t \mid a) p^{\mathrm{s}}(a) .
+\end{equation}
+
+
+**Definition:** Causal Sufficiency
+
+*A set of variables X is usually said to be causally sufficient if there is no hidden common cause $C \notin X$ that is causing more than one variable in X* [@peters_elements_2017; @spirtes2010introduction] 
+
+$$
+P(Cancer|Smoking)=P(Smoking|Cancer) \times P(Cancer)
+$$
+
+**Markov Condition** 
+
+@pearl2009causality defines the markov condition as follows: 
+
+**Definition:** Causal Markov Condition
+
+*Every Markovian causal model M induces a distribution P(x1,…, xn) that satisfies the parental Markov condition relative the causal diagram G associated with M; that is, each variable Xi is independent of all its nondescendants, given its parents PAi in G.*
+
+
+$$
+\begin{array}{l}
+P_{x}(v)=\prod_{\left\{i \mid V_{i} \notin X\right\}} P\left(v_{i} \mid p a_{i}\right)\\
+\text { for all } \boldsymbol{v} \text { consistent with } x
+\end{array}
+$$
+
+## Time 
+
+ why time is ignored.
+
+# Pearl's Causal Hierachy 
+
+\footnotesize
+ |Method          | Action |  Example | Usage | 
+|------------------|-------------|--------------------|-------------------|
+| Association $P(a|b)$               | Co-occurrence             | What happened...               |(Un-)Supervised ML, BN, Reg.  
+| Intervention $P(a|do(b),c)$       | Do-manipulation           | What happens if ...            |CBN,MDP,RL    
+| Counterfactual $P(a_b|a`,b`)$     | Hypotheticals   | What would have happened if...           | SCM ,PO            
+
+Table: Pearls Hierachy of Causation (2009)
+
+\normalsize
+
+## Association:
+
+Associational methods ignore external changes outside of our data.
+The interventional distribution has information on these external changes.
+Note, that the intervention distribution is only defined in high level causal methods. 
+
+Joint distribution
+
+$P(c,s,g)= P(s)\times P(c|s,g) \times P(g)$ 
+
+**Graph** 
+
+One example is the bayesian network, which uses conditional probabilities instead of functions to describe the relationship between variables [@pearl2009causality]
 In the probabilistic representation, we ignore latent factors [@creager; @pearl2009causality]. 
 
 ```{tikz, notwell,  fig.cap ="Probabilistic Model",  fig.align="center", echo =F, fig.show="hold", out.width="50%" }
@@ -189,82 +289,33 @@ In the probabilistic representation, we ignore latent factors [@creager; @pearl2
 \end{tikzpicture}
 ```
 
-
-Graphical models developed a mathematical langauge to assess certain conditions. 
-One pivotal feature is the d-separation [@judea2010introduction]:
-
-**Definition 2** ( $d$ -separation) A set $S$ of nodes is said to block a path $p$ if either (i) $p$ contains at least one arrow-emitting node that is in $S$, or $($ ii $)$ p contains at least one collision node that is outside $S$ and has no descendant in $S .$ 
-If $S$ blocks all paths from $X$ to $Y$, it is said to " $d$ -separate $X$ and $Y, "$ and then, $X$ and $Y$ are independent given $S$, written $X \perp \!\!\! \perp Y \mid S .$
-
-Select subset of variables with backdoor criterion: 
-
-**Definition:** Independence 
-
-Independence of Noise, 
-
-Noise indepedent so noise smoking and noise eating should be independent. 
-
-
-**Independent Mechanisms:**
-
-\begin{equation}
-\begin{aligned}
-p(a, t) &=p(a \mid t) p(t) \\
-&=p(t \mid a) p(a)
-\end{aligned}
-\end{equation}
-
-**Definition:** Causal Sufficiency
-
-A set of variables X is usually said to be causally sufficient if there is no hidden
-common cause $C \notin X$ that is causing more than one variable in X [@peters_elements_2017; @spirtes2010introduction] 
-
-
- and why time is ignored.
-
-
-**Markov Condition** 
-
-**Truncated Factorization**
-
-$$
-P_{X_{3}=\mathrm{On}}\left(x_{1}, x_{2}, x_{4}, x_{5}\right)=P\left(x_{1}\right) P\left(x_{2} \mid x_{1}\right) P\left(x_{4} \mid x_{2}, X_{3}=\mathrm{On}\right) P\left(x_{5} \mid x_{4}\right)
-$$
-
-$$
-\begin{array}{l}
-P_{x}(v)=\prod_{\left\{i \mid V_{i} \notin X\right\}} P\left(v_{i} \mid p a_{i}\right)\\
-\text { for all } \boldsymbol{v} \text { consistent with } x
-\end{array}
-$$
-
-# Pearl's Causal Hierachy 
-
- |Method          | Action | | Usage | 
-|------------------|-------------|-------------------|
-| Association $P(a|t)$               | Co-occurrence                           |(Un-)Supervised ML, BN, Reg.  
-| Intervention $P(a|do(t),c)$       | Do-manipulation                       |CBN,MDP,RL    
-| Counterfactual $P(a_t|a`,t`)$     | Hypotheticals            | SCM ,PO            
-
-
-**Association:**
-
--> example probabilistic terms 
-
-$P(C|s)$ 
-
-Associational methods ignore external changes outside of our data.
-The interventional distribution has information on these external changes.
-Note, that the interventional distribution is only defined in high level causal methods. 
-
-**Intervention:**
+## Intervention:
 
 Here we can use @pearl2009causality do-calculus.
-The do-calculus enables us to study the manipulation of parent nodes.
- There are various types of intervention.
-One example is **atomic intervention,** where we set a variable to a constant.
 
-```{tikz,fig.cap="Structural Causal Model" ,fig.align="center", echo =F}
+The do-calculus enables us to study the manipulation of parent nodes.
+
+Instead of merely seeing the co-occurence of variables, we can actively manipulate the conditional distribution of one variable.
+Commonly, one could use this method to evaluate different policies [@creager].
+In our smoking example we can actively set the smoking behavior to a fixed value or a different conditional probability.
+
+
+Joint distribution post intervention: $P_{S=s}(c,g)= P(c|S=s,g) \times P(g)$ 
+
+There are various types of intervention.
+
+I will illustrate atomic intervention and policy intervention based on our smoking example.
+
+Suppose the government wants to examine, a different smoking behavior distribution will lower the number of lung cancer cases and medical expenses.
+This different smoking behaviour could be the result of increased taxes, or e.g. finesup to a $1000 (as in the case of Singapore) for smoking in prohibited areas.
+Alternative, the government could also undertake treatment by imposing higher tobacco taxes.
+In this case we solely focus on the effect of a different smoking behavior on lung cancer for the sake of simplicity. 
+
+
+In **atomic intervention,** we set a variable to a constant value.
+As one can see in figure 3, c is constant that is not dependent on the latent factor, because in atomic intervention we do not derive the value of c based on the function S. 
+
+```{tikz,fig.cap="Atomic Intervention" ,fig.align="center", echo =F}
 \usetikzlibrary{calc}
 \usetikzlibrary{positioning}
 \usetikzlibrary{arrows}
@@ -278,7 +329,7 @@ One example is **atomic intervention,** where we set a variable to a constant.
     >=latex]
 \tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
 \tikzstyle{latent}=[draw, shape = rectangle, minimum height=1cm,minimum width=1cm]
-\node[my node, fill=gray!30] (p){s};
+\node[my node, fill=gray!10] (p){c};
 \node[my node, fill=gray!30] at ($(p)!0.5!(p)-(0pt,1.5cm)$) (G) {G};
 \node[my node,right = 1 cm of G, fill=gray!30](C){C};
 \node[latent,left = 1cm of G](UG){$U_G$};
@@ -290,22 +341,24 @@ One example is **atomic intervention,** where we set a variable to a constant.
 \end{tikzpicture}
 ```
 
+Further, in mathematical notation the model would change as follows:
+
+\begin{equation}
+S:= s
+\end{equation}
+\begin{equation}
+G:= f_G(U_G)
+\end{equation}
+\begin{equation}
+C:= f_C(S,G,U_C)
+\end{equation}
+
+In **policy intervention** we specify a different conditional probability $(S=s)$ for an equation.
+We can derive s from S, because we include information on the intervention distribution. 
+This information cannot be obtained, if we directly specify our model as conditional probabilities.
 
 
-In **policy intervention** we specify a different function for an equation.
-off-policy intervention models different intervention that is not in our historical data [@oberst2019counterfactual].
-
-
-$P(a|do(t),c)$ 
-
-$do(t)$ -> replace function $T:=f_T(\pi)$ with different conditional probability (or constant) [@pearl2009causality].
-
-
-Suppose the government wants to examine, whether increasing fines for smoking prohibited areas will led to less smoking and henceforth less lung cancer.
-The government could suggest to increase fines similar to the charges in Singapore by fining people up to a $1000 for smoking in these areas.
-Alternative, the government could also undertake treatment by imposing higher tabacco taxes.
-
-```{tikz,fig.cap="Structural Causal Model" ,fig.align="center", echo =F}
+```{tikz,fig.cap="Policy Model" ,fig.align="center", echo =F}
 \usetikzlibrary{calc}
 \usetikzlibrary{positioning}
 \usetikzlibrary{arrows}
@@ -319,7 +372,7 @@ Alternative, the government could also undertake treatment by imposing higher ta
     >=latex]
 \tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
 \tikzstyle{latent}=[draw, shape = rectangle, minimum height=1cm,minimum width=1cm]
-\node[my node, fill=gray!30] (p){$\pi$};
+\node[my node, fill=gray!10] (p){s};
 \node[latent,left of=p](US){$U_S$};
 \node[my node, fill=gray!30] at ($(p)!0.5!(p)-(0pt,1.5cm)$) (G) {G};
 \node[my node,right = 1 cm of G, fill=gray!30](C){C};
@@ -333,6 +386,16 @@ Alternative, the government could also undertake treatment by imposing higher ta
 \end{tikzpicture}
 ```
 
+
+where $\pi$ is our new conditional probability. 
+
+One extension of policy intervention is off-policy intervention. 
+**Off-policy intervention** models different intervention that is not in our historical data.
+To accommodate the lack of data, we can estimate the intervention either based on model-based (e.g. regression),model-free estimates (propensity scores), or a mixture of these methods. 
+For further information, see e.g. @oberst2019counterfactual or [@creager]. 
+
+$do(t)$ -> replace function $T:=f_T(\pi)$ with different conditional probability (or constant) [@pearl2009causality].
+
 **Counterfactuals:**
 
 Process is described as follows:
@@ -342,7 +405,9 @@ Process is described as follows:
 (c) Prediction: Compute $(Y = y)$
 
 **Stable Unit Treatment Value Assumption {SUTVA}** 'The treatment that one unit receives does not change the effect of treatment for any other unit.'
+
 **Consistency** The outcome Y agrees with the potential outcome corresponding to the treatment indicator.' 
+
 **Ignorability** The potential outcomes are conditionally independent of treatment given some set of de-confounding variables. 
 As suggested by [@hardtrecht], this condition ensures that we are dealing with a perfect randomized controlled trial. 
 
@@ -366,11 +431,13 @@ $$
 $$
 
 Derivative of function x with respect to time t: 
+
 $$
 \frac{d \mathbf{x}}{d t}=f(\mathbf{x}), \mathbf{x} \in \mathbb{R}^{d}
 $$
 
 Value of Function at time t + dt: 
+
 $$
 \mathbf{x}(t+d t)=\mathbf{x}(t)+d t \cdot f(\mathbf{x}(t))
 $$
@@ -429,6 +496,4 @@ Simultaneously,
 
 <div id="refs"></div>
 \newpage
-
-
 
