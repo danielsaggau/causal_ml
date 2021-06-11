@@ -44,12 +44,6 @@ The insights of this paper can be used as a baseline for subsequent research on 
 
 For many research problems, we want to understand the relationship between variables beyond co-occurrence.
 The most popular causal model is the structural causal model or in short SCM.
-The SCM is the non-parametric counterpart to structural equation models.
-Researchers on SCMs tried to distance themselves from common practices for structural equation models [@pearl2009causality; @peters_elements_2017].
-The geneticist and statistican Sewall Wright introduced the first ancestor of the SCM, the path analysis [@pearl2009causality].
-Path analysis now falls into the broader class of structural equation models.
-Path analysis is a structural equation model with one variable per indicator.
-
 The SCM is an expressive simulator to estimate causal relationships, accounting for latent factors. 
 Latent factors are unobserved factors [@pearl2009causality].
 SCMs entail endogenous and exogenous variables. 
@@ -57,19 +51,29 @@ Exogenous variables should not be confused with latent variables.
 For reference, @peters_elements_2017 define endogenous and exogenous as follows: *Endogeneous variables are those that the modeler tries to understand, while exogenous ones are determined by factors outside the model, and are taken as given.*
 The basis of these SCMs is a set of equations, or more precisely assignments, providing functions to derive the conditional probabilities for our model [@hardtrecht].
 These assignments describe our variables in our model.
-Compared to probabilistic models, where we only specify conditional probabilities, the SCM actually enables the combination of latent variables and observational data.
-Conditional probabilities cannot represent latent variables because there is no conditional probability in our observational data for unobserved variables [@pearl2009causality].
+Compared to probabilistic models, where we only specify conditional probabilities, the SCM actually enables the combination of different sources of knowledge.
+In association based learning and typical statistical learning we only model based on observational data and conditional probabilities. 
+Conditional probabilities alone, cannot represent latent variables because there is no conditional probability in our observational data for unobserved variables [@pearl2009causality].
+
 
 To accommodate existing literature, this paper provides a gentle introduction to SCMs, focusing on the underlying assumptions we make when building a structural causal model.
 Specifically, this paper focuses on the independence of noise, independence of mechanisms, causal sufficiency, the role of time and the causal markov condition.
 Additionally, this paper provides an overview of various other statistical and causal methods within the grand scheme of pearls causal hierachy.
-I accomodate this outlook with various considerations for the usage of SCMs. 
-The aim of this paper is to provide an intuitive understanding of different concepts within causality using manifold elements from core literature on causality. 
+I accommodate this outlook with various considerations for the usage of SCMs. 
+The aim of this paper is to provide an intuitive understanding of different concepts within causality using elements from core literature on causality. 
 
 The rest of the paper is structured as follows:
  
 
+ 
+
 # Assumptions in Structural Causal Models 
+
+The SCM is the non-parametric counterpart to structural equation models.
+Researchers on SCMs tried to distance themselves from common practices for structural equation models [@pearl2009causality; @peters_elements_2017].
+The geneticist and statistican Sewall Wright introduced the first ancestor of the SCM, the path analysis [@pearl2009causality; @tarka2018overview].
+Path analysis now falls into the broader class of structural equation models.
+Path analysis is a structural equation model with one variable per indicator.
 
 
 ## Mathematical Components
@@ -381,10 +385,10 @@ Reiterating our lung cancer example, the full joint distribution looks as follow
 $P(c,s,g)= P(s) \times P(c|s,g) \times P(g)$ 
 
 If there are any changes in our distribution, e.g. smoking changes its distribution from $s$ to $s_{new}$ we are unable to accomodate these changes [@peters_elements_2017].
-Association-based methods are not equipped to accodate such modifications. 
+Association-based methods are not equipped to accomodate such modifications. 
 
-**Graph** 
 
+There are ways to also graphically depict associational models. 
 One example is the bayesian network, which uses conditional probabilities instead of functions to describe the relationship between variables [@pearl2009causality]
 In the probabilistic representation, we ignore latent factors [@creager; @pearl2009causality]. 
 
@@ -410,28 +414,25 @@ In the probabilistic representation, we ignore latent factors [@creager; @pearl2
 \end{tikzpicture}
 ```
 
+While in this simple 3 feature case, the graphical illustration is rather straight forward. 
+But especially in a high dimensional space, the graphical models become convoluted.
+Henceforth, finding the correct specification without reconsidering all modelling assumptions can led to mistakes as discussed in section 2. 
+
 ## Intervention:
 
-Here we can use @pearl2009causality do-calculus.
-
+Intervention deals with questions like 'what happens if'. 
+E.g. in our smoking example, we could look at e.g. 'what happens if people smoke less?' or, 'what happens if people smoke more?'.
+This higher order methods opens many different applications and is predominately possible in causal bayesian networks, reinforcement learning or markov decision processes.
+For interventions, we can use @pearl2009causality do-calculus.
 The do-calculus enables us to study the manipulation of parent nodes.
-
 Instead of merely seeing the co-occurence of variables, we can actively manipulate the conditional distribution of one variable.
 Commonly, one could use this method to evaluate different policies [@creager].
-In our smoking example we can actively set the smoking behavior to a fixed value or a different conditional probability.
-
-
-Joint distribution post intervention: $P_{S=s}(c,g)= P(c|S=s,g) \times P(g)$ 
-
+In our cancer example one can actively set the smoking behavior to a fixed value or a different conditional probability.
+The post intervention joint distribution would look as follows: 
+$P_{S=s}(c,g)= P(c|S=s,g) \times P(g)$ 
+where $S=s$ is the new probability or atomic value.
 There are various types of intervention.
-
 I will illustrate atomic intervention and policy intervention based on our smoking example.
-
-Suppose the government wants to examine, a different smoking behavior distribution will lower the number of lung cancer cases and medical expenses.
-This different smoking behaviour could be the result of increased taxes, or e.g. finesup to a $1000 (as in the case of Singapore) for smoking in prohibited areas.
-Alternative, the government could also undertake treatment by imposing higher tobacco taxes.
-In this case we solely focus on the effect of a different smoking behavior on lung cancer for the sake of simplicity. 
-
 
 In **atomic intervention,** we set a variable to a constant value.
 As one can see in figure 3, c is constant that is not dependent on the latent factor, because in atomic intervention we do not derive the value of c based on the function S. 
@@ -477,7 +478,6 @@ C:= f_C(S,G,U_C)
 In **policy intervention** (see figure 4) we specify a different conditional probability $(S=s)$ for an equation.
 We can derive s from S, because we include information on the intervention distribution. 
 This information cannot be obtained, if we directly specify our model as conditional probabilities.
-
 
 ```{tikz,fig.cap="Policy Intervention" ,fig.align="center", echo =F}
 \usetikzlibrary{calc}
@@ -555,21 +555,22 @@ Due to the backdoor criterion, we can nevertheless verify, that our model specif
 
 Structural causal models are data driven models [@hernan_invited_2015]. 
 There is a dependence on data quality.
-Henceforth, if our insights based on data are limited, or perhaps we are not really able to clearly define function relationships beyond conditional probabilities, structural causal models can be problematic. 
-Furthermore, sometimes association-based knowledge is sufficient. 
+Evaluating different sources of information into causal models accordingly is an open problem in causal modelling [@spirtes2010introduction].
+Henceforth, if our insights based on data are limited, or perhaps we are not really able to clearly define function relationships beyond conditional probabilities, structural causal models can be problematic.
+Furthermore, sometimes association-based knowledge is sufficient.
 inevitably, the entry barrier to higher order causal models is higher in terms of required knowledge. 
 Not every situation accomodates these conditions. 
 
 Nevertheless, especially in a situation where we have high-stake repercussions based on our model, causal modelling has been a complementary tool.
 When dealing with policy implementations, that might be controversial or unethical in the real world, simulations are pivotal.
-Recently, reserach has fairness has adopted various concepts and developed new characterisitics such as counterfactual fairness [@kusner_counterfactual_2018].
+Recently, research has fairness has adopted various concepts and developed new characteristics such as counterfactual fairness [@kusner_counterfactual_2018].
+
 
 # Conclusion 
 
 Structural causal models are flexible simulators to disentangle causality for manifold different queries such as interventions and counterfactuals.
 We make a number of different assumptions when building a structural causal model.
 The most important assumption is the indepedence of mechanisms and independence of noise terms which are the core of our simulation. 
-
 
 There are many advantages of structural causal models:
 (1) We are able to model latent factors forcing us to reconsider existing assumptions about the relationship in our data.
@@ -582,9 +583,6 @@ To determine this causal graph, we can use conditional independence testing and 
 Looking at the causal hierachy, structural causal modelling enables us to compute interventions efficiently given certain condition hold. 
 These conditions defintely not always hold true in every instance.
 The entry barriers to causal modeling is high and in involves considerable investment in terms of data and time.
-
-
-
 
 \newpage 
 
