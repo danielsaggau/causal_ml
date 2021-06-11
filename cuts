@@ -1,0 +1,6 @@
+One pivotal feature is the d-separation [@judea2010introduction]:
+
+**Definition 2** ( $d$ -separation) A set $S$ of nodes is said to block a path $p$ if either (i) $p$ contains at least one arrow-emitting node that is in $S$, or $($ ii $)$ p contains at least one collision node that is outside $S$ and has no descendant in $S .$
+If $S$ blocks all paths from $X$ to $Y$, it is said to " $d$ -separate $X$ and $Y, "$ and then, $X$ and $Y$ are independent given $S$, written $X \perp \!\!\! \perp Y \mid S .$
+
+Select subset of variables with backdoor criterion:

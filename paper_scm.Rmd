@@ -22,13 +22,15 @@ nocite: '@*'
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-**Abstract** The interest in understanding relationships of variables beyond co-occurrence has increased the popularity of causal modelling. Probabilistic specifications cast a model based on conditional probabilities. SCMs cast a model based on  assymetric assignments and extend probabilistic models by specifying the entire data generating process rather than solely utilizing conditional probabilities. 
-Another difference between these models is their ability to address different queries such as *predictions*, *interventions* and *counterfactuals*. 
+**Abstract** The interest in understanding relationships of variables beyond co-occurrence has increased the popularity of causal modelling. 
+Probabilistic specifications cast a model based on conditional probabilities. 
+SCMs cast a model based on  asymmetric assignments and extend probabilistic models by specifying the entire data generating process rather than solely utilizing conditional probabilities.
+A SCM is build on a number of different assumptions namely the independence of noise, autonomy of mechanisms, causal sufficiency and the causal markov condition.
+I also discuss the role of time in causality and how differential equations enable us to model SCMs similar to a mechanical mdoel.
+Another difference between thes SCM and other model specifications is the ability  of SCMs to address different queries such as *predictions*, *interventions* and *counterfactuals*. 
 These queries are part of Pearl's causal hierarchy (2009).
 Pearl matches these queries with their respective actions namely *observing*, *doing* and *imagining*. 
-I compare the feasibility of addressing these queries and undertaking respective actions for both specifications.
-To contextualize SCMs within the field of causality, I also discuss the role of time in causality.
-This paper uses various directed acyclic graphs to highlight the differences in these modelling approaches.
+I compare the feasibility of addressing these queries.
 The insights of this paper can be used as a baseline for subsequent research on structural causal models.
 
 \newpage
@@ -58,19 +60,19 @@ These assignments describe our variables in our model.
 Compared to probabilistic models, where we only specify conditional probabilities, the SCM actually enables the combination of latent variables and observational data.
 Conditional probabilities cannot represent latent variables because there is no conditional probability in our observational data for unobserved variables [@pearl2009causality].
 
-
-
-
-To accommodate existing literature, this paper provides a gentle introduction to SCMs, focusing on the underlying assumptions we make when building a structural causal model. 
-The aim of this paper is to provide an example based, inutitive understanding of different concepts within causality using manifold elements from core literature on causality. 
+To accommodate existing literature, this paper provides a gentle introduction to SCMs, focusing on the underlying assumptions we make when building a structural causal model.
+Specifically, this paper focuses on the independence of noise, independence of mechanisms, causal sufficiency, the role of time and the causal markov condition.
+Additionally, this paper provides an overview of various other statistical and causal methods within the grand scheme of pearls causal hierachy.
+I accomodate this outlook with various considerations for the usage of SCMs. 
+The aim of this paper is to provide an example based, intuitive understanding of different concepts within causality using manifold elements from core literature on causality. 
 
 The rest of the paper is structured as follows:
-Section 2 introduces the assumptions in causal modelling.
-Section 3 addresses Pearls Causal Hierachy.
-Section 4 focuses on the intersection of SCMs and the perception of time. 
-Section 5 concludes. 
+ 
 
 # Assumptions in Structural Causal Models 
+
+
+## Mathematical Components
 
 The structural causal model consists of a set of equations.
 These equations are asymmetric assignments, because they are not bi-directional.
@@ -90,9 +92,6 @@ $$
 *where* $N_{F} \perp \!\!\! \perp N_{C}$ *that is* $N_{F}$ *is independent of* $N_{C}$
 
 In their definition, C is the cause and E is the effect.
-
-
-
 
 We can set up an epidemiological example with three variables, looking at the impact of problem behavior and genetic code on lung cancer. 
 Problem behavior is a latent variable, but we can use observational data to characterize problem behavior.
@@ -128,8 +127,87 @@ Various research has pointed out examples where modeling without DAGs lead to se
 @hirano2001estimation suggest a method for covariate selection that according to @pearl2009myth favours bias-enhancing features in the propensity score.
 Further @bollen2013eight (2013) argue that @rosenbaum2002overt and @rubin2007design falsely declared that 'there is no reason to avoid adjustment for a variable describing subjects before treatment'.
 
+## Independence of Noise and Mechanism
 
-We can craete graphical models based on various different algorithms.
+**Definition:** Independence 
+*The causal generative process of a system’s variables is composed of autonomous modules that do not inform or influence each other.*
+*In the probabilistic case, this means that the conditional distribution of each variable given its causes (i.e., its mechanism) does not inform or influence the other conditional distributions*,
+*In case we have only two variables, this reduces to an independence between the cause distribution and the mechanism producing the effect distribution* [@peters_elements_2017].
+
+If we specify the causal structure correctly: 
+
+- possible to undertake local intervention -> change f(smoking), regardless of f(cancer|smoking)
+- these components are autonomous objects -> set of autonomous assignments
+
+**Independence of Noise:**  
+
+The way we view noise in SCMs differs from the classical view in regression analysis.
+Therefore, I will briefly clarify essential differences. 
+Noise variables are our latent variables which are the parent nodes of our child nodes of interest [@hardtrecht].
+In classical regression analysis, such as an ordinary least squares regression, we employ the Gauss Markov Assumptions. 
+The exogeneity assumption, one of the five Gauss Markov Assumptions, suggests that the error terms are uncorrelated with our features [@wooldridge2010econometric].
+For the SCM, the error terms are driving our features and a pivotal component of the model specification [@hardtrecht].
+To ensure that we are correctly specifying mechanisms and our underlying model structure, one needs to ensure independence of these noise terms. 
+As mentioned in the definition for SCMs, we would mathematical notate this independence as follows:
+
+$N_{F} \perp \!\!\! \perp N_{C}$ 
+
+Scholarship in causality established the causal sufficiency condition:
+
+**Definition:** Causal Sufficiency
+
+*A set of variables X is usually said to be causally sufficient if there is no hidden common cause $C \notin X$ that is causing more than one variable in X* [@peters_elements_2017; @spirtes2010introduction] 
+
+By ensuring that this condition holds, we can easier disentangle underlying common causes, avoiding a violation of the independence of our noise terms.
+Independence of noise is one form of causal sufficiency [@peters_elements_2017].
+
+There are two related dimensions to consider namely the informational aspect of independence  and implications for  modularity. 
+If the independence conditions holds, and the cause and effect variables are independent, the cause and effect variable do not contain information about each other. 
+Modularity [@pearl2009causality] describes the advantage of being able to treat these variables as distinct modules.
+This means, even if we have a change in one variable (cause or effect), we can disentangle our variable as unique modular components.
+Especially looking at machine learning, domain shift and covariate shift are problematic for classical tools. [@peters_elements_2017]
+By using these independence assumptions in SCMs, we can accommodate these settings.
+
+Looking at our smoking example:
+
+
+$$
+P(Cancer|Smoking)=P(Smoking|Cancer) \times P(Cancer)
+$$
+
+**Markov Condition** 
+
+@pearl2009causality defines the markov condition as follows: 
+
+**Definition:** Causal Markov Condition
+
+*Every Markovian causal model M induces a distribution P(x1,…, xn) that satisfies the parental Markov condition relative the causal diagram G associated with M; that is, each variable Xi is independent of all its nondescendants, given its parents PAi in G.*
+
+
+**Mechanism**
+
+\begin{equation}
+\begin{aligned}
+p(a, t) &=p(a \mid t) p(t) \\
+&=p(t \mid a) p(a)
+\end{aligned}
+\end{equation}
+
+
+\begin{equation}
+p^{\mathrm{o}}(a, t)=p(t \mid a) p^{\mathrm{o}}(a) \text { and } p^{\mathrm{s}}(a, t)=p(t \mid a) p^{\mathrm{s}}(a) .
+\end{equation}
+
+$$
+\begin{array}{l}
+P_{x}(v)=\prod_{\left\{i \mid V_{i} \notin X\right\}} P\left(v_{i} \mid p a_{i}\right)\\
+\text { for all } \boldsymbol{v} \text { consistent with } x
+\end{array}
+$$
+
+
+
+# Directed Acyclic Graphs 
 
 The most popular graphical model is the directed acyclic graph or in short DAG.
 A causal graph for a SCM contains endogenous and exogenous variables. 
@@ -179,91 +257,108 @@ One of the more prominent algorithm to estimate the underlying dag structure is 
 ```
 
 Graphical models developed a mathematical langauge to assess certain conditions. 
-One pivotal feature is the d-separation [@judea2010introduction]:
-
-**Definition 2** ( $d$ -separation) A set $S$ of nodes is said to block a path $p$ if either (i) $p$ contains at least one arrow-emitting node that is in $S$, or $($ ii $)$ p contains at least one collision node that is outside $S$ and has no descendant in $S .$ 
-If $S$ blocks all paths from $X$ to $Y$, it is said to " $d$ -separate $X$ and $Y, "$ and then, $X$ and $Y$ are independent given $S$, written $X \perp \!\!\! \perp Y \mid S .$
-
-Select subset of variables with backdoor criterion: 
-
-## Independence
-
-**Definition:** Independence 
-*The causal generative process of a system’s variables is composed of autonomous modules that do not inform or influence each other.*
-*In the probabilistic case, this means that the conditional distribution of each variable given its causes (i.e., its mechanism) does not inform or influence the other conditional distributions*,
-*In case we have only two variables, this reduces to an independence between the cause distribution and the mechanism producing the effect distribution* [@peters_elements_2017].
-
-If we specify the causal structure correctly: 
-
-(a) possible to undertake local intervention -> change f(x), regardless of f(y|x)
-(b) these components are autonomous objects -> set of autonomous equations 
 
 
-Independence of Noise, 
 
-Noise independent so problematic behaviour and genetic code should be independent. 
+We can create graphical models based on various algorithms.
 
-**Mechanism**
-
-\begin{equation}
-\begin{aligned}
-p(a, t) &=p(a \mid t) p(t) \\
-&=p(t \mid a) p(a)
-\end{aligned}
-\end{equation}
+We can obtain a graphical model based on (a single) observational dataset through conditional independence testing.
+The graphical approach to recover a graph from an observaational dataset requires two assumptions namely jointly independent noise terms and faithfulness. 
+Intuitively speaking, this method examines how noise spreads [@peters_elements_2017]. 
+Two other methods are ICM^[The intuition here is that the noise terms cultivate the footprint of the assignments. For more information see: @shajarisales2015telling] and using an additive noise model^[This method uses regression and conditional independence testing to disentangle graphical structures. For further information see @mooij2016distinguishing]. 
 
 
-\begin{equation}
-p^{\mathrm{o}}(a, t)=p(t \mid a) p^{\mathrm{o}}(a) \text { and } p^{\mathrm{s}}(a, t)=p(t \mid a) p^{\mathrm{s}}(a) .
-\end{equation}
+# SCMs and Time 
 
+largely ingore time 
 
-**Definition:** Causal Sufficiency
+time in mechanical modeling crucial [@peters_elements_2017].
 
-*A set of variables X is usually said to be causally sufficient if there is no hidden common cause $C \notin X$ that is causing more than one variable in X* [@peters_elements_2017; @spirtes2010introduction] 
+- Time in Social Sciences: Often Vague 
+- Time in Physical Sciences: Mechanical via **Differential equations** 
+- dependence on prior time point and change in time contribute to the value at time point
 
+Initial Value: 
 $$
-P(Cancer|Smoking)=P(Smoking|Cancer) \times P(Cancer)
+\mathbf{x}\left(t_{0}\right)=\mathbf{x}_{0}
 $$
 
-**Markov Condition** 
-
-@pearl2009causality defines the markov condition as follows: 
-
-**Definition:** Causal Markov Condition
-
-*Every Markovian causal model M induces a distribution P(x1,…, xn) that satisfies the parental Markov condition relative the causal diagram G associated with M; that is, each variable Xi is independent of all its nondescendants, given its parents PAi in G.*
-
+Derivative of function x with respect to time t: 
 
 $$
-\begin{array}{l}
-P_{x}(v)=\prod_{\left\{i \mid V_{i} \notin X\right\}} P\left(v_{i} \mid p a_{i}\right)\\
-\text { for all } \boldsymbol{v} \text { consistent with } x
+\frac{d \mathbf{x}}{d t}=f(\mathbf{x}), \mathbf{x} \in \mathbb{R}^{d}
+$$
+
+Value of Function at time t + dt: 
+
+$$
+\mathbf{x}(t+d t)=\mathbf{x}(t)+d t \cdot f(\mathbf{x}(t))
+$$
+
+
+[@peters_elements_2017] provide a taxonomy of different methods (see table 1) 
+
+
+$$\text{Table 1 Source: Peters et al. (2017) , Modelling Taxonomy}$$
+$$
+\begin{array}{|l|l|l|l|l|}
+\hline \text { model } & \begin{array}{l}
+\text { IID setting }
+\end{array} & \begin{array}{l}
+\text { changing } \\
+\text { distributions } 
+\end{array} & \begin{array}{c}
+\text { counter- } \\
+\text { factual } \\
+\text { questions }
+\end{array} & \begin{array}{l}
+\text { physical } \\
+\text { insight }
+\end{array} \\
+\hline \begin{array}{l}
+\text { mechanistic } \\
+\text { model }
+\end{array} & \mathrm{Y} & \mathrm{Y} & \mathrm{Y} & \mathrm{Y} \\
+\hline \begin{array}{l}
+\text { structural } \\
+\text { causal model }
+\end{array} & \mathrm{Y} & \mathrm{Y} & \mathrm{Y} & \mathrm{N} \\
+\hline \begin{array}{l}
+\text { causal } \\
+\text { graphical } \\
+\text { model }
+\end{array} & \mathrm{Y} & \mathrm{Y} & \mathrm{N} & \mathrm{N} \\
+\hline \begin{array}{l}
+\text { statistical } \\
+\text { model }
+\end{array} & \mathrm{Y} & \mathrm{N} & \mathrm{N} & \mathrm{N} \\
+\hline
 \end{array}
 $$
 
-## Time 
-
-
-
- why time is ignored.
+In the table we can see that traditional statistical models fair well in IID settings, where our observations are independent and identically distributed.
+But once we encounter a changing distribution such as an covariate shift or a domain shift, these statistical models are not suitable anymore.
+Statistical models are also unable to answer any counterfactual questions about hypothetical settings outside of our observational data and are unable to provide physical insights because we do not model time as an explicity. 
+Causal graphical models are able to deal with changing distributions and fair well in the IID setting. 
+Nevertheless, they are also unable to answer counterfactual questions on its own and cannot provide physical insights. 
+SCMs are able to deal with the first three queries, but largely ignore time.
+By commonly making assumptions such as that the effect is acyclic, SCMs simplify time and treat focus on equilbrium states.
+The mechanistic view, where we model time as an explicit factor, enables us to answer all those queries. 
+Note that the growing complexity makes it very challenging to implement but relevant for natural sciences where time is pivotal to disentangle relationships [@mooij2013ordinary; @peters_elements_2017]. 
 
 # Pearl's Causal Hierachy 
 
 Pearl [@bareinboim2020pearl; @pearl2009causality] introduced the hierachy of causation to categorize different statistical and causal tools. 
-The hierarchy of causation contains (see table 1) three levels. 
-The higher the method on the hierarchy, the more information the method requires.
+The hierarchy of causation contains (see table 1) three levels, where the high methods on the hierarchy, the more information the method requires.
 This section discusses each of these methods and their respective advantages.
 
+$$\text{Table 2 Source: Pearl (2009) , Hierarchy of Causation}$$ 
 \footnotesize
- |Method          | Action |  Example | Usage | 
+|Method          | Action |  Example | Usage | 
 |------------------|-------------|--------------------|-------------------|
 | Association $P(a|b)$               | Co-occurrence             | What happened...               |(Un-)Supervised ML, BN, Reg.  
 | Intervention $P(a|do(b),c)$       | Do-manipulation           | What happens if ...            |CBN,MDP,RL    
 | Counterfactual $P(a_b|a`,b`)$     | Hypotheticals   | What would have happened if...           | SCM ,PO            
-
-Table: Pearls Hierachy of Causation (2009)
-
 \normalsize
 
 ## Association:
@@ -291,20 +386,24 @@ Association-based methods are not equipped to accodate such modifications.
 One example is the bayesian network, which uses conditional probabilities instead of functions to describe the relationship between variables [@pearl2009causality]
 In the probabilistic representation, we ignore latent factors [@creager; @pearl2009causality]. 
 
-```{tikz, notwell,  fig.cap ="Probabilistic Model",  fig.align="center", echo =F, fig.show="hold", out.width="50%" }
+```{tikz,fig.cap="Probabilistic Model" ,fig.align="center", echo =F}
 \usetikzlibrary{calc}
 \usetikzlibrary{positioning}
 \usetikzlibrary{arrows}
-\begin{tikzpicture}[
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+  \begin{tikzpicture}[
     sharp corners=2pt,
-    inner sep=7pt,
-    node distance=3cm,
+    inner sep=6pt,
+    node distance=2cm,
     >=latex]
 \tikzstyle{my node}=[draw, shape = circle, minimum height=1cm,minimum width=1cm]
-\node[my node] (S){S};
-\node[my node,right =1 cm of S](G){G};
-\node[my node] at ($(S)!0.5!(G)-(0pt,1.5cm)$) (C) {C};
-\draw[->] (S) -- (C);
+\tikzstyle{latent}=[draw, shape = rectangle, minimum height=1cm,minimum width=1cm]
+\node[my node, fill=gray!30] (p){S};
+\node[my node, fill=gray!30] at ($(p)!0.5!(p)-(0pt,1.5cm)$) (G) {G};
+\node[my node,right = 1 cm of G, fill=gray!30](C){C};
+\draw[->] (p) -- (C);
 \draw[->] (G) -- (C);
 \end{tikzpicture}
 ```
@@ -409,14 +508,31 @@ This information cannot be obtained, if we directly specify our model as conditi
 
 where $s$ is our new conditional probability. 
 
-One extension of policy intervention is off-policy intervention. 
-**Off-policy intervention** models different intervention that is not in our historical data.
-To accommodate the lack of data, we can estimate the intervention either based on model-based (e.g. regression),model-free estimates (propensity scores), or a mixture of these methods. 
-For further information, see e.g. @oberst2019counterfactual or [@creager]. 
+One way of the most prominent ways to estimate casual effects of our treatment is the average treatment effect.
+The average treatment effect looks at the difference between treatment and control group.
+For the case of simplicity in our example, we want to look at whether smoking at all has an impact on lung cancer.
+Mathematically, this could as follows: 
 
-$do(t)$ -> replace function $T:=f_T(\pi)$ with different conditional probability (or constant) [@pearl2009causality].
+\begin{equation}
+f(C|S=1) - f(C|S=0)
+\end{equation}
 
-**Counterfactuals:**
+where $S = 1$ means the participant smokes and $S=0$ means the participant does not smoke.
+Furthermore, it is crucial that we hold all other factors constant so looking at our example, we would compare people with the same genetic features to truely isolate the effect of smoking.
+The ATE is a population level effect [@hardtrecht].
+
+**Confounders**
+
+Confounding is the circumstance where the observational information (conditional probabilities in our data) and intervention are different.
+Essentially, we want to express our do-intervention based on conditional probabilities, but have no direct information in our data.
+To still estimate a conditional probability, we can use a mixture of existing conditional probabilities and estimate the desired probability based on the adjustment formula.
+For further information, see  [@hardtrecht].
+
+
+
+## Counterfactuals
+
+
 
 Process is described as follows:
 
@@ -435,79 +551,38 @@ As suggested by [@hardtrecht], this condition ensures that we are dealing with a
 - third not testable but can check via backdoor criterion in SCM
 - Source: [@hardtrecht]
 
-# SCMs and Time 
+## Considerations
 
-largely ingore time 
+**If you...**
 
-time in mechanical modeling crucial [@peters_elements_2017].
+* ..only have conditional probabilities 
+* ..are only interested in association 
+* ..have very limited knowledge of your actual underlying structure 
 
-- Time in Social Sciences: Often Vague 
-- Time in Physical Sciences: Mechanical via **Differential equations** 
-- dependence on prior time point and change in time contribute to the value at time point
+$\rightarrow$ you should probably go for a probabilistic model, association based model or a model based on conditional probabilities 
 
-Initial Value: 
-$$
-\mathbf{x}\left(t_{0}\right)=\mathbf{x}_{0}
-$$
+**But if you**
 
-Derivative of function x with respect to time t: 
+* ..have an understanding of underlying relationships in the data
+* ..are dealing with high stake settings 
+* ..want to simulate different interventions
 
-$$
-\frac{d \mathbf{x}}{d t}=f(\mathbf{x}), \mathbf{x} \in \mathbb{R}^{d}
-$$
-
-Value of Function at time t + dt: 
-
-$$
-\mathbf{x}(t+d t)=\mathbf{x}(t)+d t \cdot f(\mathbf{x}(t))
-$$
-
-$$
-\begin{array}{|l|l|l|l|l|}
-\hline \text { model } & \begin{array}{l}
-\text { IID setting }
-\end{array} & \begin{array}{l}
-\text { changing } \\
-\text { distributions } 
-\end{array} & \begin{array}{c}
-\text { counter- } \\
-\text { factual } \\
-\text { questions }
-\end{array} & \begin{array}{l}
-\text { physical } \\
-\text { insight }
-\end{array} \\
-\hline \begin{array}{l}
-\text { mechanistic } \\
-\text { model }
-\end{array} & \mathrm{Y} & \mathrm{Y} & \mathrm{Y} & \mathrm{Y} \\
-\hline \begin{array}{l}
-\text { structural } \\
-\text { causal model }
-\end{array} & \mathrm{Y} & \mathrm{Y} & \mathrm{Y} & \mathrm{N} \\
-\hline \begin{array}{l}
-\text { causal } \\
-\text { graphical } \\
-\text { model }
-\end{array} & \mathrm{Y} & \mathrm{Y} & \mathrm{N} & \mathrm{N} \\
-\hline \begin{array}{l}
-\text { statistical } \\
-\text { model }
-\end{array} & \mathrm{Y} & \mathrm{N} & \mathrm{N} & \mathrm{N} \\
-\hline
-\end{array}
-$$
-
-Table: Source: @peters_elements_2017
+$\rightarrow$ you could probably go for a SCM
 
 # Conclusion 
 
 Structural causal models are flexible simulators to disentangle causality for manifold different queries.
 There are many advantages of structural causal models:
-(1) We are able to model latent fators forcing us to reconsider existing assumptions about the relationship in our data.
+(1) We are able to model latent factors forcing us to reconsider existing assumptions about the relationship in our data.
 (2) Further, we get a underlying graphical representation including a mathematical language for this graphical systems to test causal assumptions that are otherwise untestable.
 (3) Additionally, one is able to model queries beyond mere association going as far as dealing with hyptoethical situations. 
-Simultaneously, 
+
+Apart from the assumptions, causal graphics can help reseachers avoiding mistakes.
+To determine this causal graph, we can use conditional independence testing and assess assumptions about faithfulness and jointly independent noise terms. 
+
+Looking at the causal hierachy, structural causal modelling enables us to compute interventions efficienctly given certain condition hold. 
+These conditions defintely not always hold true in every instance. 
+Especially looking at the 
 
 
 \newpage 
