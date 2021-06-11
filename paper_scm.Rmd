@@ -43,7 +43,7 @@ The insights of this paper can be used as a baseline for subsequent research on 
 For many research problems, we want to understand the relationship between variables beyond co-occurrence.
 The most popular causal model is the structural causal model or in short SCM.
 The SCM is the non-parametric counterpart to structural equation models.
-Researchers on structural causal models tried to distance themselves from common practices for structural equation models [@pearl2009causality; @peters_elements_2017].
+Researchers on SCMs tried to distance themselves from common practices for structural equation models [@pearl2009causality; @peters_elements_2017].
 The geneticist and statistican Sewall Wright introduced the first ancestor of the SCM, the path analysis [@pearl2009causality].
 Path analysis now falls into the broader class of structural equation models.
 Path analysis is a structural equation model with one variable per indicator.
@@ -58,14 +58,17 @@ These assignments describe our variables in our model.
 Compared to probabilistic models, where we only specify conditional probabilities, the SCM actually enables the combination of latent variables and observational data.
 Conditional probabilities cannot represent latent variables because there is no conditional probability in our observational data for unobserved variables [@pearl2009causality].
 
-The aim of this paper is to provide a brief and intuitive introduction to SCMs. 
 
 
-Section 2 introduces the assumptions in causal modelling
+
+To accommodate existing literature, this paper provides a gentle introduction to SCMs, focusing on the underlying assumptions we make when building a structural causal model. 
+The aim of this paper is to provide an example based, inutitive understanding of different concepts within causality using manifold elements from core literature on causality. 
+
+The rest of the paper is structured as follows:
+Section 2 introduces the assumptions in causal modelling.
 Section 3 addresses Pearls Causal Hierachy.
-Section 4 provides a brief introduction into graphical models.
-Section 5 focuses on the intersection of SCMs and the perception of time. 
-
+Section 4 focuses on the intersection of SCMs and the perception of time. 
+Section 5 concludes. 
 
 # Assumptions in Structural Causal Models 
 
@@ -118,8 +121,10 @@ Every structural causal model contains an underlying graphical model [@hardtrech
 This is one important feature that differentiates SCMs from other frameworks^[e.g. the Potential Outcome framework[@pearl2009causality]]. 
 
 [@pearl2009causality] describes the SCM a process based tool, because it enables researchers to reflect on their underlying assumptions. 
-The SCM requires more assumptions and thought because we actually need to define an admissible set of variables, ensure they are independent and ensure that the underlying factors do not correlate. By being forced to think about all these steps, SCMs help to avoid poorly specified probabilistic specifications. 
-Various research has pointed outexamples where modeling without DAGs lead to severe mistakes: 
+The SCM requires more assumptions and thought.
+Even for a very minimalisitic SCM, we need to define an admissible set of variables, ensure the random noise terms are independent and corroborate that the underlying mechanisms are autonomous. 
+By being forced to think about all these steps, SCMs help to avoid poorly specified probabilistic specifications. 
+Various research has pointed out examples where modeling without DAGs lead to severe mistakes: 
 @hirano2001estimation suggest a method for covariate selection that according to @pearl2009myth favours bias-enhancing features in the propensity score.
 Further @bollen2013eight (2013) argue that @rosenbaum2002overt and @rubin2007design falsely declared that 'there is no reason to avoid adjustment for a variable describing subjects before treatment'.
 
@@ -181,8 +186,6 @@ If $S$ blocks all paths from $X$ to $Y$, it is said to " $d$ -separate $X$ and $
 
 Select subset of variables with backdoor criterion: 
 
-
-
 ## Independence
 
 **Definition:** Independence 
@@ -241,9 +244,16 @@ $$
 
 ## Time 
 
+
+
  why time is ignored.
 
 # Pearl's Causal Hierachy 
+
+Pearl [@bareinboim2020pearl; @pearl2009causality] introduced the hierachy of causation to categorize different statistical and causal tools. 
+The hierarchy of causation contains (see table 1) three levels. 
+The higher the method on the hierarchy, the more information the method requires.
+This section discusses each of these methods and their respective advantages.
 
 \footnotesize
  |Method          | Action |  Example | Usage | 
@@ -258,13 +268,23 @@ Table: Pearls Hierachy of Causation (2009)
 
 ## Association:
 
-Associational methods ignore external changes outside of our data.
+The first level, association, requires the least information.
+Association based methods are most prevalent and contain the largest class of methods.
+Standard statistical tools such as regression analysis, supervised and unsupervsied learning and bayesian networks all fall into this category.[@bareinboim2020pearl]
+The underlying action for association is co-occurence.
+As prominently criticized by @bender2021dangers, this reduces the number of questions we can answer, because methods are heavily dependent on the observational data. 
+In the context of deep learning and the advancement of natural language processing, @bender2021dangers suggest that many association-based methods results in stochastic parrots as opposed to natural langauge understanding.
+
+Association-based methods ignore external changes outside of our data.
 The interventional distribution has information on these external changes.
-Note, that the intervention distribution is only defined in high level causal methods. 
+Note, that the intervention distribution is only defined in high order methods. 
 
-Joint distribution
+Reiterating our lung cancer example, the full joint distribution looks as follows: 
 
-$P(c,s,g)= P(s)\times P(c|s,g) \times P(g)$ 
+$P(c,s,g)= P(s) \times P(c|s,g) \times P(g)$ 
+
+If there are any changes in our distribution, e.g. smoking changes its distribution from $s$ to $s_{new}$ we are unable to accomodate these changes [@peters_elements_2017].
+Association-based methods are not equipped to accodate such modifications. 
 
 **Graph** 
 
@@ -358,7 +378,7 @@ We can derive s from S, because we include information on the intervention distr
 This information cannot be obtained, if we directly specify our model as conditional probabilities.
 
 
-```{tikz,fig.cap="Policy Model" ,fig.align="center", echo =F}
+```{tikz,fig.cap="Policy Intervention" ,fig.align="center", echo =F}
 \usetikzlibrary{calc}
 \usetikzlibrary{positioning}
 \usetikzlibrary{arrows}
@@ -387,7 +407,7 @@ This information cannot be obtained, if we directly specify our model as conditi
 ```
 
 
-where $\pi$ is our new conditional probability. 
+where $s$ is our new conditional probability. 
 
 One extension of policy intervention is off-policy intervention. 
 **Off-policy intervention** models different intervention that is not in our historical data.
