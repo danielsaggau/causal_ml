@@ -64,7 +64,7 @@ To accommodate existing literature, this paper provides a gentle introduction to
 Specifically, this paper focuses on the independence of noise, independence of mechanisms, causal sufficiency, the role of time and the causal markov condition.
 Additionally, this paper provides an overview of various other statistical and causal methods within the grand scheme of pearls causal hierachy.
 I accomodate this outlook with various considerations for the usage of SCMs. 
-The aim of this paper is to provide an example based, intuitive understanding of different concepts within causality using manifold elements from core literature on causality. 
+The aim of this paper is to provide an intuitive understanding of different concepts within causality using manifold elements from core literature on causality. 
 
 The rest of the paper is structured as follows:
  
@@ -354,11 +354,13 @@ This section discusses each of these methods and their respective advantages.
 
 $$\text{Table 2 Source: Pearl (2009) , Hierarchy of Causation}$$ 
 \footnotesize
+
 |Method          | Action |  Example | Usage | 
 |------------------|-------------|--------------------|-------------------|
 | Association $P(a|b)$               | Co-occurrence             | What happened...               |(Un-)Supervised ML, BN, Reg.  
 | Intervention $P(a|do(b),c)$       | Do-manipulation           | What happens if ...            |CBN,MDP,RL    
 | Counterfactual $P(a_b|a`,b`)$     | Hypotheticals   | What would have happened if...           | SCM ,PO            
+
 \normalsize
 
 ## Association:
@@ -472,7 +474,7 @@ G:= f_G(U_G)
 C:= f_C(S,G,U_C)
 \end{equation}
 
-In **policy intervention** we specify a different conditional probability $(S=s)$ for an equation.
+In **policy intervention** (see figure 4) we specify a different conditional probability $(S=s)$ for an equation.
 We can derive s from S, because we include information on the intervention distribution. 
 This information cannot be obtained, if we directly specify our model as conditional probabilities.
 
@@ -505,7 +507,6 @@ This information cannot be obtained, if we directly specify our model as conditi
 \end{tikzpicture}
 ```
 
-
 where $s$ is our new conditional probability. 
 
 One way of the most prominent ways to estimate casual effects of our treatment is the average treatment effect.
@@ -526,52 +527,50 @@ The ATE is a population level effect [@hardtrecht].
 Confounding is the circumstance where the observational information (conditional probabilities in our data) and intervention are different.
 Essentially, we want to express our do-intervention based on conditional probabilities, but have no direct information in our data.
 To still estimate a conditional probability, we can use a mixture of existing conditional probabilities and estimate the desired probability based on the adjustment formula.
-For further information, see  [@hardtrecht].
-
-
+For further information, see  [@barocas].
 
 ## Counterfactuals
 
+Counterfactuals deal with hypothetical situations. 
+Philosophically speaking, we interpret these outcomes as actual outcomes^[In other frameworks such as the Potential outcome framework we interpret them as potential outcomes rather than true outcomes [@hardtrecht]].
+The two most prominent models that can obtain counterfactuals are the structural causal model and the potential outcome framework. 
+This section focuses on counterfactuals in structural causal models. 
+For information on how to obtain counterfactuals in the potential outcome framework, see @cunningham2021causal. 
 
-
-Process is described as follows:
+We can describe the process as follows:
 
 (a) Abduction: Cast probability $P(u)$ as conditional probability $P(u|\epsilon)$ 
 (b) Action: Exchange $(X = x)$ 
 (c) Prediction: Compute $(Y = y)$
 
 **Stable Unit Treatment Value Assumption {SUTVA}** 'The treatment that one unit receives does not change the effect of treatment for any other unit.'
-
 **Consistency** The outcome Y agrees with the potential outcome corresponding to the treatment indicator.' 
-
 **Ignorability** The potential outcomes are conditionally independent of treatment given some set of de-confounding variables. 
 As suggested by [@hardtrecht], this condition ensures that we are dealing with a perfect randomized controlled trial. 
-
-- First two hold for Counterfactuals in SCM
-- third not testable but can check via backdoor criterion in SCM
-- Source: [@hardtrecht]
+The first two conditions hold for counterfactuals in structural causal models. 
+The third condition is an untestable assumption.
+Due to the backdoor criterion, we can nevertheless verify, that our model specification is consistent with this assumption [@hardtrecht].
 
 ## Considerations
 
-**If you...**
+Structural causal models are data driven models [@hernan_invited_2015]. 
+There is a dependence on data quality.
+Henceforth, if our insights based on data are limited, or perhaps we are not really able to clearly define function relationships beyond conditional probabilities, structural causal models can be problematic. 
+Furthermore, sometimes association-based knowledge is sufficient. 
+inevitably, the entry barrier to higher order causal models is higher in terms of required knowledge. 
+Not every situation accomodates these conditions. 
 
-* ..only have conditional probabilities 
-* ..are only interested in association 
-* ..have very limited knowledge of your actual underlying structure 
-
-$\rightarrow$ you should probably go for a probabilistic model, association based model or a model based on conditional probabilities 
-
-**But if you**
-
-* ..have an understanding of underlying relationships in the data
-* ..are dealing with high stake settings 
-* ..want to simulate different interventions
-
-$\rightarrow$ you could probably go for a SCM
+Nevertheless, especially in a situation where we have high-stake repercussions based on our model, causal modelling has been a complementary tool.
+When dealing with policy implementations, that might be controversial or unethical in the real world, simulations are pivotal.
+Recently, reserach has fairness has adopted various concepts and developed new characterisitics such as counterfactual fairness [@kusner_counterfactual_2018].
 
 # Conclusion 
 
-Structural causal models are flexible simulators to disentangle causality for manifold different queries.
+Structural causal models are flexible simulators to disentangle causality for manifold different queries such as interventions and counterfactuals.
+We make a number of different assumptions when building a structural causal model.
+The most important assumption is the indepedence of mechanisms and independence of noise terms which are the core of our simulation. 
+
+
 There are many advantages of structural causal models:
 (1) We are able to model latent factors forcing us to reconsider existing assumptions about the relationship in our data.
 (2) Further, we get a underlying graphical representation including a mathematical language for this graphical systems to test causal assumptions that are otherwise untestable.
@@ -580,9 +579,11 @@ There are many advantages of structural causal models:
 Apart from the assumptions, causal graphics can help reseachers avoiding mistakes.
 To determine this causal graph, we can use conditional independence testing and assess assumptions about faithfulness and jointly independent noise terms. 
 
-Looking at the causal hierachy, structural causal modelling enables us to compute interventions efficienctly given certain condition hold. 
-These conditions defintely not always hold true in every instance. 
-Especially looking at the 
+Looking at the causal hierachy, structural causal modelling enables us to compute interventions efficiently given certain condition hold. 
+These conditions defintely not always hold true in every instance.
+The entry barriers to causal modeling is high and in involves considerable investment in terms of data and time.
+
+
 
 
 \newpage 
